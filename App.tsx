@@ -3,13 +3,73 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Layout';
 import { PRODUCT_TIERS } from './constants';
 import { ClarityCoachModal } from './components/ClarityCoachModal';
+import { WaitlistModal } from './components/WaitlistModal';
+import { BookAudioPlayer } from './components/BookAudioPlayer';
+import { AboutPage } from './components/AboutPage';
+import { MessagePage } from './components/MessagePage';
 
 export default function App() {
   const [isCoachOpen, setIsCoachOpen] = useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [currentView, setCurrentView] = useState<'home' | 'about' | 'message'>('home');
+  
+  const clarityLink = "https://chatgpt.com/g/g-683752da6f10819187d894848e822a2c-ultimate-business-clarity-coach";
+
+  // Handle back-to-top on view change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentView]);
+
+  const handleNavigateHome = () => setCurrentView('home');
+  const handleNavigateAbout = () => setCurrentView('about');
+  const handleNavigateMessage = () => setCurrentView('message');
+
+  const CommonFooter = () => (
+    <footer className="bg-background-alt pt-16 pb-16 border-t border-white/5 text-center">
+       <button 
+        onClick={handleNavigateHome}
+        className="text-cyber-lime font-mono text-xs uppercase tracking-widest hover:text-off-white transition-colors"
+      >
+        ← Back to Command Center
+      </button>
+    </footer>
+  );
+
+  if (currentView === 'about') {
+    return (
+      <div className="relative">
+        <Navbar 
+          onNavigateHome={handleNavigateHome} 
+          onNavigateAbout={handleNavigateAbout} 
+          onNavigateMessage={handleNavigateMessage}
+        />
+        <AboutPage />
+        <CommonFooter />
+      </div>
+    );
+  }
+
+  if (currentView === 'message') {
+    return (
+      <div className="relative">
+        <Navbar 
+          onNavigateHome={handleNavigateHome} 
+          onNavigateAbout={handleNavigateAbout} 
+          onNavigateMessage={handleNavigateMessage}
+        />
+        <MessagePage />
+        <CommonFooter />
+      </div>
+    );
+  }
 
   return (
     <div className="relative">
-      <Navbar />
+      <Navbar 
+        onNavigateHome={handleNavigateHome} 
+        onNavigateAbout={handleNavigateAbout} 
+        onNavigateMessage={handleNavigateMessage}
+      />
       
       {/* SECTION 1: HERO */}
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -33,12 +93,12 @@ export default function App() {
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <button 
-              onClick={() => setIsCoachOpen(true)}
-              className="w-full md:w-auto bg-cyber-lime text-background px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-[0.2em] hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-cyber-lime/10"
+              onClick={handleNavigateMessage}
+              className="w-full md:w-auto bg-cyber-lime text-background px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-[0.2em] hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-cyber-lime/10 text-center"
             >
               Work with Me
             </button>
-            <a href="#victoria" className="text-warm-gray hover:text-off-white font-mono text-sm border-b border-transparent hover:border-warm-gray transition-all">
+            <a href="#starter-kit" className="text-warm-gray hover:text-off-white font-mono text-sm border-b border-transparent hover:border-warm-gray transition-all">
               ↓ Get My Online Business Starter Kit ↓
             </a>
           </div>
@@ -71,7 +131,7 @@ export default function App() {
       </section>
 
       {/* SECTION 3: PRODUCT GRID */}
-      <section id="victoria" className="py-32 bg-background">
+      <section id="starter-kit" className="py-32 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <header className="mb-24 text-center">
             <h2 className="text-6xl md:text-9xl font-display tracking-tighter mb-6 uppercase leading-none">
@@ -104,16 +164,33 @@ export default function App() {
 
                 <div className="flex items-center justify-between border-t border-white/5 pt-8">
                   <span className="font-mono text-xs text-warm-gray">{tier.price}</span>
-                  <button 
-                    onClick={() => tier.id === 'clarity' ? setIsCoachOpen(true) : null}
-                    className={`px-6 py-3 rounded-sm font-bold text-xs uppercase tracking-widest transition-all ${
-                      tier.accent === 'lime' 
-                        ? 'bg-cyber-lime text-background hover:scale-105 active:scale-95' 
-                        : 'border border-starlink text-starlink hover:bg-starlink hover:text-white'
-                    }`}
-                  >
-                    {tier.ctaText}
-                  </button>
+                  {tier.href ? (
+                    <a 
+                      href={tier.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-6 py-3 rounded-sm font-bold text-xs uppercase tracking-widest transition-all text-center ${
+                        tier.accent === 'lime' 
+                          ? 'bg-cyber-lime text-background hover:scale-105 active:scale-95' 
+                          : 'border border-starlink text-starlink hover:bg-starlink hover:text-white'
+                      }`}
+                    >
+                      {tier.ctaText}
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={() => {
+                        if (tier.id === 'cards') setIsWaitlistOpen(true);
+                      }}
+                      className={`px-6 py-3 rounded-sm font-bold text-xs uppercase tracking-widest transition-all ${
+                        tier.accent === 'lime' 
+                          ? 'bg-cyber-lime text-background hover:scale-105 active:scale-95' 
+                          : 'border border-starlink text-starlink hover:bg-starlink hover:text-white'
+                      }`}
+                    >
+                      {tier.ctaText}
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
@@ -163,7 +240,7 @@ export default function App() {
       </section>
 
       {/* SECTION 5: HUMAN ANCHOR */}
-      <section id="anchor" className="relative py-64 flex items-center justify-center overflow-hidden">
+      <section id="anchor" className="relative py-48 md:py-64 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=2000" 
@@ -175,18 +252,26 @@ export default function App() {
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-display text-6xl md:text-8xl tracking-tight text-off-white mb-6">RAISED BY TWO TEACHERS</h2>
-          <p className="font-mono text-cyber-lime text-sm uppercase tracking-[0.3em] mb-12">The book behind the system.</p>
+          <p className="font-mono text-cyber-lime text-sm uppercase tracking-[0.3em] mb-8">The book behind the system.</p>
+          
+          {/* Audio Player Component */}
+          <div className="mb-12">
+            <BookAudioPlayer />
+          </div>
+
           <p className="text-xl text-warm-gray mb-12 leading-relaxed font-light">
-            Before the AI. Before the funnels. Before the decade of freedom. <br />
-            There were two teachers who taught me that real education isn't about information — it's about transformation.
+            Before the AI. Before the funnels. Before the decade of freedom.
           </p>
-          <button className="bg-cyber-lime text-background px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform">
+          <button 
+            onClick={handleNavigateMessage}
+            className="bg-cyber-lime text-background px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform"
+          >
             Join the Waitlist
           </button>
         </div>
       </section>
 
-      {/* SECTION 6: ORIGIN STORY */}
+      {/* SECTION 6: ORIGIN STORY PREVIEW */}
       <section id="origin" className="py-32 bg-background-alt">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -198,14 +283,12 @@ export default function App() {
                 <p>In 1999, I built a 5-figure monthly business from cold calls and VHS tapes. A wakeboarding school, guerrilla-marketed at boat shows, edited on bootleg software.</p>
                 <p>Then success convinced me I was unstoppable. Real estate, MLM empires, $10M developments. I crushed it. Until it all vanished overnight.</p>
                 <p>I turned off my phone for 4 years. Disappeared to the mountains. Taught snowboarding.</p>
-                <p className="text-off-white font-medium italic">Those 4 years taught me everything.</p>
-                <p>The entrepreneurs who build empires don't optimize funnels. They architect systems that run without them. Now I help founders do the same — with AI tools built on 20 years of real-world pattern recognition.</p>
               </div>
               <button 
-                onClick={() => setIsCoachOpen(true)}
-                className="border-b-2 border-cyber-lime text-off-white font-display text-2xl pb-1 hover:text-cyber-lime transition-all uppercase tracking-widest"
+                onClick={handleNavigateAbout}
+                className="inline-block border-b-2 border-cyber-lime text-off-white font-display text-2xl pb-1 hover:text-cyber-lime transition-all uppercase tracking-widest"
               >
-                Talk to Clarity Coach →
+                Read My Full Story →
               </button>
             </div>
             
@@ -228,11 +311,11 @@ export default function App() {
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2 hidden md:block" />
             
             {[
-              { step: '01', title: 'CLARITY COACH', desc: 'Get clear on your offer, your audience, your path.', type: 'Free' },
-              { step: '02', title: 'BUSINESS IN A BOX', desc: 'Automated lead gen. Booked calls. Pipeline that runs.', type: '$97 - $10K' },
-              { step: '03', title: 'CALL REFLEX AGENT', desc: 'Diagnose every call. Find your blind spots.', type: '$47/mo' },
-              { step: '04', title: 'OBJECTION CARDS', desc: '56 objections. 56 reframes. In your pocket.', type: '$9/mo' },
-              { step: '05', title: 'COACHING', desc: 'Live practice. Real feedback. The crew.', type: 'Community' },
+              { id: 'clarity', step: '01', title: 'BUSINESS CLARITY COACH', desc: 'Get clear on your offer, your audience, your path.', type: 'Free' },
+              { id: 'box', step: '02', title: 'BUSINESS IN A BOX', desc: 'Automated lead gen. Booked calls. Pipeline that runs.', type: '$97 - $10K' },
+              { id: 'reflex', step: '03', title: 'CALL REFLEX AGENT', desc: 'Diagnose every call. Find your blind spots.', type: '$47/mo' },
+              { id: 'cards', step: '04', title: 'SALES OBJECTION TRAINING CARD APP', desc: '56 objections. 56 reframes. In your pocket.', type: '$9/mo' },
+              { id: 'coaching', step: '05', title: 'COACHING', desc: 'Live practice. Real feedback. The crew.', type: 'Community' },
             ].map((item, i) => (
               <div key={i} className={`relative md:flex items-center gap-20 mb-20 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 <div className="md:w-1/2 text-right">
@@ -248,7 +331,13 @@ export default function App() {
                 </div>
                 
                 <div className="md:w-1/2 text-left">
-                  <div className={`bg-white/5 border border-white/5 p-8 rounded-sm hover:border-white/20 transition-all ${i % 2 === 0 ? 'text-left' : 'md:text-left'}`}>
+                  <div 
+                    onClick={() => {
+                      if (item.id === 'cards') setIsWaitlistOpen(true);
+                      else handleNavigateMessage();
+                    }}
+                    className={`bg-white/5 border border-white/5 p-8 rounded-sm hover:border-white/20 transition-all cursor-pointer ${i % 2 === 0 ? 'text-left' : 'md:text-left'}`}
+                  >
                     <div className="md:hidden flex items-center justify-between mb-4">
                       <span className="text-cyber-lime font-display text-4xl opacity-50">{item.step}</span>
                       <span className="text-warm-gray text-[10px] font-mono border border-white/10 px-2 py-1 uppercase">{item.type}</span>
@@ -262,10 +351,10 @@ export default function App() {
           </div>
           
           <button 
-            onClick={() => setIsCoachOpen(true)}
-            className="mt-20 bg-cyber-lime text-background px-12 py-6 rounded-sm font-bold text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform"
+            onClick={handleNavigateMessage}
+            className="inline-block mt-20 bg-cyber-lime text-background px-12 py-6 rounded-sm font-bold text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform text-center"
           >
-            Start with Clarity Coach — It's Free
+            Start with Business Clarity Coach — It's Free
           </button>
         </div>
       </section>
@@ -275,21 +364,24 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="font-display text-6xl md:text-9xl tracking-tighter mb-8 text-off-white">THE LIFESTYLE IS REAL. <br /> THE SYSTEM IS READY.</h2>
           <p className="text-xl text-warm-gray mb-16 max-w-2xl mx-auto font-light leading-relaxed">
-            Start with Clarity Coach. It's free, it's AI-powered, and it might just change how you think about your business.
+            Start with Business Clarity Coach. It's free, it's AI-powered, and it might just change how you think about your business.
           </p>
           <button 
-            onClick={() => setIsCoachOpen(true)}
-            className="bg-cyber-lime text-background px-12 py-6 rounded-sm font-bold text-sm uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-transform mb-32"
+            onClick={handleNavigateMessage}
+            className="inline-block bg-cyber-lime text-background px-12 py-6 rounded-sm font-bold text-sm uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-transform mb-32 text-center"
           >
             Work with Me
           </button>
           
           <div className="grid md:grid-cols-4 gap-12 text-left border-t border-white/5 pt-16">
             <div className="col-span-2">
-              <a href="#" className="font-display text-3xl tracking-tighter text-off-white flex items-center gap-3 mb-6">
+              <button 
+                onClick={handleNavigateHome}
+                className="font-display text-3xl tracking-tighter text-off-white flex items-center gap-3 mb-6"
+              >
                 <span className="w-10 h-10 bg-cyber-lime text-background flex items-center justify-center font-bold">C</span>
                 CAPTAIN AI
-              </a>
+              </button>
               <p className="text-warm-gray text-sm max-w-sm leading-relaxed font-light">
                 Built on 20 years of real-world pattern recognition. 
                 Designed for founders who want to engineer freedom, not chase it.
@@ -299,11 +391,11 @@ export default function App() {
             <div className="space-y-4">
               <h5 className="font-display text-xl tracking-widest uppercase">Navigation</h5>
               <ul className="text-warm-gray text-sm space-y-2 font-mono uppercase tracking-widest">
-                <li><a href="#ladder" className="hover:text-cyber-lime">Course & Coaching</a></li>
-                <li><a href="#victoria" className="hover:text-cyber-lime">Starter Kit</a></li>
-                <li><a href="#anchor" className="hover:text-cyber-lime">Live Events</a></li>
-                <li><a href="#origin" className="hover:text-cyber-lime">About Ian</a></li>
-                <li><a href="#footer" className="hover:text-cyber-lime">Subscribe</a></li>
+                <li><button onClick={handleNavigateMessage} className="hover:text-cyber-lime">Course & Coaching</button></li>
+                <li><a href="#starter-kit" className="hover:text-cyber-lime">Starter Kit</a></li>
+                <li><button onClick={handleNavigateMessage} className="hover:text-cyber-lime">Live Events</button></li>
+                <li><button onClick={handleNavigateAbout} className="hover:text-cyber-lime">About Ian</button></li>
+                <li><button onClick={handleNavigateMessage} className="hover:text-cyber-lime">Subscribe</button></li>
               </ul>
             </div>
             
@@ -329,6 +421,13 @@ export default function App() {
 
       {/* Interactive Coach Modal */}
       <ClarityCoachModal isOpen={isCoachOpen} onClose={() => setIsCoachOpen(false)} />
+      
+      {/* Waitlist Modal / Coming Soon Page */}
+      <WaitlistModal 
+        isOpen={isWaitlistOpen} 
+        onClose={() => setIsWaitlistOpen(false)} 
+        title="Sales Objection Training Card App" 
+      />
     </div>
   );
 }

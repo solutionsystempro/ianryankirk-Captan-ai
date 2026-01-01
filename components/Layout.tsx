@@ -1,7 +1,13 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  onNavigateHome?: () => void;
+  onNavigateAbout?: () => void;
+  onNavigateMessage?: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onNavigateHome, onNavigateAbout, onNavigateMessage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -24,31 +30,52 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Course Community & Coaching', href: '#ladder' },
-    { name: 'Online Business Starter Kit', href: '#victoria' },
-    { name: 'Live Events & Meet Ups', href: '#anchor' },
-    { name: 'About Ian', href: '#origin' },
-    { name: 'Subscribe', href: '#footer' },
+    { name: 'Course Community & Coaching', href: '#ladder', action: onNavigateMessage },
+    { name: 'Online Business Starter Kit', href: '#starter-kit', action: onNavigateHome },
+    { name: 'Live Events & Meet Ups', href: '#anchor', action: onNavigateMessage },
+    { name: 'About Ian', href: '#origin', action: onNavigateAbout },
+    { name: 'Subscribe', href: '#footer', action: onNavigateMessage },
   ];
 
   const workWithOptions = [
-    { name: 'Clarity Audit', desc: '1-on-1 strategic diagnostic', href: '#victoria' },
-    { name: 'System Deployment', desc: 'Full AI business architecture', href: '#ladder' },
-    { name: 'The Inner Circle', desc: 'Mastermind & coaching', href: '#ladder' },
-    { name: 'Reflex Training', desc: 'Sales team analysis', href: '#victoria' },
+    { name: 'Clarity Audit', desc: '1-on-1 strategic diagnostic', href: '#starter-kit', action: onNavigateHome },
+    { name: 'System Deployment', desc: 'Full AI business architecture', href: '#message', action: onNavigateMessage },
+    { name: 'The Inner Circle', desc: 'Mastermind & coaching', href: '#message', action: onNavigateMessage },
+    { name: 'Reflex Training', desc: 'Sales team analysis', href: '#starter-kit', action: onNavigateHome },
   ];
+
+  const handleLinkClick = (e: React.MouseEvent, action?: () => void, href?: string) => {
+    if (action) {
+      if (href?.startsWith('#') && href !== '#message') {
+        // Normal scroll link
+        action();
+      } else {
+        // View change link
+        e.preventDefault();
+        action();
+      }
+    }
+  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background-alt/95 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-6'}`}>
       <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
-        <a href="#hero" className="font-display text-2xl tracking-tighter text-off-white flex items-center gap-2 group flex-shrink-0">
+        <button 
+          onClick={onNavigateHome}
+          className="font-display text-2xl tracking-tighter text-off-white flex items-center gap-2 group flex-shrink-0"
+        >
           <span className="w-8 h-8 bg-cyber-lime text-background flex items-center justify-center font-bold rotate-12 group-hover:rotate-0 transition-transform">C</span>
           <span className="hidden sm:inline">CAPTAIN AI</span>
-        </a>
+        </button>
         
         <div className="hidden lg:flex gap-6 xl:gap-8 items-center">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="text-[10px] xl:text-xs font-mono uppercase tracking-widest text-warm-gray hover:text-cyber-lime transition-colors whitespace-nowrap">
+            <a 
+              key={link.name} 
+              href={link.href} 
+              onClick={(e) => handleLinkClick(e, link.action, link.href)}
+              className="text-[10px] xl:text-xs font-mono uppercase tracking-widest text-warm-gray hover:text-cyber-lime transition-colors whitespace-nowrap"
+            >
               {link.name}
             </a>
           ))}
@@ -78,7 +105,10 @@ export const Navbar: React.FC = () => {
                     <a 
                       key={option.name} 
                       href={option.href}
-                      onClick={() => setIsDropdownOpen(false)}
+                      onClick={(e) => {
+                        handleLinkClick(e, option.action, option.href);
+                        setIsDropdownOpen(false);
+                      }}
                       className="block p-4 hover:bg-white/5 transition-colors group border-b border-white/5 last:border-0"
                     >
                       <div className="flex justify-between items-center mb-1">

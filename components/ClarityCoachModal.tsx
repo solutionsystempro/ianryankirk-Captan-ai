@@ -45,7 +45,7 @@ export const ClarityCoachModal: React.FC<Props> = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="p-6 border-b border-white/10 flex justify-between items-center bg-background-alt/50">
           <div>
-            <h3 className="text-xl font-display text-cyber-lime tracking-widest uppercase">Clarity Coach</h3>
+            <h3 className="text-xl font-display text-cyber-lime tracking-widest uppercase">Business Clarity Coach</h3>
             <p className="text-xs text-warm-gray font-mono">Status: Connected to Victoria Intelligence Layer</p>
           </div>
           <button onClick={onClose} className="text-warm-gray hover:text-off-white">

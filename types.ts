@@ -8,6 +8,7 @@ export interface ProductTier {
   ctaText: string;
   accent: 'lime' | 'blue';
   image: string;
+  href?: string;
 }
 
 export interface ChatMessage {
@@ -18,7 +19,7 @@ export interface ChatMessage {
 export enum SectionId {
   Hero = 'hero',
   Problem = 'problem',
-  Victoria = 'victoria',
+  StarterKit = 'starter-kit',
   Proof = 'proof',
   Anchor = 'anchor',
   Origin = 'origin',
