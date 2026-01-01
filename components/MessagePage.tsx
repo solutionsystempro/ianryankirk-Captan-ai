@@ -11,14 +11,14 @@ export const MessagePage: React.FC = () => {
   };
 
   const socialLinks = [
-    { name: 'Instagram', icon: '📷' },
-    { name: 'Youtube', icon: '📹' },
-    { name: 'X', icon: '✖️' },
-    { name: 'Blog', icon: '📝' },
-    { name: 'Tiktok', icon: '🎵' },
-    { name: 'Facebook', icon: '👤' },
-    { name: 'Linkedin', icon: '💼' },
-    { name: 'Spotify', icon: '🎙️' },
+    { name: 'Instagram', icon: '📷', href: 'https://www.instagram.com/ianryankirk' },
+    { name: 'Captain Ai Kirk', icon: '📹', href: 'https://www.youtube.com/@CaptainAiKirk' },
+    { name: 'Ian Ryan Kirk', icon: '📹', href: 'https://www.youtube.com/@IanRyanKirk' },
+    { name: 'X', icon: '✖️', href: 'https://x.com/IanRyanKirk' },
+    { name: 'Facebook (Personal)', icon: '👤', href: 'https://www.facebook.com/iankirknetwork' },
+    { name: 'Facebook (Pro)', icon: '👤', href: 'https://www.facebook.com/IanRyanKirk/' },
+    { name: 'TikTok', icon: '🎵', href: 'https://www.tiktok.com/@ianryankirk' },
+    { name: 'LinkedIn', icon: '💼', href: 'https://www.linkedin.com/in/ianryankirk/' },
   ];
 
   return (
@@ -106,14 +106,20 @@ export const MessagePage: React.FC = () => {
              {/* Left Socials */}
              <div className="grid grid-cols-1 gap-8">
                 {socialLinks.slice(0, 4).map(link => (
-                  <div key={link.name} className="flex items-center gap-6 group cursor-pointer">
+                  <a 
+                    key={link.name} 
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-6 group cursor-pointer"
+                  >
                     <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-starlink transition-colors">
                       <span className="text-xl">{link.icon}</span>
                     </div>
                     <div>
-                      <h4 className="font-display text-2xl text-off-white leading-none uppercase tracking-wider">{link.name}</h4>
+                      <h4 className="font-display text-2xl text-off-white leading-none uppercase tracking-wider group-hover:text-cyber-lime transition-colors">{link.name}</h4>
                     </div>
-                  </div>
+                  </a>
                 ))}
              </div>
 
@@ -138,14 +144,20 @@ export const MessagePage: React.FC = () => {
              {/* Right Socials */}
              <div className="grid grid-cols-1 gap-8 lg:text-right">
                 {socialLinks.slice(4).map(link => (
-                  <div key={link.name} className="flex lg:flex-row-reverse items-center gap-6 group cursor-pointer">
+                  <a 
+                    key={link.name} 
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex lg:flex-row-reverse items-center gap-6 group cursor-pointer"
+                  >
                     <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-starlink transition-colors">
                       <span className="text-xl">{link.icon}</span>
                     </div>
                     <div>
-                      <h4 className="font-display text-2xl text-off-white leading-none uppercase tracking-wider">{link.name}</h4>
+                      <h4 className="font-display text-2xl text-off-white leading-none uppercase tracking-wider group-hover:text-cyber-lime transition-colors">{link.name}</h4>
                     </div>
-                  </div>
+                  </a>
                 ))}
              </div>
            </div>

@@ -402,9 +402,14 @@ export default function App() {
             <div className="space-y-4">
               <h5 className="font-display text-xl tracking-widest uppercase">Connect</h5>
               <ul className="text-warm-gray text-sm space-y-2 font-mono uppercase tracking-widest">
-                <li><a href="#" className="hover:text-cyber-lime">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-cyber-lime">Twitter / X</a></li>
-                <li><a href="#" className="hover:text-cyber-lime">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/ianryankirk/" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-lime">LinkedIn</a></li>
+                <li><a href="https://www.youtube.com/@CaptainAiKirk" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-lime">Captain Ai (YT)</a></li>
+                <li><a href="https://www.youtube.com/@IanRyanKirk" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-lime">Ian Ryan Kirk (YT)</a></li>
+                <li><a href="https://x.com/IanRyanKirk" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-lime">Twitter / X</a></li>
+                <li><a href="https://www.facebook.com/iankirknetwork" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-lime">Facebook (Personal)</a></li>
+                <li><a href="https://www.facebook.com/IanRyanKirk/" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-lime">Facebook (Pro)</a></li>
+                <li><a href="https://www.instagram.com/ianryankirk" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-lime">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@ianryankirk" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-lime">TikTok</a></li>
               </ul>
             </div>
           </div>
