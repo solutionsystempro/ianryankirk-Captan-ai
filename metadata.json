@@ -1,0 +1,8 @@
+{
+  "name": "Captain AI | Ian Ryan Kirk",
+  "description": "The digital command center for Captain AI, featuring the Victoria Intelligence Layer and high-performance lifestyle systems.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
