@@ -111,7 +111,7 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* BOOK SECTION - SHARED WITH MARTEL STYLE */}
+      {/* BOOK SECTION */}
       <section className="py-32 bg-[#002B4D] text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -142,7 +142,7 @@ export const AboutPage: React.FC = () => {
       <section className="py-32 bg-background border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
            <h2 className="font-display text-6xl md:text-8xl tracking-tighter text-off-white uppercase">THE CAPTAIN'S LOG</h2>
-           <p className="text-cyber-lime font-mono text-sm uppercase tracking-[0.3em]">The 5-minute email that could save you 5 years.</p>
+           <p className="text-cyber-lime font-mono text-sm uppercase tracking-[0.3em]">The 5 minute email that could save you 50 years.</p>
            
            <div className="space-y-4 max-w-md mx-auto">
              <input type="text" placeholder="First Name" className="w-full bg-white/5 border border-white/10 px-6 py-4 text-sm text-off-white focus:outline-none focus:border-cyber-lime" />

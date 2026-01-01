@@ -11,14 +11,14 @@ export const MessagePage: React.FC = () => {
   };
 
   const socialLinks = [
-    { name: 'Instagram', followers: '2.1M Followers', icon: '📷' },
-    { name: 'Youtube', followers: '2.2M Followers', icon: '📹' },
-    { name: 'X', followers: '417K Followers', icon: '✖️' },
-    { name: 'Blog', followers: 'Read Now', icon: '📝' },
-    { name: 'Tiktok', followers: '1.5M Followers', icon: '🎵' },
-    { name: 'Facebook', followers: '1.8M Followers', icon: '👤' },
-    { name: 'Linkedin', followers: '1.4M Followers', icon: '💼' },
-    { name: 'Spotify', followers: 'The Martell Method', icon: '🎙️' },
+    { name: 'Instagram', icon: '📷' },
+    { name: 'Youtube', icon: '📹' },
+    { name: 'X', icon: '✖️' },
+    { name: 'Blog', icon: '📝' },
+    { name: 'Tiktok', icon: '🎵' },
+    { name: 'Facebook', icon: '👤' },
+    { name: 'Linkedin', icon: '💼' },
+    { name: 'Spotify', icon: '🎙️' },
   ];
 
   return (
@@ -99,7 +99,7 @@ export const MessagePage: React.FC = () => {
         </div>
       </section>
 
-      {/* MARTELL STYLE SOCIAL SECTION */}
+      {/* SOCIAL SECTION */}
       <section className="bg-background-alt py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
            <div className="grid lg:grid-cols-3 gap-16 items-start">
@@ -112,7 +112,6 @@ export const MessagePage: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-display text-2xl text-off-white leading-none uppercase tracking-wider">{link.name}</h4>
-                      <p className="font-mono text-[10px] text-warm-gray uppercase tracking-widest">{link.followers}</p>
                     </div>
                   </div>
                 ))}
@@ -121,7 +120,7 @@ export const MessagePage: React.FC = () => {
              {/* Center Call to Action */}
              <div className="text-center space-y-8">
                 <h3 className="font-display text-5xl md:text-6xl text-off-white tracking-tighter uppercase leading-none">THE CAPTAIN'S LOG</h3>
-                <p className="text-starlink font-mono text-xs uppercase tracking-[0.2em]">The 5 minute email that could save you 5 years.</p>
+                <p className="text-starlink font-mono text-xs uppercase tracking-[0.2em]">The 5 minute email that could save you 50 years.</p>
                 <div className="space-y-3 pt-4">
                   <input type="text" placeholder="First Name*" className="w-full bg-off-white px-4 py-3 text-background text-sm font-sans focus:outline-none" />
                   <input type="email" placeholder="Email*" className="w-full bg-off-white px-4 py-3 text-background text-sm font-sans focus:outline-none" />
@@ -145,7 +144,6 @@ export const MessagePage: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-display text-2xl text-off-white leading-none uppercase tracking-wider">{link.name}</h4>
-                      <p className="font-mono text-[10px] text-warm-gray uppercase tracking-widest">{link.followers}</p>
                     </div>
                   </div>
                 ))}

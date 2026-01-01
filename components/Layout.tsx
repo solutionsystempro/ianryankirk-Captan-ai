@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateHome, onNavigateAbout,
           <div className="relative ml-4" ref={dropdownRef}>
             <button 
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className={`flex items-center gap-2 bg-cyber-lime text-background px-6 py-2 rounded-sm font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all active:scale-95 whitespace-nowrap ${isDropdownOpen ? 'ring-2 ring-white/20' : ''}`}
+              className={`flex items-center gap-2 bg-cyber-lime text-background px-6 py-2 rounded-sm font-bold text-xs uppercase tracking-widest transition-all active:scale-95 whitespace-nowrap hover:scale-105 hover:bg-[#9ED400] ${isDropdownOpen ? 'ring-2 ring-white/20' : ''}`}
             >
               Work with Me
               <svg 
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateHome, onNavigateAbout,
             {/* Dropdown Content */}
             <div className={`absolute right-0 mt-4 w-72 origin-top-right transition-all duration-300 transform ${isDropdownOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'}`}>
               <div className="bg-background-alt border border-white/10 shadow-2xl overflow-hidden rounded-sm">
-                <div className="p-2">
+                <div className="p-2 space-y-1">
                   {workWithOptions.map((option) => (
                     <a 
                       key={option.name} 
@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateHome, onNavigateAbout,
                         handleLinkClick(e, option.action, option.href);
                         setIsDropdownOpen(false);
                       }}
-                      className="block p-4 hover:bg-white/5 transition-colors group border-b border-white/5 last:border-0"
+                      className="block p-4 bg-transparent hover:bg-black/60 hover:scale-[1.02] transform transition-all duration-200 group border-b border-white/5 last:border-0 rounded-sm"
                     >
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-off-white font-display text-lg tracking-wider uppercase group-hover:text-cyber-lime transition-colors">

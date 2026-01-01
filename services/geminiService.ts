@@ -46,8 +46,8 @@ export const getClarityResponse = async (history: ChatMessage[]) => {
     });
 
     return response.text || "Connection lost. Re-engaging system...";
-  } catch (error) {
-    console.error("Gemini API Error:", error);
+  } catch (error: any) {
+    console.error("Gemini API Error Details:", error?.message || String(error));
     return "Error: System calibration required. Please try again.";
   }
 };

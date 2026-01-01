@@ -312,10 +312,10 @@ export default function App() {
             
             {[
               { id: 'clarity', step: '01', title: 'BUSINESS CLARITY COACH', desc: 'Get clear on your offer, your audience, your path.', type: 'Free' },
-              { id: 'box', step: '02', title: 'BUSINESS IN A BOX', desc: 'Automated lead gen. Booked calls. Pipeline that runs.', type: '$97 - $10K' },
-              { id: 'reflex', step: '03', title: 'CALL REFLEX AGENT', desc: 'Diagnose every call. Find your blind spots.', type: '$47/mo' },
+              { id: 'box', step: '02', title: 'No Brainer Lead Magnet', desc: 'Get a validated no brainer offer that businesses gladly sign up for that reveals they need your services.', type: 'FREE to use Pay to White Label' },
+              { id: 'reflex', step: '03', title: 'CALL REFLEX AGENT', desc: 'Diagnose every call. Find your blind spots.', type: 'FREE' },
               { id: 'cards', step: '04', title: 'SALES OBJECTION TRAINING CARD APP', desc: '56 objections. 56 reframes. In your pocket.', type: '$9/mo' },
-              { id: 'coaching', step: '05', title: 'COACHING', desc: 'Live practice. Real feedback. The crew.', type: 'Community' },
+              { id: 'coaching', step: '05', title: 'COURSE COMMUNITY & COACHING', desc: 'Live practice. Real feedback. The crew.', type: 'Free to 50k per year' },
             ].map((item, i) => (
               <div key={i} className={`relative md:flex items-center gap-20 mb-20 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 <div className="md:w-1/2 text-right">
