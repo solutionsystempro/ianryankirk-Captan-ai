@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 interface Props {
   isOpen: boolean;
@@ -10,16 +10,17 @@ interface Props {
 export const WaitlistModal: React.FC<Props> = ({ isOpen, onClose, title }) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
-      setSubmitted(true);
-      // In a real app, you'd send this to your backend/ESP
-      console.log(`Waitlist signup: ${email} for ${title}`);
-    }
+    if (!email.trim()) return;
+    setSending(true);
+    await supabase.from('waitlist').insert({ email, source: title });
+    setSending(false);
+    setSubmitted(true);
   };
 
   return (
@@ -34,11 +35,11 @@ export const WaitlistModal: React.FC<Props> = ({ isOpen, onClose, title }) => {
         {!submitted ? (
           <div className="space-y-8 animate-fade-in">
             <div className="inline-block px-3 py-1 bg-starlink/20 border border-starlink/30 rounded-full">
-              <span className="text-[10px] font-mono text-starlink uppercase tracking-[0.2em] font-bold">Coming Soon</span>
+              <span className="text-[10px] font-mono text-starlink tracking-[0.2em] font-bold">Coming Soon</span>
             </div>
             
             <div className="space-y-4">
-              <h2 className="font-display text-4xl md:text-5xl text-off-white tracking-tight leading-none uppercase">
+              <h2 className="font-display text-4xl md:text-5xl text-off-white tracking-tight leading-none">
                 {title}
               </h2>
               <p className="text-warm-gray text-base leading-relaxed max-w-sm mx-auto font-light">
@@ -55,32 +56,33 @@ export const WaitlistModal: React.FC<Props> = ({ isOpen, onClose, title }) => {
                 placeholder="Enter your best email..."
                 className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 text-sm text-off-white focus:outline-none focus:border-starlink transition-colors text-center"
               />
-              <button 
+              <button
                 type="submit"
-                className="w-full bg-starlink text-white px-10 py-4 rounded-sm font-bold text-xs uppercase tracking-[0.2em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-starlink/20"
+                disabled={sending}
+                className="w-full bg-starlink text-white px-10 py-4 rounded-sm font-bold text-xs tracking-[0.2em] active:scale-95 transition-all shadow-xl shadow-starlink/20"
               >
-                Get Priority Access
+                {sending ? 'Adding you...' : 'Get Priority Access'}
               </button>
             </form>
 
-            <p className="text-[10px] text-warm-gray font-mono uppercase tracking-widest opacity-50">
+            <p className="text-[10px] text-warm-gray font-mono tracking-widest opacity-50">
               No Spam. Just early access & exclusive frames.
             </p>
           </div>
         ) : (
           <div className="py-12 space-y-6 animate-fade-in">
-            <div className="w-20 h-20 bg-cyber-lime/20 rounded-full flex items-center justify-center mx-auto mb-8">
-              <svg className="w-10 h-10 text-cyber-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-8">
+              <svg className="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="font-display text-4xl text-off-white uppercase tracking-tight">You're On The List</h3>
+            <h3 className="font-display text-4xl text-off-white tracking-tight">You're On The List</h3>
             <p className="text-warm-gray text-sm leading-relaxed max-w-xs mx-auto font-light">
               We'll reach out as soon as the next beta slot opens. Prepare to never lose the frame again.
             </p>
             <button 
               onClick={onClose}
-              className="text-cyber-lime font-mono text-xs uppercase tracking-widest pt-4 hover:text-off-white transition-colors"
+              className="text-accent font-mono text-xs tracking-widest pt-4 hover:text-off-white transition-colors"
             >
               Back to Command Center
             </button>

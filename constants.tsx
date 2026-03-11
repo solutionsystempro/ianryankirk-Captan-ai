@@ -1,48 +1,186 @@
+import { Product, Testimonial } from './types';
 
-import { ProductTier } from './types';
-
-export const PRODUCT_TIERS: ProductTier[] = [
+export const PRODUCTS: Product[] = [
   {
     id: 'clarity',
+    step: '01',
     title: 'Business Clarity Coach',
-    subtitle: 'Foundational Principles from the Worlds Best Business Minds',
-    description: "Stuck between 10 ideas and zero traction? Clarity Coach runs you through the same diagnostic the world's greatest entrepreneurs use to validate offers. You'll leave with one offer, one audience, one path forward.",
-    price: 'Free to start',
-    ctaText: 'Get Clear Direction',
+    subtitle: 'AI-powered strategic diagnostic',
+    description:
+      'Stuck between 10 ideas and zero traction? Clarity Coach runs you through the same framework the world\'s sharpest founders use to validate offers, lock in one audience, and map the simplest path forward.',
+    price: 'Free',
+    priceBadge: 'FREE',
+    ctaText: 'Get Clarity Now →',
     accent: 'lime',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
-    href: 'https://chatgpt.com/g/g-683752da6f10819187d894848e822a2c-ultimate-business-clarity-coach'
+    href: 'https://chatgpt.com/g/g-683752da6f10819187d894848e822a2c-ultimate-business-clarity-coach',
+    isExternal: true,
+    features: [
+      'Offer validation framework',
+      'Target audience identification',
+      'One clear path forward',
+    ],
   },
   {
-    id: 'box',
-    title: 'No Brainer Lead Magnet',
-    subtitle: 'Free ONLINE Business Visibility Audit',
-    description: "Get a validated no brainer offer that businesses gladly sign up for that reveals they need your services. This audit scans any business for visibility gaps — then positions you as the only solution.",
-    price: 'FREE to use Pay to White Label',
-    ctaText: 'See the Audit',
+    id: 'reflekt',
+    step: '02',
+    title: 'Call Reflekt Agent',
+    subtitle: 'Sales call diagnosis engine',
+    description:
+      'Paste any sales call transcript. Get back: the buyer archetype, the exact moment you lost the frame, the missing belief that killed the close, and the one sentence that would have changed everything.',
+    price: 'Free',
+    priceBadge: 'FREE',
+    ctaText: 'Analyze a Call →',
     accent: 'lime',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-    href: 'https://merchynt.com/gbp-audit-tool?fpr=solution'
+    href: 'https://chatgpt.com/g/g-68bce0888438819185f398e815027b33-call-reflekt-5-0',
+    isExternal: true,
+    features: [
+      'Buyer archetype diagnosis',
+      'Frame-loss timestamp detection',
+      'Missing belief identification',
+    ],
   },
   {
-    id: 'reflex',
-    title: 'Call Reflex Agent',
-    subtitle: 'The Sales Call Coach',
-    description: "Paste any sales call transcript. Get a diagnosis that tells you: buyer archetype, missing beliefs, the exact moment you lost the frame, and the one sentence that would've changed the outcome.",
-    price: 'FREE',
-    ctaText: 'Analyze a Call',
-    accent: 'lime',
-    image: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&q=80&w=800',
-    href: 'https://chatgpt.com/g/g-68bce0888438819185f398e815027b33-call-reflekt-5-0'
+    id: 'slap',
+    step: '03',
+    title: 'SLAP Method',
+    subtitle: 'DM Sales Closer Copywriter',
+    description:
+      'The framework that turns ignored DMs into booked calls. Stop the script. Lead with proof. Arouse curiosity. Position as shortcut. Paste your conversation and the AI rewrites your close — free, or go Pro for weekly personalized rewrites.',
+    price: 'Free · Pro from $37/mo',
+    priceBadge: 'FREE + PRO',
+    ctaText: 'Get SLAP Method →',
+    accent: 'blue',
+    href: 'https://slap-method-production.up.railway.app/',
+    isExternal: true,
+    features: [
+      '4-principle SLAP framework',
+      'AI DM rewriter',
+      '9-step execution flow + bonus scripts',
+    ],
   },
   {
     id: 'cards',
-    title: 'Sales Objection Training Card App',
-    subtitle: 'The Utility',
-    description: "56 objections. 56 reframes. In your pocket. A mobile-first deck for real-time objection handling. Flip through before a call. Drill on the go.",
-    price: 'Free daily — $9/mo unlimited',
-    ctaText: 'Get the Deck',
+    step: '04',
+    title: 'Objection Card App',
+    subtitle: 'Real-time objection handling',
+    description:
+      '56 objections. 56 reframes. Drillable, pocketable, and built for the field. Flip through before a call, drill patterns on the go. Never be caught flat-footed on a live call again.',
+    price: 'Free daily · $27/mo unlimited',
+    priceBadge: '$27/MO',
+    href: 'https://objection-cards-app-production.up.railway.app/',
+    ctaText: 'Try It Free →',
+    accent: 'blue',
+    comingSoon: false,
+    features: [
+      '56 real-world objection reframes',
+      'Mobile-first drill interface',
+      'Pre-call prep mode',
+    ],
+  },
+  {
+    id: 'group',
+    step: '05',
+    title: 'Friday Clarity Calls',
+    subtitle: 'Free weekly group coaching — inside Lead Gen Secrets & Remote Sales Secrets',
+    description:
+      'Every Friday, Ian runs a live group Clarity Call inside the Lead Gen Secrets and Remote Sales Secrets communities. Open Q&A, real offer feedback, live sales diagnosis. No slides, no pitch — just Ian working through your actual situation with the group. His posts inside these communities regularly pull hundreds of comments.',
+    price: 'Free inside the communities',
+    priceBadge: 'FREE',
+    ctaText: 'Join Lead Gen Secrets →',
     accent: 'lime',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800'
-  }
+    href: 'https://www.skool.com/lead-gen',
+    isExternal: true,
+    features: [
+      'Live every Friday',
+      'Lead Gen Secrets + Remote Sales Secrets',
+      'Bring your real offer, DMs, or call struggles',
+    ],
+  },
+  {
+    id: 'coaching',
+    step: '06',
+    title: '1:1 Coaching',
+    subtitle: 'Private sales system deployment',
+    description:
+      'Work directly with Ian to build your full AI-powered sales architecture. Offer clarity, DM system, call framework, objection handling — the whole stack built around your business. Limited spots. Apply to see if you qualify.',
+    price: 'Apply to discuss',
+    priceBadge: 'APPLY',
+    ctaText: 'Apply Now →',
+    accent: 'white',
+    features: [
+      'Full AI sales system build-out',
+      'Direct access to Ian',
+      'Limited spots — application required',
+    ],
+  },
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Kim Berthilsson',
+    title: 'Community Member',
+    text: "I just had the best clarity call of all time with Ian Kirk! If you're looking to navigate the ins and outs of building your business effectively, you won't want to miss the chance to speak with him. Ian is not just knowledgeable — he genuinely cares about helping people succeed. This clarity call isn't just about information; it's about empowerment.",
+    result: '24 likes · "Best clarity call of all time"',
+    initials: 'KB',
+  },
+  {
+    name: 'Jesse Murdock',
+    title: 'Offer Builder',
+    text: "I just wanted to write this to thank Ian Kirk for getting me started with my offer. I feel more confident in approaching my ideal client with my database reactivation offer. I can't wait to continue learning from this amazing community — to anyone on the fence about joining, I can't recommend it enough.",
+    result: 'Confident with offer · 6 likes · 11 comments',
+    initials: 'JM',
+  },
+  {
+    name: 'Cole TheConnector',
+    title: 'Cold Email Specialist',
+    text: "Last night's Coffee & Clarity call with Ian Kirk was FIRE. Ian's copywriting and cold email insights were absolute gold. Biggest takeaway: email brevity and psychology. Those first few preview text words are prime real estate — and leading with pain points resonates more than commonalities. Brilliant.",
+    result: '"The call was FIRE" · Immediate implementation',
+    initials: 'CC',
+  },
+];
+
+export const TICKER_WINS = [
+  '✦ $10K from a 90-second video I almost didn\'t send',
+  '✦ 1M+ views from a video I almost didn\'t post',
+  '✦ $10K from a 90-second video he almost didn\'t send',
+  '✦ $1K MRR from a "garbage" database — zero sales calls · $50 list verification',
+  '✦ 4,224 emails → 125 replies → 21 opps → 6 customers',
+  '✦ 197 comments on one post — "Stop Sending DMs That Reek of Desperation"',
+  '✦ Kim B: "Best clarity call of all time" · 24 likes',
+  '✦ "You\'re either pattern-interrupting or being forgotten"',
+  '✦ "A system you work vs a system that works for you"',
+  '✦ "We can make excuses or money — never both"',
+  '✦ Allan Heath: "Blown away — went in expecting a pitch, left with real value"',
+  '✦ Cole: "Ian\'s cold email insights were absolute gold"',
+];
+
+export const COMMUNITIES = [
+  {
+    name: 'AI Automation Secrets',
+    desc: "Lead Gen Secrets taught Ian WHAT works. AI Automation Secrets taught him HOW to automate it. That combination turned a $50 list verification into $1K MRR — zero sales calls. 2,500+ members, 4.9/5 Trustpilot, 50+ done-for-you templates, weekly live calls, and a library of ready-to-deploy n8n workflows. AI agents, lead gen, sales automation, content creation, Claude Code — no coding required.",
+    href: 'https://www.skool.com/ai-automation-insiders/about?ref=64378607e4d44ad99d39a6c9c49f3bff',
+    badge: 'Ian Recommends',
+    accentClass: 'border-accent/40 text-accent',
+  },
+  {
+    name: 'Lead Gen Secrets',
+    desc: "Jay Feldman's lead generation community — where Ian runs live Friday Clarity Calls every week. Bring your offer, your outreach, or your sales process and get real feedback in front of the group. Posts from these sessions regularly pull hundreds of comments.",
+    href: 'https://www.skool.com/lead-gen',
+    badge: 'Friday Calls',
+    accentClass: 'border-starlink/40 text-starlink',
+  },
+  {
+    name: 'Remote Sales Secrets',
+    desc: "Mason Church's community built for remote sales reps who want to close more, earn more, and perform at the top of any sales floor. Ian coaches inside on sales psychology, cold outreach, and the frameworks behind the SLAP Method and Call Reflekt.",
+    href: 'https://www.skool.com/remote-sales-secrets/about?ref=64378607e4d44ad99d39a6c9c49f3bff',
+    badge: 'Guest Coach',
+    accentClass: 'border-accent/30 text-accent/80',
+  },
+];
+
+export const SOCIAL_LINKS = [
+  { name: 'LinkedIn', handle: 'Ian Ryan Kirk', href: 'https://www.linkedin.com/in/ianryankirk/', icon: 'IN' },
+  { name: 'YouTube', handle: '@IanRyanKirk', href: 'https://www.youtube.com/@IanRyanKirk', icon: 'YT' },
+  { name: 'Instagram', handle: '@ianryankirk', href: 'https://www.instagram.com/ianryankirk', icon: 'IG' },
+  { name: 'X', handle: '@IanRyanKirk', href: 'https://x.com/IanRyanKirk', icon: 'X' },
 ];

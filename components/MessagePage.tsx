@@ -27,7 +27,7 @@ export const MessagePage: React.FC = () => {
       <section className="pt-40 pb-32 px-6 flex-grow flex items-center">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20">
           <div className="space-y-8">
-            <h1 className="font-display text-7xl md:text-9xl tracking-tighter text-off-white leading-none uppercase">
+            <h1 className="font-display text-7xl md:text-9xl tracking-tighter text-off-white leading-none">
               READY TO SCALE <br /> YOUR BUSINESS?
             </h1>
             <div className="space-y-6 text-warm-gray text-xl font-light leading-relaxed max-w-lg">
@@ -43,27 +43,27 @@ export const MessagePage: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono uppercase tracking-widest text-warm-gray">First Name *</label>
+                    <label className="text-[10px] font-mono tracking-widest text-warm-gray">First Name *</label>
                     <input required type="text" placeholder="First Name" className="w-full bg-off-white px-4 py-3 text-background font-sans focus:outline-none focus:ring-2 focus:ring-starlink" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono uppercase tracking-widest text-warm-gray">Last Name *</label>
+                    <label className="text-[10px] font-mono tracking-widest text-warm-gray">Last Name *</label>
                     <input required type="text" placeholder="Last Name" className="w-full bg-off-white px-4 py-3 text-background font-sans focus:outline-none focus:ring-2 focus:ring-starlink" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-warm-gray">Email *</label>
+                  <label className="text-[10px] font-mono tracking-widest text-warm-gray">Email *</label>
                   <input required type="email" placeholder="Email" className="w-full bg-off-white px-4 py-3 text-background font-sans focus:outline-none focus:ring-2 focus:ring-starlink" />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-warm-gray">Phone *</label>
+                  <label className="text-[10px] font-mono tracking-widest text-warm-gray">Phone *</label>
                   <input required type="tel" placeholder="Phone" className="w-full bg-off-white px-4 py-3 text-background font-sans focus:outline-none focus:ring-2 focus:ring-starlink" />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-warm-gray">Are you a Business Owner? *</label>
+                  <label className="text-[10px] font-mono tracking-widest text-warm-gray">Are you a Business Owner? *</label>
                   <select required className="w-full bg-off-white px-4 py-3 text-background font-sans focus:outline-none focus:ring-2 focus:ring-starlink appearance-none">
                     <option value="">- Select -</option>
                     <option value="yes">Yes, I am a business owner</option>
@@ -74,24 +74,24 @@ export const MessagePage: React.FC = () => {
 
                 <div className="flex items-start gap-3 pt-4">
                   <input type="checkbox" required className="mt-1 accent-starlink" />
-                  <p className="text-[10px] text-warm-gray leading-normal uppercase font-mono">
+                  <p className="text-[10px] text-warm-gray leading-normal font-mono">
                     By checking this box, I consent to receive marketing and promotional messages, including updates from Captain AI. Msg/data rates may apply.
                   </p>
                 </div>
 
                 <button 
                   type="submit" 
-                  className="w-full bg-starlink py-5 text-white font-bold uppercase tracking-[0.3em] hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-starlink/20"
+                  className="w-full bg-starlink py-5 text-white font-bold tracking-[0.3em] hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-starlink/20"
                 >
                   Let's Chat
                 </button>
               </form>
             ) : (
               <div className="text-center py-20 space-y-6">
-                <div className="w-20 h-20 bg-cyber-lime rounded-full flex items-center justify-center mx-auto mb-8">
+                <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-8">
                   <svg className="w-10 h-10 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                 </div>
-                <h3 className="font-display text-4xl text-off-white uppercase">Message Sent</h3>
+                <h3 className="font-display text-4xl text-off-white">Message Sent</h3>
                 <p className="text-warm-gray text-lg font-light">The Captain has received your coordinates. We'll be in touch soon.</p>
               </div>
             )}
@@ -117,7 +117,7 @@ export const MessagePage: React.FC = () => {
                       <span className="text-xl">{link.icon}</span>
                     </div>
                     <div>
-                      <h4 className="font-display text-2xl text-off-white leading-none uppercase tracking-wider group-hover:text-cyber-lime transition-colors">{link.name}</h4>
+                      <h4 className="font-display text-2xl text-off-white leading-none tracking-wider group-hover:text-accent transition-colors">{link.name}</h4>
                     </div>
                   </a>
                 ))}
@@ -125,17 +125,17 @@ export const MessagePage: React.FC = () => {
 
              {/* Center Call to Action */}
              <div className="text-center space-y-8">
-                <h3 className="font-display text-5xl md:text-6xl text-off-white tracking-tighter uppercase leading-none">THE CAPTAIN'S LOG</h3>
-                <p className="text-starlink font-mono text-xs uppercase tracking-[0.2em]">The 5 minute email that could save you 50 years.</p>
+                <h3 className="font-display text-5xl md:text-6xl text-off-white tracking-tighter leading-none">THE CAPTAIN'S LOG</h3>
+                <p className="text-starlink font-mono text-xs tracking-[0.2em]">The 5 minute email that could save you 50 years.</p>
                 <div className="space-y-3 pt-4">
                   <input type="text" placeholder="First Name*" className="w-full bg-off-white px-4 py-3 text-background text-sm font-sans focus:outline-none" />
                   <input type="email" placeholder="Email*" className="w-full bg-off-white px-4 py-3 text-background text-sm font-sans focus:outline-none" />
-                  <button className="w-full bg-starlink py-4 text-white font-bold uppercase tracking-widest text-xs hover:brightness-110 transition-all">Subscribe for Free</button>
+                  <button className="w-full bg-starlink py-4 text-white font-bold tracking-widest text-xs hover:brightness-110 transition-all">Subscribe for Free</button>
                 </div>
                 
                 <div className="pt-16 flex justify-center">
                    <div className="font-display text-4xl text-off-white flex items-center gap-2">
-                      <span className="w-10 h-10 bg-cyber-lime text-background flex items-center justify-center font-bold">C</span>
+                      <span className="w-10 h-10 bg-accent text-background flex items-center justify-center font-bold">C</span>
                       CAPTAIN AI
                    </div>
                 </div>
@@ -155,7 +155,7 @@ export const MessagePage: React.FC = () => {
                       <span className="text-xl">{link.icon}</span>
                     </div>
                     <div>
-                      <h4 className="font-display text-2xl text-off-white leading-none uppercase tracking-wider group-hover:text-cyber-lime transition-colors">{link.name}</h4>
+                      <h4 className="font-display text-2xl text-off-white leading-none tracking-wider group-hover:text-accent transition-colors">{link.name}</h4>
                     </div>
                   </a>
                 ))}

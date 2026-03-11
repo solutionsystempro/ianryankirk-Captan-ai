@@ -1,140 +1,325 @@
-
 import React, { useState, useEffect, useRef } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { SOCIAL_LINKS } from '../constants';
 
-interface NavbarProps {
-  onNavigateHome?: () => void;
-  onNavigateAbout?: () => void;
-  onNavigateMessage?: () => void;
-}
+const NAV_LINKS = [
+  { label: 'Tools', href: '/#ecosystem' },
+  { label: 'The Book', href: '/#book' },
+  { label: 'About', href: '/about' },
+  { label: 'Subscribe', href: '/contact' },
+];
 
-export const Navbar: React.FC<NavbarProps> = ({ onNavigateHome, onNavigateAbout, onNavigateMessage }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+export function Layout() {
+  const [scrolled, setScrolled] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsDropdownOpen(false);
-      }
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      setScrolled(currentY > 40);
+      setNavHidden(currentY > lastScrollY.current && currentY > 120);
+      lastScrollY.current = currentY;
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Course Community & Coaching', href: '#ladder', action: onNavigateMessage },
-    { name: 'Online Business Starter Kit', href: '#starter-kit', action: onNavigateHome },
-    { name: 'Live Events & Meet Ups', href: '#anchor', action: onNavigateMessage },
-    { name: 'About Ian', href: '#origin', action: onNavigateAbout },
-    { name: 'Subscribe', href: '#footer', action: onNavigateMessage },
-  ];
+  useEffect(() => { setMenuOpen(false); }, [location]);
 
-  const workWithOptions = [
-    { name: 'Clarity Audit', desc: '1-on-1 strategic diagnostic', href: '#starter-kit', action: onNavigateHome },
-    { name: 'System Deployment', desc: 'Full AI business architecture', href: '#message', action: onNavigateMessage },
-    { name: 'The Inner Circle', desc: 'Mastermind & coaching', href: '#message', action: onNavigateMessage },
-    { name: 'Reflex Training', desc: 'Sales team analysis', href: '#starter-kit', action: onNavigateHome },
-  ];
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
-  const handleLinkClick = (e: React.MouseEvent, action?: () => void, href?: string) => {
-    if (action) {
-      if (href?.startsWith('#') && href !== '#message') {
-        // Normal scroll link
-        action();
-      } else {
-        // View change link
-        e.preventDefault();
-        action();
+  const handleHashLink = (href: string) => {
+    if (href.startsWith('/#')) {
+      const id = href.slice(2);
+      if (location.pathname !== '/') {
+        window.location.href = href;
+        return;
       }
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     }
+    setMenuOpen(false);
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background-alt/95 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-6'}`}>
-      <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
-        <button 
-          onClick={onNavigateHome}
-          className="font-display text-2xl tracking-tighter text-off-white flex items-center gap-2 group flex-shrink-0"
-        >
-          <span className="w-8 h-8 bg-cyber-lime text-background flex items-center justify-center font-bold rotate-12 group-hover:rotate-0 transition-transform">C</span>
-          <span className="hidden sm:inline">CAPTAIN AI</span>
-        </button>
-        
-        <div className="hidden lg:flex gap-6 xl:gap-8 items-center">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              onClick={(e) => handleLinkClick(e, link.action, link.href)}
-              className="text-[10px] xl:text-xs font-mono uppercase tracking-widest text-warm-gray hover:text-cyber-lime transition-colors whitespace-nowrap"
-            >
-              {link.name}
-            </a>
-          ))}
-          
-          {/* Dropdown Menu */}
-          <div className="relative ml-4" ref={dropdownRef}>
-            <button 
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className={`flex items-center gap-2 bg-cyber-lime text-background px-6 py-2 rounded-sm font-bold text-xs uppercase tracking-widest transition-all active:scale-95 whitespace-nowrap hover:scale-105 hover:bg-[#9ED400] ${isDropdownOpen ? 'ring-2 ring-white/20' : ''}`}
-            >
-              Work with Me
-              <svg 
-                className={`w-3 h-3 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+    <div className="min-h-screen bg-background text-off-white">
+      {/* NAVBAR */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          navHidden
+            ? '-translate-y-full'
+            : scrolled
+            ? 'bg-background/95 backdrop-blur-md border-b border-white/8 py-4'
+            : 'bg-transparent py-6'
+        }`}
+      >
+        <div className="container-wide flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <span className="w-9 h-9 text-background flex items-center justify-center font-display text-xl rotate-6 group-hover:rotate-0 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #AAFF00 0%, #00C853 100%)' }}>
+              C
+            </span>
+            <span className="font-display text-2xl tracking-tighter text-off-white hidden sm:inline">
+              CAPTAIN AI
+            </span>
+          </Link>
 
-            {/* Dropdown Content */}
-            <div className={`absolute right-0 mt-4 w-72 origin-top-right transition-all duration-300 transform ${isDropdownOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'}`}>
-              <div className="bg-background-alt border border-white/10 shadow-2xl overflow-hidden rounded-sm">
-                <div className="p-2 space-y-1">
-                  {workWithOptions.map((option) => (
-                    <a 
-                      key={option.name} 
-                      href={option.href}
-                      onClick={(e) => {
-                        handleLinkClick(e, option.action, option.href);
-                        setIsDropdownOpen(false);
-                      }}
-                      className="block p-4 bg-transparent hover:bg-black/60 hover:scale-[1.02] transform transition-all duration-200 group border-b border-white/5 last:border-0 rounded-sm"
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {NAV_LINKS.map((link) =>
+              link.href.startsWith('/#') ? (
+                <button
+                  key={link.label}
+                  onClick={() => handleHashLink(link.href)}
+                  className="font-sans text-sm font-semibold uppercase tracking-widest text-off-white hover:text-starlink transition-colors duration-200"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="font-sans text-sm font-semibold uppercase tracking-widest text-off-white hover:text-starlink transition-colors duration-200"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            <a
+              href="https://slap-method-production.up.railway.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-sm font-semibold uppercase tracking-widest text-warm-gray hover:text-starlink transition-colors duration-200"
+            >
+              SLAP Method ↗
+            </a>
+            <Link
+              to="/contact"
+              className="btn-primary"
+            >
+              Work With Me
+            </Link>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 group"
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`block w-6 h-px bg-off-white transition-all duration-300 ${
+                menuOpen ? 'rotate-45 translate-y-[5px]' : ''
+              }`}
+            />
+            <span
+              className={`block w-6 h-px bg-off-white transition-all duration-300 ${
+                menuOpen ? 'opacity-0' : ''
+              }`}
+            />
+            <span
+              className={`block w-6 h-px bg-off-white transition-all duration-300 ${
+                menuOpen ? '-rotate-45 -translate-y-[5px]' : ''
+              }`}
+            />
+          </button>
+        </div>
+      </header>
+
+      {/* MOBILE MENU */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-xl flex flex-col"
+          >
+            <div className="flex-1 flex flex-col justify-center px-8 gap-8">
+              {NAV_LINKS.map((link, i) =>
+                link.href.startsWith('/#') ? (
+                  <motion.button
+                    key={link.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06 + 0.1 }}
+                    onClick={() => handleHashLink(link.href)}
+                    className="font-display text-5xl tracking-tighter text-off-white hover:text-starlink transition-colors text-left"
+                  >
+                    {link.label}
+                  </motion.button>
+                ) : (
+                  <motion.div
+                    key={link.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06 + 0.1 }}
+                  >
+                    <Link
+                      to={link.href}
+                      className="font-display text-5xl tracking-tighter text-off-white hover:text-starlink transition-colors block"
                     >
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-off-white font-display text-lg tracking-wider uppercase group-hover:text-cyber-lime transition-colors">
-                          {option.name}
-                        </span>
-                        <span className="text-cyber-lime opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                      </div>
-                      <p className="text-[10px] text-warm-gray font-mono uppercase tracking-widest leading-none">
-                        {option.desc}
-                      </p>
-                    </a>
-                  ))}
-                </div>
-                <div className="bg-cyber-lime/5 p-3 text-center border-t border-white/10">
-                  <span className="text-[9px] font-mono text-warm-gray uppercase tracking-[0.2em]">Select an intelligence track</span>
-                </div>
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                )
+              )}
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                className="pt-8 flex flex-col gap-4"
+              >
+                <a
+                  href="https://slap-method-production.up.railway.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary inline-block text-center"
+                >
+                  SLAP Method — Free ↗
+                </a>
+                <Link to="/contact" className="btn-primary inline-block text-center">
+                  Work With Me
+                </Link>
+              </motion.div>
+            </div>
+
+            <div className="px-8 pb-12 flex gap-6">
+              {SOCIAL_LINKS.slice(0, 4).map((s) => (
+                <a
+                  key={s.handle}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="label-tag hover:text-starlink transition-colors"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* PAGE CONTENT */}
+      <main>
+        <Outlet />
+      </main>
+
+      {/* FOOTER */}
+      <footer className="bg-background-alt border-t border-white/10 pt-20 pb-10">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-4 gap-12 pb-16 border-b border-white/8">
+            {/* Brand */}
+            <div className="md:col-span-2 space-y-5">
+              <Link to="/" className="flex items-center gap-3 group w-fit">
+                <span className="w-10 h-10 text-background flex items-center justify-center font-display text-2xl" style={{ background: 'linear-gradient(135deg, #AAFF00 0%, #00C853 100%)' }}>
+                  C
+                </span>
+                <span className="font-display text-3xl tracking-tighter text-off-white">CAPTAIN AI</span>
+              </Link>
+              <p className="text-warm-gray text-sm leading-relaxed max-w-sm font-light">
+                20 years of field-tested sales patterns, now encoded in AI. Built for founders
+                who are done winging it.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                {SOCIAL_LINKS.map((s) => (
+                  <a
+                    key={s.handle}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 border border-white/10 flex items-center justify-center text-warm-gray hover:border-starlink hover:text-starlink transition-all label-tag"
+
+                    title={`${s.name} ${s.handle}`}
+                  >
+                    {s.icon}
+                  </a>
+                ))}
               </div>
+            </div>
+
+            {/* Products */}
+            <div className="space-y-4">
+              <h5 className="font-display text-lg tracking-widest uppercase">Tools</h5>
+              <ul className="space-y-2.5">
+                {[
+                  { label: 'SLAP Method', href: 'https://slap-method-production.up.railway.app/', ext: true },
+                  { label: 'Clarity Coach GPT', href: 'https://chatgpt.com/g/g-683752da6f10819187d894848e822a2c-ultimate-business-clarity-coach', ext: true },
+                  { label: 'Call Reflekt Agent', href: 'https://chatgpt.com/g/g-68bce0888438819185f398e815027b33-call-reflekt-5-0', ext: true },
+                  { label: 'Objection Card App', href: 'https://objection-cards-app-production.up.railway.app/', ext: true },
+                  { label: 'The Book', href: '/#book', ext: false },
+                ].map((item) =>
+                  item.ext ? (
+                    <li key={item.label}>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="label-tag hover:text-starlink transition-colors"
+                      >
+                        {item.label} ↗
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={item.label}>
+                      <Link to={item.href} className="label-tag hover:text-accent transition-colors">
+                        {item.label}
+                      </Link>
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+
+            {/* Communities */}
+            <div className="space-y-4">
+              <h5 className="font-display text-lg tracking-widest uppercase">Communities</h5>
+              <ul className="space-y-2.5">
+                <li>
+                  <a href="https://www.skool.com/ai-automation-insiders/about?ref=64378607e4d44ad99d39a6c9c49f3bff" target="_blank" rel="noopener noreferrer" className="label-tag hover:text-accent transition-colors">
+                    AI Automation Secrets ↗
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.skool.com/lead-gen" target="_blank" rel="noopener noreferrer" className="label-tag hover:text-accent transition-colors">
+                    Lead Gen Secrets ↗
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.skool.com/remote-sales-secrets/about?ref=64378607e4d44ad99d39a6c9c49f3bff" target="_blank" rel="noopener noreferrer" className="label-tag hover:text-accent transition-colors">
+                    Remote Sales Secrets ↗
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-center pt-10 gap-4">
+            <p className="label-tag">
+              © {new Date().getFullYear()} Captain AI / Ian Ryan Kirk. All Rights Reserved.
+            </p>
+            <div className="flex gap-6">
+              <a href="#" className="label-tag hover:text-starlink transition-colors">Privacy Policy</a>
+              <a href="#" className="label-tag hover:text-starlink transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
-        
-        <button className="lg:hidden text-off-white">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
-        </button>
-      </div>
-    </nav>
+      </footer>
+    </div>
   );
-};
+}

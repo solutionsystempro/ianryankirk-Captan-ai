@@ -45,7 +45,7 @@ export const ClarityCoachModal: React.FC<Props> = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="p-6 border-b border-white/10 flex justify-between items-center bg-background-alt/50">
           <div>
-            <h3 className="text-xl font-display text-cyber-lime tracking-widest uppercase">Business Clarity Coach</h3>
+            <h3 className="text-xl font-display text-accent tracking-widest">Business Clarity Coach</h3>
             <p className="text-xs text-warm-gray font-mono">Status: Connected to Victoria Intelligence Layer</p>
           </div>
           <button onClick={onClose} className="text-warm-gray hover:text-off-white">
@@ -86,17 +86,17 @@ export const ClarityCoachModal: React.FC<Props> = ({ isOpen, onClose }) => {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
               placeholder="Type your current bottleneck..."
-              className="flex-1 bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-sm text-off-white focus:outline-none focus:border-cyber-lime transition-colors"
+              className="flex-1 bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-sm text-off-white focus:outline-none focus:border-accent transition-colors"
             />
             <button 
               onClick={handleSend}
               disabled={isLoading}
-              className="bg-cyber-lime text-background px-6 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:scale-100"
+              className="bg-accent text-background px-6 py-3 rounded-sm font-bold text-xs tracking-widest hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:scale-100"
             >
               Analyze
             </button>
           </div>
-          <p className="mt-4 text-[10px] text-warm-gray font-mono text-center opacity-50 uppercase tracking-widest">
+          <p className="mt-4 text-[10px] text-warm-gray font-mono text-center opacity-50 tracking-widest">
             Powered by Victoria AI Engine • Captain AI Systems
           </p>
         </div>
