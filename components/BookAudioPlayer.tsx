@@ -13,7 +13,7 @@ export function BookAudioPlayer() {
   // Simulated visualizer bars for a premium waveform look
   const BARS_COUNT = 40;
   const [bars, setBars] = useState<number[]>(Array(BARS_COUNT).fill(15));
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(null);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -73,7 +73,7 @@ export function BookAudioPlayer() {
 
       <audio
         ref={audioRef}
-        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        src="/chapter-1.mp3"
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleTimeUpdate}
         onEnded={() => setIsPlaying(false)}
