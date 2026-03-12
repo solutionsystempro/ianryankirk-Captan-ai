@@ -42,12 +42,12 @@ export function BookSection() {
                   </div>
 
                   <div className="space-y-3">
-                    <h3 className="font-display text-3xl md:text-4xl leading-tight tracking-tight text-off-white">
-                      Raised<br />by Two<br />Teachers
+                    <h3 className="font-display text-2xl md:text-3xl leading-tight tracking-tight text-off-white">
+                      Raised by<br />Two Teachers.
                     </h3>
                     <div className="w-full h-px bg-white/10" />
-                    <p className="label-tag text-warm-gray leading-relaxed">
-                      Building a business that doesn't require you to be the engine
+                    <p className="label-tag text-accent leading-relaxed">
+                      And I Still<br />Don't Know Sh*t.
                     </p>
                   </div>
 
@@ -92,9 +92,8 @@ export function BookSection() {
             </div>
 
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-none">
-              Raised by
-              <br />
-              <span className="text-warm-gray">Two Teachers</span>
+              Raised by<br />Two Teachers.<br />
+              <span className="text-warm-gray">Still Don't Know Sh*t.</span>
             </h2>
 
             <blockquote className="border-l-2 border-accent pl-5 text-off-white text-lg md:text-xl font-light italic leading-relaxed">
