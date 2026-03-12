@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh:*)",
+      "Bash(cp:*)",
+      "Bash(npm install:*)",
+      "Bash(powershell.exe:*)",
+      "WebFetch(domain:slap-method-production.up.railway.app)",
+      "WebFetch(domain:www.ianryankirk.com)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:www.youtube.com)",
+      "WebFetch(domain:www.instagram.com)",
+      "WebFetch(domain:x.com)",
+      "WebFetch(domain:www.skool.com)",
+      "WebFetch(domain:web.leadgenjay.com)",
+      "WebFetch(domain:templates.n8ninsider.com)",
+      "WebFetch(domain:www.danmartell.com)",
+      "Bash(PATH=\"/c/Program Files/nodejs:$PATH\" npm run:*)",
+      "Bash(export:*)"
+    ]
+  }
+}

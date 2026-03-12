@@ -13,6 +13,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    /* Hide default cursor for standard elements to let custom cursor shine */
+    cursor: none;
+  }
+  
+  /* Ensure interactive elements also hide the default cursor so hover states work */
+  a, button, input, textarea, select {
+    cursor: none;
   }
   /* Grain texture overlay */
   body::after {
@@ -50,23 +57,27 @@
 @layer components {
   /* ── Cards ── */
   .glass-card {
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid #1F1F28;
-    border-radius: 12px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.015);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   }
   .glass-card-hover {
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid #1F1F28;
-    border-radius: 12px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.015);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .glass-card-hover:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(170, 255, 0, 0.4);
-    transform: translateY(-2px);
-    box-shadow: inset 0 1px 0 rgba(170, 255, 0, 0.06), 0 12px 48px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(170, 255, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: inset 0 1px 0 rgba(170, 255, 0, 0.15), 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 40px rgba(170, 255, 0, 0.05);
   }
   /* Card with accent top stripe */
   .card-accent {
@@ -147,7 +158,7 @@
 
   /* ── Glow utilities ── */
   .glow-accent {
-    box-shadow: 0 0 80px rgba(170, 255, 0, 0.12);
+    box-shadow: 0 0 100px rgba(170, 255, 0, 0.15);
   }
 
   /* ── Live pulse dot ── */
@@ -155,7 +166,28 @@
     width: 6px; height: 6px;
     border-radius: 50%;
     background: #AAFF00;
-    box-shadow: 0 0 8px #AAFF00;
+    box-shadow: 0 0 10px #AAFF00, 0 0 20px rgba(170, 255, 0, 0.5);
     animation: livePulse 2s ease-in-out infinite;
+  }
+  
+  /* ── Bento Grid Utilities ── */
+  .bento-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.015);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%);
+    opacity: 0.5;
+    pointer-events: none;
   }
 }

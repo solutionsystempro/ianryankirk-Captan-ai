@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { CustomCursor } from './components/CustomCursor';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -14,6 +15,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <>
+      <CustomCursor />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>

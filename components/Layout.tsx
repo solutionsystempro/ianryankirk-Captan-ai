@@ -52,11 +52,11 @@ export function Layout() {
     <div className="min-h-screen bg-background text-off-white">
       {/* NAVBAR */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           navHidden
             ? '-translate-y-full'
             : scrolled
-            ? 'bg-background/95 backdrop-blur-md border-b border-white/8 py-4'
+            ? 'bg-background/80 backdrop-blur-xl border-b border-accent/10 shadow-[0_1px_40px_rgba(0,0,0,0.6)] py-4'
             : 'bg-transparent py-6'
         }`}
       >
@@ -78,17 +78,19 @@ export function Layout() {
                 <button
                   key={link.label}
                   onClick={() => handleHashLink(link.href)}
-                  className="font-sans text-sm font-semibold uppercase tracking-widest text-off-white hover:text-starlink transition-colors duration-200"
+                  className="relative font-sans text-sm font-semibold uppercase tracking-widest text-warm-gray hover:text-off-white transition-colors duration-300 group py-1"
                 >
                   {link.label}
+                  <span className="absolute bottom-0 left-0 h-px w-0 bg-accent group-hover:w-full transition-all duration-300 ease-out shadow-[0_0_8px_rgba(170,255,0,0.8)]" />
                 </button>
               ) : (
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="font-sans text-sm font-semibold uppercase tracking-widest text-off-white hover:text-starlink transition-colors duration-200"
+                  className="relative font-sans text-sm font-semibold uppercase tracking-widest text-warm-gray hover:text-off-white transition-colors duration-300 group py-1"
                 >
                   {link.label}
+                  <span className="absolute bottom-0 left-0 h-px w-0 bg-accent group-hover:w-full transition-all duration-300 ease-out shadow-[0_0_8px_rgba(170,255,0,0.8)]" />
                 </Link>
               )
             )}
@@ -214,10 +216,18 @@ export function Layout() {
         )}
       </AnimatePresence>
 
-      {/* PAGE CONTENT */}
-      <main>
-        <Outlet />
-      </main>
+      {/* PAGE CONTENT with transition */}
+      <AnimatePresence mode="wait">
+        <motion.main
+          key={location.pathname}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Outlet />
+        </motion.main>
+      </AnimatePresence>
 
       {/* FOOTER */}
       <footer className="bg-background-alt border-t border-white/10 pt-20 pb-10">

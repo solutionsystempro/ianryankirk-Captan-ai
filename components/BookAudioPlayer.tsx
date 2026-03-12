@@ -1,12 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-export const BookAudioPlayer: React.FC = () => {
+export function BookAudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState('0:00');
   const [duration, setDuration] = useState('--:--');
   const audioRef = useRef<HTMLAudioElement>(null);
-  const progressBarRef = useRef<HTMLDivElement>(null);
+
+  // Simulated visualizer bars for a premium waveform look
+  const BARS_COUNT = 40;
+  const [bars, setBars] = useState<number[]>(Array(BARS_COUNT).fill(15));
+  const animationRef = useRef<number>();
 
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -18,97 +25,134 @@ export const BookAudioPlayer: React.FC = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const toggleMute = () => {
+    if (!audioRef.current) return;
+    audioRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
+
   const handleTimeUpdate = () => {
     const el = audioRef.current;
     if (!el || isNaN(el.duration)) return;
     setProgress((el.currentTime / el.duration) * 100);
-    const fmt = (s: number) => `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, '0')}`;
+    const fmt = (s: number) =>
+      `${Math.floor(s / 60)}:${Math.floor(s % 60)
+        .toString()
+        .padStart(2, '0')}`;
     setCurrentTime(fmt(el.currentTime));
     setDuration(fmt(el.duration));
   };
 
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = audioRef.current;
-    const bar = progressBarRef.current;
-    if (!el || !bar || !isFinite(el.duration)) return;
-    const rect = bar.getBoundingClientRect();
-    el.currentTime = ((e.clientX - rect.left) / rect.width) * el.duration;
-  };
-
-  // Static waveform heights — stable across renders
-  const BARS = [6, 14, 10, 18, 8, 20, 12, 16, 7, 19, 11, 15];
+  // Animate the waveform when playing
+  useEffect(() => {
+    if (isPlaying) {
+      const updateBars = () => {
+        setBars(Array.from({ length: BARS_COUNT }, () => Math.floor(Math.random() * 80) + 20));
+        animationRef.current = requestAnimationFrame(() => {
+          setTimeout(updateBars, 100);
+        });
+      };
+      updateBars();
+    } else {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      setBars(Array(BARS_COUNT).fill(15)); // Reset to flat height
+    }
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, [isPlaying]);
 
   return (
-    <div className="glass-card p-6 group hover:border-accent/25 transition-all duration-500">
-      <audio
-        ref={audioRef}
-        src="/chapter-1.mp3"
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleTimeUpdate}
-        onEnded={() => { setIsPlaying(false); setProgress(0); }}
-        preload="metadata"
+    <div className="bento-card p-6 md:p-8 relative overflow-hidden group">
+      {/* Background Glow */}
+      <div 
+        className={`absolute inset-0 bg-accent/5 blur-[80px] transition-opacity duration-1000 ${
+          isPlaying ? 'opacity-100' : 'opacity-0'
+        }`} 
       />
 
-      <div className="flex items-center gap-5">
-        {/* Play button */}
-        <button
-          onClick={togglePlay}
-          className="w-14 h-14 flex-shrink-0 bg-accent flex items-center justify-center text-background transition-all duration-300 hover:shadow-[0_0_24px_rgba(170,255,0,0.35)] active:scale-95"
-          aria-label={isPlaying ? 'Pause' : 'Play'}
-        >
-          {isPlaying ? (
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <rect x="6" y="4" width="4" height="16" />
-              <rect x="14" y="4" width="4" height="16" />
-            </svg>
-          ) : (
-            <svg className="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          )}
-        </button>
+      <audio
+        ref={audioRef}
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleTimeUpdate}
+        onEnded={() => setIsPlaying(false)}
+      />
 
-        <div className="flex-1 min-w-0">
-          <div className="flex justify-between items-baseline mb-2">
-            <div>
-              <p className="label-tag text-accent mb-0.5">Audiobook Preview</p>
-              <h4 className="font-display text-xl tracking-tight text-off-white leading-none">
-                Chapter 1: The Carpet
-              </h4>
-            </div>
-            <span className="font-mono text-[11px] text-warm-gray tabular-nums flex-shrink-0 ml-4">
-              {currentTime} / {duration}
+      <div className="relative z-10 flex flex-col items-center gap-8">
+        {/* Top Info */}
+        <div className="w-full flex justify-between items-start">
+          <div>
+            <span className="pill-tag pill-tag-lime mb-3">
+              {isPlaying && <span className="live-dot" />}
+              Audiobook Preview
             </span>
+            <h4 className="font-display text-2xl tracking-tight text-off-white">
+              Introduction: The Architecture
+            </h4>
           </div>
-
-          {/* Progress bar */}
-          <div
-            ref={progressBarRef}
-            onClick={handleProgressClick}
-            className="relative h-1 w-full bg-white/8 cursor-pointer mb-3"
+          <button
+            onClick={toggleMute}
+            className="text-warm-gray hover:text-white transition-colors"
           >
-            <div
-              className="absolute inset-y-0 left-0 bg-accent transition-all duration-100"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
+            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+          </button>
+        </div>
 
-          {/* Waveform visualizer */}
-          <div className="flex items-end gap-[3px] h-5 opacity-30 group-hover:opacity-70 transition-opacity duration-500">
-            {BARS.map((h, i) => (
-              <div
+        {/* Big Central Play Button */}
+        <div className="relative my-4">
+          <div
+            className={`absolute inset-0 bg-accent/30 rounded-full blur-xl transition-all duration-700 ${
+              isPlaying ? 'scale-[2.5] opacity-100' : 'scale-100 opacity-0 group-hover:opacity-100'
+            }`}
+          />
+          <button
+            onClick={togglePlay}
+            className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-500 z-10 ${
+              isPlaying 
+                ? 'bg-accent text-background shadow-[0_0_40px_rgba(170,255,0,0.6)]' 
+                : 'bg-white/5 border border-white/20 text-white hover:border-accent hover:text-accent backdrop-blur-md'
+            }`}
+          >
+            {isPlaying ? (
+              <Pause className="w-8 h-8" fill="currentColor" />
+            ) : (
+              <Play className="w-8 h-8 ml-1" fill="currentColor" />
+            )}
+          </button>
+        </div>
+
+        {/* Custom Visualizer & Progress */}
+        <div className="w-full space-y-3">
+          {/* Waveform */}
+          <div className="w-full flex items-end justify-center gap-[2px] h-12">
+            {bars.map((height, i) => (
+              <motion.div
                 key={i}
-                className={`w-0.5 bg-accent rounded-full transition-all duration-150 ${isPlaying ? 'opacity-100' : 'opacity-60'}`}
-                style={{
-                  height: `${h}px`,
-                  animationDelay: `${i * 80}ms`,
-                  transform: isPlaying ? `scaleY(${0.6 + Math.sin(Date.now() / 200 + i) * 0.4})` : 'scaleY(1)',
+                className="w-full max-w-[3px] rounded-t-sm"
+                style={{ 
+                  backgroundColor: isPlaying ? '#AAFF00' : 'rgba(255,255,255,0.1)',
                 }}
+                animate={{ height: `${height}%` }}
+                transition={{ type: 'spring', bounce: 0, duration: 0.15 }}
               />
             ))}
+          </div>
+
+          {/* Simple Progress Track */}
+          <div className="w-full flex items-center gap-4">
+            <span className="font-mono text-[10px] text-warm-gray">{currentTime}</span>
+            <div className="h-1 bg-white/10 flex-1 rounded-full overflow-hidden relative">
+              <motion.div
+                className="absolute top-0 left-0 h-full bg-accent"
+                style={{ width: `${progress}%` }}
+                layout
+              />
+            </div>
+            <span className="font-mono text-[10px] text-warm-gray">{duration}</span>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
