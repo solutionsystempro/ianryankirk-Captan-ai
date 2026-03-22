@@ -118,18 +118,19 @@ export const PRODUCTS: Product[] = [
   {
     id: 'coaching',
     step: '07',
-    title: 'Growth Operator: 1:1',
-    subtitle: 'Private Growth Operator Deployment',
+    title: '1:1 Coaching with Ian',
+    subtitle: 'Done-with-you · Private · Limited Spots',
     description:
-      'Work directly with Ian to deploy the full Growth Operator system inside your business. Offer clarity, DM system, call framework, objection handling — the whole stack built around you. This is the done-with-you path. Limited spots. Apply to see if you qualify.',
+      'This is where we build it together. You bring the business — Ian brings the full system. Offer clarity, DM framework, call scripts, objection handling, AI automation. Everything dialed in around your specific situation. Not a course. Not a group. Just you and Ian until it works.',
     price: 'Apply to discuss',
     priceBadge: 'APPLY',
     ctaText: 'Apply Now →',
     accent: 'lime',
     features: [
-      'Full AI sales system deployed with Ian',
-      'Direct 1:1 access — not a course',
-      'Limited spots — application required',
+      'Full AI sales system built around your business',
+      'Direct 1:1 access to Ian — not a course or group',
+      'Offer clarity + DM system + call framework + objection handling',
+      'Limited spots — application required to qualify',
     ],
   },
 ];

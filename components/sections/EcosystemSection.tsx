@@ -53,60 +53,98 @@ function MagneticCard({ product, onWaitlist }: { product: any; onWaitlist: () =>
         }}
       />
 
-      <div className="relative z-10 flex-1 flex flex-col">
-        {/* Header Section */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-              <span className="font-display text-accent text-sm">{product.step}</span>
-            </div>
-            {product.comingSoon && (
-              <span className="label-tag text-warm-gray border border-white/15 px-2 py-0.5 rounded backdrop-blur-sm">
-                COMING SOON
+      {product.id === 'coaching' ? (
+        /* Full-width horizontal layout for 1:1 coaching card */
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
+          {/* Left: header + description */}
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                  <span className="font-display text-accent text-sm">{product.step}</span>
+                </div>
+              </div>
+              <span className={`label-tag px-3 py-1 border rounded-full ${BADGE_COLORS[product.priceBadge] || 'bg-white/5 text-warm-gray border-white/10'}`}>
+                {product.price}
               </span>
-            )}
+            </div>
+            <h3 className="font-display text-4xl md:text-5xl tracking-tight text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
+              {product.title}
+            </h3>
+            <p className="label-tag mb-5 opacity-70">{product.subtitle}</p>
+            <p className="text-warm-gray font-light leading-relaxed text-lg">
+              {product.description}
+            </p>
           </div>
-          <span className={`label-tag px-3 py-1 border rounded-full ${BADGE_COLORS[product.priceBadge] || 'bg-white/5 text-warm-gray border-white/10'}`}>
-            {product.price}
-          </span>
-        </div>
 
-        {/* Content Section */}
-        <h3 className="font-display text-3xl tracking-tight text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
-          {product.title}
-        </h3>
-        <p className="label-tag mb-4 opacity-70">{product.subtitle}</p>
-        <p className="text-warm-gray font-light leading-relaxed mb-8 flex-1">
-          {product.description}
-        </p>
-
-        {/* Footer Section */}
-        <div className="mt-auto space-y-6">
-          <ul className="flex flex-col gap-2">
-            {product.features.map((f: string) => (
-              <li key={f} className="flex items-center gap-2 text-sm text-off-white/80 font-light">
-                <span className="text-accent text-xs">◆</span> {f}
-              </li>
-            ))}
-          </ul>
-
-          <div className="pt-6 border-t border-white/10">
-            {product.comingSoon ? (
-              <button onClick={onWaitlist} className="btn-primary w-full shadow-lg">
-                {product.ctaText}
-              </button>
-            ) : product.id === 'coaching' ? (
-              <Link to="/contact" className="btn-primary w-full block text-center shadow-lg">
+          {/* Right: features + CTA */}
+          <div className="lg:w-80 xl:w-96 flex-shrink-0 flex flex-col gap-6">
+            <ul className="flex flex-col gap-3">
+              {product.features.map((f: string) => (
+                <li key={f} className="flex items-start gap-2 text-sm text-off-white/80 font-light">
+                  <span className="text-accent text-xs mt-1">◆</span> {f}
+                </li>
+              ))}
+            </ul>
+            <div className="pt-6 border-t border-white/10">
+              <Link to="/contact" className="btn-primary w-full block text-center shadow-lg text-base py-5">
                 {product.ctaText}
               </Link>
-            ) : (
-              <a href={product.href} target="_blank" rel="noopener noreferrer" className="btn-primary w-full block text-center shadow-lg">
-                {product.ctaText}
-              </a>
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="relative z-10 flex-1 flex flex-col">
+          {/* Header Section */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                <span className="font-display text-accent text-sm">{product.step}</span>
+              </div>
+              {product.comingSoon && (
+                <span className="label-tag text-warm-gray border border-white/15 px-2 py-0.5 rounded backdrop-blur-sm">
+                  COMING SOON
+                </span>
+              )}
+            </div>
+            <span className={`label-tag px-3 py-1 border rounded-full ${BADGE_COLORS[product.priceBadge] || 'bg-white/5 text-warm-gray border-white/10'}`}>
+              {product.price}
+            </span>
+          </div>
+
+          {/* Content Section */}
+          <h3 className="font-display text-3xl tracking-tight text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
+            {product.title}
+          </h3>
+          <p className="label-tag mb-4 opacity-70">{product.subtitle}</p>
+          <p className="text-warm-gray font-light leading-relaxed mb-8 flex-1">
+            {product.description}
+          </p>
+
+          {/* Footer Section */}
+          <div className="mt-auto space-y-6">
+            <ul className="flex flex-col gap-2">
+              {product.features.map((f: string) => (
+                <li key={f} className="flex items-center gap-2 text-sm text-off-white/80 font-light">
+                  <span className="text-accent text-xs">◆</span> {f}
+                </li>
+              ))}
+            </ul>
+
+            <div className="pt-6 border-t border-white/10">
+              {product.comingSoon ? (
+                <button onClick={onWaitlist} className="btn-primary w-full shadow-lg">
+                  {product.ctaText}
+                </button>
+              ) : (
+                <a href={product.href} target="_blank" rel="noopener noreferrer" className="btn-primary w-full block text-center shadow-lg">
+                  {product.ctaText}
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 }
@@ -156,7 +194,7 @@ export function EcosystemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: i * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className=""
+              className={product.id === 'coaching' ? 'col-span-1 md:col-span-2 lg:col-span-3' : ''}
             >
               <MagneticCard product={product} onWaitlist={() => setWaitlistOpen(true)} />
             </motion.div>
