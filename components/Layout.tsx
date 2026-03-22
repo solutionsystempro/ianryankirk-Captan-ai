@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SOCIAL_LINKS } from '../constants';
 
 const NAV_LINKS = [
-  { label: 'Tools', href: '/#ecosystem' },
+  { label: 'Tools', href: '/#tools' },
   { label: 'The Book', href: '/#book' },
   { label: 'About', href: '/about' },
   { label: 'Subscribe', href: '/contact' },

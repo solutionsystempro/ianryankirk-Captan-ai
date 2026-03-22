@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { supabase } from '../../lib/supabase';
+import { useAttribution } from '../../hooks/useAttribution';
 
 const vp = { once: true, margin: '-60px' } as const;
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -8,10 +10,25 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function FinalCTASection() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const attribution = useAttribution();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) setSubmitted(true);
+    if (!email.trim()) return;
+    
+    setSending(true);
+    const { error } = await supabase.from('waitlist').insert({
+      email,
+      app_website_source: 'captainai-website',
+      lead_magnet_source: "Captain's Log (Footer)",
+      promo_code_source:  attribution.promo_code_source,
+    });
+    
+    if (!error) {
+      setSubmitted(true);
+    }
+    setSending(false);
   };
 
   return (
@@ -69,8 +86,8 @@ export function FinalCTASection() {
                 placeholder="Your best email address"
                 className="flex-1 bg-white/5 border border-white/12 px-5 py-4 text-sm text-off-white placeholder-warm-gray focus:outline-none focus:border-accent transition-colors"
               />
-              <button type="submit" className="btn-primary flex-shrink-0">
-                Subscribe
+              <button type="submit" disabled={sending} className="btn-primary flex-shrink-0">
+                {sending ? '...' : 'Subscribe'}
               </button>
             </form>
           ) : (

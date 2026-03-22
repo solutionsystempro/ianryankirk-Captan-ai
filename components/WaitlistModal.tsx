@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
+import { useAttribution } from '../hooks/useAttribution';
 
 interface Props {
   isOpen: boolean;
@@ -11,6 +12,7 @@ export const WaitlistModal: React.FC<Props> = ({ isOpen, onClose, title }) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const attribution = useAttribution();
 
   if (!isOpen) return null;
 
@@ -18,7 +20,12 @@ export const WaitlistModal: React.FC<Props> = ({ isOpen, onClose, title }) => {
     e.preventDefault();
     if (!email.trim()) return;
     setSending(true);
-    await supabase.from('waitlist').insert({ email, source: title });
+    await supabase.from('waitlist').insert({
+      email,
+      app_website_source: 'captainai-website',
+      lead_magnet_source: title,
+      promo_code_source:  attribution.promo_code_source,
+    });
     setSending(false);
     setSubmitted(true);
   };

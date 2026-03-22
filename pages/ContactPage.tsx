@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { SOCIAL_LINKS } from '../constants';
+import { useAttribution } from '../hooks/useAttribution';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -25,20 +26,26 @@ export function ContactPage() {
   const [subSubmitted, setSubSubmitted] = useState(false);
   const [subSending, setSubSending] = useState(false);
 
+  const attribution = useAttribution();
+
   const set = (field: string, value: string | boolean) =>
     setForm((f) => ({ ...f, [field]: value }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
     setError('');
     const { error: err } = await supabase.from('contacts').insert({
-      first_name:     form.first_name,
-      last_name:      form.last_name,
-      email:          form.email,
-      phone:          form.phone || null,
-      business_owner: form.business_owner,
-      bottleneck:     form.bottleneck || null,
+      first_name:         form.first_name,
+      last_name:          form.last_name,
+      email:              form.email,
+      phone:              form.phone || null,
+      business_owner:     form.business_owner,
+      bottleneck:         form.bottleneck || null,
+      consent:            form.consent,
+      app_website_source: 'captainai-website',
+      lead_magnet_source: null,
+      promo_code_source:  attribution.promo_code_source,
     });
     if (err) {
       setError('Something went wrong. Please try again or email ian@captainai.io');
@@ -48,10 +55,15 @@ export function ContactPage() {
     setSending(false);
   };
 
-  const handleSubscribe = async (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubSending(true);
-    await supabase.from('waitlist').insert({ email: subEmail, source: "Captain's Log" });
+    await supabase.from('waitlist').insert({
+      email:              subEmail,
+      app_website_source: 'captainai-website',
+      lead_magnet_source: "Captain's Log",
+      promo_code_source:  attribution.promo_code_source,
+    });
     setSubSubmitted(true);
     setSubSending(false);
   };

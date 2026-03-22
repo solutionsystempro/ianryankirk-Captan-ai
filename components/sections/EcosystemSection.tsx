@@ -42,9 +42,7 @@ function MagneticCard({ product, onWaitlist }: { product: any; onWaitlist: () =>
       }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       style={{ perspective: 1000 }}
-      className={`bento-card group flex flex-col p-8 h-full ${
-        product.id === 'coaching' ? 'md:col-span-2' : ''
-      }`}
+      className="bento-card group flex flex-col p-8 h-full"
     >
       {/* Dynamic Cursor Spotlight Effect */}
       <motion.div
@@ -119,7 +117,7 @@ export function EcosystemSection() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="ecosystem" className="section-pad bg-background relative overflow-hidden">
+    <section id="tools" className="section-pad bg-background relative overflow-hidden">
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -158,7 +156,7 @@ export function EcosystemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: i * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className={product.id === 'coaching' ? 'md:col-span-2 lg:col-span-3 lg:w-2/3 mx-auto' : ''}
+              className=""
             >
               <MagneticCard product={product} onWaitlist={() => setWaitlistOpen(true)} />
             </motion.div>
