@@ -93,13 +93,30 @@ export function ContactPage() {
               </motion.h1>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="max-w-md">
+                <a
+                  href="https://solutionsystempro.github.io/lgj-reports/Ian_Kirk_Value_Case_March2026.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between bento-card p-5 border border-accent/20 hover:border-accent/50 transition-all duration-300 mb-4"
+                >
+                  <div>
+                    <p className="label-tag text-accent mb-1">PROOF OF WORK</p>
+                    <p className="text-off-white text-sm font-semibold">See What's Possible → Read the Client Case Study</p>
+                  </div>
+                  <span className="text-accent text-lg transition-transform group-hover:translate-x-1">→</span>
+                </a>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="space-y-4 max-w-md">
                 <div className="bento-card p-6 border-l-2 border-accent/50 space-y-2">
                   <p className="label-tag text-accent">Free · Group</p>
-                  <h3 className="font-display text-xl">Friday Clarity Calls</h3>
+                  <h3 className="font-display text-xl">Hump Day Clarity Calls</h3>
                   <p className="text-warm-gray text-sm font-light leading-relaxed">
-                    Live every Friday inside Lead Gen Secrets and Remote Sales Secrets.
+                    Live every Wednesday inside Lead Gen Secrets and Remote Sales Secrets.
                     Bring your offer, your DMs, your call struggles — Ian works through it live with the group.
                   </p>
                   <div className="flex gap-3 pt-1 flex-wrap">

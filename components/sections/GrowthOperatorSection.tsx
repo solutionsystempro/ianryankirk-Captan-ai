@@ -12,7 +12,7 @@ export function GrowthOperatorSection() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
-    <section className="section-pad bg-background relative overflow-hidden">
+    <section id="proof" className="section-pad bg-background relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 

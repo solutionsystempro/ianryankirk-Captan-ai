@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -147,9 +146,9 @@ export function HeroSection() {
             <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
             <span className="relative z-10">Get SLAP Method Free →</span>
           </a>
-          <Link to="/contact" className="btn-secondary text-center">
-            Work With Me
-          </Link>
+          <a href="/#proof" className="btn-secondary text-center">
+            See What's Possible
+          </a>
         </motion.div>
 
         {/* KPI cards - Floating animation */}
