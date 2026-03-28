@@ -80,10 +80,10 @@ export const PRODUCTS: Product[] = [
   {
     id: 'group',
     step: '05',
-    title: 'Friday Clarity Calls',
+    title: 'Hump Day Clarity Calls',
     subtitle: 'Free weekly group coaching — inside Lead Gen Secrets & Remote Sales Secrets',
     description:
-      'Every Friday, Ian runs a live group Clarity Call inside the Lead Gen Secrets and Remote Sales Secrets communities. Open Q&A, real offer feedback, live sales diagnosis. No slides, no pitch — just Ian working through your actual situation with the group. His posts inside these communities regularly pull hundreds of comments.',
+      'Every Wednesday, Ian runs a live group Clarity Call inside the Lead Gen Secrets and Remote Sales Secrets communities. Open Q&A, real offer feedback, live sales diagnosis. No slides, no pitch — just Ian working through your actual situation with the group. His posts inside these communities regularly pull hundreds of comments.',
     price: 'Free inside the communities',
     priceBadge: 'FREE',
     ctaText: 'Join Lead Gen Secrets →',
@@ -91,7 +91,7 @@ export const PRODUCTS: Product[] = [
     href: 'https://www.skool.com/lead-gen',
     isExternal: true,
     features: [
-      'Live every Friday',
+      'Live every Wednesday',
       'Lead Gen Secrets + Remote Sales Secrets',
       'Bring your real offer, DMs, or call struggles',
     ],
