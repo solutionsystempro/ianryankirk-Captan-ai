@@ -2,6 +2,7 @@ import React from 'react';
 import { HeroSection } from '../components/sections/HeroSection';
 import { ProblemSection } from '../components/sections/ProblemSection';
 import { EcosystemSection } from '../components/sections/EcosystemSection';
+import { GrowthOperatorSection } from '../components/sections/GrowthOperatorSection';
 import { CommunitiesSection } from '../components/sections/CommunitiesSection';
 import { BookSection } from '../components/sections/BookSection';
 import { ProofSection } from '../components/sections/ProofSection';
@@ -15,6 +16,7 @@ export function HomePage() {
       <HeroSection />
       <ProblemSection />
       <EcosystemSection />
+      <GrowthOperatorSection />
       <CommunitiesSection />
       <BookSection />
       <ProofSection />
