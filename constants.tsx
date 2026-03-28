@@ -78,27 +78,8 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    id: 'operator',
-    step: '05',
-    title: 'Become a Growth Operator',
-    subtitle: 'Growth Operator Path',
-    description:
-      'Take the full suite of AI-powered tools — Business Clarity Coach, Call Reflekt, SLAP Method, Objection Cards — and package them into an offer. You become a Growth Operator: someone who plugs into influencers, coaches, and consultants and doubles their revenue using AI-run systems — without building anything from scratch.',
-    price: 'Apply to partner',
-    priceBadge: 'APPLY',
-    ctaText: 'Explore the Path →',
-    accent: 'lime',
-    href: 'https://solutionsystempro.github.io/lgj-reports/Ian_Kirk_Value_Case_March2026.html',
-    isExternal: true,
-    features: [
-      'Bundle all 4 AI tools into one offer',
-      'Plug into influencers, coaches & consultants',
-      'No building from scratch — deploy a proven system',
-    ],
-  },
-  {
     id: 'group',
-    step: '06',
+    step: '05',
     title: 'Friday Clarity Calls',
     subtitle: 'Free weekly group coaching — inside Lead Gen Secrets & Remote Sales Secrets',
     description:
@@ -117,7 +98,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'coaching',
-    step: '07',
+    step: '06',
     title: '1:1 Coaching with Ian',
     subtitle: 'Done-with-you · Private · Limited Spots',
     description:
