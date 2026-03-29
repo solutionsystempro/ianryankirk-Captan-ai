@@ -45,7 +45,7 @@ function BillboardStats() {
       >
         <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
         <div className="font-display text-[clamp(36px,4.5vw,68px)] leading-none text-off-white mb-3 tracking-tighter drop-shadow-lg group-hover:text-white transition-colors">
-          Fridays
+          Wednesdays
         </div>
         <div className="label-tag opacity-80 flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-starlink animate-pulse" />

@@ -107,6 +107,7 @@ export const PRODUCTS: Product[] = [
     priceBadge: 'APPLY',
     ctaText: 'Apply Now →',
     accent: 'lime',
+    href: '/contact',
     features: [
       'Full AI sales system built around your business',
       'Direct 1:1 access to Ian — not a course or group',
@@ -165,9 +166,9 @@ export const COMMUNITIES = [
   },
   {
     name: 'Lead Gen Secrets',
-    desc: "Jay Feldman's lead generation community — where Ian runs live Friday Clarity Calls every week. Bring your offer, your outreach, or your sales process and get real feedback in front of the group. Posts from these sessions regularly pull hundreds of comments.",
+    desc: "Jay Feldman's lead generation community — where Ian runs live Hump Day Clarity Calls every Wednesday. Bring your offer, your outreach, or your sales process and get real feedback in front of the group. Posts from these sessions regularly pull hundreds of comments.",
     href: 'https://www.skool.com/lead-gen',
-    badge: 'Friday Calls',
+    badge: 'Wednesday Calls',
     accentClass: 'border-starlink/40 text-starlink',
   },
   {
