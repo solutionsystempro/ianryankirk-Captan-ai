@@ -65,7 +65,7 @@ export const PRODUCTS: Product[] = [
     subtitle: 'Real-time objection handling',
     description:
       '56 objections. 56 reframes. Drillable, pocketable, and built for the field. Flip through before a call, drill patterns on the go. Never be caught flat-footed on a live call again.',
-    price: 'Free daily · $27/mo unlimited',
+    price: 'Free · $27/mo',
     priceBadge: '$27/MO',
     href: 'https://objection-cards-app-production.up.railway.app/',
     ctaText: 'Try It Free →',
@@ -84,7 +84,7 @@ export const PRODUCTS: Product[] = [
     subtitle: 'Free weekly group coaching — inside Lead Gen Secrets & Remote Sales Secrets',
     description:
       'Every Wednesday, Ian runs a live group Clarity Call inside the Lead Gen Secrets and Remote Sales Secrets communities. Open Q&A, real offer feedback, live sales diagnosis. No slides, no pitch — just Ian working through your actual situation with the group. His posts inside these communities regularly pull hundreds of comments.',
-    price: 'Free inside the communities',
+    price: 'Free',
     priceBadge: 'FREE',
     ctaText: 'Join Lead Gen Secrets →',
     accent: 'lime',
