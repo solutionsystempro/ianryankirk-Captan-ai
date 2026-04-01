@@ -12,7 +12,7 @@ export const PRODUCTS: Product[] = [
     priceBadge: 'FREE',
     ctaText: 'Get Clarity Now →',
     accent: 'lime',
-    href: 'https://chatgpt.com/g/g-683752da6f10819187d894848e822a2c-ultimate-business-clarity-coach',
+    href: 'https://ultimate-clarity-coach.vercel.app/',
     isExternal: true,
     features: [
       'Offer validation framework',

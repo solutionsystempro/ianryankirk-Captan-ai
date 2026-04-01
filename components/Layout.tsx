@@ -268,7 +268,7 @@ export function Layout() {
               <ul className="space-y-2.5">
                 {[
                   { label: 'SLAP Method', href: 'https://slap-method-production.up.railway.app/', ext: true },
-                  { label: 'Clarity Coach GPT', href: 'https://chatgpt.com/g/g-683752da6f10819187d894848e822a2c-ultimate-business-clarity-coach', ext: true },
+                  { label: 'Clarity Coach', href: 'https://ultimate-clarity-coach.vercel.app/', ext: true },
                   { label: 'Call Reflekt Agent', href: 'https://chatgpt.com/g/g-68bce0888438819185f398e815027b33-call-reflekt-5-0', ext: true },
                   { label: 'Objection Card App', href: 'https://objection-cards-app-production.up.railway.app/', ext: true },
                   { label: 'The Book', href: '/#book', ext: false },
