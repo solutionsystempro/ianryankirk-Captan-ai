@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { LeadGate } from '../components/LeadGate';
 
 const vp = { once: true, margin: '-60px' } as const;
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -156,6 +157,10 @@ const TOOLS = [
 
 export function GmailClaudePage() {
   return (
+    <LeadGate
+      title="Get the Free Guide"
+      subtitle="Enter your name and email to unlock the full Gmail + Claude Code setup guide — free, no strings."
+    >
     <div className="bg-background min-h-screen text-off-white">
 
       {/* HERO */}
@@ -319,5 +324,6 @@ export function GmailClaudePage() {
       </section>
 
     </div>
+    </LeadGate>
   );
 }

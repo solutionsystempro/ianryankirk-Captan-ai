@@ -149,7 +149,7 @@ export function Layout() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-background/98 backdrop-blur-xl flex flex-col"
           >
-            <div className="flex-1 flex flex-col justify-center px-8 gap-8">
+            <div className="flex-1 flex flex-col justify-start pt-28 px-8 gap-8">
               {NAV_LINKS.map((link, i) =>
                 link.href.startsWith('/#') ? (
                   <motion.button
