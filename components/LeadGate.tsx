@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const STORAGE_KEY = 'irk_unlocked_gmail_claude';
-const GOOGLE_CLIENT_ID = '124000673205-opil7sf4v1ddg0qhcsabe3gn10khu9rt.apps.googleusercontent.com';
+const GOOGLE_CLIENT_ID = '124000673205-328d6k7j6c8vcj935gu0mmlu99jlor4v.apps.googleusercontent.com';
 
 declare global {
   interface Window {
