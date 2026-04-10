@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { supabase } from '../lib/supabase';
+import { useAttribution } from '../hooks/useAttribution';
 
 const STORAGE_KEY = 'irk_unlocked_gmail_claude';
 const GOOGLE_CLIENT_ID = '124000673205-328d6k7j6c8vcj935gu0mmlu99jlor4v.apps.googleusercontent.com';
@@ -32,6 +34,7 @@ export function LeadGate({ children, title, subtitle }: Props) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const googleBtnRef = useRef<HTMLDivElement>(null);
+  const attribution = useAttribution();
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -39,7 +42,6 @@ export function LeadGate({ children, title, subtitle }: Props) {
     setChecked(true);
   }, []);
 
-  // Initialize Google Identity Services once the gate is visible
   useEffect(() => {
     if (unlocked || !checked) return;
 
@@ -61,7 +63,6 @@ export function LeadGate({ children, title, subtitle }: Props) {
       }
     };
 
-    // GSI script may still be loading — poll briefly
     if (window.google) {
       init();
     } else {
@@ -74,7 +75,6 @@ export function LeadGate({ children, title, subtitle }: Props) {
 
   const handleGoogleCredential = (response: { credential: string }) => {
     try {
-      // Decode JWT payload (no sensitive verification needed client-side)
       const payload = JSON.parse(atob(response.credential.split('.')[1]));
       const googleName = payload.given_name || payload.name || '';
       const googleEmail = payload.email || '';
@@ -84,16 +84,16 @@ export function LeadGate({ children, title, subtitle }: Props) {
     }
   };
 
-  const unlock = (n: string, e: string) => {
+  const unlock = async (n: string, e: string) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ name: n, email: e, ts: Date.now() }));
     setUnlocked(true);
 
-    // TODO: forward to your email platform when ready
-    // fetch('https://formspree.io/f/YOUR_ID', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ name: n, email: e, source: 'gmail-claude' }),
-    // });
+    await supabase.from('waitlist').insert({
+      email: e,
+      app_website_source: 'captainai-website',
+      lead_magnet_source: title,
+      promo_code_source: attribution.promo_code_source,
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -108,7 +108,7 @@ export function LeadGate({ children, title, subtitle }: Props) {
     }
     setSubmitting(true);
     setError('');
-    unlock(name.trim(), email.trim());
+    await unlock(name.trim(), email.trim());
     setSubmitting(false);
   };
 
@@ -150,7 +150,7 @@ export function LeadGate({ children, title, subtitle }: Props) {
                   </p>
                 </div>
 
-                {/* Google button — rendered by GSI into this div */}
+                {/* Google Sign-In button rendered by GSI */}
                 <div ref={googleBtnRef} className="w-full mb-4 flex justify-center" />
 
                 <div className="relative flex items-center gap-3 py-1 mb-4">
