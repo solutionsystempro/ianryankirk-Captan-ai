@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { GmailClaudePage } from './pages/GmailClaudePage';
 import { CustomCursor } from './components/CustomCursor';
 
 function ScrollToTop() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="gmail-claude" element={<GmailClaudePage />} />
         </Route>
       </Routes>
     </>
