@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { useAttribution } from '../hooks/useAttribution';
 
-const STORAGE_KEY = 'irk_unlocked_gmail_claude';
+const DEFAULT_STORAGE_KEY = 'irk_unlocked_gmail_claude';
 const GOOGLE_CLIENT_ID = '124000673205-328d6k7j6c8vcj935gu0mmlu99jlor4v.apps.googleusercontent.com';
 
 declare global {
@@ -24,9 +24,10 @@ interface Props {
   children: React.ReactNode;
   title: string;
   subtitle: string;
+  storageKey?: string;
 }
 
-export function LeadGate({ children, title, subtitle }: Props) {
+export function LeadGate({ children, title, subtitle, storageKey = DEFAULT_STORAGE_KEY }: Props) {
   const [unlocked, setUnlocked] = useState(false);
   const [checked, setChecked] = useState(false);
   const [name, setName] = useState('');
@@ -37,7 +38,7 @@ export function LeadGate({ children, title, subtitle }: Props) {
   const attribution = useAttribution();
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(storageKey);
     if (stored) setUnlocked(true);
     setChecked(true);
   }, []);
@@ -85,7 +86,7 @@ export function LeadGate({ children, title, subtitle }: Props) {
   };
 
   const unlock = async (n: string, e: string) => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ name: n, email: e, ts: Date.now() }));
+    localStorage.setItem(storageKey, JSON.stringify({ name: n, email: e, ts: Date.now() }));
     setUnlocked(true);
 
     await supabase.from('waitlist').insert({

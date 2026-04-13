@@ -9,6 +9,8 @@ import { ClarityCoachPage } from './pages/ClarityCoachPage';
 import { CallReflektPage } from './pages/CallReflektPage';
 import { SlapMethodPage } from './pages/SlapMethodPage';
 import { ObjectionCardsPage } from './pages/ObjectionCardsPage';
+import { AIFoundationFieldGuidePage } from './pages/AIFoundationFieldGuidePage';
+import { SevenElevenFourPage } from './pages/SevenElevenFourPage';
 import { CustomCursor } from './components/CustomCursor';
 
 function ScrollToTop() {
@@ -32,6 +34,8 @@ export default function App() {
           <Route path="call-reflekt" element={<CallReflektPage />} />
           <Route path="slap-method" element={<SlapMethodPage />} />
           <Route path="objection-cards" element={<ObjectionCardsPage />} />
+          <Route path="ai-foundation" element={<AIFoundationFieldGuidePage />} />
+          <Route path="7-11-4" element={<SevenElevenFourPage />} />
         </Route>
       </Routes>
     </>
