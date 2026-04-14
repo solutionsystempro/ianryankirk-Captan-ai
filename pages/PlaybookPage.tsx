@@ -139,6 +139,54 @@ export function PlaybookPage() {
           </div>
         </section>
 
+        {/* FREE TOOLS */}
+        <section className="py-24 px-6 border-t border-white/10">
+          <div className="container-wide max-w-4xl">
+            <motion.p {...fade()} className="label-tag text-accent mb-4">More Free Tools</motion.p>
+            <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
+              While You're Here
+            </motion.h2>
+            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-2xl">
+              These tools are free. Use them on your own or bring them into a call and we'll work through them together.
+            </motion.p>
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                {
+                  label: 'Business Clarity Coach',
+                  desc: 'Stuck between ideas and zero traction? This locks in your one clear path forward in one session.',
+                  href: 'https://ultimate-clarity-coach.vercel.app/',
+                  cta: 'Get Clarity →',
+                },
+                {
+                  label: 'Call Reflekt',
+                  desc: 'Paste a sales call transcript. Get back exactly where you lost the frame.',
+                  href: 'https://chatgpt.com/g/g-68bce0888438819185f398e815027b33-call-reflekt-5-0',
+                  cta: 'Analyze a Call →',
+                },
+                {
+                  label: 'SLAP Method',
+                  desc: 'Turn ignored DMs into booked calls. The exact framework Ian uses.',
+                  href: 'https://slap-method-production.up.railway.app/',
+                  cta: 'Try SLAP Method →',
+                },
+              ].map((tool, i) => (
+                <motion.a
+                  key={tool.label}
+                  href={tool.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...fade(i * 0.1)}
+                  className="glass-card-hover p-6 flex flex-col"
+                >
+                  <p className="label-tag text-accent mb-3">{tool.label}</p>
+                  <p className="text-warm-gray font-light text-sm flex-1 mb-5">{tool.desc}</p>
+                  <span className="text-off-white text-sm font-medium">{tool.cta}</span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* FOOTER CTA */}
         <section className="py-24 px-6 border-t border-white/10">
           <div className="container-wide max-w-4xl text-center">
