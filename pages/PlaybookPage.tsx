@@ -164,10 +164,11 @@ export function PlaybookPage() {
                   cta: 'Analyze a Call →',
                 },
                 {
-                  label: 'SLAP Method',
+                  label: 'DM Copywriter',
+                  sublabel: 'SLAP Method',
                   desc: 'Turn ignored DMs into booked calls. The exact framework Ian uses.',
                   href: 'https://slap-method-production.up.railway.app/',
-                  cta: 'Try SLAP Method →',
+                  cta: 'Try It Free →',
                 },
               ].map((tool, i) => (
                 <motion.a
@@ -178,7 +179,12 @@ export function PlaybookPage() {
                   {...fade(i * 0.1)}
                   className="glass-card-hover p-6 flex flex-col"
                 >
-                  <p className="label-tag text-accent mb-3">{tool.label}</p>
+                  <div className="mb-3">
+                    <p className="label-tag text-accent">{tool.label}</p>
+                    {'sublabel' in tool && tool.sublabel && (
+                      <p className="label-tag text-warm-gray/50 mt-0.5">{tool.sublabel}</p>
+                    )}
+                  </div>
                   <p className="text-warm-gray font-light text-sm flex-1 mb-5">{tool.desc}</p>
                   <span className="text-off-white text-sm font-medium">{tool.cta}</span>
                 </motion.a>
