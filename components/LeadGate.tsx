@@ -25,9 +25,10 @@ interface Props {
   title: string;
   subtitle: string;
   storageKey?: string;
+  source?: string;
 }
 
-export function LeadGate({ children, title, subtitle, storageKey = DEFAULT_STORAGE_KEY }: Props) {
+export function LeadGate({ children, title, subtitle, storageKey = DEFAULT_STORAGE_KEY, source }: Props) {
   const [unlocked, setUnlocked] = useState(false);
   const [checked, setChecked] = useState(false);
   const [name, setName] = useState('');
@@ -92,7 +93,7 @@ export function LeadGate({ children, title, subtitle, storageKey = DEFAULT_STORA
     await supabase.from('waitlist').insert({
       email: e,
       app_website_source: 'captainai-website',
-      lead_magnet_source: title,
+      lead_magnet_source: source ?? title,
       promo_code_source: attribution.promo_code_source,
     });
   };

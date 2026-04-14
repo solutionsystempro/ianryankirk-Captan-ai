@@ -1,0 +1,174 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { LeadGate } from '../components/LeadGate';
+
+const vp = { once: true, margin: '-60px' } as const;
+const ease = [0.22, 1, 0.36, 1] as const;
+const fade = (delay = 0) => ({
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: vp,
+  transition: { duration: 0.7, delay, ease },
+});
+
+const STEPS = [
+  {
+    num: '01',
+    title: 'The 3-Post Bank',
+    body: 'Posting daily sounds like a grind until you realize you can batch-create three posts in one sitting and have them ready to fire from a Google Doc.\n\nThe creators who show up every day aren\'t more inspired. They\'re more prepared.\n\nThree posts in your back pocket means you never miss a day because you don\'t know what to write.',
+    quote: 'Consistency beats perfection on Facebook.',
+  },
+  {
+    num: '02',
+    title: 'The Comment Stack Format',
+    body: 'Stop writing essays in the post body. Hook. Numbered promise. Period.\n\nThen drop each step as its own comment right after you post. More total reactions. More dwell time. More algorithmic reach. You create a thread people scroll through instead of scroll past.\n\nThe hook earns the click. The comments deliver the value. That\'s the whole game.',
+    quote: 'The hook earns the click. The comments deliver the value.',
+  },
+  {
+    num: '03',
+    title: 'The 5,000 Friends Rule',
+    body: 'Your Facebook friends list isn\'t a social network. It\'s a warm list you haven\'t activated yet.\n\nQuality matters more than size. Friends from your niche, from events, from communities you\'re already in are worth 10x a random add.\n\nYou don\'t need a massive audience to make real money on Facebook. You need the right 1,000 people paying attention.',
+    quote: 'You don\'t need a massive audience. You need the right 1,000 people paying attention.',
+  },
+  {
+    num: '04',
+    title: 'The Algorithm Shift That Changed Everything',
+    body: 'Facebook quietly rewired how it ranks content. It\'s not about likes anymore. It\'s not about reach.\n\nIt\'s about comment activity. What\'s happening inside the thread.\n\nStructure your content so the value lives in the comments. Every step you add, every follow-up you drop, the algorithm reads it as engagement and pushes your content to more people.',
+    quote: 'Structure beats effort. Every time.',
+  },
+  {
+    num: '05',
+    title: "The Platform Nobody's Fighting Over",
+    body: "Everyone in B2B got the memo that LinkedIn is \"the professional network.\" So they all piled in. Cost per eyeball went up. Noise went up. Results went down.\n\nFacebook users spend 2 hours a day on the platform. LinkedIn? 15 minutes. And the audience skews older, which usually means more money, more buying authority, and decisions that have already been made.",
+    quote: "The best opportunity is always where everyone else stopped looking.",
+  },
+];
+
+export function PlaybookPage() {
+  return (
+    <LeadGate
+      title="Get the Free Playbook"
+      subtitle="Drop your name and email to unlock the full 5-step Facebook playbook — the exact system a 7-figure operator walked Ian through in Cabo."
+      storageKey="irk_unlocked_playbook"
+      source="facebook-playbook"
+    >
+      <div className="bg-background min-h-screen text-off-white">
+
+        {/* HERO */}
+        <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+          {/* Purple-magenta gradient orb */}
+          <div
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-20"
+            style={{ background: 'radial-gradient(ellipse, #7B2FF7 0%, #F107A3 100%)' }}
+          />
+          <div className="container-wide relative z-10 max-w-4xl">
+            <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
+              Free Playbook · Facebook Platform Strategy
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease }}
+              className="font-display text-[clamp(52px,9vw,110px)] leading-[0.86] tracking-tighter mb-8"
+            >
+              The Facebook
+              <br />
+              <span className="text-warm-gray">Playbook</span>
+            </motion.h1>
+            <motion.p {...fade(0.3)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-8">
+              The exact 5-step system a multiple 7-figure operator walked me through in Cabo.
+              He built a 24,000-member group and did $1.1M in a single day from it.
+            </motion.p>
+
+            {/* Social proof bar */}
+            <motion.div {...fade(0.4)} className="glass-card p-5 max-w-xl flex items-start gap-4">
+              <div
+                className="w-10 h-10 rounded-full shrink-0 mt-0.5"
+                style={{ background: 'linear-gradient(135deg, #7B2FF7, #F107A3)' }}
+              />
+              <div>
+                <p className="text-off-white font-medium text-sm leading-snug">
+                  Built a 24,000-member Facebook Group. $1.1M in a single day. Sold the whole thing in a multi-million dollar exit.
+                </p>
+                <p className="text-warm-gray/60 text-xs mt-1 font-light">Here's what he showed me.</p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 5 STEPS */}
+        <section className="pb-32 px-6">
+          <div className="container-wide max-w-4xl space-y-6">
+            {STEPS.map((step, i) => (
+              <motion.div
+                key={step.num}
+                {...fade(i * 0.07)}
+                className="glass-card p-8 md:p-10"
+              >
+                <div className="flex items-start gap-6 mb-6">
+                  <span
+                    className="font-display text-[clamp(56px,8vw,80px)] leading-none tracking-tighter shrink-0"
+                    style={{ color: '#AAFF00', opacity: 0.9 }}
+                  >
+                    {step.num}
+                  </span>
+                  <h2 className="font-display text-2xl md:text-3xl tracking-tight leading-tight pt-3">
+                    {step.title}
+                  </h2>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                  {step.body.split('\n\n').map((para, j) => (
+                    <p key={j} className="text-warm-gray font-light leading-relaxed">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+
+                {/* Power quote */}
+                <div className="border-l-2 border-accent/40 pl-5">
+                  <p
+                    className="font-light italic leading-relaxed text-lg"
+                    style={{ color: '#AAFF00' }}
+                  >
+                    "{step.quote}"
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* FOOTER CTA */}
+        <section className="py-24 px-6 border-t border-white/10">
+          <div className="container-wide max-w-4xl text-center">
+            <motion.p {...fade()} className="label-tag text-accent mb-4">
+              Want help building this?
+            </motion.p>
+            <motion.h2
+              {...fade(0.1)}
+              className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-5"
+            >
+              Let's Build Your
+              <br />
+              <span className="text-warm-gray">Platform Play.</span>
+            </motion.h2>
+            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-xl mx-auto">
+              I work with a small number of operators each month to install systems like this in their business. If you're ready to stop winging it on Facebook, book a clarity call.
+            </motion.p>
+            <motion.a
+              {...fade(0.3)}
+              href="https://www.leadgenjay.com/book-ian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-block"
+            >
+              Book a Clarity Call →
+            </motion.a>
+          </div>
+        </section>
+
+      </div>
+    </LeadGate>
+  );
+}
