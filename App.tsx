@@ -11,6 +11,7 @@ import { SlapMethodPage } from './pages/SlapMethodPage';
 import { ObjectionCardsPage } from './pages/ObjectionCardsPage';
 import { AIFoundationFieldGuidePage } from './pages/AIFoundationFieldGuidePage';
 import { SevenElevenFourPage } from './pages/SevenElevenFourPage';
+import { FiveHundredFiftyEightKPage } from './pages/FiveHundredFiftyEightKPage';
 import { CustomCursor } from './components/CustomCursor';
 
 function ScrollToTop() {
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="objection-cards" element={<ObjectionCardsPage />} />
           <Route path="ai-foundation" element={<AIFoundationFieldGuidePage />} />
           <Route path="7-11-4" element={<SevenElevenFourPage />} />
+          <Route path="558k" element={<FiveHundredFiftyEightKPage />} />
         </Route>
       </Routes>
     </>
