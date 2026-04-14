@@ -110,11 +110,10 @@ export function ProofSection() {
               The 90-Second Video I Almost Didn't Send
             </h3>
             <p className="text-warm-gray font-light leading-relaxed flex-1 text-lg">
-              Sent a simple white-label SaaS walkthrough to a referred business owner.
-              They replied asking about a service I hadn't even led with.{' '}
-              <span className="text-off-white font-medium">That one video turned into $10,000.</span>{' '}
-              Not because the video was perfect — because it gave them a solution to a
-              pain they were already feeling.
+              Sent a white-label SaaS walkthrough to a referred owner.
+              They replied asking about something I hadn't even pitched.{' '}
+              <span className="text-off-white font-medium">That video turned into $10,000.</span>{' '}
+              Not because it was perfect — because it solved a pain they were already carrying.
             </p>
             <p className="label-tag text-accent border-t border-white/10 pt-5 pr-4 italic">
               "Let the marketplace tell you what they need — stop guessing."
@@ -139,11 +138,10 @@ export function ProofSection() {
               $1K MRR From a Database Jay Called Garbage
             </h3>
             <p className="text-warm-gray font-light leading-relaxed flex-1 text-lg">
-              Took a 2023 Instagram scrape Jay told him not to touch. Sorted 10M contacts
-              down to 30K, verified for $50 — 15K deliverable. Applied the framework,
-              wrote 3 emails in his Dyslexic Copywriter style, automated the follow-up.{' '}
+              Took a 2023 Instagram scrape everyone said to ignore.
+              Sorted 10M contacts to 30K. Verified for $50. Wrote 3 emails. Automated the follow-up.{' '}
               <span className="text-off-white font-medium">
-                4,224 emails → 125 replies → 21 opportunities → 6 paying customers.
+                4,224 sent → 125 replies → 21 opps → 6 paying customers.
               </span>
             </p>
             <p className="label-tag text-starlink border-t border-white/10 pt-5 pr-4 italic">

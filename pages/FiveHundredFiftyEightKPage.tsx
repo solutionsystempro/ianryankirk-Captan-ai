@@ -161,11 +161,11 @@ export function FiveHundredFiftyEightKPage() {
             transition={{ duration: 0.9, ease }}
             className="font-display text-[clamp(48px,8vw,100px)] leading-[0.88] tracking-tighter mb-8"
           >
-            I Build Revenue.
+            I Build Revenue
             <br />
-            <span className="text-warm-gray">Then Build the</span>
+            <span className="text-warm-gray">Then I Build</span>
             <br />
-            Systems Around It.
+            the Systems.
           </motion.h1>
 
           <motion.p

@@ -15,8 +15,8 @@ export function HomePage() {
     <>
       <HeroSection />
       <ProblemSection />
-      <EcosystemSection />
       <GrowthOperatorSection />
+      <EcosystemSection />
       <CommunitiesSection />
       <BookSection />
       <ProofSection />

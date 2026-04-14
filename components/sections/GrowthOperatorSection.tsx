@@ -6,7 +6,7 @@ import { WaitlistModal } from '../WaitlistModal';
 const vp = { once: true, margin: '-60px' } as const;
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const CASE_STUDY_URL = 'https://solutionsystempro.github.io/lgj-reports/Ian_Kirk_Value_Case_March2026.html';
+const CASE_STUDY_URL = '/558k';
 
 export function GrowthOperatorSection() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
@@ -67,15 +67,13 @@ export function GrowthOperatorSection() {
             </div>
 
             <div className="flex-shrink-0">
-              <a
-                href={CASE_STUDY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to={CASE_STUDY_URL}
                 className="group inline-flex items-center gap-3 btn-primary px-8 py-4 text-sm font-black tracking-widest whitespace-nowrap"
               >
                 READ THE CASE STUDY
                 <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>
