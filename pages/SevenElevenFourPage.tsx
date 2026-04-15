@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LeadGate } from '../components/LeadGate';
+import { DownloadGate } from '../components/DownloadGate';
 
 const vp = { once: true, margin: '-60px' } as const;
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -180,12 +180,7 @@ function NumberCard({ item, index }: { item: typeof NUMBERS[0]; index: number })
 
 export function SevenElevenFourPage() {
   return (
-    <LeadGate
-      title="Get the Free Framework"
-      subtitle="Enter your name and email to unlock the full 7-11-4 breakdown — free."
-      storageKey="irk_unlocked_7_11_4"
-    >
-      <div className="bg-background min-h-screen text-off-white">
+    <div className="bg-background min-h-screen text-off-white">
 
         {/* HERO */}
         <section className="relative pt-40 pb-24 px-6 overflow-hidden">
@@ -210,6 +205,17 @@ export function SevenElevenFourPage() {
               purchase decisions actually happen — and most coaches are failing at all three numbers.
             </motion.p>
 
+            <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-10">
+              <a href="#the-framework" className="btn-primary">Read the Framework →</a>
+              <DownloadGate
+                storageKey="irk_downloaded_7_11_4"
+                source="7-11-4-rule"
+                downloadUrl="/downloads/7-11-4/7-11-4-framework.html"
+                label="Download the Framework PDF"
+                className="btn-secondary"
+              />
+            </motion.div>
+
             <motion.div {...fade(0.4)} className="glass-card p-6 max-w-xl">
               <p className="label-tag text-accent mb-4">Where This Comes From</p>
               <p className="text-warm-gray font-light text-sm leading-relaxed">
@@ -224,7 +230,7 @@ export function SevenElevenFourPage() {
         </section>
 
         {/* THE THREE NUMBERS */}
-        <section className="pb-24 px-6">
+        <section id="the-framework" className="pb-24 px-6">
           <div className="container-wide max-w-4xl">
             <motion.p {...fade()} className="label-tag text-accent mb-4">The Framework</motion.p>
             <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
@@ -403,18 +409,31 @@ export function SevenElevenFourPage() {
               ))}
             </div>
 
-            <motion.div {...fade(0.3)} className="text-center border-t border-white/10 pt-12">
-              <p className="text-warm-gray font-light mb-6">
-                Want Ian to map your 7-11-4 system personally — and show you exactly which number to fix first?
-              </p>
-              <Link to="/contact" className="btn-primary inline-block">
-                Apply for 1:1 Coaching →
-              </Link>
+            <motion.div {...fade(0.3)} className="border-t border-white/10 pt-12 space-y-10">
+              <div className="text-center">
+                <p className="label-tag text-accent mb-3">Take It With You</p>
+                <p className="text-warm-gray font-light mb-6">
+                  Download the 7-11-4 Framework as a PDF — print it, reference it, share it.
+                </p>
+                <DownloadGate
+                  storageKey="irk_downloaded_7_11_4"
+                  source="7-11-4-rule"
+                  downloadUrl="/downloads/7-11-4/7-11-4-framework.html"
+                  label="Download the 7-11-4 Framework PDF →"
+                />
+              </div>
+              <div className="text-center border-t border-white/5 pt-10">
+                <p className="text-warm-gray font-light mb-6">
+                  Want Ian to map your 7-11-4 system personally — and show you exactly which number to fix first?
+                </p>
+                <Link to="/contact" className="btn-primary inline-block">
+                  Apply for 1:1 Coaching →
+                </Link>
+              </div>
             </motion.div>
           </div>
         </section>
 
       </div>
-    </LeadGate>
   );
 }

@@ -15,6 +15,7 @@ import { FiveHundredFiftyEightKPage } from './pages/FiveHundredFiftyEightKPage';
 import { SevenFigureFunnelPage } from './pages/SevenFigureFunnelPage';
 import { PlaybookPage } from './pages/PlaybookPage';
 import { ColdEmailCopywriterPage } from './pages/ColdEmailCopywriterPage';
+import { PushBackProtocolPage } from './pages/PushBackProtocolPage';
 import { CustomCursor } from './components/CustomCursor';
 
 function ScrollToTop() {
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="7-figure-funnel" element={<SevenFigureFunnelPage />} />
           <Route path="playbook" element={<PlaybookPage />} />
           <Route path="cold-email-copywriter" element={<ColdEmailCopywriterPage />} />
+          <Route path="push-back-protocol" element={<PushBackProtocolPage />} />
         </Route>
       </Routes>
     </>

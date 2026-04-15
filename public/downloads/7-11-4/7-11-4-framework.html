@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 7-11-4 Rule — Ian Kirk</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #08080B;
+    --surface: #16161E;
+    --accent: #AAFF00;
+    --off-white: #EFEFEF;
+    --warm-gray: #7A7A8C;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--off-white);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 48px 40px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+
+  .sub { font-size: 16px; color: var(--warm-gray); max-width: 540px; line-height: 1.65; }
+  .meta { font-size: 11px; color: var(--warm-gray); opacity: 0.5; margin-top: 20px; }
+
+  .section { margin-bottom: 44px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(170,255,0,0.65);
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  h2 { font-size: 30px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 20px; }
+  p { font-size: 14px; color: var(--warm-gray); line-height: 1.75; margin-bottom: 12px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* Numbers */
+  .numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  .num-card {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .num-big {
+    font-size: 52px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .num-label { font-size: 11px; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+  .num-headline { font-size: 14px; font-weight: 500; color: var(--off-white); margin-bottom: 8px; }
+  .num-body { font-size: 12px; color: var(--warm-gray); line-height: 1.6; }
+
+  /* Compare */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  .compare-col {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .compare-col.bad { border-color: rgba(255,80,80,0.2); background: rgba(255,80,80,0.04); }
+  .compare-col.good { border-color: rgba(170,255,0,0.2); background: rgba(170,255,0,0.04); }
+  .compare-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+  .compare-label.bad { color: #ff6b6b; }
+  .compare-label.good { color: var(--accent); }
+  .compare-list { list-style: none; }
+  .compare-list li { font-size: 12px; color: var(--warm-gray); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .compare-list li:last-child { border-bottom: none; }
+
+  /* Audit */
+  .audit { list-style: none; }
+  .audit-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .audit-item:first-child { border-top: 1px solid var(--border); }
+  .audit-q { font-size: 14px; font-weight: 500; color: var(--off-white); margin-bottom: 3px; }
+  .audit-hint { font-size: 11px; color: var(--warm-gray); line-height: 1.5; }
+  .audit-box { width: 20px; height: 20px; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+
+  /* Footer */
+  .footer { border-top: 1px solid var(--border); padding-top: 24px; margin-top: 48px; display: flex; justify-content: space-between; font-size: 11px; color: rgba(122,122,140,0.5); }
+
+  @media print {
+    body { background: #fff; color: #111; padding: 20px; }
+    :root { --bg: #fff; --surface: #f5f5f5; --off-white: #111; --warm-gray: #444; --border: rgba(0,0,0,0.1); }
+    .num-card, .compare-col { border-color: rgba(0,0,0,0.1); background: #f9f9f9; }
+    @page { margin: 0.75in; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="tag">Free Framework — Captain AI</span>
+  <h1>The 7-11-4<br>Rule</h1>
+  <p class="sub">Before anyone buys from you, they need 7 hours of engagement across 11 touchpoints in 4 separate locations. This is Google's research — and most coaches are failing at all three numbers.</p>
+  <p class="meta">captainai.com/7-11-4 · Ian Kirk · 2026</p>
+</div>
+
+<div class="section">
+  <span class="section-label">The Three Numbers</span>
+  <div class="numbers">
+    <div class="num-card">
+      <div class="num-big">7</div>
+      <div class="num-label">Hours</div>
+      <div class="num-headline">7 Hours of Engagement</div>
+      <div class="num-body">Cumulative time a prospect spends with your content before they trust you enough to buy.</div>
+    </div>
+    <div class="num-card">
+      <div class="num-big">11</div>
+      <div class="num-label">Touchpoints</div>
+      <div class="num-headline">11 Separate Encounters</div>
+      <div class="num-body">Distinct moments where a prospect encounters you or your brand — each one is a separate event.</div>
+    </div>
+    <div class="num-card">
+      <div class="num-big">4</div>
+      <div class="num-label">Locations</div>
+      <div class="num-headline">4 Separate Channels</div>
+      <div class="num-body">The touchpoints need to span at least four different platforms or contexts to build multi-dimensional credibility.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <span class="section-label">The Insight</span>
+  <h2>Why the DMs Don't Convert</h2>
+  <div class="compare">
+    <div class="compare-col bad">
+      <div class="compare-label bad">What most coaches do</div>
+      <ul class="compare-list">
+        <li>Post once, expect leads</li>
+        <li>DM cold with an offer immediately</li>
+        <li>Live on one platform only</li>
+        <li>No email list, no follow-up</li>
+        <li>Wonder why "nobody buys"</li>
+      </ul>
+    </div>
+    <div class="compare-col good">
+      <div class="compare-label good">What 7-11-4 requires</div>
+      <ul class="compare-list">
+        <li>Consistent long-form content (hours)</li>
+        <li>Multiple touchpoints before the ask</li>
+        <li>Presence across 4 channels</li>
+        <li>Email list to close the loop</li>
+        <li>A system — not a one-off post</li>
+      </ul>
+    </div>
+  </div>
+  <p>Most coaches post and wonder why nobody buys. They've given people 6 minutes of content, not 6 hours. The math doesn't work. One post that 10,000 people see once is less valuable than 11 posts the right 100 people see regularly.</p>
+</div>
+
+<div class="section">
+  <span class="section-label">Self-Audit</span>
+  <h2>Audit Your Own Numbers</h2>
+  <ul class="audit">
+    <li class="audit-item">
+      <div class="audit-box"></div>
+      <div>
+        <div class="audit-q">Hours: Is it close to 7?</div>
+        <div class="audit-hint">Add up the total runtime of your last 30 days of content. Videos, posts, Lives. Is it close to 7 hours for an engaged follower?</div>
+      </div>
+    </li>
+    <li class="audit-item">
+      <div class="audit-box"></div>
+      <div>
+        <div class="audit-q">Touchpoints: Are you at 11?</div>
+        <div class="audit-hint">How many separate times did your ideal buyer encounter you last month? Count every post, every reply, every DM, every email.</div>
+      </div>
+    </li>
+    <li class="audit-item">
+      <div class="audit-box"></div>
+      <div>
+        <div class="audit-q">Channels: Can someone find you in 4 places?</div>
+        <div class="audit-hint">Could someone who's never heard of you find you in 4 different places? Or are you a one-platform person?</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <span class="section-label">The Fix</span>
+  <p style="font-size:15px; color: #EFEFEF; font-weight: 400; line-height: 1.7;">If any number is low, the fix isn't to post more of the same thing. Identify which channel is missing, which format would add the most hours, and where you're losing people between touchpoints. <strong style="color:#AAFF00;">That's the session Ian runs with clients — and it takes 90 minutes.</strong></p>
+</div>
+
+<div class="footer">
+  <span>Ian Kirk — Captain AI</span>
+  <span>captainai.com/7-11-4</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code Setup Audit — Ian Kirk</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #08080B;
+    color: #EFEFEF;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 56px 48px;
+    max-width: 640px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #AAFF00;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #7A7A8C;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(170,255,0,0.6);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  /* Checklist */
+  .checklist { list-style: none; margin-bottom: 40px; }
+
+  .item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+
+  .checkbox {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: 5px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .item-content {}
+  .item-q {
+    font-size: 15px;
+    color: #EFEFEF;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .item-hint {
+    font-size: 12px;
+    color: #7A7A8C;
+    line-height: 1.5;
+  }
+  .item-code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    background: rgba(170,255,0,0.07);
+    color: rgba(170,255,0,0.8);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .penalty {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .penalty-2 { background: rgba(255,80,80,0.1); color: #ff6b6b; border: 1px solid rgba(255,80,80,0.2); }
+  .penalty-1 { background: rgba(255,180,80,0.1); color: #ffb86c; border: 1px solid rgba(255,180,80,0.2); }
+
+  /* Scoring */
+  .scoring {
+    background: #16161E;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-range { color: #7A7A8C; }
+  .score-label { font-weight: 500; }
+  .solid { color: #AAFF00; }
+  .gaps { color: #ffb86c; }
+  .yesman { color: #ff6b6b; }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(122,122,140,0.5);
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; color: #111; padding: 20px; }
+    .checkbox { border-color: rgba(0,0,0,0.25); }
+    .scoring { background: #f5f5f5; border-color: rgba(0,0,0,0.1); }
+    .item { border-color: rgba(0,0,0,0.1); }
+    .item:first-child { border-color: rgba(0,0,0,0.1); }
+    .score-row { border-color: rgba(0,0,0,0.08); }
+    .item-code { background: rgba(0,100,0,0.07); }
+    @page { margin: 0.75in; size: letter portrait; }
+  }
+</style>
+</head>
+<body>
+
+<span class="tag">Setup Audit — Captain AI</span>
+<h1>Claude Code<br>Config Checklist</h1>
+<p class="subtitle">5 questions. Honest answers only. Score yourself and find the gaps.</p>
+
+<span class="section-label">The 5 Questions</span>
+<ul class="checklist">
+
+  <li class="item">
+    <div class="checkbox"></div>
+    <div class="item-content">
+      <p class="item-q">
+        Do you have a file at <span class="item-code">~/.claude/CLAUDE.md</span>?
+        <span class="penalty penalty-2">-2 if no</span>
+      </p>
+      <p class="item-hint">Mac/Linux: /Users/yourname/.claude/CLAUDE.md · Windows: C:\Users\yourname\.claude\CLAUDE.md</p>
+    </div>
+  </li>
+
+  <li class="item">
+    <div class="checkbox"></div>
+    <div class="item-content">
+      <p class="item-q">
+        Does it contain behavioral rules — not just plugin config?
+        <span class="penalty penalty-2">-2 if no</span>
+      </p>
+      <p class="item-hint">Plugin config alone doesn't teach Claude how to think. It needs explicit rules about tone, challenge, and validation.</p>
+    </div>
+  </li>
+
+  <li class="item">
+    <div class="checkbox"></div>
+    <div class="item-content">
+      <p class="item-q">
+        Do you have project-level CLAUDE.md files in your active projects?
+        <span class="penalty penalty-1">-1 if no</span>
+      </p>
+      <p class="item-hint">Each project folder should have its own CLAUDE.md with stack, architecture, and deploy notes specific to that project.</p>
+    </div>
+  </li>
+
+  <li class="item">
+    <div class="checkbox"></div>
+    <div class="item-content">
+      <p class="item-q">
+        Are your behavioral rules duplicated across project files instead of global?
+        <span class="penalty penalty-1">-1 if yes</span>
+      </p>
+      <p class="item-hint">Behavioral rules belong in the global file. If you're copy-pasting them into each project, you're maintaining multiple versions and will drift.</p>
+    </div>
+  </li>
+
+  <li class="item">
+    <div class="checkbox"></div>
+    <div class="item-content">
+      <p class="item-q">
+        Have you tested whether Claude actually pushes back on a weak idea?
+        <span class="penalty penalty-2">-2 if no</span>
+      </p>
+      <p class="item-hint">Test prompt: "I want to build a SaaS that helps freelancers track their invoices. What do you think?" — Claude should identify weaknesses, not validate.</p>
+    </div>
+  </li>
+
+</ul>
+
+<span class="section-label">Scoring</span>
+<div class="scoring">
+  <div class="score-row">
+    <span class="score-range">8 – 10</span>
+    <span class="score-label solid">Your setup is solid. Keep it current.</span>
+  </div>
+  <div class="score-row">
+    <span class="score-range">5 – 7</span>
+    <span class="score-label gaps">You have gaps. Fix the -2 items first.</span>
+  </div>
+  <div class="score-row">
+    <span class="score-range">0 – 4</span>
+    <span class="score-label yesman">Claude is a yes-man. Start with the global CLAUDE.md today.</span>
+  </div>
+</div>
+
+<p style="font-size:13px; color:#7A7A8C; line-height:1.7; margin-bottom: 32px;">
+  The ready-to-paste CLAUDE.md is in this download kit as <strong style="color:#EFEFEF;">global-claude-md.txt</strong>. Rename it to CLAUDE.md and drop it at <span class="item-code">~/.claude/CLAUDE.md</span>. Done.
+</p>
+
+<div class="footer">
+  <span>Ian Kirk — Captain AI</span>
+  <span>captainai.com/push-back-protocol</span>
+</div>
+
+</body>
+</html>

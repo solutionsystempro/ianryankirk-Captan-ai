@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After - With Push-Back Protocol</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1b26;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    padding: 32px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .terminal {
+    background: #0f0f14;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    width: 680px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  }
+  .terminal-header {
+    background: #16161e;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f57; }
+  .dot-yellow { background: #febc2e; }
+  .dot-green { background: #28c840; }
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+  }
+  .terminal-body { padding: 24px; }
+  .prompt-line {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .prompt-marker {
+    color: #AAFF00;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  .prompt-text {
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .response {
+    margin-top: 16px;
+    border-left: 2px solid rgba(170,255,0,0.15);
+    padding-left: 16px;
+  }
+  .response p {
+    color: #a0a0b0;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .response p:last-child { margin-bottom: 0; }
+  .highlight {
+    color: #AAFF00;
+    font-weight: 500;
+  }
+  .score {
+    display: inline-block;
+    background: rgba(170,255,0,0.08);
+    border: 1px solid rgba(170,255,0,0.2);
+    color: #AAFF00;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .warning {
+    color: #ffb86c;
+  }
+  .label {
+    display: inline-block;
+    background: rgba(170,255,0,0.08);
+    border: 1px solid rgba(170,255,0,0.2);
+    color: #AAFF00;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <div class="terminal-header">
+    <div class="dot dot-red"></div>
+    <div class="dot dot-yellow"></div>
+    <div class="dot dot-green"></div>
+    <div class="terminal-title">claude — ~/Dev/new-project</div>
+  </div>
+  <div class="terminal-body">
+    <div class="label">With Push-Back Protocol</div>
+    <div class="prompt-line">
+      <span class="prompt-marker">you:</span>
+      <span class="prompt-text">I want to build a SaaS that helps freelancers track their invoices and get paid faster. What do you think?</span>
+    </div>
+    <div class="response">
+      <p><span class="highlight">Feasibility: </span><span class="score">5/10</span></p>
+      <p><span class="highlight">Two problems before we go further.</span></p>
+      <p><span class="warning">1. This market is saturated.</span> FreshBooks, Wave, Bonsai, Honeybook, and Invoice Ninja all exist. Wave is free. Bonsai bundles contracts and proposals. You'd be entering a market where the baseline product is free and the premium ones are deeply entrenched. What's your angle that none of them cover?</p>
+      <p><span class="warning">2. Freelancers are the hardest SaaS audience to monetize.</span> They have low willingness to pay, high churn, and most track invoices in spreadsheets or Notion. The ones who want a real tool already have one.</p>
+      <p><span class="highlight">What would need to be true for this to work:</span> You'd need a specific niche (freelance developers? Designers? Contractors?) with a pain point the existing tools don't solve. "Track invoices" isn't that. "Automatically chase late payments via SMS with legal escalation templates" might be.</p>
+      <p><span class="highlight">What you haven't considered:</span> Customer acquisition cost. How do you reach freelancers who don't know they need this? SEO against FreshBooks is a 3-year play minimum.</p>
+      <p>Before scaffolding anything, answer this: have you talked to 10 freelancers who actively hate their current invoicing tool? If not, that's step one.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
