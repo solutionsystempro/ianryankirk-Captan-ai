@@ -170,6 +170,12 @@ export function PlaybookPage() {
                   href: 'https://slap-method-production.up.railway.app/',
                   cta: 'Try It Free →',
                 },
+                {
+                  label: 'Cold Email Copywriter',
+                  desc: 'Write cold emails that get replies. Poke The Bear framework, reply-focused CTAs, no AI fluff.',
+                  href: 'https://cold-email-copywriter-production.up.railway.app',
+                  cta: 'Write Cold Emails →',
+                },
               ].map((tool, i) => (
                 <motion.a
                   key={tool.label}

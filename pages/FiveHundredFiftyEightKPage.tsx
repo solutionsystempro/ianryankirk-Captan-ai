@@ -76,6 +76,12 @@ const TOOLS = [
     href: 'https://objection-card-app.vercel.app/',
     cta: 'Try it free →',
   },
+  {
+    label: 'Cold Email Copywriter',
+    desc: 'Write cold emails that get replies. Poke The Bear framework, reply-focused CTAs, no AI fluff.',
+    href: 'https://cold-email-copywriter-production.up.railway.app',
+    cta: 'Write Cold Emails →',
+  },
 ];
 
 const TESTIMONIALS = [

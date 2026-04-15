@@ -41,6 +41,34 @@ export function CommunitiesSection() {
           </motion.p>
         </div>
 
+        {/* Hump Day Clarity Calls callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={vp}
+          transition={{ duration: 0.6, ease }}
+          className="glass-card p-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6 border-l-4 border-accent/60"
+        >
+          <div>
+            <p className="label-tag text-accent mb-2">Every Wednesday · Free · Live</p>
+            <h3 className="font-display text-2xl tracking-tight mb-1">Hump Day Clarity Calls</h3>
+            <p className="text-warm-gray text-sm font-light leading-relaxed max-w-xl">
+              Open Q&A, real offer feedback, live sales diagnosis — no slides, no pitch. Ian works through your actual situation with the group inside Lead Gen Secrets and Remote Sales Secrets.
+            </p>
+          </div>
+          <div className="flex gap-3 flex-shrink-0 flex-wrap">
+            <a href="https://www.skool.com/lead-gen" target="_blank" rel="noopener noreferrer"
+              className="btn-secondary text-xs px-5 py-3 whitespace-nowrap">
+              Lead Gen Secrets ↗
+            </a>
+            <a href="https://www.skool.com/remote-sales-secrets/about?ref=64378607e4d44ad99d39a6c9c49f3bff"
+              target="_blank" rel="noopener noreferrer"
+              className="btn-secondary text-xs px-5 py-3 whitespace-nowrap">
+              Remote Sales Secrets ↗
+            </a>
+          </div>
+        </motion.div>
+
         <div className="grid md:grid-cols-3 gap-5">
           {COMMUNITIES.map((c, i) => (
             <motion.a

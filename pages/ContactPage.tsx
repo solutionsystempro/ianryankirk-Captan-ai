@@ -113,22 +113,16 @@ export function ContactPage() {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="space-y-4 max-w-md">
                 <div className="bento-card p-6 border-l-2 border-accent/50 space-y-2">
-                  <p className="label-tag text-accent">Free · Group</p>
-                  <h3 className="font-display text-xl">Hump Day Clarity Calls</h3>
+                  <p className="label-tag text-accent">Free · Cold Outreach</p>
+                  <h3 className="font-display text-xl">Cold Email Copywriter</h3>
                   <p className="text-warm-gray text-sm font-light leading-relaxed">
-                    Live every Wednesday inside Lead Gen Secrets and Remote Sales Secrets.
-                    Bring your offer, your DMs, your call struggles — Ian works through it live with the group.
+                    Write cold emails that get replies. Poke The Bear framework, Ian's voice,
+                    reply-focused CTAs — no AI fluff, no "Hey [Name]" openers.
                   </p>
                   <div className="flex gap-3 pt-1 flex-wrap">
-                    <a href="https://www.skool.com/lead-gen" target="_blank" rel="noopener noreferrer"
+                    <a href="https://cold-email-copywriter-production.up.railway.app" target="_blank" rel="noopener noreferrer"
                       className="label-tag text-accent hover:text-off-white transition-colors">
-                      Join Lead Gen Secrets ↗
-                    </a>
-                    <span className="label-tag text-muted">·</span>
-                    <a href="https://www.skool.com/remote-sales-secrets/about?ref=64378607e4d44ad99d39a6c9c49f3bff"
-                      target="_blank" rel="noopener noreferrer"
-                      className="label-tag text-accent hover:text-off-white transition-colors">
-                      Remote Sales Secrets ↗
+                      Try It Free ↗
                     </a>
                   </div>
                 </div>

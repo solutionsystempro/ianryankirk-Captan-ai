@@ -103,6 +103,12 @@ const TOOLS = [
     href: 'https://ultimate-clarity-coach.vercel.app/',
     cta: 'Get Clarity →',
   },
+  {
+    label: 'Cold Email Copywriter',
+    desc: 'Write cold emails that get replies. Poke The Bear framework, Ian\'s voice, reply-focused CTAs.',
+    href: 'https://cold-email-copywriter-production.up.railway.app',
+    cta: 'Write Cold Emails →',
+  },
 ];
 
 function NumberCard({ item, index }: { item: typeof NUMBERS[0]; index: number }) {
