@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { LeadGate } from '../components/LeadGate';
+import { DownloadGate } from '../components/DownloadGate';
+
+const STORAGE_KEY = 'irk_downloaded_gmail_claude';
+const DOWNLOAD_URL = '/downloads/gmail-claude/gmail-claude-guide.html';
+const LEAD_SOURCE = 'gmail-claude';
 
 const vp = { once: true, margin: '-60px' } as const;
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -163,10 +167,6 @@ const TOOLS = [
 
 export function GmailClaudePage() {
   return (
-    <LeadGate
-      title="Get the Free Guide"
-      subtitle="Enter your name and email to unlock the full Gmail + Claude Code setup guide — free, no strings."
-    >
     <div className="bg-background min-h-screen text-off-white">
 
       {/* HERO */}
@@ -192,6 +192,17 @@ export function GmailClaudePage() {
           </motion.p>
 
           {/* prereqs */}
+          <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-8">
+            <a href="#the-guide" className="btn-primary">Read the Guide →</a>
+            <DownloadGate
+              storageKey={STORAGE_KEY}
+              downloadUrl={DOWNLOAD_URL}
+              source={LEAD_SOURCE}
+              label="Download the Guide"
+              className="btn-secondary"
+            />
+          </motion.div>
+
           <motion.div {...fade(0.4)} className="glass-card p-6 max-w-xl">
             <p className="label-tag text-accent mb-4">Before You Start</p>
             <ul className="space-y-2">
@@ -211,7 +222,7 @@ export function GmailClaudePage() {
       </section>
 
       {/* STEPS */}
-      <section className="pb-24 px-6">
+      <section id="the-guide" className="pb-24 px-6">
         <div className="container-wide max-w-4xl space-y-8">
           {STEPS.map((step, i) => (
             <motion.div
@@ -322,14 +333,22 @@ export function GmailClaudePage() {
             <p className="text-warm-gray font-light mb-6">
               Want Ian to build this kind of system around your specific business?
             </p>
-            <Link to="/contact" className="btn-primary inline-block">
-              Apply for 1:1 Coaching →
-            </Link>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link to="/contact" className="btn-primary inline-block">
+                Apply for 1:1 Coaching →
+              </Link>
+              <DownloadGate
+                storageKey={STORAGE_KEY}
+                downloadUrl={DOWNLOAD_URL}
+                source={LEAD_SOURCE}
+                label="Download the Guide"
+                className="btn-secondary"
+              />
+            </div>
           </motion.div>
         </div>
       </section>
 
     </div>
-    </LeadGate>
   );
 }
