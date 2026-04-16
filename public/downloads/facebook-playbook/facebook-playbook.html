@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Facebook Playbook — Ian Kirk</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #08080B;
+    --surface: #16161E;
+    --accent: #AAFF00;
+    --purple: #7B2FF7;
+    --pink: #F107A3;
+    --off-white: #EFEFEF;
+    --warm-gray: #7A7A8C;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--off-white);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 48px 40px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+
+  .sub { font-size: 16px; color: var(--warm-gray); max-width: 540px; line-height: 1.65; margin-bottom: 20px; }
+
+  .proof {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    max-width: 480px;
+    margin-bottom: 20px;
+  }
+  .proof-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7B2FF7, #F107A3);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .proof-text { font-size: 13px; color: var(--off-white); font-weight: 400; line-height: 1.5; }
+  .proof-sub { font-size: 11px; color: rgba(122,122,140,0.6); margin-top: 4px; }
+
+  .meta { font-size: 11px; color: var(--warm-gray); opacity: 0.5; }
+
+  /* Steps */
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 16px;
+    page-break-inside: avoid;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .step-num {
+    font-size: 64px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -3px;
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+
+  .step-title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    padding-top: 14px;
+    line-height: 1.2;
+  }
+
+  .step-body p {
+    font-size: 13px;
+    color: var(--warm-gray);
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .step-body p:last-child { margin-bottom: 0; }
+
+  .step-quote {
+    border-left: 2px solid rgba(170,255,0,0.4);
+    padding-left: 16px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(122,122,140,0.5);
+  }
+
+  @media print {
+    body { background: #fff; color: #111; padding: 20px; }
+    :root { --bg: #fff; --surface: #f5f5f5; --off-white: #111; --warm-gray: #444; --border: rgba(0,0,0,0.1); }
+    .step { border-color: rgba(0,0,0,0.1); background: #f9f9f9; }
+    .proof { border-color: rgba(0,0,0,0.1); background: #f9f9f9; }
+    .step-quote { border-left-color: rgba(0,100,0,0.3); }
+    @page { margin: 0.75in; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="tag">Free Playbook — Captain AI</span>
+  <h1>The Facebook<br>Playbook</h1>
+  <p class="sub">The exact 5-step system a multiple 7-figure operator walked me through in Cabo. He built a 24,000-member group and did $1.1M in a single day from it.</p>
+
+  <div class="proof">
+    <div class="proof-dot"></div>
+    <div>
+      <p class="proof-text">Built a 24,000-member Facebook Group. $1.1M in a single day. Sold the whole thing in a multi-million dollar exit.</p>
+      <p class="proof-sub">Here's what he showed me.</p>
+    </div>
+  </div>
+
+  <p class="meta">captainai.com/playbook · Ian Kirk · 2026</p>
+</div>
+
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">01</span>
+    <h2 class="step-title">The 3-Post Bank</h2>
+  </div>
+  <div class="step-body">
+    <p>Posting daily sounds like a grind until you realize you can batch-create three posts in one sitting and have them ready to fire from a Google Doc.</p>
+    <p>The creators who show up every day aren't more inspired. They're more prepared.</p>
+    <p>Three posts in your back pocket means you never miss a day because you don't know what to write.</p>
+  </div>
+  <div class="step-quote">"Consistency beats perfection on Facebook."</div>
+</div>
+
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">02</span>
+    <h2 class="step-title">The Comment Stack Format</h2>
+  </div>
+  <div class="step-body">
+    <p>Stop writing essays in the post body. Hook. Numbered promise. Period.</p>
+    <p>Then drop each step as its own comment right after you post. More total reactions. More dwell time. More algorithmic reach. You create a thread people scroll through instead of scroll past.</p>
+    <p>The hook earns the click. The comments deliver the value. That's the whole game.</p>
+  </div>
+  <div class="step-quote">"The hook earns the click. The comments deliver the value."</div>
+</div>
+
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">03</span>
+    <h2 class="step-title">The 5,000 Friends Rule</h2>
+  </div>
+  <div class="step-body">
+    <p>Your Facebook friends list isn't a social network. It's a warm list you haven't activated yet.</p>
+    <p>Quality matters more than size. Friends from your niche, from events, from communities you're already in are worth 10x a random add.</p>
+    <p>You don't need a massive audience to make real money on Facebook. You need the right 1,000 people paying attention.</p>
+  </div>
+  <div class="step-quote">"You don't need a massive audience. You need the right 1,000 people paying attention."</div>
+</div>
+
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">04</span>
+    <h2 class="step-title">The Algorithm Shift That Changed Everything</h2>
+  </div>
+  <div class="step-body">
+    <p>Facebook quietly rewired how it ranks content. It's not about likes anymore. It's not about reach.</p>
+    <p>It's about comment activity. What's happening inside the thread.</p>
+    <p>Structure your content so the value lives in the comments. Every step you add, every follow-up you drop, the algorithm reads it as engagement and pushes your content to more people.</p>
+  </div>
+  <div class="step-quote">"Structure beats effort. Every time."</div>
+</div>
+
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">05</span>
+    <h2 class="step-title">The Platform Nobody's Fighting Over</h2>
+  </div>
+  <div class="step-body">
+    <p>Everyone in B2B got the memo that LinkedIn is "the professional network." So they all piled in. Cost per eyeball went up. Noise went up. Results went down.</p>
+    <p>Facebook users spend 2 hours a day on the platform. LinkedIn? 15 minutes. And the audience skews older, which usually means more money, more buying authority, and decisions that have already been made.</p>
+  </div>
+  <div class="step-quote">"The best opportunity is always where everyone else stopped looking."</div>
+</div>
+
+<div class="footer">
+  <span>Ian Kirk — Captain AI</span>
+  <span>captainai.com/playbook</span>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { LeadGate } from '../components/LeadGate';
+import { DownloadGate } from '../components/DownloadGate';
+
+const STORAGE_KEY = 'irk_downloaded_facebook_playbook';
+const DOWNLOAD_URL = '/downloads/facebook-playbook/facebook-playbook.html';
+const LEAD_SOURCE = 'facebook-playbook';
 
 const vp = { once: true, margin: '-60px' } as const;
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -46,12 +50,6 @@ const STEPS = [
 
 export function PlaybookPage() {
   return (
-    <LeadGate
-      title="Get the Free Playbook"
-      subtitle="Drop your name and email to unlock the full 5-step Facebook playbook — the exact system a 7-figure operator walked Ian through in Cabo."
-      storageKey="irk_unlocked_playbook"
-      source="facebook-playbook"
-    >
       <div className="bg-background min-h-screen text-off-white">
 
         {/* HERO */}
@@ -80,6 +78,17 @@ export function PlaybookPage() {
               He built a 24,000-member group and did $1.1M in a single day from it.
             </motion.p>
 
+            <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-8">
+              <a href="#the-playbook" className="btn-primary">Read the Playbook →</a>
+              <DownloadGate
+                storageKey={STORAGE_KEY}
+                downloadUrl={DOWNLOAD_URL}
+                source={LEAD_SOURCE}
+                label="Download the PDF"
+                className="btn-secondary"
+              />
+            </motion.div>
+
             {/* Social proof bar */}
             <motion.div {...fade(0.4)} className="glass-card p-5 max-w-xl flex items-start gap-4">
               <div
@@ -97,7 +106,7 @@ export function PlaybookPage() {
         </section>
 
         {/* 5 STEPS */}
-        <section className="pb-32 px-6">
+        <section id="the-playbook" className="pb-32 px-6">
           <div className="container-wide max-w-4xl space-y-6">
             {STEPS.map((step, i) => (
               <motion.div
@@ -203,32 +212,38 @@ export function PlaybookPage() {
         <section className="py-24 px-6 border-t border-white/10">
           <div className="container-wide max-w-4xl text-center">
             <motion.p {...fade()} className="label-tag text-accent mb-4">
-              Want help building this?
+              Take It With You
             </motion.p>
             <motion.h2
               {...fade(0.1)}
               className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-5"
             >
-              Let's Build Your
+              Download the
               <br />
-              <span className="text-warm-gray">Platform Play.</span>
+              <span className="text-warm-gray">Full Playbook.</span>
             </motion.h2>
-            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-xl mx-auto">
-              I work with a small number of operators each month to install systems like this in their business. If you're ready to stop winging it on Facebook, book a clarity call.
+            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-8 max-w-xl mx-auto">
+              All 5 steps as a printable PDF. Open it in your browser and hit Ctrl+P to save.
             </motion.p>
-            <motion.a
-              {...fade(0.3)}
-              href="https://www.leadgenjay.com/book-ian"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-block"
-            >
-              Book a Clarity Call →
-            </motion.a>
+            <motion.div {...fade(0.3)} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <DownloadGate
+                storageKey={STORAGE_KEY}
+                downloadUrl={DOWNLOAD_URL}
+                source={LEAD_SOURCE}
+                label="Download the Facebook Playbook →"
+              />
+              <a
+                href="https://www.leadgenjay.com/book-ian"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary inline-block"
+              >
+                Book a Clarity Call →
+              </a>
+            </motion.div>
           </div>
         </section>
 
       </div>
-    </LeadGate>
   );
 }
