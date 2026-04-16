@@ -33,6 +33,14 @@ const STAGE_GLOW: Record<string, string> = {
   client:     'rgba(34, 197, 94, 0.12)',    // green
 };
 
+const STAGE_GLOW_SOLID: Record<string, string> = {
+  traffic:    'rgba(99, 102, 241, 0.7)',
+  lead:       'rgba(234, 179, 8, 0.7)',
+  nurture:    'rgba(20, 184, 166, 0.7)',
+  conversion: 'rgba(249, 115, 22, 0.7)',
+  client:     'rgba(34, 197, 94, 0.7)',
+};
+
 const STAGES = [
   { id: 'traffic',    num: '1', label: 'Traffic' },
   { id: 'lead',       num: '2', label: 'Lead' },
@@ -349,10 +357,17 @@ export function SevenFigureFunnelPage() {
                       onClick={() => setActiveStage(s.id)}
                       className="flex flex-col items-center p-4 group"
                     >
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center font-display text-lg mb-2 transition-all duration-300 border-2 ${isActive ? `${sc.bg} ${sc.border} ${sc.accent}` : 'border-white/10 bg-white/5 text-warm-gray'}`}>
+                      <motion.div
+                        className={`w-12 h-12 rounded-full flex items-center justify-center font-display text-lg mb-2 border-2 ${isActive ? `${sc.bg} ${sc.border} ${sc.accent}` : 'border-white/10 bg-white/5 text-warm-gray'}`}
+                        whileHover={{
+                          boxShadow: `0 0 18px 4px ${STAGE_GLOW_SOLID[s.id]}, 0 0 40px 8px ${STAGE_GLOW[s.id]}`,
+                          scale: 1.1,
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
                         {s.num}
-                      </div>
-                      <span className={`text-xs font-semibold uppercase tracking-wider transition-colors ${isActive ? sc.accent : 'text-warm-gray/50'}`}>
+                      </motion.div>
+                      <span className={`text-xs font-semibold uppercase tracking-wider transition-colors ${isActive ? sc.accent : 'text-warm-gray/50 group-hover:text-warm-gray'}`}>
                         {s.label}
                       </span>
                     </button>
