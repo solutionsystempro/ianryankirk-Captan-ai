@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { supabase } from '../lib/supabase';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const fade = (delay = 0) => ({
@@ -109,6 +110,22 @@ const foundationDocSections = [
 
 export function AIFoundationFieldGuidePage() {
   const [openPhase, setOpenPhase] = useState<number | null>(0);
+  const [waitlistEmail, setWaitlistEmail] = useState('');
+  const [waitlistSubmitting, setWaitlistSubmitting] = useState(false);
+  const [waitlistDone, setWaitlistDone] = useState(false);
+
+  const handleWaitlist = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!waitlistEmail.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(waitlistEmail)) return;
+    setWaitlistSubmitting(true);
+    await supabase.from('waitlist').insert({
+      email: waitlistEmail.trim(),
+      app_website_source: 'captainai-website',
+      lead_magnet_source: 'ai-foundation-waitlist',
+    });
+    setWaitlistDone(true);
+    setWaitlistSubmitting(false);
+  };
 
   return (
     <div className="bg-background min-h-screen text-off-white">
@@ -137,7 +154,7 @@ export function AIFoundationFieldGuidePage() {
           </motion.p>
           <motion.div {...fade(0.4)} className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://cal.com/iankirk/ai-foundation"
+              href="https://book.stripe.com/6oUeVe2kI63g8jVfLXew80a"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-block text-center"
@@ -452,7 +469,7 @@ export function AIFoundationFieldGuidePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
-                href="https://cal.com/iankirk/ai-foundation"
+                href="https://book.stripe.com/6oUeVe2kI63g8jVfLXew80a"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary inline-block text-center"
@@ -460,9 +477,32 @@ export function AIFoundationFieldGuidePage() {
                 Book the Session — $97 →
               </a>
             </div>
-            <p className="text-warm-gray text-sm font-light">
+            <p className="text-warm-gray text-sm font-light mb-8">
               30-day money-back guarantee · 10 spots at $97 · Price goes to $297 after
             </p>
+            {waitlistDone ? (
+              <p className="text-accent text-sm font-light">You're on the list.</p>
+            ) : (
+              <form onSubmit={handleWaitlist} className="flex flex-col items-center gap-2">
+                <p className="text-warm-gray/60 text-sm font-light">Not ready to book yet?</p>
+                <div className="flex gap-2 w-full max-w-sm">
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={waitlistEmail}
+                    onChange={(e) => setWaitlistEmail(e.target.value)}
+                    className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-off-white placeholder:text-warm-gray/40 focus:outline-none focus:border-accent/40"
+                  />
+                  <button
+                    type="submit"
+                    disabled={waitlistSubmitting}
+                    className="btn-secondary text-sm px-4 py-2 disabled:opacity-50"
+                  >
+                    Keep me posted
+                  </button>
+                </div>
+              </form>
+            )}
           </motion.div>
         </div>
       </section>

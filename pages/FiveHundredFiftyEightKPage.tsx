@@ -180,7 +180,7 @@ export function FiveHundredFiftyEightKPage() {
             transition={{ duration: 0.7, delay: 0.2, ease }}
             className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-12"
           >
-            25+ years of building, losing, and coming back stronger.
+            25 years of building, losing, and coming back stronger.
             Now applying every lesson.
           </motion.p>
 
