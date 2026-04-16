@@ -60,7 +60,7 @@ export function ProofSection() {
   return (
     <section id="proof" className="section-pad bg-background overflow-hidden relative">
       {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,82,255,0.03),transparent_40%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(123,47,247,0.06),transparent_40%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(170,255,0,0.03),transparent_40%)] pointer-events-none" />
 
       <div className="container-wide relative z-10">

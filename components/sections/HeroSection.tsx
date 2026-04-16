@@ -80,7 +80,7 @@ export function HeroSection() {
         }}
         transition={{ type: 'spring', stiffness: 50, damping: 40 }}
         className="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] rounded-full pointer-events-none z-0 mix-blend-screen"
-        style={{ background: 'radial-gradient(circle, rgba(0,82,255,0.05) 0%, transparent 65%)' }} 
+        style={{ background: 'radial-gradient(circle, rgba(123,47,247,0.12) 0%, rgba(241,7,163,0.06) 60%, transparent 80%)' }}
       />
 
       {/* ── MOBILE: Photo strip ── */}
