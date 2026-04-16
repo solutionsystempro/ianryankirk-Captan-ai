@@ -18,6 +18,7 @@ export function ColdEmailCopywriterPage() {
       ctaText="Try Cold Email Copywriter →"
       ctaHref="https://cold-email-copywriter-production.up.railway.app"
       price="Free to start"
+      waitlistSource="cold-email-copywriter"
     />
   );
 }

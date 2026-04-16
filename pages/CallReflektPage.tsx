@@ -15,7 +15,7 @@ export function CallReflektPage() {
         { text: 'The one sentence that would have changed the outcome' },
       ]}
       ctaText="Analyze a Call →"
-      ctaHref="https://chatgpt.com/g/g-68bce0888438819185f398e815027b33-call-reflekt-5-0"
+      ctaHref="https://call-reflekt-coach-production.up.railway.app/"
       price="Free"
     />
   );

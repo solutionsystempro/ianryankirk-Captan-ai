@@ -31,7 +31,7 @@ export const PRODUCTS: Product[] = [
     priceBadge: 'FREE',
     ctaText: 'Analyze a Call →',
     accent: 'lime',
-    href: 'https://chatgpt.com/g/g-68bce0888438819185f398e815027b33-call-reflekt-5-0',
+    href: 'https://call-reflekt-coach-production.up.railway.app/',
     isExternal: true,
     features: [
       'Buyer archetype diagnosis',

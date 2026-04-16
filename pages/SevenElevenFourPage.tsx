@@ -94,7 +94,7 @@ const TOOLS = [
   {
     label: 'Call Reflekt',
     desc: 'Paste a sales call transcript. Get back exactly where you lost the frame — and how to fix it.',
-    href: 'https://chatgpt.com/g/g-68bce0888438819185f398e815027b33-call-reflekt-5-0',
+    href: 'https://call-reflekt-coach-production.up.railway.app/',
     cta: 'Analyze a Call →',
   },
   {

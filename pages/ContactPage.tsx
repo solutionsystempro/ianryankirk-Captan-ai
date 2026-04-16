@@ -48,7 +48,7 @@ export function ContactPage() {
       promo_code_source:  attribution.promo_code_source,
     });
     if (err) {
-      setError('Something went wrong. Please try again or email ian@captainai.io');
+      setError('Something went wrong. Please try again or email solutionsystempro@gmail.com');
     } else {
       setSubmitted(true);
     }
@@ -112,20 +112,16 @@ export function ContactPage() {
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="space-y-4 max-w-md">
-                <div className="bento-card p-6 border-l-2 border-accent/50 space-y-2">
+                <a href="https://cold-email-copywriter-production.up.railway.app" target="_blank" rel="noopener noreferrer"
+                  className="bento-card p-6 border-l-2 border-accent/50 space-y-2 block hover:border-accent transition-colors duration-200">
                   <p className="label-tag text-accent">Free · Cold Outreach</p>
                   <h3 className="font-display text-xl">Cold Email Copywriter</h3>
                   <p className="text-warm-gray text-sm font-light leading-relaxed">
                     Write cold emails that get replies. Poke The Bear framework, Ian's voice,
                     reply-focused CTAs — no AI fluff, no "Hey [Name]" openers.
                   </p>
-                  <div className="flex gap-3 pt-1 flex-wrap">
-                    <a href="https://cold-email-copywriter-production.up.railway.app" target="_blank" rel="noopener noreferrer"
-                      className="label-tag text-accent hover:text-off-white transition-colors">
-                      Try It Free ↗
-                    </a>
-                  </div>
-                </div>
+                  <p className="label-tag text-accent pt-1">Try It Free ↗</p>
+                </a>
 
                 <div className="bento-card p-6 border-l-2 border-white/15 space-y-2">
                   <p className="label-tag text-muted">Private · Application Required</p>

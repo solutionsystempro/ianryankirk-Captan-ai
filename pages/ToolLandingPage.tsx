@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { supabase } from '../lib/supabase';
+import { useAttribution } from '../hooks/useAttribution';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const fade = (delay = 0) => ({
@@ -20,11 +22,31 @@ interface Props {
   ctaText: string;
   ctaHref: string;
   price: string;
+  /** When provided, renders an inline email capture form with this as lead_magnet_source */
+  waitlistSource?: string;
 }
 
 export function ToolLandingPage({
-  tag, headline, subheadline, description, features, ctaText, ctaHref, price,
+  tag, headline, subheadline, description, features, ctaText, ctaHref, price, waitlistSource,
 }: Props) {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const attribution = useAttribution();
+
+  const handleWaitlist = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    await supabase.from('waitlist').insert({
+      email,
+      app_website_source: 'captainai-website',
+      lead_magnet_source: waitlistSource,
+      promo_code_source: attribution.promo_code_source,
+    });
+    setSubmitted(true);
+    setSending(false);
+  };
+
   return (
     <div className="bg-background min-h-screen text-off-white">
       {/* ambient glow */}
@@ -72,6 +94,34 @@ export function ToolLandingPage({
               <span className="label-tag text-accent">{price}</span>
             </div>
           </motion.div>
+
+          {waitlistSource && (
+            <motion.div {...fade(0.45)} className="mt-10">
+              {!submitted ? (
+                <form onSubmit={handleWaitlist} className="flex gap-3 max-w-md">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Drop your email to stay in the loop"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-off-white text-sm placeholder:text-white/25 focus:outline-none focus:border-accent/70 focus:shadow-[0_0_0_3px_rgba(170,255,0,0.08)] transition-all duration-300"
+                  />
+                  <button type="submit" disabled={sending} className="btn-secondary flex-shrink-0">
+                    {sending ? '...' : 'Notify Me'}
+                  </button>
+                </form>
+              ) : (
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-accent label-tag"
+                >
+                  You're in. I'll keep you posted. ✓
+                </motion.p>
+              )}
+            </motion.div>
+          )}
 
           <motion.div {...fade(0.5)} className="mt-20 pt-12 border-t border-white/10 text-center">
             <p className="text-warm-gray font-light text-sm mb-4">Want the full system built around your business?</p>

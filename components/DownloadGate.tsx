@@ -115,6 +115,7 @@ export function DownloadGate({
     setOpen(false);
 
     await supabase.from('waitlist').insert({
+      name: n || null,
       email: e,
       app_website_source: 'captainai-website',
       lead_magnet_source: source,
@@ -176,7 +177,7 @@ export function DownloadGate({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.97 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="w-full max-w-md"
+              className="w-full max-w-md max-h-[90vh] overflow-y-auto"
             >
               <div className="glass-card p-8 md:p-10">
                 <div className="mb-8">
@@ -189,14 +190,6 @@ export function DownloadGate({
                   <p className="text-warm-gray font-light text-sm leading-relaxed">
                     Drop your email. The download starts immediately. No spam — just the kit.
                   </p>
-                </div>
-
-                <div ref={googleBtnRef} className="w-full mb-4 flex justify-center" />
-
-                <div className="relative flex items-center gap-3 py-1 mb-4">
-                  <div className="flex-1 h-px bg-white/10" />
-                  <span className="label-tag text-warm-gray/40">or</span>
-                  <div className="flex-1 h-px bg-white/10" />
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -235,6 +228,14 @@ export function DownloadGate({
                     {submitting ? 'Sending...' : 'Download Now →'}
                   </button>
                 </form>
+
+                <div className="relative flex items-center gap-3 py-4 mt-4">
+                  <div className="flex-1 h-px bg-white/10" />
+                  <span className="label-tag text-warm-gray/40">or continue with Google</span>
+                  <div className="flex-1 h-px bg-white/10" />
+                </div>
+
+                <div ref={googleBtnRef} className="w-full flex justify-center" />
 
                 <p className="text-warm-gray/40 text-xs font-light text-center mt-5 leading-relaxed">
                   No spam. Unsubscribe anytime. Your info stays with Ian.
