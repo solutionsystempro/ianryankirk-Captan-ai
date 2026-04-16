@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LeadGate } from '../components/LeadGate';
+import { DownloadGate } from '../components/DownloadGate';
+
+const STORAGE_KEY = 'irk_downloaded_7_figure_funnel';
+const DOWNLOAD_URL = '/downloads/7-figure-funnel/7-figure-funnel.html';
+const LEAD_SOURCE = '7-figure-funnel';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const vp = { once: true, margin: '-60px' } as const;
@@ -270,11 +274,6 @@ export function SevenFigureFunnelPage() {
   const c = STAGE_COLORS[activeStage];
 
   return (
-    <LeadGate
-      title="Get the Free Framework"
-      subtitle="Enter your name and email to unlock the complete 7-Figure Community Funnel system — free."
-      storageKey="irk_unlocked_7_figure_funnel"
-    >
       <div className="bg-background min-h-screen text-off-white">
 
         {/* HERO */}
@@ -302,16 +301,31 @@ export function SevenFigureFunnelPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease }}
-              className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mx-auto"
+              className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mx-auto mb-10"
             >
               The exact system that turns strangers into $5K–$10K clients through a Skool community.
               Every step. Every tool. Every path to the close.
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35, ease }}
+              className="flex flex-wrap gap-4 justify-center"
+            >
+              <a href="#the-funnel" className="btn-primary">Explore the Funnel →</a>
+              <DownloadGate
+                storageKey={STORAGE_KEY}
+                downloadUrl={DOWNLOAD_URL}
+                source={LEAD_SOURCE}
+                label="Download the Framework"
+                className="btn-secondary"
+              />
+            </motion.div>
           </div>
         </section>
 
         {/* FLOW OVERVIEW */}
-        <section className="pb-12 px-6">
+        <section id="the-funnel" className="pb-12 px-6">
           <div className="max-w-3xl mx-auto">
             <motion.div {...fade()} className="flex flex-wrap justify-center items-center gap-0">
               {STAGES.map((s, i) => {
@@ -420,9 +434,18 @@ export function SevenFigureFunnelPage() {
               <p className="text-warm-gray font-light text-lg mb-10 max-w-xl mx-auto">
                 Want Ian to deploy this inside your business — done for you?
               </p>
-              <Link to="/contact" className="btn-primary inline-block">
-                Apply to Work with Ian →
-              </Link>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Link to="/contact" className="btn-primary inline-block">
+                  Apply to Work with Ian →
+                </Link>
+                <DownloadGate
+                  storageKey={STORAGE_KEY}
+                  downloadUrl={DOWNLOAD_URL}
+                  source={LEAD_SOURCE}
+                  label="Download the Framework"
+                  className="btn-secondary"
+                />
+              </div>
             </motion.div>
           </div>
         </section>
@@ -434,6 +457,5 @@ export function SevenFigureFunnelPage() {
         </div>
 
       </div>
-    </LeadGate>
   );
 }
