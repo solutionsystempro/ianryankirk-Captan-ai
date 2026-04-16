@@ -210,7 +210,7 @@ export function SevenElevenFourPage() {
               <DownloadGate
                 storageKey="irk_downloaded_7_11_4"
                 source="7-11-4-rule"
-                downloadUrl="/downloads/7-11-4/7-11-4-framework.html"
+                downloadUrl="/downloads/7-11-4/7-11-4-framework.pdf"
                 label="Download the Framework PDF"
                 className="btn-secondary"
               />
@@ -418,7 +418,7 @@ export function SevenElevenFourPage() {
                 <DownloadGate
                   storageKey="irk_downloaded_7_11_4"
                   source="7-11-4-rule"
-                  downloadUrl="/downloads/7-11-4/7-11-4-framework.html"
+                  downloadUrl="/downloads/7-11-4/7-11-4-framework.pdf"
                   label="Download the 7-11-4 Framework PDF →"
                 />
               </div>
