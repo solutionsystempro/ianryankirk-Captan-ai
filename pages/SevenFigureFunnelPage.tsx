@@ -25,6 +25,14 @@ const STAGE_COLORS: Record<string, { accent: string; bg: string; border: string;
   client:     { accent: 'text-green-400',    bg: 'bg-green-500/10',   border: 'border-green-500/30',   tab: 'bg-green-500 border-green-500' },
 };
 
+const STAGE_GLOW: Record<string, string> = {
+  traffic:    'rgba(99, 102, 241, 0.12)',   // indigo
+  lead:       'rgba(234, 179, 8, 0.12)',    // yellow
+  nurture:    'rgba(20, 184, 166, 0.12)',   // teal
+  conversion: 'rgba(249, 115, 22, 0.12)',   // orange
+  client:     'rgba(34, 197, 94, 0.12)',    // green
+};
+
 const STAGES = [
   { id: 'traffic',    num: '1', label: 'Traffic' },
   { id: 'lead',       num: '2', label: 'Lead' },
@@ -278,7 +286,11 @@ export function SevenFigureFunnelPage() {
 
         {/* HERO */}
         <section className="relative pt-40 pb-20 px-6 overflow-hidden text-center">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+          <motion.div
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-[120px] pointer-events-none"
+            animate={{ backgroundColor: STAGE_GLOW[activeStage] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          />
           <div className="container-wide relative z-10 max-w-4xl mx-auto">
             <motion.p
               initial={{ opacity: 0 }}
