@@ -300,7 +300,10 @@ export function PushBackProtocolPage() {
 
       {/* HERO */}
       <section className="relative pt-40 pb-24 px-6 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-20"
+          style={{ background: 'radial-gradient(ellipse, #AAFF00 0%, #00CC44 100%)' }}
+        />
         <div className="container-wide relative z-10 max-w-4xl">
           <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
             FREE RESOURCE
