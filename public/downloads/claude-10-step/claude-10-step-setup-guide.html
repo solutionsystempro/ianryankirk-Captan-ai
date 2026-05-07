@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete Claude Setup · 10-Step Guide by Ian Kirk</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1a1a1a;
+    background: #fafafa;
+    line-height: 1.6;
+    padding: 48px 24px;
+  }
+  .container { max-width: 720px; margin: 0 auto; background: #fff; padding: 48px; border-radius: 8px; box-shadow: 0 2px 16px rgba(0,0,0,0.04); }
+  .header { border-bottom: 2px solid #1a1a1a; padding-bottom: 24px; margin-bottom: 32px; }
+  .badge { display: inline-block; background: #1a1a1a; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+  h1 { font-size: 32px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .subhead { font-size: 16px; color: #555; font-weight: 500; }
+  .author { font-size: 13px; color: #888; margin-top: 12px; }
+  h2 { font-size: 22px; font-weight: 800; margin: 36px 0 12px; letter-spacing: -0.01em; }
+  h3 { font-size: 16px; font-weight: 700; margin-top: 18px; margin-bottom: 6px; }
+  p { font-size: 14.5px; color: #2a2a2a; margin-bottom: 12px; }
+  .lead { font-size: 16px; color: #1a1a1a; font-weight: 500; }
+  .callout { border-left: 3px solid #1a1a1a; padding: 12px 0 12px 16px; margin: 16px 0; font-size: 15px; font-weight: 500; color: #1a1a1a; }
+  ol.steps { list-style: none; counter-reset: step; margin: 16px 0; }
+  ol.steps li { counter-increment: step; padding: 12px 0 12px 48px; position: relative; border-bottom: 1px solid #eee; }
+  ol.steps li:last-child { border-bottom: none; }
+  ol.steps li::before { content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: 12px; font-weight: 800; color: #888; font-size: 13px; }
+  ol.steps .step-title { font-weight: 700; color: #1a1a1a; font-size: 15px; }
+  ol.steps .step-detail { font-size: 13px; color: #666; margin-top: 2px; }
+  ul.list { list-style: none; margin: 12px 0; }
+  ul.list li { padding: 4px 0 4px 18px; position: relative; font-size: 14px; color: #2a2a2a; }
+  ul.list li::before { content: '◆'; position: absolute; left: 0; color: #1a1a1a; font-size: 9px; top: 8px; }
+  .mistake-box { background: #fff5f5; border: 1px solid #ffd5d5; padding: 20px; border-radius: 6px; margin: 16px 0; }
+  .mistake-box ul.list li::before { content: '✗'; color: #c00; font-size: 14px; top: 4px; }
+  .pivot { text-align: center; margin: 24px 0; padding: 12px; font-size: 18px; font-weight: 800; }
+  .pivot .strike { color: #c00; text-decoration: line-through; }
+  .pivot .arrow { margin: 0 12px; color: #888; }
+  .pivot .right { color: #1a1a1a; }
+  .formula { display: grid; gap: 16px; margin: 16px 0; }
+  .block { border: 1px solid #eee; padding: 16px; border-radius: 6px; }
+  .block .time { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 4px; }
+  .block .title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .audit { background: #f5f5f5; padding: 20px; border-radius: 6px; margin: 16px 0; }
+  .audit ol { padding-left: 20px; }
+  .audit li { font-size: 14px; padding: 6px 0; color: #1a1a1a; }
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; font-size: 12px; color: #888; text-align: center; }
+  .footer a { color: #1a1a1a; text-decoration: none; font-weight: 600; }
+  strong { font-weight: 700; color: #1a1a1a; }
+
+  @media print {
+    body { padding: 0; background: #fff; }
+    .container { box-shadow: none; padding: 24px; max-width: 100%; }
+    h2 { page-break-after: avoid; }
+    .mistake-box, .audit, .block { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <div class="badge">Free Setup Guide</div>
+    <h1>The Complete Claude Setup</h1>
+    <p class="subhead">Most people use Claude wrong. Here's the fix in 10 steps.</p>
+    <p class="author">By Ian Ryan Kirk · captainai.com/claude-10-step</p>
+  </header>
+
+  <h2>Why You Should Be Using Claude Daily</h2>
+  <p>Claude isn't a chatbot. It's not a search engine. It's not "another tool to add to your stack."</p>
+  <p>Claude is the operating layer between you and every workflow in your business. The moment you treat it that way, everything changes.</p>
+  <div class="callout">I touch Claude 30+ times a day. Not because I have to. Because every interaction is faster and sharper than doing it alone.</div>
+  <p>The operators winning right now aren't the ones using Claude occasionally. They're using it as their second brain. Your job is to get there fast.</p>
+
+  <h2>The Fast-Path Setup Checklist</h2>
+  <p>Do these in order. Each step takes 5 to 10 minutes. Done in under an hour.</p>
+  <ol class="steps">
+    <li>
+      <div class="step-title">Sign up at claude.ai</div>
+      <div class="step-detail">Free account to get started.</div>
+    </li>
+    <li>
+      <div class="step-title">Upgrade to Pro</div>
+      <div class="step-detail">Start here. Move to Max once you're hitting limits during the workday.</div>
+    </li>
+    <li>
+      <div class="step-title">Install the desktop app (Mac or Windows)</div>
+      <div class="step-detail">Required for Cowork, Code Execution, pinned workflows, and local file access.</div>
+    </li>
+    <li>
+      <div class="step-title">Install the mobile app (iOS or Android)</div>
+      <div class="step-detail">Voice notes, prompts between meetings, drafting on a walk.</div>
+    </li>
+    <li>
+      <div class="step-title">Turn on Memory</div>
+      <div class="step-detail">Settings → Capabilities. So Claude actually remembers you.</div>
+    </li>
+    <li>
+      <div class="step-title">Connect your top 3 tools</div>
+      <div class="step-detail">Calendar, Gmail, Notion is a solid start.</div>
+    </li>
+    <li>
+      <div class="step-title">Enable Code Execution</div>
+      <div class="step-detail">Unlocks Skills.</div>
+    </li>
+    <li>
+      <div class="step-title">Set up 3 to 5 Projects for your most-used workflows</div>
+      <div class="step-detail">Read the next section before you do this. There's a trap most people fall into.</div>
+    </li>
+    <li>
+      <div class="step-title">Tell Claude 5 things to remember about you</div>
+      <div class="step-detail">Your business, niche, brand voice, clients, daily routine.</div>
+    </li>
+    <li>
+      <div class="step-title">Run your first daily planning session</div>
+      <div class="step-detail">Open the planning Project. Start a new chat. Tell Claude what's on your plate.</div>
+    </li>
+  </ol>
+  <div class="callout">Done. You're now ahead of 95% of users.</div>
+
+  <h2>Stop Pinning Chats. Do This Instead.</h2>
+  <p class="lead">This is the biggest mistake people make with Claude.</p>
+  <p>They have a great strategy session. They pin the chat to the top of their sidebar. They keep coming back to it day after day, week after week, talking back into the same long-running thread.</p>
+  <p>Here's what actually happens:</p>
+  <div class="mistake-box">
+    <ul class="list">
+      <li>The context window fills up</li>
+      <li>Claude starts losing track of what was said earlier</li>
+      <li>Responses get slower</li>
+      <li>Then the hallucinations start</li>
+      <li>You ask Claude about something you covered three weeks ago and it makes up an answer that sounds confident and is completely wrong</li>
+    </ul>
+  </div>
+  <p>The chat gets dumber the longer it lives. Pin it and you'll trust it. Trust it and you'll get burned.</p>
+
+  <div class="pivot">
+    <span class="strike">Pin chats</span><span class="arrow">→</span><span class="right">Set up Projects</span>
+  </div>
+
+  <p>A Project in Claude is a workspace with persistent context. You drop in files, set custom instructions once, and every chat inside that Project inherits all of it. The instructions and files stay. The chats are disposable.</p>
+
+  <h3>The pattern that wins</h3>
+  <p><strong>Open Project → New chat → Do the work → Close chat.</strong></p>
+  <p>Tomorrow: open the same Project. Start a new chat. Pick up fresh.</p>
+  <p><strong>Projects are persistent. Chats are disposable.</strong> Lock that pattern in.</p>
+
+  <h3>Set up these Projects to start</h3>
+  <ul class="list">
+    <li>Weekly planning</li>
+    <li>Content creation (Skool posts, emails, social)</li>
+    <li>Client X strategy</li>
+    <li>Offer build</li>
+    <li>Daily journaling</li>
+  </ul>
+  <p>Don't overthink the setup. Name the Project. Drop in any reference files (your offer, your brand voice, your client list). Add a 3 to 5 line custom instruction. Done. You can refine it as you go.</p>
+  <p>I run 8 Projects. They're the backbone of my week.</p>
+
+  <h2>Your Daily Winning Formula</h2>
+  <p>If you don't know where to start, run this for 7 days. By day 8, you won't be able to imagine working without Claude.</p>
+  <div class="formula">
+    <div class="block">
+      <div class="time">Morning · 5-10 mins</div>
+      <div class="title">Plan the Day</div>
+      <ul class="list">
+        <li>Open your daily planning Project. Start a new chat.</li>
+        <li>Tell Claude what's on your plate today</li>
+        <li>Have it pull your calendar, surface priorities, time-block your day</li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="time">Midday · As needed</div>
+      <div class="title">Compound the Wins</div>
+      <ul class="list">
+        <li>Draft anything you'd normally write yourself (emails, posts, scripts)</li>
+        <li>Research before any sales call or strategy session</li>
+        <li>Summarize anything that takes more than 10 minutes to read</li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="time">End of Day · 5 mins</div>
+      <div class="title">Close the Loop</div>
+      <ul class="list">
+        <li>Open your EOD Project. Start a new chat.</li>
+        <li>Tell Claude what got done, what didn't, what you're stuck on</li>
+        <li>Have it surface tomorrow's top 3 priorities</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Common Mistakes to Avoid</h2>
+  <div class="mistake-box">
+    <ul class="list">
+      <li><strong>Pinning chats.</strong> The biggest Claude mistake. Use Projects with a new chat each time.</li>
+      <li><strong>Using only Free.</strong> It's a tease. Get Pro or Max.</li>
+      <li><strong>Using only the web app.</strong> Install desktop and mobile.</li>
+      <li><strong>Re-explaining context in every chat.</strong> Set up Memory. Use Projects.</li>
+      <li><strong>Defaulting to Opus.</strong> Sonnet handles 80% of work and saves your usage.</li>
+      <li><strong>Treating Claude like a chatbot.</strong> It's an operating layer. Build systems with it.</li>
+      <li><strong>Trying to learn everything at once.</strong> Compound weekly. You're not late.</li>
+    </ul>
+  </div>
+
+  <h2>5-Question Setup Audit</h2>
+  <div class="audit">
+    <ol>
+      <li>Are you on Pro or Max (not Free)?</li>
+      <li>Do you have BOTH desktop and mobile apps installed?</li>
+      <li>Is Memory turned on with at least 5 facts about you saved?</li>
+      <li>Do you have at least 3 Projects set up (and you start a new chat each time)?</li>
+      <li>Do you actually run a daily planning chat with Claude?</li>
+    </ol>
+    <p style="margin-top: 12px; font-size: 13px; color: #666;">Five "yes" answers means you're set up. Anything less, go back to the checklist.</p>
+  </div>
+
+  <div class="footer">
+    <p>Ian Ryan Kirk · <a href="https://captainai.com/claude-10-step">captainai.com/claude-10-step</a></p>
+    <p style="margin-top: 4px;">Built for operators who want Claude as their second brain.</p>
+  </div>
+
+</div>
+</body>
+</html>

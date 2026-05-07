@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set Up Claude in 10 Steps | Ian Kirk</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0A0A0F;
+    --surface: #12121A;
+    --surface-hover: #1A1A26;
+    --border: #2A2A3A;
+    --border-strong: #3A3A4A;
+    --text: #E8E8F0;
+    --text-muted: #8888A0;
+    --text-dim: #5A5A6E;
+    --accent: #D4A017;
+    --accent-glow: rgba(212,160,23,0.3);
+    --warning: #EF4444;
+    --warning-glow: rgba(239,68,68,0.2);
+    --success: #22C55E;
+    --success-glow: rgba(34,197,94,0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 100px 24px 80px;
+    background: linear-gradient(180deg, #12121A 0%, #0A0A0F 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(212,160,23,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+  .badge {
+    display: inline-block;
+    background: rgba(212,160,23,0.12);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    border: 1px solid rgba(212,160,23,0.2);
+  }
+  .badge-warning {
+    display: inline-block;
+    background: rgba(239,68,68,0.12);
+    color: var(--warning);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border: 1px solid rgba(239,68,68,0.2);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #FFFFFF 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p.story-anchor {
+    font-size: clamp(20px, 2.4vw, 24px);
+    color: var(--text);
+    font-weight: 600;
+    max-width: 620px;
+    margin: 0 auto 16px;
+    line-height: 1.4;
+  }
+  .hero p.subhead {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary, .btn-secondary {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(212,160,23,0.5); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-secondary:hover { background: var(--surface); border-color: var(--accent); }
+
+  /* SECTIONS */
+  section.content {
+    padding: 80px 24px;
+    border-top: 1px solid var(--border);
+  }
+  section.content h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  section.content h2 .accent { color: var(--accent); }
+  section.content > .container > p {
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  section.content > .container > p.lead {
+    font-size: 19px;
+    color: var(--text);
+  }
+
+  /* WHY DAILY */
+  .use-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    list-style: none;
+  }
+  .use-list li {
+    padding: 8px 0;
+    font-size: 16px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .use-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .callout {
+    border-left: 3px solid var(--accent);
+    padding: 16px 0 16px 20px;
+    margin: 24px 0;
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* CHECKLIST */
+  .checklist {
+    list-style: none;
+    counter-reset: step;
+    margin-top: 32px;
+    display: grid;
+    gap: 12px;
+  }
+  .checklist li {
+    counter-increment: step;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px 20px 72px;
+    position: relative;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .checklist li:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-hover);
+  }
+  .checklist li::before {
+    content: counter(step);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(212,160,23,0.12);
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212,160,23,0.25);
+  }
+  .checklist .step-detail {
+    display: block;
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: 4px;
+  }
+  .checklist-cap {
+    text-align: center;
+    margin-top: 32px;
+    padding: 20px;
+    background: rgba(212,160,23,0.06);
+    border: 1px solid rgba(212,160,23,0.15);
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* MISTAKE SECTION */
+  .mistake-section {
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(239,68,68,0.04) 50%, var(--bg) 100%);
+  }
+  .mistake-section h2 {
+    color: var(--text);
+  }
+  .carnage-list {
+    background: rgba(239,68,68,0.05);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    list-style: none;
+  }
+  .carnage-list li {
+    padding: 6px 0;
+    font-size: 16px;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .carnage-list li::before {
+    content: '✗';
+    color: var(--warning);
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .pivot-callout {
+    text-align: center;
+    margin: 32px 0;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: 800;
+  }
+  .pivot-callout .strike { color: var(--warning); text-decoration: line-through; }
+  .pivot-callout .arrow { margin: 0 12px; color: var(--text-muted); }
+  .pivot-callout .right { color: var(--accent); }
+  .project-flow {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .project-flow .step-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 16px 0 8px;
+  }
+  .project-flow .pill {
+    background: rgba(34,197,94,0.08);
+    border: 1px solid rgba(34,197,94,0.2);
+    color: var(--success);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .project-flow .arrow-sm { color: var(--text-dim); font-weight: 700; }
+  .project-flow p { color: var(--text-muted); font-size: 15px; margin-top: 8px; }
+  .project-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    list-style: none;
+  }
+  .project-list li {
+    padding: 8px 0;
+    font-size: 16px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .project-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    flex-shrink: 0;
+  }
+
+  /* PLAN COMPARISON */
+  .plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .plan-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .plan-card.recommended {
+    border-color: var(--accent);
+    box-shadow: 0 0 30px rgba(212,160,23,0.15);
+  }
+  .plan-card .plan-name {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .plan-card.recommended .plan-name { color: var(--accent); }
+  .plan-card .plan-price {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+  .plan-card .plan-period {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .plan-card .plan-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* APPS GRID */
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .app-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .app-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+  .app-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* DAILY FORMULA */
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .formula-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .formula-card .time-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .formula-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .formula-card ul {
+    list-style: none;
+  }
+  .formula-card li {
+    padding: 6px 0 6px 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+    position: relative;
+    line-height: 1.5;
+  }
+  .formula-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* COMMON MISTAKES */
+  .mistakes-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    list-style: none;
+  }
+  .mistakes-list li {
+    padding: 10px 0 10px 28px;
+    font-size: 15px;
+    color: var(--text);
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .mistakes-list li:last-child { border-bottom: none; }
+  .mistakes-list li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--warning);
+    font-weight: 800;
+  }
+
+  /* QUIZ */
+  .quiz {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
+  }
+  .quiz-questions {
+    display: grid;
+    gap: 12px;
+    margin: 32px 0;
+  }
+  .quiz-question {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: all 0.2s ease;
+  }
+  .quiz-question:hover { border-color: var(--border-strong); }
+  .quiz-question p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  .quiz-options {
+    display: flex;
+    gap: 8px;
+  }
+  .quiz-option {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .quiz-option:hover { background: var(--surface-hover); color: var(--text); }
+  .quiz-option.selected.yes { background: var(--success); border-color: var(--success); color: #000; }
+  .quiz-option.selected.no { background: var(--warning); border-color: var(--warning); color: #fff; }
+  .quiz-result {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 24px;
+    text-align: center;
+    display: none;
+  }
+  .quiz-result.show { display: block; }
+  .quiz-result .score {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .quiz-result h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .quiz-result p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  /* DOWNLOAD CTA */
+  .download-cta {
+    background: linear-gradient(180deg, var(--surface) 0%, rgba(212,160,23,0.08) 100%);
+    text-align: center;
+  }
+  .kit-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px auto;
+    max-width: 520px;
+    list-style: none;
+    text-align: left;
+  }
+  .kit-list li {
+    padding: 8px 0 8px 28px;
+    font-size: 15px;
+    color: var(--text);
+    position: relative;
+  }
+  .kit-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: var(--accent);
+    font-weight: 800;
+  }
+  .download-btn {
+    background: var(--accent);
+    color: #000;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 18px 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 30px var(--accent-glow);
+    transition: all 0.2s ease;
+    margin-top: 16px;
+    font-family: inherit;
+  }
+  .download-btn:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(212,160,23,0.5); }
+  .download-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+
+  /* VIDEO */
+  .video-section {
+    text-align: center;
+  }
+  .video-placeholder {
+    background: var(--surface);
+    border: 1px dashed var(--border-strong);
+    border-radius: 12px;
+    padding: 80px 24px;
+    margin: 32px 0;
+    color: var(--text-muted);
+  }
+  .video-placeholder .play-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.5;
+  }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 60px rgba(0,0,0,0.5);
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+  .modal h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .modal p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .modal-form input {
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  .modal-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .modal-form button {
+    background: var(--accent);
+    color: #000;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+    font-family: inherit;
+  }
+  .modal-form button:hover { opacity: 0.9; }
+  .modal-success {
+    text-align: center;
+    display: none;
+  }
+  .modal-success.show { display: block; }
+  .modal-success .check {
+    font-size: 48px;
+    color: var(--success);
+    margin-bottom: 12px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 60px 24px 60px; }
+    section.content { padding: 60px 24px; }
+    .pivot-callout { font-size: 18px; }
+    .project-flow .step-row { flex-direction: column; align-items: stretch; }
+    .project-flow .arrow-sm { transform: rotate(90deg); text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">Free Setup Guide</span>
+    <h1>Most People Use Claude Wrong. Here's the Fix in 10 Steps.</h1>
+    <p class="story-anchor">I touch Claude 30+ times a day. Most people barely use it.</p>
+    <p class="subhead">60-minute fast-path setup. Plus the mistake that breaks every workflow.</p>
+    <div class="cta-row">
+      <a href="#checklist" class="btn-primary">See the 10 Steps</a>
+      <button onclick="openDownloadGate()" class="btn-secondary">Download the PDF</button>
+    </div>
+  </div>
+</section>
+
+<!-- WHY DAILY -->
+<section class="content">
+  <div class="container">
+    <h2>Why You Should Be Using Claude <span class="accent">Daily</span></h2>
+    <p class="lead">Before tactics, the why.</p>
+    <p>Claude isn't a chatbot. It's not a search engine. It's not "another tool to add to your stack."</p>
+    <p>Claude is the operating layer between you and every workflow in your business. The moment you treat it that way, everything changes.</p>
+    <p>Here's what daily Claude use looks like for me:</p>
+    <ul class="use-list">
+      <li>Morning planning and journaling (5 mins)</li>
+      <li>Drafting content (Skool posts, emails, social, sales pages)</li>
+      <li>Pulling reports from Stripe, Airtable, GHL</li>
+      <li>Coaching call prep</li>
+      <li>Client follow-ups via iMessage and WhatsApp</li>
+      <li>Weekly and monthly reviews</li>
+      <li>Building offers and sales scripts</li>
+      <li>Researching prospects</li>
+      <li>End-of-day recap</li>
+    </ul>
+    <div class="callout">I touch Claude 30+ times a day. Not because I have to. Because every interaction is faster and sharper than doing it alone.</div>
+    <p>The operators winning right now aren't the ones using Claude occasionally. They're using it as their second brain. Your job is to get there fast.</p>
+  </div>
+</section>
+
+<!-- THE 10 STEPS -->
+<section class="content" id="checklist">
+  <div class="container">
+    <h2>The Fast-Path Setup <span class="accent">Checklist</span></h2>
+    <p>Do these in order. Each step takes 5 to 10 minutes.</p>
+    <ol class="checklist">
+      <li>Sign up at claude.ai<span class="step-detail">Free account to get started.</span></li>
+      <li>Upgrade to Pro<span class="step-detail">Start here. Upgrade to Max once you're hitting limits during the workday.</span></li>
+      <li>Install the desktop app (Mac or Windows)<span class="step-detail">Required for Cowork, Code Execution, pinned workflows, and local file access.</span></li>
+      <li>Install the mobile app (iOS or Android)<span class="step-detail">Voice notes, prompts between meetings, drafting on a walk.</span></li>
+      <li>Turn on Memory<span class="step-detail">Settings → Capabilities. So Claude actually remembers you.</span></li>
+      <li>Connect your top 3 tools<span class="step-detail">Calendar, Gmail, Notion is a solid start.</span></li>
+      <li>Enable Code Execution<span class="step-detail">Unlocks Skills.</span></li>
+      <li>Set up 3 to 5 Projects for your most-used workflows<span class="step-detail">Read the next section before you do this. There's a trap most people fall into.</span></li>
+      <li>Tell Claude 5 things to remember about you<span class="step-detail">Your business, niche, brand voice, clients, daily routine.</span></li>
+      <li>Run your first daily planning session<span class="step-detail">Open the planning Project. Start a new chat. Tell Claude what's on your plate.</span></li>
+    </ol>
+    <div class="checklist-cap">Done. You're now ahead of 95% of users.</div>
+  </div>
+</section>
+
+<!-- THE BIG MISTAKE -->
+<section class="content mistake-section">
+  <div class="container">
+    <span class="badge-warning">The Biggest Mistake</span>
+    <h2>Stop Pinning Chats. <span class="accent">Do This Instead.</span></h2>
+    <p class="lead">This is the biggest mistake people make with Claude.</p>
+    <p>They have a great strategy session. They pin the chat to the top of their sidebar. They keep coming back to it day after day, week after week, talking back into the same long-running thread.</p>
+    <p>Here's what actually happens when you do that:</p>
+    <ul class="carnage-list">
+      <li>The context window fills up</li>
+      <li>Claude starts losing track of what was said earlier</li>
+      <li>Responses get slower</li>
+      <li>Then the hallucinations start</li>
+      <li>You ask Claude about something you covered three weeks ago and it makes up an answer that sounds confident and is completely wrong</li>
+    </ul>
+    <p>The chat gets dumber the longer it lives. Pin it and you'll trust it. Trust it and you'll get burned.</p>
+    <div class="pivot-callout">
+      <span class="strike">Pin chats</span><span class="arrow">→</span><span class="right">Set up Projects</span>
+    </div>
+    <p>A Project in Claude is a workspace with persistent context. You drop in files, set custom instructions once, and every chat inside that Project inherits all of it. The instructions and files stay. The chats are disposable.</p>
+    <p>The pattern that wins:</p>
+    <div class="project-flow">
+      <div class="step-row">
+        <span class="pill">Open Project</span>
+        <span class="arrow-sm">→</span>
+        <span class="pill">New chat</span>
+        <span class="arrow-sm">→</span>
+        <span class="pill">Do the work</span>
+        <span class="arrow-sm">→</span>
+        <span class="pill">Close chat</span>
+      </div>
+      <p>Tomorrow: open the same Project. Start a new chat. Pick up fresh.</p>
+    </div>
+    <p><strong>Projects are persistent. Chats are disposable.</strong> Lock that pattern in.</p>
+    <p>Set up 3 to 5 Projects for the workflows you run constantly:</p>
+    <ul class="project-list">
+      <li>Weekly planning</li>
+      <li>Content creation (Skool posts, emails, social)</li>
+      <li>Client X strategy</li>
+      <li>Offer build</li>
+      <li>Daily journaling</li>
+    </ul>
+    <p>Don't overthink the setup. Name the Project. Drop in any reference files you've got (your offer, your brand voice, your client list). Add a 3 to 5 line custom instruction. Done. You can refine it as you go.</p>
+    <p>I run 8 Projects. They're the backbone of my week.</p>
+  </div>
+</section>
+
+<!-- THE RIGHT PLAN -->
+<section class="content">
+  <div class="container">
+    <h2>The Right Plan: <span class="accent">Pro vs Max</span></h2>
+    <p>Free is good for testing. Don't run a business on it.</p>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-period">limited usage</div>
+        <div class="plan-desc">Good for kicking the tires. Don't run a business on it.</div>
+      </div>
+      <div class="plan-card recommended">
+        <div class="plan-name">Pro · Start Here</div>
+        <div class="plan-price">$20</div>
+        <div class="plan-period">$17/mo annual</div>
+        <div class="plan-desc">Claude Code, Cowork, Projects, connectors, Skills. Same models as Max. Just less usage.</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Max 5x</div>
+        <div class="plan-price">$100</div>
+        <div class="plan-period">5x Pro usage</div>
+        <div class="plan-desc">Sweet spot for most operators in this community.</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Max 20x</div>
+        <div class="plan-price">$200</div>
+        <div class="plan-period">20x Pro usage</div>
+        <div class="plan-desc">For when Claude is your daily operating layer. Pays for itself the first week.</div>
+      </div>
+    </div>
+    <p><strong>My honest take.</strong> Start with Pro. Use Claude hard for 2 to 3 weeks. The moment you start hitting usage limits during your workday, upgrade. Don't wait until it's frustrating you.</p>
+    <p>Stop counting messages. Stop rationing prompts. Just work.</p>
+  </div>
+</section>
+
+<!-- BOTH APPS -->
+<section class="content">
+  <div class="container">
+    <h2>Get Both Apps. <span class="accent">Don't Skip This.</span></h2>
+    <div class="apps-grid">
+      <div class="app-card">
+        <h3>Desktop App</h3>
+        <p>Mac or Windows. Your main Claude environment. Required for Cowork, Code Execution, pinned workflows, and local file access. The web version works. The desktop app is dramatically better for daily use.</p>
+      </div>
+      <div class="app-card">
+        <h3>Mobile App</h3>
+        <p>iOS or Android. This is what makes Claude actually feel like a second brain. Voice notes while driving. Quick prompts between meetings. Reviewing drafts on a walk. Sending tasks to Claude from your phone that finish on your desktop.</p>
+      </div>
+    </div>
+    <p>Install both. Sign in. Now Claude follows you everywhere.</p>
+  </div>
+</section>
+
+<!-- DAILY FORMULA -->
+<section class="content">
+  <div class="container">
+    <h2>Your Daily <span class="accent">Winning Formula</span></h2>
+    <p>If you don't know where to start, run this for 7 days.</p>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="time-label">Morning · 5-10 mins</div>
+        <h3>Plan the Day</h3>
+        <ul>
+          <li>Open your daily planning Project. Start a new chat.</li>
+          <li>Tell Claude what's on your plate today</li>
+          <li>Have it pull your calendar, surface priorities, time-block your day</li>
+        </ul>
+      </div>
+      <div class="formula-card">
+        <div class="time-label">Midday · As needed</div>
+        <h3>Compound the Wins</h3>
+        <ul>
+          <li>Draft anything you'd normally write yourself (emails, posts, scripts)</li>
+          <li>Research before any sales call or strategy session</li>
+          <li>Summarize anything that takes more than 10 minutes to read</li>
+        </ul>
+      </div>
+      <div class="formula-card">
+        <div class="time-label">End of Day · 5 mins</div>
+        <h3>Close the Loop</h3>
+        <ul>
+          <li>Open your EOD Project. Start a new chat.</li>
+          <li>Tell Claude what got done, what didn't, what you're stuck on</li>
+          <li>Have it surface tomorrow's top 3 priorities</li>
+        </ul>
+      </div>
+    </div>
+    <p>Run this for 7 days. By day 8, you won't be able to imagine working without Claude.</p>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section class="content">
+  <div class="container">
+    <h2>Common Mistakes <span class="accent">to Avoid</span></h2>
+    <ul class="mistakes-list">
+      <li><strong>Pinning chats.</strong> The biggest Claude mistake. Use Projects with a new chat each time.</li>
+      <li><strong>Using only Free.</strong> It's a tease. Get Pro or Max.</li>
+      <li><strong>Using only the web app.</strong> Install desktop and mobile.</li>
+      <li><strong>Re-explaining context in every chat.</strong> Set up Memory. Use Projects.</li>
+      <li><strong>Defaulting to Opus.</strong> Sonnet handles 80% of work and saves your usage.</li>
+      <li><strong>Treating Claude like a chatbot.</strong> It's an operating layer. Build systems with it.</li>
+      <li><strong>Trying to learn everything at once.</strong> Compound weekly. You're not late.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- DOWNLOAD CTA -->
+<section class="content download-cta" id="download">
+  <div class="container">
+    <h2>Get the Full <span class="accent">Setup Guide</span></h2>
+    <p>Print it. Bookmark it. Walk through it with your team.</p>
+    <ul class="kit-list">
+      <li>The full 10-step setup guide as a printable PDF</li>
+      <li>The "Stop Pinning Chats" breakdown</li>
+      <li>The Daily Winning Formula card (morning, midday, EOD)</li>
+      <li>The 5-question setup audit checklist</li>
+    </ul>
+    <button onclick="openDownloadGate()" class="download-btn">Download the PDF</button>
+    <div class="download-note">No spam. One email. Unsubscribe anytime.</div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="content video-section">
+  <div class="container">
+    <h2>Watch the <span class="accent">Full Tutorial</span></h2>
+    <p>The walkthrough video that breaks down every step.</p>
+    <div class="video-placeholder">
+      <div class="play-icon">▶</div>
+      <div>YouTube embed goes here once video publishes</div>
+    </div>
+    <!-- TO ADD: Replace the placeholder above with the YouTube iframe once Ian's video is live.
+         Format:
+         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0"
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+             allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+         </div>
+    -->
+  </div>
+</section>
+
+<footer class="footer">
+  &copy; 2026 Ian Kirk. <a href="https://claude.com/pricing">Claude Pricing</a> · <a href="https://claude.ai/download">Download Claude</a>
+</footer>
+
+<!-- DOWNLOAD GATE MODAL -->
+<div class="modal-overlay" id="download-gate">
+  <div class="modal">
+    <button class="modal-close" onclick="closeDownloadGate()">&times;</button>
+    <div class="modal-form-wrap" id="modal-form-wrap">
+      <h3>Get the Setup Guide</h3>
+      <p>Drop your email. We'll send the PDF to your inbox and start the download right now.</p>
+      <form class="modal-form" id="lead-form" onsubmit="submitLead(event)">
+        <input type="text" name="name" placeholder="First name" required>
+        <input type="email" name="email" placeholder="Your best email" required>
+        <button type="submit">Send Me the Guide</button>
+      </form>
+    </div>
+    <div class="modal-success" id="modal-success">
+      <div class="check">✓</div>
+      <h3>You're in.</h3>
+      <p>Your download is starting now. Check your inbox for the PDF copy.</p>
+      <button onclick="closeDownloadGate()" class="btn-primary">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // DOWNLOAD GATE
+  const STORAGE_KEY = 'irk_downloaded_claude_10_step';
+
+  function openDownloadGate() {
+    if (localStorage.getItem(STORAGE_KEY)) {
+      triggerDownload();
+      return;
+    }
+    document.getElementById('download-gate').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDownloadGate() {
+    document.getElementById('download-gate').classList.remove('show');
+    document.body.style.overflow = '';
+    document.getElementById('modal-form-wrap').style.display = 'block';
+    document.getElementById('modal-success').classList.remove('show');
+  }
+
+  function submitLead(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const lead = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      app_website_source: 'captainai-website',
+      lead_magnet_source: 'claude-10-step',
+      timestamp: new Date().toISOString()
+    };
+    // TODO (dev): POST to Supabase waitlist table here
+    console.log('Lead captured:', lead);
+    localStorage.setItem(STORAGE_KEY, '1');
+    document.getElementById('modal-form-wrap').style.display = 'none';
+    document.getElementById('modal-success').classList.add('show');
+    setTimeout(triggerDownload, 600);
+  }
+
+  function triggerDownload() {
+    // TODO (dev): replace with actual PDF path
+    const a = document.createElement('a');
+    a.href = '/downloads/claude-10-step/claude-10-step-setup-guide.pdf';
+    a.download = 'Claude-10-Step-Setup-Guide.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  // Close modal on overlay click
+  document.getElementById('download-gate').addEventListener('click', (e) => {
+    if (e.target.id === 'download-gate') closeDownloadGate();
+  });
+</script>
+
+</body>
+</html>

@@ -16,6 +16,7 @@ import { SevenFigureFunnelPage } from './pages/SevenFigureFunnelPage';
 import { PlaybookPage } from './pages/PlaybookPage';
 import { ColdEmailCopywriterPage } from './pages/ColdEmailCopywriterPage';
 import { PushBackProtocolPage } from './pages/PushBackProtocolPage';
+import { ClaudeTenStepPage } from './pages/ClaudeTenStepPage';
 import { PhoneOffPage } from './pages/PhoneOffPage';
 import { CustomCursor } from './components/CustomCursor';
 
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="playbook" element={<PlaybookPage />} />
           <Route path="cold-email-copywriter" element={<ColdEmailCopywriterPage />} />
           <Route path="push-back-protocol" element={<PushBackProtocolPage />} />
+          <Route path="claude-10-step" element={<ClaudeTenStepPage />} />
           <Route path="phone-off" element={<PhoneOffPage />} />
         </Route>
       </Routes>

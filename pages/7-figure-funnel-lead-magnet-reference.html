@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 7-Figure Community Funnel | Ian Kirk</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0A0A0F;
+    --surface: #12121A;
+    --surface-hover: #1A1A26;
+    --border: #2A2A3A;
+    --text: #E8E8F0;
+    --text-muted: #8888A0;
+    --traffic: #6366F1;
+    --traffic-glow: rgba(99,102,241,0.3);
+    --lead: #EAB308;
+    --lead-glow: rgba(234,179,8,0.3);
+    --nurture: #14B8A6;
+    --nurture-glow: rgba(20,184,166,0.3);
+    --conversion: #F97316;
+    --conversion-glow: rgba(249,115,22,0.3);
+    --client: #22C55E;
+    --client-glow: rgba(34,197,94,0.3);
+    --accent: #D4A017;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 80px 24px 60px;
+    background: linear-gradient(180deg, #12121A 0%, #0A0A0F 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(212,160,23,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(212,160,23,0.12);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #FFFFFF 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 40px;
+  }
+
+  /* STAGE NAV */
+  .stage-nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 24px 60px;
+    flex-wrap: wrap;
+  }
+  .stage-tab {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .stage-tab:hover { background: var(--surface-hover); color: var(--text); }
+  .stage-tab.active { color: #fff; }
+  .stage-tab[data-stage="traffic"].active { background: var(--traffic); border-color: var(--traffic); box-shadow: 0 0 20px var(--traffic-glow); }
+  .stage-tab[data-stage="lead"].active { background: var(--lead); border-color: var(--lead); box-shadow: 0 0 20px var(--lead-glow); color: #000; }
+  .stage-tab[data-stage="nurture"].active { background: var(--nurture); border-color: var(--nurture); box-shadow: 0 0 20px var(--nurture-glow); }
+  .stage-tab[data-stage="conversion"].active { background: var(--conversion); border-color: var(--conversion); box-shadow: 0 0 20px var(--conversion-glow); }
+  .stage-tab[data-stage="client"].active { background: var(--client); border-color: var(--client); box-shadow: 0 0 20px var(--client-glow); }
+
+  /* FLOW OVERVIEW */
+  .flow-overview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 0 24px 60px;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    text-align: center;
+    padding: 16px 24px;
+    position: relative;
+  }
+  .flow-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  .flow-step[data-stage="traffic"] .flow-dot { background: var(--traffic); box-shadow: 0 0 20px var(--traffic-glow); }
+  .flow-step[data-stage="lead"] .flow-dot { background: var(--lead); box-shadow: 0 0 20px var(--lead-glow); color: #000; }
+  .flow-step[data-stage="nurture"] .flow-dot { background: var(--nurture); box-shadow: 0 0 20px var(--nurture-glow); }
+  .flow-step[data-stage="conversion"] .flow-dot { background: var(--conversion); box-shadow: 0 0 20px var(--conversion-glow); }
+  .flow-step[data-stage="client"] .flow-dot { background: var(--client); box-shadow: 0 0 20px var(--client-glow); }
+  .flow-step-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .flow-arrow {
+    font-size: 24px;
+    color: var(--border);
+    padding: 0 4px;
+    margin-bottom: 20px;
+  }
+
+  /* CONTENT SECTIONS */
+  .content-area {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  .stage-section {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+  .stage-section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .stage-header {
+    margin-bottom: 40px;
+  }
+  .stage-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .stage-header p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 600px;
+  }
+
+  /* TIER SECTIONS */
+  .tier {
+    margin-bottom: 40px;
+  }
+  .tier-label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+  .tier-label.auto { color: var(--traffic); }
+  .tier-label.immediate { color: #818CF8; }
+  .tier-label.highest { color: #A78BFA; }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    border-color: #444;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+  .card[data-color="traffic"]::before { background: var(--traffic); }
+  .card[data-color="lead"]::before { background: var(--lead); }
+  .card[data-color="nurture"]::before { background: var(--nurture); }
+  .card[data-color="conversion"]::before { background: var(--conversion); }
+  .card[data-color="client"]::before { background: var(--client); }
+
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .card-tool {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.05);
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .card-expandable .card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin-top 0.3s ease;
+    margin-top: 0;
+  }
+  .card-expandable.expanded .card-details {
+    max-height: 400px;
+    margin-top: 16px;
+  }
+  .card-details {
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .card-details li {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+    list-style: none;
+  }
+  .card-details li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .expand-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    opacity: 0.6;
+  }
+
+  /* BIG NODE */
+  .big-node {
+    text-align: center;
+    padding: 60px 40px;
+    border-radius: 16px;
+    border: 2px solid;
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .big-node h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .big-node p {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .big-node.lead-node {
+    border-color: var(--lead);
+    background: linear-gradient(135deg, rgba(234,179,8,0.06) 0%, transparent 60%);
+    box-shadow: 0 0 40px rgba(234,179,8,0.1);
+  }
+  .big-node.client-node {
+    border-color: var(--client);
+    background: linear-gradient(135deg, rgba(34,197,94,0.06) 0%, transparent 60%);
+    box-shadow: 0 0 40px rgba(34,197,94,0.1);
+  }
+  .big-node .price-tag {
+    display: inline-block;
+    background: var(--client);
+    color: #000;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 8px 24px;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
+
+  /* FLOW PATH */
+  .flow-path {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .flow-path h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .flow-path-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .flow-node {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .flow-node.highlight {
+    border-color: var(--accent);
+    background: rgba(212,160,23,0.1);
+    color: var(--accent);
+  }
+  .flow-connector {
+    color: var(--text-muted);
+    font-size: 18px;
+  }
+
+  /* ARROWS */
+  .arrows-section {
+    text-align: center;
+    padding: 24px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .arrows-section .big-arrow {
+    font-size: 32px;
+    display: block;
+    margin: 8px 0;
+    opacity: 0.4;
+  }
+
+  /* TOOLS BAR */
+  .tools-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .tool-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    text-align: center;
+    padding: 80px 24px;
+    background: linear-gradient(180deg, var(--bg) 0%, #12121A 100%);
+  }
+  .cta-section h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  .cta-section p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 40px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(212,160,23,0.3);
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(212,160,23,0.5);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    .flow-overview { flex-direction: column; gap: 0; }
+    .flow-arrow { transform: rotate(90deg); }
+    .card-grid { grid-template-columns: 1fr; }
+    .flow-steps { flex-direction: column; }
+    .flow-connector { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-badge">The Complete System</div>
+  <h1>The 7-Figure Community Funnel</h1>
+  <p>The exact system that turns strangers into $5K-$10K clients through a Skool community. Every step. Every tool. Every path to the close.</p>
+</section>
+
+<div class="flow-overview">
+  <div class="flow-step" data-stage="traffic">
+    <div class="flow-dot">1</div>
+    <div class="flow-step-label">Traffic</div>
+  </div>
+  <div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" data-stage="lead">
+    <div class="flow-dot">2</div>
+    <div class="flow-step-label">Lead</div>
+  </div>
+  <div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" data-stage="nurture">
+    <div class="flow-dot">3</div>
+    <div class="flow-step-label">Nurture</div>
+  </div>
+  <div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" data-stage="conversion">
+    <div class="flow-dot">4</div>
+    <div class="flow-step-label">Conversion</div>
+  </div>
+  <div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" data-stage="client">
+    <div class="flow-dot">5</div>
+    <div class="flow-step-label">Client</div>
+  </div>
+</div>
+
+<nav class="stage-nav">
+  <div class="stage-tab active" data-stage="traffic" onclick="showStage('traffic')">Traffic</div>
+  <div class="stage-tab" data-stage="lead" onclick="showStage('lead')">Lead</div>
+  <div class="stage-tab" data-stage="nurture" onclick="showStage('nurture')">Nurture</div>
+  <div class="stage-tab" data-stage="conversion" onclick="showStage('conversion')">Conversion</div>
+  <div class="stage-tab" data-stage="client" onclick="showStage('client')">Client</div>
+</nav>
+
+<div class="content-area">
+
+  <!-- TRAFFIC -->
+  <div class="stage-section active" id="stage-traffic">
+    <div class="stage-header">
+      <h2>Stage 1: Traffic</h2>
+      <p>Three tiers of traffic sources, organized by effort level and lead quality. All roads lead to your Skool funnel page.</p>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label auto">Automatic Traffic (Set It and Forget It)</div>
+      <div class="card-grid">
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">📢</div>
+          <h3>Paid Ads</h3>
+          <p>Facebook/Meta ads driving directly to your Skool funnel page. Video-first creative, retargeting engaged viewers, lookalike audiences.</p>
+          <span class="card-tool">Meta Ads</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Run video-first ads targeting entrepreneurs and agency owners</li>
+              <li>Retarget engaged viewers with direct Skool link ad</li>
+              <li>Build lookalike audiences from existing Skool members</li>
+              <li>Track CPL and CPC weekly, kill underperformers fast</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">🔍</div>
+          <h3>Skool Discovery</h3>
+          <p>Organic visibility within Skool's built-in search and discovery. Active communities rank higher.</p>
+          <span class="card-tool">Skool</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Optimize community name with searchable keywords</li>
+              <li>Pin a high-value welcome post with a clear CTA</li>
+              <li>Maintain high member activity (Skool rewards engagement)</li>
+              <li>Encourage members to leave reviews</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">📧</div>
+          <h3>After Ad Emails</h3>
+          <p>Email sequences for people who clicked an ad but didn't join. A 5-email drip that brings them back.</p>
+          <span class="card-tool">GoHighLevel</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Triggered when someone clicks ad but doesn't join Skool</li>
+              <li>5-email sequence: value, case study, pain point, urgency, final CTA</li>
+              <li>Every email links back to Skool Funnel Page</li>
+              <li>Add clickers to retargeting pixel list</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label immediate">Immediate Traffic (Daily Hustle)</div>
+      <div class="card-grid">
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">💬</div>
+          <h3>Facebook 2-Step Post</h3>
+          <p>Curiosity-driven posts that end with "Comment [KEYWORD] and I'll send you [resource]." Every comment becomes a DM conversation.</p>
+          <span class="card-tool">Facebook</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Use Eli Wilde 2-Step framework for the post structure</li>
+              <li>End with a keyword CTA that triggers a DM with Skool link</li>
+              <li>Post 3-5x per week minimum</li>
+              <li>Repurpose top performers weekly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">📱</div>
+          <h3>IG Story / Post</h3>
+          <p>Instagram content with a keyword trigger. ManyChat auto-replies with a value message and your Skool link.</p>
+          <span class="card-tool">Instagram + ManyChat</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Post story with keyword trigger ("DM me LEADS")</li>
+              <li>ManyChat auto-replies with value + Skool link</li>
+              <li>Follow up manually if no click within 24hrs</li>
+              <li>Track open rates and click-throughs in ManyChat</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">🎥</div>
+          <h3>YouTube Description</h3>
+          <p>Every video description includes your Skool link in the first 3 lines. Verbal CTA in the video, pinned comment with the link.</p>
+          <span class="card-tool">YouTube</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Skool link in first 3 lines of every description</li>
+              <li>Verbal CTA: "Link in description to join the free community"</li>
+              <li>Pin a comment with the link</li>
+              <li>Repurpose clips as Reels/Shorts with same CTA</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">✉️</div>
+          <h3>Manual DMs</h3>
+          <p>Direct outbound messages to warm prospects. 10-20 per day. Use the ARC framework: Acknowledge, Reframe, Close.</p>
+          <span class="card-tool">All Platforms</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Target warm prospects (engaged, commented, liked your content)</li>
+              <li>ARC framework: Acknowledge, Reframe, Close</li>
+              <li>Send 10-20 per day minimum</li>
+              <li>Never open with "Hey [Name]." Lead with an observation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label highest">Highest Quality Traffic (Relationship-Driven)</div>
+      <div class="card-grid">
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">🏘️</div>
+          <h3>Posts In Other Skool Groups</h3>
+          <p>Cross-post valuable content in 5+ Skool communities weekly. Never pitch directly. Let your profile and value do the selling.</p>
+          <span class="card-tool">Skool</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Find 5+ relevant groups (free AND paid)</li>
+              <li>Post 2-3x per week per group</li>
+              <li>Optimize your Skool profile with a clear CTA and link</li>
+              <li>Engage in comments on other people's posts too</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">🤝</div>
+          <h3>JV Workshops</h3>
+          <p>Joint venture workshops with complementary community owners. Teach for 30-45 min, weave your CTA throughout.</p>
+          <span class="card-tool">Zoom + Skool</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Pitch 2-3 JV partners per month</li>
+              <li>Teach a 30-45 min workshop for their members</li>
+              <li>Embed value + CTA at multiple points in the presentation</li>
+              <li>Follow up with attendees via DM within 24 hours</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card card-expandable" data-color="traffic" onclick="toggleCard(this)">
+          <div class="card-icon">🎙️</div>
+          <h3>Podcasts</h3>
+          <p>Guest appearances on niche podcasts. Share signature stories, CTA to join your free community.</p>
+          <span class="card-tool">Podcast Platforms</span>
+          <div class="expand-hint">Click to expand</div>
+          <div class="card-details">
+            <ul>
+              <li>Pitch 3-5 podcasts per month in your niche</li>
+              <li>Prepare 2-3 signature stories from your Story Bank</li>
+              <li>CTA: "Join my free community at [Skool link]"</li>
+              <li>Repurpose clips as short-form content</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAD -->
+  <div class="stage-section" id="stage-lead">
+    <div class="stage-header">
+      <h2>Stage 2: Lead</h2>
+      <p>Every traffic channel funnels into one place. This is the hub of the entire system.</p>
+    </div>
+
+    <div class="big-node lead-node">
+      <div style="font-size:48px; margin-bottom:16px;">🏠</div>
+      <h3>Skool Funnel Page</h3>
+      <p>Your Skool community landing page. Clear promise, social proof, and an opt-in that qualifies AND triggers automations.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card" data-color="lead">
+        <div class="card-icon">🎯</div>
+        <h3>Clear Promise</h3>
+        <p>Headline that speaks to exactly who it's for and what they'll get. No vague "join my community" language.</p>
+      </div>
+      <div class="card" data-color="lead">
+        <div class="card-icon">⭐</div>
+        <h3>Social Proof</h3>
+        <p>Member count, testimonials, client results. Real numbers, real names, real wins.</p>
+      </div>
+      <div class="card" data-color="lead">
+        <div class="card-icon">📋</div>
+        <h3>Qualifying Opt-In</h3>
+        <p>3 questions that qualify the lead AND feed data into your automations via Zapier.</p>
+      </div>
+      <div class="card" data-color="lead">
+        <div class="card-icon">🎬</div>
+        <h3>Welcome Video</h3>
+        <p>Auto-plays after joining. Orients new members, builds connection, sets expectations.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NURTURE -->
+  <div class="stage-section" id="stage-nurture">
+    <div class="stage-header">
+      <h2>Stage 3: Nurture</h2>
+      <p>Two parallel paths fire automatically after opt-in. One through GHL (texts + emails), one through Skool DMs.</p>
+    </div>
+
+    <div class="flow-path">
+      <h3>Path A: Phone + Email (GoHighLevel)</h3>
+      <div class="flow-path-subtitle">Automated texts and a 7-day email sequence build trust and surface buyers.</div>
+      <div class="flow-steps">
+        <div class="flow-node">Opt-In Questions</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node highlight">Zap (Zapier)</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node">Phone + Email GHL</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node">Automated Texts</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node highlight">Low Ticket Offer</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node">Sales Call</div>
+      </div>
+    </div>
+
+    <div class="flow-path">
+      <h3>Path A (parallel): 7-Day Email Sequence</h3>
+      <div class="flow-path-subtitle">Drip value, build trust, and pitch the low-ticket offer over 7 days.</div>
+      <div class="card-grid" style="margin-top:16px;">
+        <div class="card" data-color="nurture">
+          <h3>Day 1-2</h3>
+          <p>Welcome + your origin story. Then the #1 mistake most entrepreneurs make with lead gen.</p>
+        </div>
+        <div class="card" data-color="nurture">
+          <h3>Day 3-4</h3>
+          <p>Client case study with real results. Then the system explained at a high level.</p>
+        </div>
+        <div class="card" data-color="nurture">
+          <h3>Day 5-7</h3>
+          <p>Soft pitch the low ticket offer. Crush objections. Hard CTA to book a call or buy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-path">
+      <h3>Path B: Skool Automated DM</h3>
+      <div class="flow-path-subtitle">Welcome DM inside Skool that transitions into a real conversation.</div>
+      <div class="flow-steps">
+        <div class="flow-node">Opt-In Questions</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node highlight">Zap (Zapier)</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node">Skool Auto DM</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node">DM Conversation</div>
+        <div class="flow-connector">&rarr;</div>
+        <div class="flow-node highlight">Weekly Call / Low Ticket</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONVERSION -->
+  <div class="stage-section" id="stage-conversion">
+    <div class="stage-header">
+      <h2>Stage 4: Conversion</h2>
+      <p>Multiple paths running simultaneously. Every one leads to a sales call.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card card-expandable" data-color="conversion" onclick="toggleCard(this)">
+        <div class="card-icon">📞</div>
+        <h3>Weekly Community Call</h3>
+        <p>Live weekly group call. 15 min teaching + 30 min hot seat. Follow up with attendees via DM within 2 hours.</p>
+        <div class="expand-hint">Click to expand</div>
+        <div class="card-details">
+          <ul>
+            <li>Same day/time every week (consistency builds trust)</li>
+            <li>End every call with a clear next-step offer</li>
+            <li>Follow up with attendees via DM within 2 hours</li>
+            <li>Record and post replay (becomes conversion content)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card card-expandable" data-color="conversion" onclick="toggleCard(this)">
+        <div class="card-icon">💰</div>
+        <h3>Low Ticket Offer</h3>
+        <p>$47-$297 product that solves ONE problem completely. Buyers get fast-tracked to a sales call.</p>
+        <div class="expand-hint">Click to expand</div>
+        <div class="card-details">
+          <ul>
+            <li>Price point: $47-$297</li>
+            <li>Solves ONE specific problem completely</li>
+            <li>Positions the high-ticket offer as the logical next step</li>
+            <li>Buyers are tagged and fast-tracked to sales call</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card card-expandable" data-color="conversion" onclick="toggleCard(this)">
+        <div class="card-icon">📝</div>
+        <h3>Conversion Content</h3>
+        <p>2-3 posts per week inside the community. Case studies, behind-the-scenes, client spotlights. Each with ONE clear CTA.</p>
+        <div class="expand-hint">Click to expand</div>
+        <div class="card-details">
+          <ul>
+            <li>Case studies and client win spotlights</li>
+            <li>Behind-the-scenes results and process</li>
+            <li>Each post has ONE CTA (DM me, grab offer, book call)</li>
+            <li>Drives: purchases, DMs, call bookings, and webinar signups</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card card-expandable" data-color="conversion" onclick="toggleCard(this)">
+        <div class="card-icon">🎓</div>
+        <h3>Webinar</h3>
+        <p>Monthly or bi-weekly. 45 min teaching, 15 min pitch. Follow-up sequence for attendees AND no-shows.</p>
+        <div class="expand-hint">Click to expand</div>
+        <div class="card-details">
+          <ul>
+            <li>Registration via GHL landing page</li>
+            <li>Follow-up sequence for both attendees and no-shows</li>
+            <li>Replay posted in community (loops back to conversion content)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card card-expandable" data-color="conversion" onclick="toggleCard(this)">
+        <div class="card-icon">📚</div>
+        <h3>Course Upsell Path</h3>
+        <p>Free course content in Skool classroom. Low ticket upsell embedded in Module 3-4. Buyers get invited to sales call.</p>
+        <div class="expand-hint">Click to expand</div>
+        <div class="card-details">
+          <ul>
+            <li>Free content builds trust and demonstrates expertise</li>
+            <li>Upsell embedded naturally in the course flow</li>
+            <li>After purchase: automated DM checking on progress</li>
+            <li>Day 3-5: invite to a "strategy session"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" data-color="conversion">
+        <div class="card-icon">🗣️</div>
+        <h3>DM Conversations</h3>
+        <p>Every conversion mechanism feeds into DM conversations that qualify and book sales calls. ARC framework. Founder-to-founder energy.</p>
+      </div>
+    </div>
+
+    <div class="arrows-section">
+      <span>All paths lead to one place</span>
+      <span class="big-arrow">&#8595;</span>
+      <strong style="font-size:18px;">Sales Call</strong>
+    </div>
+  </div>
+
+  <!-- CLIENT -->
+  <div class="stage-section" id="stage-client">
+    <div class="stage-header">
+      <h2>Stage 5: Client</h2>
+      <p>Every sales call is designed to close a high-ticket deal. This is the outcome the entire system is built for.</p>
+    </div>
+
+    <div class="big-node client-node">
+      <div style="font-size:56px; margin-bottom:16px;">&#11088;</div>
+      <h3>New High-Ticket Client</h3>
+      <p>Closed through a sales call. Onboarded into the paid community. Generating results, testimonials, and referrals.</p>
+      <div class="price-tag">$5,000 - $10,000</div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card" data-color="client">
+        <div class="card-icon">🚀</div>
+        <h3>Onboarding</h3>
+        <p>GHL automation triggers welcome sequence. Personal DM from you. Orientation call within 48 hours.</p>
+      </div>
+      <div class="card" data-color="client">
+        <div class="card-icon">⭐</div>
+        <h3>Testimonial (Day 30)</h3>
+        <p>Ask for a testimonial at the 30-day mark. This feeds directly back into your Conversion Content.</p>
+      </div>
+      <div class="card" data-color="client">
+        <div class="card-icon">🔄</div>
+        <h3>Referral (Day 60)</h3>
+        <p>Ask for a referral at 60 days. Warm referrals feed back into your Highest Quality Traffic tier.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tools-bar">
+  <div class="tool-chip">Skool</div>
+  <div class="tool-chip">GoHighLevel</div>
+  <div class="tool-chip">Zapier</div>
+  <div class="tool-chip">ManyChat</div>
+  <div class="tool-chip">Meta Ads</div>
+  <div class="tool-chip">YouTube</div>
+</div>
+
+<section class="cta-section">
+  <h2>Ready to Build Your 7-Figure Funnel?</h2>
+  <p>Join the free community and get access to the full system, templates, and live weekly calls.</p>
+  <a href="#" class="cta-button">Join the Free Community</a>
+</section>
+
+<footer class="footer">
+  &copy; 2026 Ian Kirk. All rights reserved.
+</footer>
+
+<script>
+  function showStage(stage) {
+    document.querySelectorAll('.stage-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.stage-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('stage-' + stage).classList.add('active');
+    document.querySelector('.stage-tab[data-stage="' + stage + '"]').classList.add('active');
+  }
+
+  function toggleCard(card) {
+    if (card.classList.contains('card-expandable')) {
+      card.classList.toggle('expanded');
+    }
+  }
+</script>
+
+</body>
+</html>
