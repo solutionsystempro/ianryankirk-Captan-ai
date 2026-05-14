@@ -98,14 +98,6 @@ export function Layout() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="https://slap-method-production.up.railway.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-sm font-semibold uppercase tracking-widest text-warm-gray hover:text-starlink transition-colors duration-200"
-            >
-              SLAP Method ↗
-            </a>
             <Link
               to="/contact"
               className="btn-primary"

@@ -95,14 +95,14 @@ export function HeroSection() {
       </div>
 
       {/* ── LEFT: Content ── */}
-      <div className="relative z-10 flex flex-col justify-center w-full lg:w-[58%] px-6 md:px-12 xl:px-20 pt-[52vw] sm:pt-[45vw] lg:pt-32 pb-16">
+      <div className="relative z-10 flex flex-col justify-center w-full lg:w-[58%] px-6 md:px-12 xl:px-20 pt-[44vw] sm:pt-[36vw] lg:pt-20 pb-10">
 
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1, duration: 0.6, ease }}
-          className="mb-8"
+          className="mb-4"
         >
           <span className="pill-tag pill-tag-lime shadow-[0_0_20px_rgba(170,255,0,0.15)]">
             <span className="live-dot" />
@@ -111,10 +111,10 @@ export function HeroSection() {
         </motion.div>
 
         {/* Headline with Staggered Word Reveal */}
-        <h1 className="font-display text-[clamp(52px,7.5vw,120px)] leading-[0.85] text-off-white mb-6">
+        <h1 className="font-display text-[clamp(32px,4vw,60px)] leading-[0.95] text-off-white mb-4">
           <StaggeredText text="Raised by" /><br />
           <StaggeredText text="Two Teachers." /><br />
-          <span className="gradient-text"><StaggeredText text="Still Don't" /></span><br />
+          <span className="gradient-text"><StaggeredText text="Still Don't" /></span>{' '}
           <span className="gradient-text"><StaggeredText text="Know Sh*t." /></span>
         </h1>
 
@@ -123,9 +123,9 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, duration: 0.8, ease }}
-          className="text-base md:text-xl text-warm-gray font-light leading-relaxed max-w-2xl mb-12"
+          className="text-sm md:text-base text-warm-gray font-light leading-snug max-w-2xl mb-6"
         >
-          Generated $10,000 from one white-label video I almost didn't send. 1M+ views on TikTok from a video I almost didn't publish. I've spent 28 years learning these lessons the hard way.{' '}
+          Generated $10,000 from one white-label video I almost didn't send. 1M+ views on TikTok from a video I almost didn't publish. 28 years learning these lessons the hard way.{' '}
           <span className="text-off-white font-medium drop-shadow-md">If you're part of my tribe, you don't have to.</span>
         </motion.p>
 
@@ -134,7 +134,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6, ease }}
-          className="flex flex-col sm:flex-row gap-4 mb-16"
+          className="flex flex-col sm:flex-row gap-3 mb-6"
         >
           <a
             href="https://slap-method-production.up.railway.app/"
@@ -144,10 +144,10 @@ export function HeroSection() {
           >
             {/* Button Shine effect */}
             <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
-            <span className="relative z-10">Get SLAP Method Free →</span>
+            <span className="relative z-10">Get the DM Framework →</span>
           </a>
           <a href="/#proof" className="btn-secondary text-center">
-            See What's Possible
+            What's Possible
           </a>
         </motion.div>
 
@@ -160,14 +160,14 @@ export function HeroSection() {
               transition: { staggerChildren: 0.1, delayChildren: 1.0 }
             }
           }}
-          className="grid grid-cols-3 gap-4 max-w-lg"
+          className="grid grid-cols-3 gap-3 max-w-md"
         >
           {[
             { value: '$10K', label: 'One Video', top: 'border-t-accent', delay: 0 },
             { value: '1M+', label: 'Views', top: 'border-t-accent', delay: 0.2 },
             { value: '28 YRS', label: 'Hard Way', top: 'border-t-accent', delay: 0.4 },
           ].map((s) => (
-            <motion.div 
+            <motion.div
               key={s.label}
               variants={{
                 hidden: { opacity: 0, y: 20 },
@@ -175,10 +175,10 @@ export function HeroSection() {
               }}
               animate={{ y: [0, -6, 0] }}
               transition={{ repeat: Infinity, duration: 4 + s.delay * 2, ease: "easeInOut", delay: s.delay }}
-              className={`glass-card-hover border-t-2 ${s.top} p-5 text-center bg-white/[0.02] backdrop-blur-md`}
+              className={`glass-card-hover border-t-2 ${s.top} p-3 text-center bg-white/[0.02] backdrop-blur-md`}
             >
-              <div className="font-display text-2xl md:text-3xl text-off-white mb-1 drop-shadow-lg">{s.value}</div>
-              <div className="label-tag mt-1 opacity-80">{s.label}</div>
+              <div className="font-display text-xl md:text-2xl text-off-white drop-shadow-lg">{s.value}</div>
+              <div className="label-tag mt-0.5 opacity-80 text-[10px]">{s.label}</div>
             </motion.div>
           ))}
         </motion.div>
