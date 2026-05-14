@@ -66,7 +66,7 @@ export function Layout() {
             <span className="w-9 h-9 text-background flex items-center justify-center font-display text-xl rotate-6 group-hover:rotate-0 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #AAFF00 0%, #00C853 100%)' }}>
               C
             </span>
-            <span className="font-display text-2xl tracking-tighter text-off-white hidden sm:inline">
+            <span className="font-brand font-black text-3xl tracking-wide text-off-white hidden sm:inline">
               CAPTAIN AI
             </span>
           </Link>
@@ -231,7 +231,7 @@ export function Layout() {
                 <span className="w-10 h-10 text-background flex items-center justify-center font-display text-2xl" style={{ background: 'linear-gradient(135deg, #AAFF00 0%, #00C853 100%)' }}>
                   C
                 </span>
-                <span className="font-display text-3xl tracking-tighter text-off-white">CAPTAIN AI</span>
+                <span className="font-brand font-black text-4xl tracking-wide text-off-white">CAPTAIN AI</span>
               </Link>
               <p className="text-warm-gray text-sm leading-relaxed max-w-sm font-light">
                 20 years of field-tested sales patterns, now encoded in AI. Built for founders

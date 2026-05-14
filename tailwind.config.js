@@ -26,8 +26,9 @@ export default {
       fontFamily: {
         sans: ['"Inter"', 'sans-serif'],
         display: ['"Inter"', 'sans-serif'],
+        brand: ['"Big Shoulders Display"', 'sans-serif'],
         serif: ['"DM Serif Display"', 'Georgia', 'serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
