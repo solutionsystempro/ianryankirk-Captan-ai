@@ -6,7 +6,7 @@ const vp = { once: true, margin: '-60px' } as const;
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const YES_LIST = [
-  "You're already selling — you just want to close more",
+  "You're already selling. You just want to close more",
   "You'd rather have a system than a hustle",
   "You're coachable and willing to look at your blind spots",
   "You want tools that work before you get on the call",
@@ -26,7 +26,7 @@ export function FilterSection() {
     <section id="filter" className="section-pad bg-background-alt border-t border-white/10">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -48,7 +48,7 @@ export function FilterSection() {
           </motion.h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 max-w-4xl mx-auto mb-16">
+        <div className="grid md:grid-cols-2 gap-4 lg:gap-8 max-w-4xl mx-auto mb-10">
           {/* YES column */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -115,8 +115,8 @@ export function FilterSection() {
           <p className="text-warm-gray font-light mb-2">
             Still here? You're the right person.
           </p>
-          <p className="font-serif italic text-accent text-lg md:text-xl leading-relaxed mb-6">
-            "We can make excuses or we can make money — but you can NEVER make both." — Ian
+          <p className="italic text-accent text-lg md:text-xl font-light leading-relaxed mb-6">
+            "We can make excuses or we can make money. But you can NEVER make both." / Ian
           </p>
           <Link to="/contact" className="btn-primary inline-block">
             Work With Me →

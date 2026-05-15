@@ -12,7 +12,7 @@ export function BookSection() {
   return (
     <section id="book" className="section-pad bg-background-alt border-y border-white/10 overflow-hidden">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Book mockup */}
           <motion.div
@@ -98,12 +98,12 @@ export function BookSection() {
 
             <blockquote className="border-l-2 border-accent pl-5 text-off-white text-lg md:text-xl font-light italic leading-relaxed">
               "Before the AI. Before the funnels. Before the decade of freedom.
-              This is the story of how it all started — and why I almost never made it back."
+              This is the story of how it all started, and why I almost never made it back."
             </blockquote>
 
             <p className="text-warm-gray leading-relaxed font-light">
               The book behind the system. A raw account of building, losing, disappearing,
-              and rebuilding — and the two people who made all of it make sense.
+              and rebuilding, and the two people who made all of it make sense.
             </p>
 
             {/* Audio player */}
@@ -125,7 +125,7 @@ export function BookSection() {
       <WaitlistModal
         isOpen={waitlistOpen}
         onClose={() => setWaitlistOpen(false)}
-        title="Raised by Two Teachers — The Book"
+        title="Raised by Two Teachers: The Book"
       />
     </section>
   );

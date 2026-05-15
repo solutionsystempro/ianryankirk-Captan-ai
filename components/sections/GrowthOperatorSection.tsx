@@ -12,7 +12,7 @@ export function GrowthOperatorSection() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
-    <section id="proof" className="section-pad bg-background relative overflow-hidden">
+    <section id="paths" className="section-pad bg-background relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -36,7 +36,7 @@ export function GrowthOperatorSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={vp}
           transition={{ duration: 0.7, delay: 0.05, ease }}
-          className="text-[clamp(32px,4vw,56px)] font-black leading-[1.05] tracking-tight text-off-white mb-6"
+          className="text-[clamp(32px,4vw,56px)] font-black leading-[1.05] tracking-tighter text-off-white mb-6"
         >
           See What's Possible
         </motion.h2>
@@ -62,7 +62,7 @@ export function GrowthOperatorSection() {
                 How One Client Used the Growth Operator System to Double Their Revenue
               </h3>
               <p className="text-warm-gray text-base leading-relaxed max-w-xl">
-                Ian came in as a Growth Operator — no fluff, no slides, no pitch. Just the full AI-powered system deployed inside their business. Offer clarity, DM framework, call scripts, objection handling. The whole stack. Here's exactly what happened.
+                Ian came in as a Growth Operator. No fluff, no slides, no pitch. Just the full AI-powered system deployed inside their business. Offer clarity, DM framework, call scripts, objection handling. The whole stack. Here's exactly what happened.
               </p>
             </div>
 
@@ -78,13 +78,13 @@ export function GrowthOperatorSection() {
           </div>
         </motion.div>
 
-        {/* "You read it. Now choose your path." */}
+        {/* Transition line between case study and path cards */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={vp}
           transition={{ duration: 0.5, delay: 0.2, ease }}
-          className="text-center text-warm-gray text-sm font-mono tracking-widest uppercase mb-10"
+          className="text-center text-warm-gray text-base font-light italic mb-10"
         >
           You read what's possible. Now choose your path.
         </motion.p>
@@ -106,10 +106,10 @@ export function GrowthOperatorSection() {
               Bring Ian In
             </h3>
             <p className="text-warm-gray text-sm leading-relaxed flex-1 mb-8">
-              You have the audience. Ian brings the system. He comes in as your Growth Operator and deploys the full AI-powered sales architecture inside your business — offer clarity, DM framework, call scripts, objection handling. Done for you. Results-focused. Limited spots.
+              You have the audience. Ian brings the system. He comes in as your Growth Operator and deploys the full AI-powered sales architecture inside your business. Offer clarity, DM framework, call scripts, objection handling. Done for you. Results-focused. Limited spots.
             </p>
             <ul className="space-y-2 mb-8">
-              {['Full system deployed inside your business', 'Offer clarity + DM + calls + objection handling', 'Limited spots — application required'].map((f) => (
+              {['Full system deployed inside your business', 'Offer clarity + DM + calls + objection handling', 'Limited spots. Application required'].map((f) => (
                 <li key={f} className="flex items-start gap-2 text-sm text-warm-gray">
                   <span className="text-accent mt-0.5 flex-shrink-0">◆</span>
                   {f}
@@ -138,10 +138,10 @@ export function GrowthOperatorSection() {
               Learn the System
             </h3>
             <p className="text-warm-gray text-sm leading-relaxed flex-1 mb-8">
-              Want to do what Ian does for clients? The Growth Operator Intensive teaches you to deploy the full system yourself — for your own business or for clients. 9 weeks. Ian's exact playbook. All the tools. You come out the other side as an operator.
+              Want to do what Ian does for clients? The Growth Operator Intensive teaches you to deploy the full system yourself. For your own business or for clients. 9 weeks. Ian's exact playbook. All the tools. You come out the other side as an operator.
             </p>
             <ul className="space-y-2 mb-8">
-              {["Ian's exact Growth Operator playbook", 'All 4 AI tools included', '9-week intensive — not a course you forget'].map((f) => (
+              {["Ian's exact Growth Operator playbook", 'All 4 AI tools included', '9-week intensive. Not a course you forget'].map((f) => (
                 <li key={f} className="flex items-start gap-2 text-sm text-warm-gray">
                   <span className="text-accent mt-0.5 flex-shrink-0">◆</span>
                   {f}

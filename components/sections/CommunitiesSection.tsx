@@ -7,9 +7,9 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function CommunitiesSection() {
   return (
-    <section id="communities" className="py-20 bg-background border-t border-white/10">
+    <section id="communities" className="py-16 bg-background border-t border-white/10">
       <div className="container-wide">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div>
             <motion.p
               initial={{ opacity: 0 }}
@@ -36,7 +36,7 @@ export function CommunitiesSection() {
             transition={{ delay: 0.2 }}
             className="text-warm-gray font-light max-w-sm text-sm leading-relaxed"
           >
-            Free to join. Ian is active inside all three — coaching, posting, and running
+            Free to join. Ian is active inside all three: coaching, posting, and running
             live sessions every week.
           </motion.p>
         </div>
@@ -53,7 +53,7 @@ export function CommunitiesSection() {
             <p className="label-tag text-accent mb-2">Every Wednesday · Free · Live</p>
             <h3 className="font-display text-2xl tracking-tight mb-1">Hump Day Clarity Calls</h3>
             <p className="text-warm-gray text-sm font-light leading-relaxed max-w-xl">
-              Open Q&A, real offer feedback, live sales diagnosis — no slides, no pitch. Ian works through your actual situation with the group inside Lead Gen Secrets and Remote Sales Secrets.
+              Open Q&A, real offer feedback, live sales diagnosis. No slides, no pitch. Ian works through your actual situation with the group inside Lead Gen Secrets and Remote Sales Secrets.
             </p>
           </div>
           <div className="flex gap-3 flex-shrink-0 flex-wrap">

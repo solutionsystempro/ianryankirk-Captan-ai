@@ -14,13 +14,13 @@ export function ProblemSection() {
           whileInView={{ opacity: 1 }}
           viewport={vp}
           transition={{ duration: 0.5 }}
-          className="label-tag text-center mb-16"
+          className="label-tag text-center mb-8"
         >
           Sound familiar?
         </motion.p>
 
         {/* Problem statements */}
-        <div className="space-y-6 text-center mb-20">
+        <div className="space-y-4 text-center mb-10">
           {[
             "You've done the courses.",
             "Downloaded the templates.",
@@ -32,7 +32,7 @@ export function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={vp}
               transition={{ delay: i * 0.12, duration: 0.6, ease }}
-              className="font-display text-3xl md:text-5xl tracking-tight text-warm-gray italic"
+              className="font-display text-3xl md:text-5xl tracking-tighter text-warm-gray italic"
             >
               {line}
             </motion.p>
@@ -44,13 +44,13 @@ export function ProblemSection() {
           whileInView={{ opacity: 1 }}
           viewport={vp}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center font-display text-2xl md:text-4xl text-off-white mb-10 tracking-tight"
+          className="text-center font-display text-2xl md:text-4xl text-off-white mb-6 tracking-tighter"
         >
           And you're still:
         </motion.p>
 
         {/* Pain points */}
-        <div className="grid md:grid-cols-3 gap-6 mb-24">
+        <div className="grid md:grid-cols-3 gap-4 mb-12">
           {[
             { icon: '↘', point: 'Losing deals you should have closed' },
             { icon: '⟳', point: 'Chasing leads instead of choosing them' },
@@ -78,7 +78,7 @@ export function ProblemSection() {
           transition={{ duration: 0.7, ease }}
           className="text-center"
         >
-          <p className="font-display text-4xl md:text-6xl lg:text-7xl text-accent tracking-tight leading-tight">
+          <p className="font-display text-4xl md:text-6xl lg:text-7xl text-accent tracking-tighter leading-tight">
             The gurus sold you tactics.
             <br />
             <span className="text-off-white">You needed architecture.</span>

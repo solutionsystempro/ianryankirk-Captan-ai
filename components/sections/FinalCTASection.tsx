@@ -63,10 +63,10 @@ export function FinalCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={vp}
           transition={{ duration: 0.6, delay: 0.2, ease }}
-          className="text-lg md:text-xl text-warm-gray font-light max-w-xl mx-auto mb-12"
+          className="text-lg md:text-xl text-warm-gray font-light max-w-xl mx-auto mb-8"
         >
           The 5-minute email that could save you 50 years. Sales insights, system updates,
-          and frameworks from the field — direct from Ian.
+          and frameworks from the field. Direct from Ian.
         </motion.p>
 
         <motion.div
@@ -74,7 +74,7 @@ export function FinalCTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={vp}
           transition={{ duration: 0.6, delay: 0.3, ease }}
-          className="max-w-lg mx-auto mb-10"
+          className="max-w-lg mx-auto mb-6"
         >
           {!submitted ? (
             <form onSubmit={handleSubmit} className="flex gap-3">
@@ -92,7 +92,7 @@ export function FinalCTASection() {
             </form>
           ) : (
             <div className="glass-card p-6 text-center">
-              <p className="text-accent font-display text-2xl tracking-wide mb-1">
+              <p className="text-accent font-display text-2xl tracking-tighter mb-1">
                 You're In
               </p>
               <p className="label-tag">First issue incoming. Check your inbox.</p>

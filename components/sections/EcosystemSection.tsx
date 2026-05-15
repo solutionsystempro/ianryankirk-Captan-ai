@@ -122,7 +122,7 @@ export function EcosystemSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container-wide relative z-10">
-        <div className="max-w-3xl mb-24 text-center md:text-left">
+        <div className="max-w-3xl mb-14 text-center md:text-left">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

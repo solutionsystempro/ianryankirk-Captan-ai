@@ -144,7 +144,7 @@ export function AIFoundationFieldGuidePage() {
             transition={{ duration: 0.9, ease }}
             className="font-display text-[clamp(48px,8vw,96px)] leading-[0.88] tracking-tighter mb-6"
           >
-            The AI Foundation Field Guide
+            The AI Foundation <span className="gradient-text">Field Guide</span>
           </motion.h1>
           <motion.p {...fade(0.2)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed mb-8">
             The exact session structure, key questions, formulas, and output template used in every AI Foundation Session.

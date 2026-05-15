@@ -30,7 +30,7 @@ function StatNumber({ end, prefix = '', suffix = '', label, accent, delay = 0 }:
 
 function BillboardStats() {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-24 border border-white/5 rounded-3xl p-8 md:p-12 bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden relative">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14 border border-white/5 rounded-3xl p-8 md:p-12 bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/50 pointer-events-none" />
       <StatNumber delay={0.0} end={500}    prefix=""  suffix="K+" label="Year One Revenue"         accent="border-accent" />
       <StatNumber delay={0.1} end={10}     prefix="$" suffix="K"  label="From One 90-Second Video" accent="border-starlink" />
@@ -65,7 +65,7 @@ export function ProofSection() {
 
       <div className="container-wide relative z-10">
         {/* Label + Heading */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -113,10 +113,10 @@ export function ProofSection() {
               Sent a white-label SaaS walkthrough to a referred owner.
               They replied asking about something I hadn't even pitched.{' '}
               <span className="text-off-white font-medium">That video turned into $10,000.</span>{' '}
-              Not because it was perfect — because it solved a pain they were already carrying.
+              Not because it was perfect. It solved a pain they were already carrying.
             </p>
             <p className="label-tag text-accent border-t border-white/10 pt-5 pr-4 italic">
-              "Let the marketplace tell you what they need — stop guessing."
+              "Let the marketplace tell you what they need. Stop guessing."
             </p>
           </motion.div>
 
@@ -151,7 +151,7 @@ export function ProofSection() {
         </div>
 
         {/* Community Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {TESTIMONIALS.map((t, i) => (
             <motion.div
               key={t.name}
@@ -186,7 +186,7 @@ export function ProofSection() {
       </div>
 
       {/* Modern Scrolling Ticket */}
-      <div className="mt-20 border-y border-white/5 bg-white/[0.02] py-6 overflow-hidden relative">
+      <div className="mt-12 border-y border-white/5 bg-white/[0.02] py-5 overflow-hidden relative">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         

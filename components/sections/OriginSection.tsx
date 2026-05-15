@@ -7,8 +7,8 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const TIMELINE = [
   { year: '1999', title: 'The VHS Hustle', desc: "Built a 5-figure wakeboarding school from cold calls and bootleg editing software. No mentor. No playbook. Just a phone book and a pulse." },
-  { year: '2008', title: 'The Crash', desc: "$10M in real estate and trade — gone overnight. I turned off my phone and disappeared. There was no one left to call." },
-  { year: '2012', title: '4 Years of Silence', desc: "Taught snowboarding for $20/hr. Found architecture in the silence between turns. Vowed if I ever built again, it would be an engine — not a cage." },
+  { year: '2008', title: 'The Crash', desc: "$10M in real estate and trade. Gone overnight. I turned off my phone and disappeared. There was no one left to call." },
+  { year: '2012', title: '4 Years of Silence', desc: "Taught snowboarding for $20/hr. Found architecture in the silence between turns. Vowed if I ever built again, it would be an engine, not a cage." },
   { year: '2018', title: 'The Rebuild', desc: "Three companies. 95% automated. I was no longer the bottleneck. The Call Reflex methodology was born from 500+ analyzed conversations." },
   { year: 'NOW', title: 'Captain AI', desc: "20 years of pattern recognition, encoded. The tools I wish I had in 2008. Free to start. Designed to scale with you." },
 ];
@@ -32,7 +32,7 @@ export function OriginSection() {
   return (
     <section id="origin" className="section-pad bg-background overflow-hidden">
       <div className="container-wide" ref={containerRef}>
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           
           {/* Left: copy */}
           <div className="lg:sticky lg:top-32 lg:pb-32">
@@ -102,7 +102,7 @@ export function OriginSection() {
               style={{ scaleY: springProgress }}
             />
 
-            <div className="space-y-16">
+            <div className="space-y-10">
               {TIMELINE.map((event, i) => {
                 // Determine if this specific item is scrolled past based on math
                 // Each item represents roughly a fraction of 1 / TIMELINE.length

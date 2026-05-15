@@ -146,7 +146,7 @@ export function HeroSection() {
             <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
             <span className="relative z-10">Get the DM Framework →</span>
           </a>
-          <a href="/#proof" className="btn-secondary text-center">
+          <a href="/#paths" className="btn-secondary text-center">
             What's Possible
           </a>
         </motion.div>
