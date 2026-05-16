@@ -187,7 +187,7 @@ function ClockVisual() {
       </svg>
 
       {/* Below clock label */}
-      <p className="absolute -bottom-9 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.3em] text-warm-gray/60 whitespace-nowrap">
+      <p className="absolute -bottom-9 left-1/2 -translate-x-1/2 font-semibold text-[10px] uppercase tracking-[0.12em] text-warm-gray/60 whitespace-nowrap">
         9 · 1 · 5 · the only windows
       </p>
     </div>
@@ -246,7 +246,7 @@ function SystemCard({ system, index }: { system: typeof SYSTEMS[0]; index: numbe
 
                 {/* Source citation if present */}
                 {system.source && (
-                  <p className="text-warm-gray/40 text-xs font-mono pt-1">
+                  <p className="text-warm-gray/40 text-xs font-light pt-1">
                     Source:{' '}
                     <a
                       href={system.source.url}
@@ -457,7 +457,7 @@ export function PhoneOffPage() {
                   <div className="flex items-start justify-between gap-3 mb-4">
                     <p className="label-tag text-accent">{tool.role}</p>
                     {tool.badge && (
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-accent/80 border border-accent/30 rounded px-2 py-0.5">
+                      <span className="font-semibold text-[10px] uppercase tracking-[0.1em] text-accent/80 border border-accent/30 rounded px-2 py-0.5">
                         {tool.badge}
                       </span>
                     )}

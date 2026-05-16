@@ -94,7 +94,7 @@
 
   /* ── Typography ── */
   .label-tag {
-    @apply font-mono text-[11px] uppercase tracking-[0.25em] text-muted;
+    @apply font-sans font-semibold text-[12px] uppercase tracking-[0.1em] text-muted;
   }
   /* Pill badge — rounded bordered tag */
   .pill-tag {
@@ -105,8 +105,8 @@
     border: 1px solid #1F1F28;
     border-radius: 999px;
     padding: 4px 14px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;

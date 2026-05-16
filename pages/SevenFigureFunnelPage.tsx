@@ -108,7 +108,7 @@ function ExpandableCard({ card, stage }: { card: any; stage: string }) {
         <h4 className="font-display text-xl tracking-tight mb-2">{card.title}</h4>
         <p className="text-warm-gray font-light text-sm leading-relaxed">{card.desc}</p>
         {card.tool && (
-          <span className="inline-block mt-3 text-xs font-mono text-warm-gray/50 bg-white/5 px-2 py-1 rounded">
+          <span className="inline-block mt-3 text-xs font-semibold tracking-[0.06em] text-warm-gray/50 bg-white/5 px-2 py-1 rounded">
             {card.tool}
           </span>
         )}

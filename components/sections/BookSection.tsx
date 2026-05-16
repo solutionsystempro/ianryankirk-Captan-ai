@@ -12,15 +12,15 @@ export function BookSection() {
   return (
     <section id="book" className="section-pad bg-background-alt border-y border-white/10 overflow-hidden">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-          {/* Book mockup */}
+          {/* Left: Book mockup + audio player stacked */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={vp}
             transition={{ duration: 0.8, ease }}
-            className="flex items-center justify-center"
+            className="flex flex-col items-center gap-8"
           >
             {/* CSS 3D book */}
             <div className="relative" style={{ perspective: '1000px' }}>
@@ -28,7 +28,7 @@ export function BookSection() {
               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-48 h-6 bg-black/60 blur-xl rounded-full" />
 
               <div
-                className="relative w-52 h-80 md:w-64 md:h-96 animate-float"
+                className="relative w-44 h-64 md:w-52 md:h-80 animate-float"
                 style={{ transform: 'rotateY(-15deg) rotateX(2deg)', transformStyle: 'preserve-3d' }}
               >
                 {/* Front cover */}
@@ -74,15 +74,21 @@ export function BookSection() {
                 </div>
               </div>
             </div>
+
+            {/* Audio player — under the book */}
+            <div className="w-full max-w-sm">
+              <p className="label-tag mb-3 text-center">Listen to Chapter 1</p>
+              <BookAudioPlayer />
+            </div>
           </motion.div>
 
-          {/* Copy */}
+          {/* Right: Copy */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={vp}
             transition={{ duration: 0.8, ease }}
-            className="space-y-6"
+            className="space-y-4"
           >
             <div className="flex items-center gap-3 flex-wrap">
               <span className="label-tag text-accent">The Book</span>
@@ -91,8 +97,8 @@ export function BookSection() {
               </span>
             </div>
 
-            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-none">
-              Raised by<br />Two Teachers.<br />
+            <h2 className="font-display text-[clamp(28px,3.5vw,52px)] tracking-tighter leading-[0.95]">
+              Raised by Two Teachers.<br />
               <span className="text-warm-gray">Still Don't Know Sh*t.</span>
             </h2>
 
@@ -105,12 +111,6 @@ export function BookSection() {
               The book behind the system. A raw account of building, losing, disappearing,
               and rebuilding, and the two people who made all of it make sense.
             </p>
-
-            {/* Audio player */}
-            <div className="py-2">
-              <p className="label-tag mb-3">Listen to Chapter 1</p>
-              <BookAudioPlayer />
-            </div>
 
             <button
               onClick={() => setWaitlistOpen(true)}

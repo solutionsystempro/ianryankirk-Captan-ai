@@ -102,8 +102,8 @@ export function GrowthOperatorSection() {
           >
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent to-transparent" />
             <div className="label-tag text-accent border-accent/30 bg-accent/10 mb-4 self-start">HIGH-TICKET · DONE-FOR-YOU</div>
-            <h3 className="text-2xl font-black text-off-white tracking-tight mb-3">
-              Bring Ian In
+            <h3 className="text-2xl font-bold text-off-white tracking-tight mb-3">
+              Bring in Ian
             </h3>
             <p className="text-warm-gray text-sm leading-relaxed flex-1 mb-8">
               You have the audience. Ian brings the system. He comes in as your Growth Operator and deploys the full AI-powered sales architecture inside your business. Offer clarity, DM framework, call scripts, objection handling. Done for you. Results-focused. Limited spots.
@@ -134,7 +134,7 @@ export function GrowthOperatorSection() {
           >
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-white/30 to-transparent" />
             <div className="label-tag mb-4 self-start">9-WEEK INTENSIVE · COACHING</div>
-            <h3 className="text-2xl font-black text-off-white tracking-tight mb-3">
+            <h3 className="text-2xl font-bold text-off-white tracking-tight mb-3">
               Learn the System
             </h3>
             <p className="text-warm-gray text-sm leading-relaxed flex-1 mb-8">

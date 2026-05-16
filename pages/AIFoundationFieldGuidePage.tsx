@@ -178,7 +178,7 @@ export function AIFoundationFieldGuidePage() {
             transition={{ duration: 0.7, ease }}
             className="glass-card p-8 md:p-10"
           >
-            <p className="text-accent text-xs font-mono tracking-widest uppercase mb-4">The Core Problem</p>
+            <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4">The Core Problem</p>
             <p className="text-xl md:text-2xl text-off-white font-light leading-relaxed mb-6">
               Every AI tool you've ever used has failed you because you gave it fragments.
             </p>
@@ -199,7 +199,7 @@ export function AIFoundationFieldGuidePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent text-xs font-mono tracking-widest uppercase mb-4"
+            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4"
           >
             The Formula
           </motion.p>
@@ -238,7 +238,7 @@ export function AIFoundationFieldGuidePage() {
                 transition={{ duration: 0.5, delay: i * 0.05, ease }}
                 className="glass-card p-5"
               >
-                <p className="text-accent text-xs font-mono tracking-widest uppercase mb-3">{item.label}</p>
+                <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3">{item.label}</p>
                 <p className="text-warm-gray text-sm font-light line-through mb-1">{item.weak}</p>
                 <p className="text-off-white text-sm font-light">{item.strong}</p>
               </motion.div>
@@ -254,7 +254,7 @@ export function AIFoundationFieldGuidePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent text-xs font-mono tracking-widest uppercase mb-4"
+            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4"
           >
             The Session Structure
           </motion.p>
@@ -306,7 +306,7 @@ export function AIFoundationFieldGuidePage() {
                   </div>
                   {openPhase === i && (
                     <div className="mt-6 pt-6 border-t border-white/5">
-                      <p className="text-accent text-xs font-mono tracking-widest uppercase mb-4">Key Questions</p>
+                      <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4">Key Questions</p>
                       <ul className="space-y-3 mb-6">
                         {phase.questions.map((q) => (
                           <li key={q} className="flex items-start gap-3 text-off-white/80 font-light text-sm">
@@ -316,7 +316,7 @@ export function AIFoundationFieldGuidePage() {
                         ))}
                       </ul>
                       <div className="bg-accent/5 border border-accent/20 rounded-xl p-4">
-                        <p className="text-accent text-xs font-mono tracking-widest uppercase mb-1">Output</p>
+                        <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-1">Output</p>
                         <p className="text-off-white/80 font-light text-sm">{phase.output}</p>
                       </div>
                     </div>
@@ -335,7 +335,7 @@ export function AIFoundationFieldGuidePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent text-xs font-mono tracking-widest uppercase mb-4"
+            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4"
           >
             Mechanism Naming
           </motion.p>
@@ -382,7 +382,7 @@ export function AIFoundationFieldGuidePage() {
             transition={{ duration: 0.6, delay: 0.3, ease }}
             className="mt-8 glass-card p-6"
           >
-            <p className="text-accent text-xs font-mono tracking-widest uppercase mb-3">Examples of the right feel</p>
+            <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3">Examples of the right feel</p>
             <div className="flex flex-wrap gap-3">
               {['The Belief Gap', 'The Conviction Architecture', 'The Foundation Protocol', 'The Context Stack', 'The Handoff Brief'].map((name) => (
                 <span key={name} className="px-3 py-1.5 bg-accent/10 border border-accent/20 rounded-lg text-off-white text-sm font-light">
@@ -401,7 +401,7 @@ export function AIFoundationFieldGuidePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent text-xs font-mono tracking-widest uppercase mb-4"
+            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4"
           >
             The Output
           </motion.p>
@@ -460,7 +460,7 @@ export function AIFoundationFieldGuidePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease }}
           >
-            <p className="text-accent text-xs font-mono tracking-widest uppercase mb-6">Want It Built For You?</p>
+            <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-6">Want It Built For You?</p>
             <h2 className="font-display text-4xl md:text-6xl tracking-tighter mb-6">
               Your AI Foundation.<br />Built Live. With You.<br />In 90 Minutes.
             </h2>

@@ -42,7 +42,7 @@ function MagneticCard({ product, onWaitlist }: { product: any; onWaitlist: () =>
       }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       style={{ perspective: 1000 }}
-      className="bento-card group flex flex-col p-8 h-full"
+      className="bento-card group flex flex-col p-6 h-full"
     >
       {/* Dynamic Cursor Spotlight Effect */}
       <motion.div
@@ -55,7 +55,7 @@ function MagneticCard({ product, onWaitlist }: { product: any; onWaitlist: () =>
 
       <div className="relative z-10 flex-1 flex flex-col">
           {/* Header Section */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                 <span className="font-display text-accent text-sm">{product.step}</span>
@@ -72,17 +72,17 @@ function MagneticCard({ product, onWaitlist }: { product: any; onWaitlist: () =>
           </div>
 
           {/* Content Section */}
-          <h3 className="font-display text-3xl tracking-tight text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
+          <h3 className="font-display text-2xl tracking-tight text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
             {product.title}
           </h3>
-          <p className="label-tag mb-4 opacity-70">{product.subtitle}</p>
-          <p className="text-warm-gray font-light leading-relaxed mb-8 flex-1">
+          <p className="label-tag mb-3 opacity-70">{product.subtitle}</p>
+          <p className="text-warm-gray font-light leading-relaxed mb-5 flex-1 text-sm">
             {product.description}
           </p>
 
           {/* Footer Section */}
-          <div className="mt-auto space-y-6">
-            <ul className="flex flex-col gap-2">
+          <div className="mt-auto space-y-4">
+            <ul className="flex flex-col gap-1.5">
               {product.features.map((f: string) => (
                 <li key={f} className="flex items-center gap-2 text-sm text-off-white/80 font-light">
                   <span className="text-accent text-xs">◆</span> {f}
@@ -90,7 +90,7 @@ function MagneticCard({ product, onWaitlist }: { product: any; onWaitlist: () =>
               ))}
             </ul>
 
-            <div className="pt-6 border-t border-white/10">
+            <div className="pt-4 border-t border-white/10">
               {product.comingSoon ? (
                 <button onClick={onWaitlist} className="btn-primary w-full shadow-lg">
                   {product.ctaText}

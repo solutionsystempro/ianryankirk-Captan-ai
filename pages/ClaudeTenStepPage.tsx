@@ -14,7 +14,7 @@ const fade = (delay = 0) => ({
 const DOWNLOAD_URL = '/downloads/claude-10-step/claude-10-step-setup-guide.html';
 const STORAGE_KEY = 'irk_downloaded_claude_10_step';
 const LEAD_SOURCE = 'claude-10-step';
-const YOUTUBE_VIDEO_ID = 'IHXEN8_KsMQ';
+const YOUTUBE_VIDEO_ID = 'eQkOrvBQ1DA';
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
