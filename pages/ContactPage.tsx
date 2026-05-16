@@ -6,7 +6,7 @@ import { useAttribution } from '../hooks/useAttribution';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-// Premium input class — deep glass effect with glowing focus
+// Premium input class,deep glass effect with glowing focus
 const inputClass =
   'w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-off-white text-sm placeholder:text-white/20 focus:outline-none focus:border-accent/70 focus:bg-white/[0.07] focus:shadow-[0_0_0_3px_rgba(170,255,0,0.08),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 backdrop-blur-md';
 
@@ -118,7 +118,7 @@ export function ContactPage() {
                   <h3 className="font-display text-xl">Cold Email Copywriter</h3>
                   <p className="text-warm-gray text-sm font-light leading-relaxed">
                     Write cold emails that get replies. Poke The Bear framework, Ian's voice,
-                    reply-focused CTAs — no AI fluff, no "Hey [Name]" openers.
+                    reply-focused CTAs,no AI fluff, no "Hey [Name]" openers.
                   </p>
                   <p className="label-tag text-accent pt-1">Try It Free ↗</p>
                 </a>
@@ -128,7 +128,7 @@ export function ContactPage() {
                   <h3 className="font-display text-xl">1:1 Coaching</h3>
                   <p className="text-warm-gray text-sm font-light leading-relaxed">
                     Full AI sales system deployment. Your offer, your DM framework, your call
-                    architecture — built together. Limited spots. Fill out the form to apply.
+                    architecture,built together. Limited spots. Fill out the form to apply.
                   </p>
                 </div>
               </motion.div>
@@ -197,7 +197,7 @@ export function ContactPage() {
                       <div className="relative">
                         <select required className={selectClass}
                           value={form.business_owner} onChange={(e) => set('business_owner', e.target.value)}>
-                          <option value="" className="bg-[#0d0d12]">— Select —</option>
+                          <option value="" className="bg-[#0d0d12]">Select...</option>
                           <option value="Yes, I own a business" className="bg-[#0d0d12]">Yes, I own a business</option>
                           <option value="Building toward it" className="bg-[#0d0d12]">I'm building toward it</option>
                           <option value="Not yet" className="bg-[#0d0d12]">Not yet</option>
@@ -257,7 +257,7 @@ export function ContactPage() {
                     </p>
                     <a href="https://slap-method-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
                       className="btn-primary inline-block mt-4">
-                      While you wait — Try SLAP Method Free →
+                      While you wait,Try SLAP Method Free →
                     </a>
                   </motion.div>
                 )}

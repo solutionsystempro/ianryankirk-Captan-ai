@@ -17,7 +17,7 @@ const NUMBERS = [
     num: '7',
     label: 'Hours',
     headline: '7 Hours of Engagement',
-    body: 'A prospect needs roughly seven hours of total time spent consuming your content, conversations, or presence before they trust you enough to buy. Not seven hours in one sitting — cumulative. A YouTube video here, a long post there, a DM conversation, a live call.',
+    body: 'A prospect needs roughly seven hours of total time spent consuming your content, conversations, or presence before they trust you enough to buy. Not seven hours in one sitting,cumulative. A YouTube video here, a long post there, a DM conversation, a live call.',
     examples: [
       'A 20-minute YouTube video watched 3× = 1 hour',
       'A 45-minute Facebook Live = 45 minutes',
@@ -30,7 +30,7 @@ const NUMBERS = [
     num: '11',
     label: 'Touchpoints',
     headline: '11 Separate Touchpoints',
-    body: 'Eleven distinct moments where a prospect encounters you or your brand. Each touchpoint is a separate event — not 11 views of the same post. A comment reply, a story view, a new video, a DM, a live session, an email — each one counts as one.',
+    body: 'Eleven distinct moments where a prospect encounters you or your brand. Each touchpoint is a separate event,not 11 views of the same post. A comment reply, a story view, a new video, a DM, a live session, an email,each one counts as one.',
     examples: [
       'Seeing a Facebook post',
       'Watching a YouTube video',
@@ -46,7 +46,7 @@ const NUMBERS = [
     num: '4',
     label: 'Locations',
     headline: '4 Separate Channels',
-    body: 'The 11 touchpoints need to happen across at least four different platforms or contexts. Seeing you in only one place creates a one-dimensional impression. Encountering you across multiple channels signals that you\'re everywhere — which signals credibility and staying power.',
+    body: 'The 11 touchpoints need to happen across at least four different platforms or contexts. Seeing you in only one place creates a one-dimensional impression. Encountering you across multiple channels signals that you\'re everywhere,which signals credibility and staying power.',
     examples: [
       'YouTube (long-form video)',
       'Facebook (posts, Lives, Groups)',
@@ -61,7 +61,7 @@ const SYSTEM = [
   {
     phase: 'Attract',
     channel: 'YouTube',
-    action: 'Weekly videos that teach a framework or walk through a real example. Designed for search — people find Ian when they\'re already looking for what he solves.',
+    action: 'Weekly videos that teach a framework or walk through a real example. Designed for search,people find Ian when they\'re already looking for what he solves.',
     hours: 'High (20–60 min per video)',
   },
   {
@@ -73,13 +73,13 @@ const SYSTEM = [
   {
     phase: 'Capture',
     channel: 'This Website',
-    action: 'Framework pages like this one. People come for the free tool — they see the full ecosystem and the coaching offer.',
+    action: 'Framework pages like this one. People come for the free tool,they see the full ecosystem and the coaching offer.',
     hours: 'Medium (5–20 min per page)',
   },
   {
     phase: 'Nurture',
     channel: 'Email',
-    action: 'The list gets built from every lead magnet. Future emails close the loop — deliver value, then present the offer.',
+    action: 'The list gets built from every lead magnet. Future emails close the loop,deliver value, then present the offer.',
     hours: 'Medium (3–8 min per email)',
   },
 ];
@@ -87,13 +87,13 @@ const SYSTEM = [
 const TOOLS = [
   {
     label: 'SLAP Method',
-    desc: 'A system for turning ignored DMs into booked calls — built for coaches who hate chasing.',
+    desc: 'A system for turning ignored DMs into booked calls,built for coaches who hate chasing.',
     href: 'https://slap-method-production.up.railway.app/',
     cta: 'Try SLAP Method →',
   },
   {
     label: 'Call Reflekt',
-    desc: 'Paste a sales call transcript. Get back exactly where you lost the frame — and how to fix it.',
+    desc: 'Paste a sales call transcript. Get back exactly where you lost the frame,and how to fix it.',
     href: 'https://call-reflekt-coach-production.up.railway.app/',
     cta: 'Analyze a Call →',
   },
@@ -205,7 +205,7 @@ export function SevenElevenFourPage() {
             <motion.p {...fade(0.3)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-10">
               Before anyone buys from you, they need 7 hours of engagement across
               11 touchpoints in 4 separate locations. This is Google's research on how
-              purchase decisions actually happen — and most coaches are failing at all three numbers.
+              purchase decisions actually happen,and most coaches are failing at all three numbers.
             </motion.p>
 
             <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-10">
@@ -225,7 +225,7 @@ export function SevenElevenFourPage() {
                 Google's Zero Moment of Truth (ZMOT) research tracked how consumers make purchase
                 decisions online. The 7-11-4 framework distills the core finding: trust is built
                 through cumulative exposure, not a single compelling pitch. It's been adopted widely
-                in personal brand and coaching sales strategy — and it maps directly to how Ian
+                in personal brand and coaching sales strategy,and it maps directly to how Ian
                 structures the Captain AI content system.
               </p>
             </motion.div>
@@ -283,7 +283,7 @@ export function SevenElevenFourPage() {
                     'Multiple touchpoints before the ask',
                     'Presence across 4 channels',
                     'Email list to close the loop',
-                    'A system — not a one-off post',
+                    'A system,not a one-off post',
                   ],
                 },
               ].map((col, i) => (
@@ -313,7 +313,7 @@ export function SevenElevenFourPage() {
               <span className="text-warm-gray">His 4 Channels</span>
             </motion.h2>
             <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-              This isn't theory — it's the live system behind every lead magnet, video, and
+              This isn't theory,it's the live system behind every lead magnet, video, and
               coaching call Ian closes. Each channel plays a specific role in building the 7 hours.
             </motion.p>
 
@@ -376,7 +376,7 @@ export function SevenElevenFourPage() {
                 If any number is low, the fix isn't to post more of the same thing.
                 It's to identify which channel is missing, which format would add the most hours,
                 and where you're losing people between touchpoints.
-                <span className="text-accent font-medium"> That's the session Ian runs with clients — and it takes 90 minutes.</span>
+                <span className="text-accent font-medium"> That's the session Ian runs with clients,and it takes 90 minutes.</span>
               </p>
             </motion.div>
           </div>
@@ -392,7 +392,7 @@ export function SevenElevenFourPage() {
               <span className="text-warm-gray">Around the Rule</span>
             </motion.h2>
             <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-              These are the tools Ian uses inside his own 7-11-4 system — free to try.
+              These are the tools Ian uses inside his own 7-11-4 system,free to try.
             </motion.p>
 
             <div className="grid md:grid-cols-3 gap-5 mb-16">
@@ -416,7 +416,7 @@ export function SevenElevenFourPage() {
               <div className="text-center">
                 <p className="label-tag text-accent mb-3">Take It With You</p>
                 <p className="text-warm-gray font-light mb-6">
-                  Download the 7-11-4 Framework as a PDF — print it, reference it, share it.
+                  Download the 7-11-4 Framework as a PDF,print it, reference it, share it.
                 </p>
                 <DownloadGate
                   storageKey="irk_downloaded_7_11_4"
@@ -427,7 +427,7 @@ export function SevenElevenFourPage() {
               </div>
               <div className="text-center border-t border-white/5 pt-10">
                 <p className="text-warm-gray font-light mb-6">
-                  Want Ian to map your 7-11-4 system personally — and show you exactly which number to fix first?
+                  Want Ian to map your 7-11-4 system personally,and show you exactly which number to fix first?
                 </p>
                 <Link to="/contact" className="btn-primary inline-block">
                   Apply for 1:1 Coaching →

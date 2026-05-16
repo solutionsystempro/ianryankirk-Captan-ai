@@ -30,7 +30,7 @@ const phases = [
     time: '5–30 min',
     goal: 'Document the core variables of your offer with precision.',
     questions: [
-      'What do you sell? Not the category — the actual deliverable.',
+      'What do you sell? Not the category,the actual deliverable.',
       'Who buys it? Paint a picture of the specific person, not a demographic bucket.',
       'What problem do they have right now that\'s bothering them TODAY?',
       'What\'s the #1 result you get for clients? Name, number, timeline.',
@@ -44,7 +44,7 @@ const phases = [
     time: '30–45 min',
     goal: 'Build a psychographic profile deep enough to write copy that makes people say "this is literally me."',
     questions: [
-      'What is your buyer afraid of? Not "losing money" — what specifically?',
+      'What is your buyer afraid of? Not "losing money",what specifically?',
       'What have they already tried? What failed and why?',
       'What would they Google at 2am when this problem is at its worst?',
       'What do they secretly want that they wouldn\'t admit professionally?',
@@ -61,7 +61,7 @@ const phases = [
       'Walk me through exactly what you do with a new client. Step by step.',
       'What\'s the first thing you look at when you start with someone new?',
       'What do you see that other people in your space miss entirely?',
-      'If you had to name the core insight behind your method — what would you call it?',
+      'If you had to name the core insight behind your method,what would you call it?',
     ],
     output: 'Mechanism name · One-line definition · Why it works (3–5 step chain) · What it replaces',
   },
@@ -71,10 +71,10 @@ const phases = [
     time: '60–70 min',
     goal: 'Compress everything into one sentence.',
     questions: [
-      'Does this sound like something you\'d actually say — or like a LinkedIn bio?',
-      'Is the WHO specific enough? (Not "coaches" — "service providers selling high-ticket offers")',
-      'Is the OUTCOME specific enough? (Not "more clients" — "3–5 qualified calls per week")',
-      'Is the mechanism named? (Not "my process" — "the [Mechanism Name]")',
+      'Does this sound like something you\'d actually say,or like a LinkedIn bio?',
+      'Is the WHO specific enough? (Not "coaches","service providers selling high-ticket offers")',
+      'Is the OUTCOME specific enough? (Not "more clients","3–5 qualified calls per week")',
+      'Is the mechanism named? (Not "my process","the [Mechanism Name]")',
     ],
     output: 'One Power Offer Statement, ready to open any AI prompt',
   },
@@ -93,10 +93,10 @@ const phases = [
 ];
 
 const mechanismRules = [
-  { rule: 'Sound scientific or technical', example: '"The Belief Gap" — not "The Mind Reset"' },
+  { rule: 'Sound scientific or technical', example: '"The Belief Gap",not "The Mind Reset"' },
   { rule: 'Feel almost familiar', example: 'Like they should already know what it is' },
-  { rule: 'Be 1–3 words', example: '"The Context Stack" — not "The Revolutionary AI Content System"' },
-  { rule: 'Describe the process, not the result', example: '"The Conviction Architecture" — not "The Client Flood Method"' },
+  { rule: 'Be 1–3 words', example: '"The Context Stack",not "The Revolutionary AI Content System"' },
+  { rule: 'Describe the process, not the result', example: '"The Conviction Architecture",not "The Client Flood Method"' },
   { rule: 'Avoid anything that sounds hyped-up', example: 'If it sounds like a Tony Robbins product, name it again' },
 ];
 
@@ -150,7 +150,7 @@ export function AIFoundationFieldGuidePage() {
             The exact session structure, key questions, formulas, and output template used in every AI Foundation Session.
           </motion.p>
           <motion.p {...fade(0.3)} className="text-off-white/70 font-light leading-relaxed mb-10 max-w-2xl">
-            AI is only as good as what you give it. This guide shows you the complete framework for building the one document that makes every AI tool you use produce output that actually converts — offer, buyer, mechanism, and voice, all in one place.
+            AI is only as good as what you give it. This guide shows you the complete framework for building the one document that makes every AI tool you use produce output that actually converts,offer, buyer, mechanism, and voice, all in one place.
           </motion.p>
           <motion.div {...fade(0.4)} className="flex flex-col sm:flex-row gap-4">
             <a
@@ -159,7 +159,7 @@ export function AIFoundationFieldGuidePage() {
               rel="noopener noreferrer"
               className="btn-primary inline-block text-center"
             >
-              Book the Session — $97 →
+              Book the Session,$97 →
             </a>
             <span className="flex items-center text-warm-gray text-sm pt-1 sm:pt-3 font-light">
               90 minutes · Done live with you · Foundation built
@@ -186,7 +186,7 @@ export function AIFoundationFieldGuidePage() {
               You gave it a rough description of your offer. You gave it a vague audience. You gave it no voice, no mechanism, no buyer psychology. Then you wondered why the output sounded like everyone else's.
             </p>
             <p className="text-warm-gray font-light leading-relaxed">
-              The Foundation Doc is the single source of truth for your business. When any AI tool — Claude, ChatGPT, whatever — references this document, generic output becomes structurally impossible.
+              The Foundation Doc is the single source of truth for your business. When any AI tool,Claude, ChatGPT, whatever,references this document, generic output becomes structurally impossible.
             </p>
           </motion.div>
         </div>
@@ -355,7 +355,7 @@ export function AIFoundationFieldGuidePage() {
             transition={{ duration: 0.6, delay: 0.1, ease }}
             className="text-warm-gray font-light mb-10"
           >
-            The mechanism is the named thing that makes your approach feel categorically different — not just better. It has to sound right before it can convert.
+            The mechanism is the named thing that makes your approach feel categorically different,not just better. It has to sound right before it can convert.
           </motion.p>
           <div className="space-y-3">
             {mechanismRules.map((item, i) => (
@@ -421,7 +421,7 @@ export function AIFoundationFieldGuidePage() {
             transition={{ duration: 0.6, delay: 0.1, ease }}
             className="text-warm-gray font-light mb-10"
           >
-            By the end of the session, every section below is filled in — specific to your business, your buyer, your voice. This document becomes the reference file for every AI tool you use.
+            By the end of the session, every section below is filled in,specific to your business, your buyer, your voice. This document becomes the reference file for every AI tool you use.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -431,7 +431,7 @@ export function AIFoundationFieldGuidePage() {
             className="glass-card p-8 font-mono text-sm space-y-6"
           >
             <div className="flex items-center justify-between border-b border-white/5 pb-4">
-              <span className="text-accent tracking-widest text-xs uppercase">[YOUR NAME] — AI Foundation Doc</span>
+              <span className="text-accent tracking-widest text-xs uppercase">[YOUR NAME],AI Foundation Doc</span>
               <span className="text-warm-gray text-xs">Date: [SESSION DATE]</span>
             </div>
             {foundationDocSections.map((section, i) => (
@@ -465,7 +465,7 @@ export function AIFoundationFieldGuidePage() {
               Your AI Foundation.<br />Built Live. With You.<br />In 90 Minutes.
             </h2>
             <p className="text-warm-gray font-light text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-              You've seen the structure. Now get it done. We go through every phase together — I ask the questions, you answer, I build the doc in real time. You leave with the complete Foundation Doc in your hands.
+              You've seen the structure. Now get it done. We go through every phase together,I ask the questions, you answer, I build the doc in real time. You leave with the complete Foundation Doc in your hands.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
@@ -474,7 +474,7 @@ export function AIFoundationFieldGuidePage() {
                 rel="noopener noreferrer"
                 className="btn-primary inline-block text-center"
               >
-                Book the Session — $97 →
+                Book the Session,$97 →
               </a>
             </div>
             <p className="text-warm-gray text-sm font-light mb-8">

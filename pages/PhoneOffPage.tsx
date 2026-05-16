@@ -22,7 +22,7 @@ const SYSTEMS = [
     num: '01',
     title: 'Check Your Messages Three Times A Day',
     body: [
-      'Pick three windows in your day. 9am. 1pm. 5pm. Those are the only times you check messages. Email, DMs, Slack, texts — all of it. Outside those windows your phone stays in Do Not Disturb.',
+      'Pick three windows in your day. 9am. 1pm. 5pm. Those are the only times you check messages. Email, DMs, Slack, texts,all of it. Outside those windows your phone stays in Do Not Disturb.',
       'Why three? Research from Gloria Mark at UC Irvine found it takes about 23 minutes on average to fully refocus after an interruption. Three task-switches a day means you keep most of your cognitive depth. Most operators are burning 50+ task-switches and wondering why nothing gets done.',
       'Set three calendar blocks labeled "Inbox." Treat them like meetings. Phone stays in the drawer between them. The first 48 hours feel uncomfortable. By day three, you\'ll never want to go back.',
     ],
@@ -34,7 +34,7 @@ const SYSTEMS = [
     title: 'Keep Your Phone In Another Room',
     body: [
       'When you\'re working, your phone is in another room. Not face-down on the desk. Not in your pocket on silent. Another room.',
-      'A 2017 University of Texas study (Ward et al., "Brain Drain") found that the mere presence of your phone — even face-down, even powered off — measurably reduces your available cognitive capacity. Your brain spends background processing power resisting the urge to check it.',
+      'A 2017 University of Texas study (Ward et al., "Brain Drain") found that the mere presence of your phone,even face-down, even powered off,measurably reduces your available cognitive capacity. Your brain spends background processing power resisting the urge to check it.',
       'Set up a charging station in your kitchen, hallway, or any room you don\'t work in. Walk to it three times a day during your check windows. The walk is the feature, not the bug. It creates a real transition between deep work and shallow work.',
     ],
     quote: 'Even a phone in your pocket costs you focus.',
@@ -104,7 +104,7 @@ const TOOLS = [
   {
     label: 'Push-Back Protocol',
     role: 'The thinking partner',
-    desc: 'Now that you\'ve got hours back to actually think, get the AI you\'re thinking with to push back on you. Makes Claude your equal — not something that just tells you you\'re great.',
+    desc: 'Now that you\'ve got hours back to actually think, get the AI you\'re thinking with to push back on you. Makes Claude your equal,not something that just tells you you\'re great.',
     href: 'https://ianryankirk.com/push-back-protocol',
     cta: 'Get the Protocol →',
     internal: true,
@@ -112,7 +112,7 @@ const TOOLS = [
   {
     label: 'AI Foundation Field Guide',
     role: 'The system',
-    desc: 'You\'ve protected your focus. Now build the document that makes every AI tool you touch produce real work — not generic noise. 90 minutes. Done live with you.',
+    desc: 'You\'ve protected your focus. Now build the document that makes every AI tool you touch produce real work,not generic noise. 90 minutes. Done live with you.',
     href: 'https://ianryankirk.com/ai-foundation',
     cta: 'See the Session →',
     internal: true,
@@ -282,7 +282,7 @@ export function PhoneOffPage() {
 
       {/* HERO */}
       <section className="relative pt-40 pb-24 px-6 overflow-hidden">
-        {/* Custom gradient orb — calm slate-blue / teal for "focus" feel */}
+        {/* Custom gradient orb,calm slate-blue / teal for "focus" feel */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[560px] rounded-full blur-[150px] pointer-events-none opacity-30"
           style={{ background: 'radial-gradient(ellipse, #1E3A8A 0%, #0F766E 70%, transparent 100%)' }}
@@ -401,7 +401,7 @@ export function PhoneOffPage() {
         </div>
       </section>
 
-      {/* THE BIGGER SYSTEM — the bridge */}
+      {/* THE BIGGER SYSTEM,the bridge */}
       <section className="py-28 bg-surface border-y border-white/10 px-6 relative overflow-hidden">
         {/* Soft accent glow */}
         <div
@@ -421,7 +421,7 @@ export function PhoneOffPage() {
               Notice what they all have in common: they all stop people from chasing you. But your business still needs leads, replies, outreach, and answers happening.
             </p>
             <p>
-              I don't sit on my phone chasing them anymore. I built systems that handle it while I'm in deep work or off the grid entirely. While I'm not on my phone, the work that needs to happen on my phone — happens.
+              I don't sit on my phone chasing them anymore. I built systems that handle it while I'm in deep work or off the grid entirely. While I'm not on my phone, the work that needs to happen on my phone,happens.
             </p>
           </motion.div>
 
@@ -437,7 +437,7 @@ export function PhoneOffPage() {
         </div>
       </section>
 
-      {/* CROSS-PROMO — 3 tools */}
+      {/* CROSS-PROMO,3 tools */}
       <section className="py-24 px-6">
         <div className="container-wide max-w-5xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">What To Do With The Time Back</motion.p>
@@ -447,7 +447,7 @@ export function PhoneOffPage() {
             <span className="text-warm-gray">Without A Target Is Just Rest.</span>
           </motion.h2>
           <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-            Three tools — each one a different role in the same system. Free, free, then a paid session that ties them together.
+            Three tools,each one a different role in the same system. Free, free, then a paid session that ties them together.
           </motion.p>
 
           <div className="grid md:grid-cols-3 gap-5">
@@ -495,7 +495,7 @@ export function PhoneOffPage() {
         </div>
       </section>
 
-      {/* FINAL CTA — AI Foundation */}
+      {/* FINAL CTA,AI Foundation */}
       <section className="py-28 px-6 border-t border-white/10 relative overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-25"
@@ -515,7 +515,7 @@ export function PhoneOffPage() {
           </motion.p>
           <motion.div {...fade(0.3)} className="flex flex-col items-center gap-4">
             <Link to="/ai-foundation" className="btn-primary inline-block">
-              See the AI Foundation Session — $97 →
+              See the AI Foundation Session,$97 →
             </Link>
             <p className="text-warm-gray/60 text-xs font-mono uppercase tracking-widest">
               30-day money-back guarantee · 10 spots at $97

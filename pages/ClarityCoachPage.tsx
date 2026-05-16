@@ -11,7 +11,7 @@ export function ClarityCoachPage() {
       features={[
         { text: 'Offer validation framework' },
         { text: 'Target audience identification' },
-        { text: 'One clear path forward — not a list of options' },
+        { text: 'One clear path forward,not a list of options' },
       ]}
       ctaText="Get Clarity Now →"
       ctaHref="https://ultimate-clarity-coach.vercel.app/"

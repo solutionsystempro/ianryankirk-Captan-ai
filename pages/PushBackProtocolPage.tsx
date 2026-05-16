@@ -99,7 +99,7 @@ const QUIZ_QUESTIONS = [
     penaltyOnYes: 0,
   },
   {
-    q: 'Does it contain behavioral rules — not just plugin config?',
+    q: 'Does it contain behavioral rules,not just plugin config?',
     penaltyOnNo: 2,
     penaltyOnYes: 0,
   },
@@ -351,9 +351,9 @@ export function PushBackProtocolPage() {
 
           <div className="space-y-6 max-w-3xl">
             {[
-              'ChatGPT and Claude default to agreement. They validate weak ideas. That\'s not a bug — it\'s the design. Models trained on human feedback learn that people rate "enthusiastic and helpful" higher than "accurate and challenging."',
+              'ChatGPT and Claude default to agreement. They validate weak ideas. That\'s not a bug,it\'s the design. Models trained on human feedback learn that people rate "enthusiastic and helpful" higher than "accurate and challenging."',
               'You\'ve shipped features, written copy, made business decisions where AI nodded along when it should have pushed back. Every "great idea!" response was a missed chance to catch a bad assumption before you spent time on it.',
-              'The cost isn\'t obvious until you look back. You built something nobody wanted, wrote a headline that didn\'t convert, committed to a technical decision that cost you three weeks — and Claude was right there, agreeing the whole time.',
+              'The cost isn\'t obvious until you look back. You built something nobody wanted, wrote a headline that didn\'t convert, committed to a technical decision that cost you three weeks,and Claude was right there, agreeing the whole time.',
               'This isn\'t a Claude problem. It\'s a configuration problem. Claude Code reads a file called CLAUDE.md at the start of every session. If that file doesn\'t tell it to challenge you, it won\'t. The 12 rules below fix that.',
             ].map((para, i) => (
               <motion.p key={i} {...fade(i * 0.08)} className="text-warm-gray font-light leading-relaxed text-lg">
@@ -457,7 +457,7 @@ export function PushBackProtocolPage() {
               {
                 file: '~/.claude/CLAUDE.md',
                 label: 'Global',
-                desc: 'Loads every session, every project. This is where your behavioral rules go — the 12 rules, your tone preferences, your critical thinking protocol.',
+                desc: 'Loads every session, every project. This is where your behavioral rules go,the 12 rules, your tone preferences, your critical thinking protocol.',
                 badge: 'Always active',
                 badgeColor: 'text-accent border-accent/20 bg-accent/5',
                 delay: 0,
@@ -473,7 +473,7 @@ export function PushBackProtocolPage() {
               {
                 file: 'Cowork / Claude.ai',
                 label: 'Other Systems',
-                desc: 'Cowork user preferences are a separate system — they don\'t read CLAUDE.md. Claude.ai chat has no equivalent. Each system needs its own copy of the rules.',
+                desc: 'Cowork user preferences are a separate system,they don\'t read CLAUDE.md. Claude.ai chat has no equivalent. Each system needs its own copy of the rules.',
                 badge: 'Separate copy needed',
                 badgeColor: 'text-warm-gray border-white/10 bg-white/3',
                 delay: 0.2,
@@ -494,7 +494,7 @@ export function PushBackProtocolPage() {
           <motion.div {...fade(0.3)} className="glass-card p-6 border border-accent/10">
             <p className="label-tag text-accent/60 mb-3">The rule of thumb</p>
             <p className="text-off-white font-light leading-relaxed">
-              Behavioral rules — how Claude thinks and responds — belong in the global file. Everything about a specific project belongs in that project's file. If you find yourself copying the same rule into multiple project files, it should be global.
+              Behavioral rules,how Claude thinks and responds,belong in the global file. Everything about a specific project belongs in that project's file. If you find yourself copying the same rule into multiple project files, it should be global.
             </p>
           </motion.div>
         </div>
@@ -520,8 +520,8 @@ export function PushBackProtocolPage() {
               <ul className="space-y-3">
                 {[
                   'Ready-to-paste CLAUDE.md with all 12 rules',
-                  'Template for Push-Back Protocol Preferences — customize each rule to fit your style',
-                  'Push-Back Protocol Preferences for Cowork — paste into Cowork user preferences',
+                  'Template for Push-Back Protocol Preferences,customize each rule to fit your style',
+                  'Push-Back Protocol Preferences for Cowork,paste into Cowork user preferences',
                   '5-question self-audit checklist (printable)',
                   'Full protocol as a printable PDF',
                 ].map((item) => (
@@ -542,13 +542,13 @@ export function PushBackProtocolPage() {
                 {(handleClick, downloaded) =>
                   downloaded ? (
                     <div className="space-y-3">
-                      <p className="label-tag text-accent/70 mb-4">Kit unlocked — download each file below</p>
+                      <p className="label-tag text-accent/70 mb-4">Kit unlocked,download each file below</p>
                       {[
-                        { label: 'global-claude-md.txt', desc: 'Rename to CLAUDE.md and drop at ~/.claude/CLAUDE.md — done', url: '/downloads/pushback-protocol/global-claude-md.txt' },
-                        { label: 'pushback-protocol-customize-template.txt', desc: 'Template for Push-Back Protocol Preferences — customize each rule to your style', url: '/downloads/pushback-protocol/pushback-protocol-customize-template.txt' },
-                        { label: 'pushback-protocol-cowork-preferences.txt', desc: 'Paste into Cowork user preferences — same rules, different system', url: '/downloads/pushback-protocol/pushback-protocol-cowork-preferences.txt' },
+                        { label: 'global-claude-md.txt', desc: 'Rename to CLAUDE.md and drop at ~/.claude/CLAUDE.md,done', url: '/downloads/pushback-protocol/global-claude-md.txt' },
+                        { label: 'pushback-protocol-customize-template.txt', desc: 'Template for Push-Back Protocol Preferences,customize each rule to your style', url: '/downloads/pushback-protocol/pushback-protocol-customize-template.txt' },
+                        { label: 'pushback-protocol-cowork-preferences.txt', desc: 'Paste into Cowork user preferences,same rules, different system', url: '/downloads/pushback-protocol/pushback-protocol-cowork-preferences.txt' },
                         { label: 'setup-audit-checklist.html', desc: 'Open in browser → Ctrl+P → Save as PDF', url: '/downloads/pushback-protocol/setup-audit-checklist.html' },
-                        { label: 'pushback-protocol.html', desc: 'Full protocol printable — open in browser → Ctrl+P → Save as PDF', url: '/downloads/pushback-protocol/pushback-protocol.html' },
+                        { label: 'pushback-protocol.html', desc: 'Full protocol printable,open in browser → Ctrl+P → Save as PDF', url: '/downloads/pushback-protocol/pushback-protocol.html' },
                       ].map((file) => (
                         <a
                           key={file.url}
@@ -567,7 +567,7 @@ export function PushBackProtocolPage() {
                   ) : (
                     <>
                       <p className="text-off-white font-light leading-relaxed mb-6">
-                        All page content is free — no gate on any of it. The download is the bonus: ready-to-use files you can drop straight into your config.
+                        All page content is free,no gate on any of it. The download is the bonus: ready-to-use files you can drop straight into your config.
                       </p>
                       <button onClick={handleClick} className="btn-primary w-full">
                         Download the Push-Back Protocol Starter Kit →
@@ -625,7 +625,7 @@ export function PushBackProtocolPage() {
           <motion.div {...fade(0.3)} className="mt-8 glass-card p-6 border border-accent/15">
             <p className="text-off-white font-light text-sm leading-relaxed">
               <span className="text-accent font-medium">To verify it's working: </span>
-              Start a new Claude Code session and type: "I want to build a SaaS that helps freelancers track their invoices. What do you think?" — Claude should identify weaknesses and score the idea. If it says "great idea!" you have a config problem.
+              Start a new Claude Code session and type: "I want to build a SaaS that helps freelancers track their invoices. What do you think?",Claude should identify weaknesses and score the idea. If it says "great idea!" you have a config problem.
             </p>
           </motion.div>
         </div>

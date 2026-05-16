@@ -170,19 +170,19 @@ function TrafficStage() {
   return (
     <div className="space-y-12">
       <div>
-        <p className="label-tag text-indigo-400 mb-4">Automatic Traffic — Set It and Forget It</p>
+        <p className="label-tag text-indigo-400 mb-4">Automatic Traffic,Set It and Forget It</p>
         <div className="grid md:grid-cols-3 gap-4">
           {TRAFFIC_AUTO.map((c) => <ExpandableCard key={c.title} card={c} stage="traffic" />)}
         </div>
       </div>
       <div>
-        <p className="label-tag text-indigo-300/70 mb-4">Immediate Traffic — Daily Hustle</p>
+        <p className="label-tag text-indigo-300/70 mb-4">Immediate Traffic,Daily Hustle</p>
         <div className="grid md:grid-cols-2 gap-4">
           {TRAFFIC_DAILY.map((c) => <ExpandableCard key={c.title} card={c} stage="traffic" />)}
         </div>
       </div>
       <div>
-        <p className="label-tag text-indigo-200/50 mb-4">Highest Quality Traffic — Relationship-Driven</p>
+        <p className="label-tag text-indigo-200/50 mb-4">Highest Quality Traffic,Relationship-Driven</p>
         <div className="grid md:grid-cols-3 gap-4">
           {TRAFFIC_HIGH.map((c) => <ExpandableCard key={c.title} card={c} stage="traffic" />)}
         </div>
@@ -459,7 +459,7 @@ export function SevenFigureFunnelPage() {
                 <span className="text-warm-gray">Now Build It.</span>
               </h2>
               <p className="text-warm-gray font-light text-lg mb-10 max-w-xl mx-auto">
-                Want Ian to deploy this inside your business — done for you?
+                Want Ian to deploy this inside your business,done for you?
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link to="/contact" className="btn-primary inline-block">

@@ -22,7 +22,7 @@ const STEPS = [
     title: 'Install gws CLI',
     body: 'Open your terminal and run:',
     code: 'npm install -g @googleworkspace/cli',
-    note: 'Confirm it installed by running: gws --version — you should see a version number.',
+    note: 'Confirm it installed by running: gws --version,you should see a version number.',
   },
   {
     num: '02',
@@ -30,7 +30,7 @@ const STEPS = [
     body: null,
     steps: [
       'Go to console.cloud.google.com',
-      'Sign in with your personal Gmail — not a work account',
+      'Sign in with your personal Gmail,not a work account',
       'Click the project dropdown at the top → New Project',
       'Name it something like Claude Gmail Setup',
       'Click Create and wait for it to finish',
@@ -55,7 +55,7 @@ const STEPS = [
       'Select External → click Create',
       'Fill in: App name, User support email (your Gmail), Developer contact email (your Gmail)',
       'Click Save and Continue through Scopes (don\'t change anything)',
-      'On Test Users — click Add Users and add the Gmail address you want to connect',
+      'On Test Users,click Add Users and add the Gmail address you want to connect',
       'Click Save and Continue → Back to Dashboard',
     ],
     warning: 'If you skip the Test Users step, you\'ll get an "access denied" error when you authenticate.',
@@ -78,7 +78,7 @@ const STEPS = [
     title: 'Create a Config Folder',
     body: 'Create a dedicated folder where gws will store your credentials.',
     code: 'Mac / Linux: mkdir ~/.config/gws-gmail\nWindows PowerShell: mkdir C:/Users/YourName/.config/gws-gmail',
-    note: 'Move the JSON file you downloaded into that folder and rename it exactly: client_secret.json — gws looks for that specific filename.',
+    note: 'Move the JSON file you downloaded into that folder and rename it exactly: client_secret.json,gws looks for that specific filename.',
   },
   {
     num: '07',
@@ -99,14 +99,14 @@ const STEPS = [
     title: 'Test It',
     body: 'Pull the last 5 emails from your inbox to confirm everything is working:',
     code: 'Mac / Linux:\nGOOGLE_WORKSPACE_CLI_CONFIG_DIR=~/.config/gws-gmail gws gmail users messages list --params \'{"userId": "me", "labelIds": ["INBOX"], "maxResults": 5}\'\n\nWindows PowerShell:\n$env:GOOGLE_WORKSPACE_CLI_CONFIG_DIR="C:/Users/YourName/.config/gws-gmail"; gws gmail users messages list --params \'{"userId": "me", "labelIds": ["INBOX"], "maxResults": 5}\'',
-    note: 'If you see emails — you\'re done.',
+    note: 'If you see emails,you\'re done.',
   },
   {
     num: '10',
     title: 'Create a Claude Code Project',
     body: null,
     steps: [
-      'Create a new folder on your computer for this inbox, e.g. Email Wizard — Gmail',
+      'Create a new folder on your computer for this inbox, e.g. Email Wizard,Gmail',
       'Open that folder as a project in Claude Code',
       'Create a file called CLAUDE.md in the project root',
     ],
@@ -208,7 +208,7 @@ export function GmailClaudePage() {
             <ul className="space-y-2">
               {[
                 'A personal Gmail account (NOT a work/company account)',
-                'Node.js installed — check by running node -v in your terminal',
+                'Node.js installed,check by running node -v in your terminal',
                 'Claude Code installed',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-warm-gray font-light">
@@ -298,7 +298,7 @@ export function GmailClaudePage() {
         </div>
       </section>
 
-      {/* WHAT'S NEXT — tool CTAs */}
+      {/* WHAT'S NEXT,tool CTAs */}
       <section className="section-pad px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">What's Next</motion.p>
@@ -309,7 +309,7 @@ export function GmailClaudePage() {
           </motion.h2>
           <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
             Now put the full system to work. These tools are what Ian uses to close deals,
-            diagnose calls, and sharpen his DM game — all free to try.
+            diagnose calls, and sharpen his DM game,all free to try.
           </motion.p>
 
           <div className="grid md:grid-cols-3 gap-5 mb-16">

@@ -48,7 +48,7 @@ export function AboutPage() {
             >
               <img
                 src="/ian-kirk.jpg"
-                alt="Ian Ryan Kirk — Captain AI"
+                alt="Ian Ryan Kirk,Captain AI"
                 className="w-full max-w-md mx-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 style={{ filter: 'grayscale(20%) contrast(1.05)' }}
               />
@@ -84,15 +84,15 @@ export function AboutPage() {
             <div className="space-y-4 text-warm-gray font-light leading-relaxed text-lg">
               <p>
                 1999. A VHS camera, a wakeboard, and a phone book. I built my first 5-figure
-                monthly business from cold calls — guerrilla-marketing at boat shows, editing
+                monthly business from cold calls,guerrilla-marketing at boat shows, editing
                 on bootleg software. It felt like I'd hacked the world.
               </p>
               <p>
                 Then success convinced me I was unstoppable. Real estate empires, $10M
-                developments. I crushed it. Until 2008 — when the bottom fell out overnight.
+                developments. I crushed it. Until 2008,when the bottom fell out overnight.
               </p>
               <p className="text-off-white font-medium">
-                I was $10M down. No moves left. I reached for my phone — and there was no one
+                I was $10M down. No moves left. I reached for my phone,and there was no one
                 left to call.
               </p>
             </div>
@@ -107,7 +107,7 @@ export function AboutPage() {
           >
             <img
               src="/ian-adventure.jpg"
-              alt="Ian Kirk — In the field"
+              alt="Ian Kirk,In the field"
               className="w-full object-cover"
               style={{ filter: 'saturate(0.85) contrast(1.05)' }}
             />
@@ -134,7 +134,7 @@ export function AboutPage() {
               "Those 4 years taught me everything about architecture over hustle."
             </p>
             <p>
-              Most entrepreneurs aren't building businesses — they're building high-stress jobs for
+              Most entrepreneurs aren't building businesses,they're building high-stress jobs for
               themselves. I vowed that if I ever built again, it would be an engine, not a cage.
             </p>
           </motion.div>
@@ -156,19 +156,19 @@ export function AboutPage() {
                   phase: 'Phase 01 · 2012',
                   title: 'The Systemization of Sales',
                   accent: 'border-accent',
-                  body: 'I rebuilt from scratch — but this time, not on charisma. The Call Reflex methodology emerged from analyzing 500+ real conversations. A system for diagnosing human belief gaps and closing high-ticket deals through logic, not luck.',
+                  body: 'I rebuilt from scratch,but this time, not on charisma. The Call Reflex methodology emerged from analyzing 500+ real conversations. A system for diagnosing human belief gaps and closing high-ticket deals through logic, not luck.',
                 },
                 {
                   phase: 'Phase 02 · 2018',
                   title: 'The Multi-Company Automation',
                   accent: 'border-white/15',
-                  body: 'Three separate companies, running simultaneously. By 2018, they were 95% automated. I was no longer the bottleneck. I was the architect — the way it was always supposed to be.',
+                  body: 'Three separate companies, running simultaneously. By 2018, they were 95% automated. I was no longer the bottleneck. I was the architect,the way it was always supposed to be.',
                 },
                 {
                   phase: 'Phase 03 · Now',
                   title: 'The Victoria Intelligence Layer',
                   accent: 'border-white/15',
-                  body: 'With the rise of AI, I found the ultimate leverage point. 20 years of pattern recognition, encoded. The SLAP Method, Call Reflekt, Clarity Coach — this is Captain AI. The fusion of human grit and artificial precision.',
+                  body: 'With the rise of AI, I found the ultimate leverage point. 20 years of pattern recognition, encoded. The SLAP Method, Call Reflekt, Clarity Coach,this is Captain AI. The fusion of human grit and artificial precision.',
                 },
               ].map((phase, i) => (
                 <motion.div
@@ -196,7 +196,7 @@ export function AboutPage() {
             Follow the Build
           </motion.h2>
           <motion.p {...fade(0.15)} className="text-warm-gray text-lg font-light max-w-xl mx-auto">
-            Sales systems, founder lessons, and frameworks from 20 years in the field — shared
+            Sales systems, founder lessons, and frameworks from 20 years in the field,shared
             across every platform.
           </motion.p>
           <motion.div {...fade(0.25)} className="flex flex-wrap justify-center gap-4">

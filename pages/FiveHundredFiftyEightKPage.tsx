@@ -31,7 +31,7 @@ const PRICING = [
   {
     num: '01',
     title: 'Removed the 40% Discount',
-    body: 'The core offer was being sold at a 40% discount on the website. Ian made the case to the founder to sell at full price. The discount came down. Every sale after that point was worth more — for every closer on the team.',
+    body: 'The core offer was being sold at a 40% discount on the website. Ian made the case to the founder to sell at full price. The discount came down. Every sale after that point was worth more,for every closer on the team.',
   },
   {
     num: '02',
@@ -41,12 +41,12 @@ const PRICING = [
   {
     num: '03',
     title: 'First Custom Build at $10K',
-    body: 'No one had sold a custom build at this price point before. Ian did it. Then kept going — proving that the ceiling others assumed was actually just a floor.',
+    body: 'No one had sold a custom build at this price point before. Ian did it. Then kept going,proving that the ceiling others assumed was actually just a floor.',
   },
   {
     num: '04',
     title: 'Only Closer to Reach $15K and $25K',
-    body: 'The only closer in company history to sell at $15K and $25K. Not before Ian. Not after. These weren\'t lucky flukes — they were the result of understanding value at a level most closers never reach.',
+    body: 'The only closer in company history to sell at $15K and $25K. Not before Ian. Not after. These weren\'t lucky flukes,they were the result of understanding value at a level most closers never reach.',
     highlight: true,
   },
 ];
@@ -89,7 +89,7 @@ const TESTIMONIALS = [
     initials: 'KB',
     name: 'Kim Berthilsson',
     role: 'Community Member',
-    quote: 'I just had the best clarity call of all time with Ian Kirk. If you\'re looking to navigate the ins and outs of building your business effectively, you won\'t want to miss the chance to speak with him. Ian is not just knowledgeable — he genuinely cares about helping people succeed.',
+    quote: 'I just had the best clarity call of all time with Ian Kirk. If you\'re looking to navigate the ins and outs of building your business effectively, you won\'t want to miss the chance to speak with him. Ian is not just knowledgeable,he genuinely cares about helping people succeed.',
     badge: 'Best clarity call of all time',
   },
   {
@@ -227,7 +227,7 @@ export function FiveHundredFiftyEightKPage() {
           </motion.p>
 
           <motion.div {...fade(0.25)} className="glass-card p-8">
-            <p className="label-tag text-accent/60 mb-6">Revenue Trajectory — Feb 2025 → Feb 2026</p>
+            <p className="label-tag text-accent/60 mb-6">Revenue Trajectory,Feb 2025 → Feb 2026</p>
             <RevenueChart />
             <p className="text-warm-gray/40 text-xs font-light mt-6">
               Oct 2025–Feb 2026 confirmed from Airtable. Feb–Sep 2025 based on confirmed Q1 total of $72K (Feb start: $18K). Total: $558,000.
@@ -374,7 +374,7 @@ export function FiveHundredFiftyEightKPage() {
             <div className="space-y-4 text-warm-gray font-light leading-relaxed">
               <p>Built a business from cold calls and VHS tapes.</p>
               <p>Watched $10M vanish overnight.</p>
-              <p>Built a 2,500-rep empire — and lost it the same way.</p>
+              <p>Built a 2,500-rep empire,and lost it the same way.</p>
               <p>Spent 14 years in the mountains.</p>
               <p className="text-off-white font-medium">Now back, applying every lesson.</p>
             </div>
