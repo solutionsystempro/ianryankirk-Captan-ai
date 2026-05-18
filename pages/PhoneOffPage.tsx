@@ -357,7 +357,7 @@ export function PhoneOffPage() {
       </section>
 
       {/* WHY THIS EXISTS */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-3xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">Why This Exists</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
@@ -381,7 +381,7 @@ export function PhoneOffPage() {
       </section>
 
       {/* THE 7 SYSTEMS */}
-      <section id="the-systems" className="py-24 px-6">
+      <section id="the-systems" className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">The Framework</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
@@ -402,7 +402,7 @@ export function PhoneOffPage() {
       </section>
 
       {/* THE BIGGER SYSTEM,the bridge */}
-      <section className="py-28 bg-surface border-y border-white/10 px-6 relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6 relative overflow-hidden">
         {/* Soft accent glow */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full blur-[120px] pointer-events-none opacity-20"
@@ -438,7 +438,7 @@ export function PhoneOffPage() {
       </section>
 
       {/* CROSS-PROMO,3 tools */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-5xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">What To Do With The Time Back</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
@@ -496,7 +496,7 @@ export function PhoneOffPage() {
       </section>
 
       {/* FINAL CTA,AI Foundation */}
-      <section className="py-28 px-6 border-t border-white/10 relative overflow-hidden">
+      <section className="py-16 md:py-20 px-6 border-t border-white/10 relative overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-25"
           style={{ background: 'radial-gradient(ellipse, #AAFF00 0%, transparent 70%)' }}
@@ -525,7 +525,7 @@ export function PhoneOffPage() {
       </section>
 
       {/* DOWNLOAD CTA */}
-      <section className="py-20 bg-surface border-t border-white/10 px-6">
+      <section className="py-14 md:py-18 bg-surface border-t border-white/10 px-6">
         <div className="container-wide max-w-3xl text-center">
           <motion.p {...fade()} className="label-tag text-accent mb-4">Take It With You</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-4xl md:text-5xl tracking-tighter leading-none mb-5">

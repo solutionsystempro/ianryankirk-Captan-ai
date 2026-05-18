@@ -59,7 +59,7 @@ export function AboutPage() {
       </section>
 
       {/* CORE QUOTE */}
-      <section className="py-24 bg-background-alt border-y border-white/10">
+      <section className="py-16 md:py-20 bg-background-alt border-y border-white/10">
         <div className="container-wide max-w-5xl text-center">
           <motion.blockquote {...fade()}>
             <p className="pull-quote text-3xl md:text-5xl lg:text-[clamp(2rem,4vw,3.5rem)]">

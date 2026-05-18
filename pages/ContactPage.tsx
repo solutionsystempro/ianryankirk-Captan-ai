@@ -268,7 +268,7 @@ export function ContactPage() {
       </section>
 
       {/* SUBSCRIBE STRIP */}
-      <section className="border-t border-white/10 py-20 px-6 relative overflow-hidden">
+      <section className="border-t border-white/10 py-14 md:py-20 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-white/[0.015] pointer-events-none" />
         <div className="container-wide max-w-3xl text-center space-y-6 relative z-10">
           <h2 className="font-display text-4xl md:text-5xl">The Captain's Log</h2>

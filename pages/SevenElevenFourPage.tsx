@@ -251,7 +251,7 @@ export function SevenElevenFourPage() {
         </section>
 
         {/* WHY MOST PEOPLE FAIL */}
-        <section className="py-24 bg-surface border-y border-white/10 px-6">
+        <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
           <div className="container-wide max-w-4xl">
             <motion.p {...fade()} className="label-tag text-accent mb-4">The Mistake</motion.p>
             <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter mb-10">
@@ -304,7 +304,7 @@ export function SevenElevenFourPage() {
         </section>
 
         {/* IAN'S SYSTEM MAPPED TO 7-11-4 */}
-        <section className="py-24 px-6">
+        <section className="py-16 md:py-20 px-6">
           <div className="container-wide max-w-4xl">
             <motion.p {...fade()} className="label-tag text-accent mb-4">The Captain AI System</motion.p>
             <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
@@ -340,7 +340,7 @@ export function SevenElevenFourPage() {
         </section>
 
         {/* WHAT TO DO NOW */}
-        <section className="py-24 bg-surface border-y border-white/10 px-6">
+        <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
           <div className="container-wide max-w-4xl">
             <motion.p {...fade()} className="label-tag text-accent mb-4">Your Next Move</motion.p>
             <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-10">

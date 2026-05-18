@@ -250,7 +250,7 @@ export function FiveHundredFiftyEightKPage() {
       </section>
 
       {/* PRICING LEADERSHIP */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">Pricing Leadership</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
@@ -298,7 +298,7 @@ export function FiveHundredFiftyEightKPage() {
       </section>
 
       {/* SYSTEMS BUILDING */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">Systems Building</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
@@ -331,7 +331,7 @@ export function FiveHundredFiftyEightKPage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">What People Say</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter mb-12">
@@ -361,7 +361,7 @@ export function FiveHundredFiftyEightKPage() {
       </section>
 
       {/* ORIGIN STORY */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">The Background</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-10">
@@ -383,7 +383,7 @@ export function FiveHundredFiftyEightKPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 border-t border-white/10">
+      <section className="py-16 md:py-20 px-6 border-t border-white/10">
         <div className="container-wide max-w-4xl text-center">
           <motion.div {...fade()}>
             <p className="label-tag text-accent mb-6">Ready to Add a Growth Operator?</p>

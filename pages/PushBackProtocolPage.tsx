@@ -210,7 +210,7 @@ function QuizSection() {
   };
 
   return (
-    <section className="py-24 bg-surface border-y border-white/10 px-6" id="quiz">
+    <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6" id="quiz">
       <div className="container-wide max-w-4xl">
         <motion.p {...fade()} className="label-tag text-accent mb-4">Self-Audit</motion.p>
         <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
@@ -340,7 +340,7 @@ export function PushBackProtocolPage() {
       </section>
 
       {/* THE PROBLEM */}
-      <section id="the-problem" className="py-24 bg-surface border-y border-white/10 px-6">
+      <section id="the-problem" className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">The Problem</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
@@ -365,7 +365,7 @@ export function PushBackProtocolPage() {
       </section>
 
       {/* BEFORE & AFTER */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-5xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">Same Prompt. Different Config.</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
@@ -418,7 +418,7 @@ export function PushBackProtocolPage() {
       </section>
 
       {/* THE 12 RULES */}
-      <section id="the-protocol" className="py-24 bg-surface border-y border-white/10 px-6">
+      <section id="the-protocol" className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">The Framework</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
@@ -439,7 +439,7 @@ export function PushBackProtocolPage() {
       </section>
 
       {/* WHERE THESE RULES LIVE */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">The Mental Model</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
@@ -504,7 +504,7 @@ export function PushBackProtocolPage() {
       <QuizSection />
 
       {/* DOWNLOAD CTA */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">The Starter Kit</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
@@ -585,7 +585,7 @@ export function PushBackProtocolPage() {
       </section>
 
       {/* HOW TO INSTALL */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">Installation</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
@@ -632,7 +632,7 @@ export function PushBackProtocolPage() {
       </section>
 
       {/* YOUTUBE PLACEHOLDER */}
-      <section className="py-24 bg-background border-t border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-background border-t border-white/10 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">Tutorial</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">

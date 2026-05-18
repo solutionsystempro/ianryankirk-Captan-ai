@@ -275,7 +275,7 @@ export function GmailClaudePage() {
       </section>
 
       {/* ERRORS TABLE */}
-      <section className="py-24 bg-background-alt border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-background-alt border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
           <motion.p {...fade()} className="label-tag text-accent mb-4">Troubleshooting</motion.p>
           <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter mb-10">

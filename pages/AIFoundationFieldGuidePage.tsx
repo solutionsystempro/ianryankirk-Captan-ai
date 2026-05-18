@@ -169,7 +169,7 @@ export function AIFoundationFieldGuidePage() {
       </section>
 
       {/* ── WHY THE FOUNDATION ── */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-14 md:py-20 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -193,7 +193,7 @@ export function AIFoundationFieldGuidePage() {
       </section>
 
       {/* ── POWER OFFER FORMULA ── */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-14 md:py-20 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
@@ -248,7 +248,7 @@ export function AIFoundationFieldGuidePage() {
       </section>
 
       {/* ── SESSION PHASES ── */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-14 md:py-20 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
@@ -329,7 +329,7 @@ export function AIFoundationFieldGuidePage() {
       </section>
 
       {/* ── MECHANISM NAMING RULES ── */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-14 md:py-20 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
@@ -395,7 +395,7 @@ export function AIFoundationFieldGuidePage() {
       </section>
 
       {/* ── FOUNDATION DOC TEMPLATE ── */}
-      <section className="py-20 px-6 border-t border-white/5">
+      <section className="py-14 md:py-20 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
@@ -452,7 +452,7 @@ export function AIFoundationFieldGuidePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 px-6 border-t border-white/5">
+      <section className="py-16 md:py-20 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
