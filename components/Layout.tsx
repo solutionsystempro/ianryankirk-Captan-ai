@@ -178,7 +178,7 @@ export function Layout() {
                 className="pt-8 flex flex-col gap-4"
               >
                 <a
-                  href="https://slap-method-production.up.railway.app/"
+                  href="https://slap-method.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary inline-block text-center"
@@ -259,9 +259,9 @@ export function Layout() {
               <h5 className="font-display text-lg tracking-widest uppercase">Tools</h5>
               <ul className="space-y-2.5">
                 {[
-                  { label: 'SLAP Method', href: 'https://slap-method-production.up.railway.app/', ext: true },
+                  { label: 'SLAP Method', href: 'https://slap-method.vercel.app/', ext: true },
                   { label: 'Clarity Coach', href: 'https://ultimate-clarity-coach.vercel.app/', ext: true },
-                  { label: 'Call Reflekt Agent', href: 'https://call-reflekt-coach-production.up.railway.app/', ext: true },
+                  { label: 'Call Reflekt Agent', href: 'https://call-reflekt-coach.vercel.app/', ext: true },
                   { label: 'Objection Card App', href: 'https://objection-cards-app-production.up.railway.app/', ext: true },
                   { label: 'The Book', href: '/#book', ext: false },
                 ].map((item) =>

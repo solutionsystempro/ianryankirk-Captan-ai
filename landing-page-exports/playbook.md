@@ -101,15 +101,15 @@ Stuck between ideas and zero traction? This locks in your one clear path forward
 
 ### Call Reflekt
 Paste a sales call transcript. Get back exactly where you lost the frame.
-**CTA:** [Analyze a Call →](https://call-reflekt-coach-production.up.railway.app/) — external link
+**CTA:** [Analyze a Call →](https://call-reflekt-coach.vercel.app/) — external link
 
 ### DM Copywriter (SLAP Method)
 Turn ignored DMs into booked calls. The exact framework Ian uses.
-**CTA:** [Try It Free →](https://slap-method-production.up.railway.app/) — external link
+**CTA:** [Try It Free →](https://slap-method.vercel.app/) — external link
 
 ### Cold Email Copywriter
 Write cold emails that get replies. Poke The Bear framework, reply-focused CTAs, no AI fluff.
-**CTA:** [Write Cold Emails →](https://cold-email-copywriter-production.up.railway.app) — external link
+**CTA:** [Write Cold Emails →](https://cold-email-copywriter-opal.vercel.app) — external link
 
 ---
 

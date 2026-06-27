@@ -88,13 +88,13 @@ const TOOLS = [
   {
     label: 'SLAP Method',
     desc: 'A system for turning ignored DMs into booked calls,built for coaches who hate chasing.',
-    href: 'https://slap-method-production.up.railway.app/',
+    href: 'https://slap-method.vercel.app/',
     cta: 'Try SLAP Method →',
   },
   {
     label: 'Call Reflekt',
     desc: 'Paste a sales call transcript. Get back exactly where you lost the frame,and how to fix it.',
-    href: 'https://call-reflekt-coach-production.up.railway.app/',
+    href: 'https://call-reflekt-coach.vercel.app/',
     cta: 'Analyze a Call →',
   },
   {
@@ -106,7 +106,7 @@ const TOOLS = [
   {
     label: 'Cold Email Copywriter',
     desc: 'Write cold emails that get replies. Poke The Bear framework, Ian\'s voice, reply-focused CTAs.',
-    href: 'https://cold-email-copywriter-production.up.railway.app',
+    href: 'https://cold-email-copywriter-opal.vercel.app',
     cta: 'Write Cold Emails →',
   },
 ];

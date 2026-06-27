@@ -34,7 +34,7 @@ Stop the script. Lead with proof. Arouse curiosity. Position as shortcut. The SL
 
 # CTA
 
-**Primary CTA:** [Get SLAP Method →](https://slap-method-production.up.railway.app/) — external link to tool
+**Primary CTA:** [Get SLAP Method →](https://slap-method.vercel.app/) — external link to tool
 **Price:** Free to start
 
 ---

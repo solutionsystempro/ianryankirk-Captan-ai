@@ -112,7 +112,7 @@ export function ContactPage() {
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="space-y-4 max-w-md">
-                <a href="https://cold-email-copywriter-production.up.railway.app" target="_blank" rel="noopener noreferrer"
+                <a href="https://cold-email-copywriter-opal.vercel.app" target="_blank" rel="noopener noreferrer"
                   className="bento-card p-6 border-l-2 border-accent/50 space-y-2 block hover:border-accent transition-colors duration-200">
                   <p className="label-tag text-accent">Free · Cold Outreach</p>
                   <h3 className="font-display text-xl">Cold Email Copywriter</h3>
@@ -255,7 +255,7 @@ export function ContactPage() {
                     <p className="text-warm-gray font-light text-lg">
                       The Captain has your message. I'll be in touch within 24 hours.
                     </p>
-                    <a href="https://slap-method-production.up.railway.app/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://slap-method.vercel.app/" target="_blank" rel="noopener noreferrer"
                       className="btn-primary inline-block mt-4">
                       While you wait,Try SLAP Method Free →
                     </a>

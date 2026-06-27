@@ -169,20 +169,20 @@ export function PlaybookPage() {
                 {
                   label: 'Call Reflekt',
                   desc: 'Paste a sales call transcript. Get back exactly where you lost the frame.',
-                  href: 'https://call-reflekt-coach-production.up.railway.app/',
+                  href: 'https://call-reflekt-coach.vercel.app/',
                   cta: 'Analyze a Call →',
                 },
                 {
                   label: 'DM Copywriter',
                   sublabel: 'SLAP Method',
                   desc: 'Turn ignored DMs into booked calls. The exact framework Ian uses.',
-                  href: 'https://slap-method-production.up.railway.app/',
+                  href: 'https://slap-method.vercel.app/',
                   cta: 'Try It Free →',
                 },
                 {
                   label: 'Cold Email Copywriter',
                   desc: 'Write cold emails that get replies. Poke The Bear framework, reply-focused CTAs, no AI fluff.',
-                  href: 'https://cold-email-copywriter-production.up.railway.app',
+                  href: 'https://cold-email-copywriter-opal.vercel.app',
                   cta: 'Write Cold Emails →',
                 },
               ].map((tool, i) => (

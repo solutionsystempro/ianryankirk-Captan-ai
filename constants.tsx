@@ -31,7 +31,7 @@ export const PRODUCTS: Product[] = [
     priceBadge: 'FREE',
     ctaText: 'Analyze a Call →',
     accent: 'lime',
-    href: 'https://call-reflekt-coach-production.up.railway.app/',
+    href: 'https://call-reflekt-coach.vercel.app/',
     isExternal: true,
     features: [
       'Buyer archetype diagnosis',
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     priceBadge: 'FREE + PRO',
     ctaText: 'Get the DM Framework →',
     accent: 'blue',
-    href: 'https://slap-method-production.up.railway.app/',
+    href: 'https://slap-method.vercel.app/',
     isExternal: true,
     features: [
       'Built on the 4-move SLAP method',
@@ -88,7 +88,7 @@ export const PRODUCTS: Product[] = [
     priceBadge: 'FREE',
     ctaText: 'Try It Free →',
     accent: 'lime',
-    href: 'https://cold-email-copywriter-production.up.railway.app',
+    href: 'https://cold-email-copywriter-opal.vercel.app',
     isExternal: true,
     features: [
       'Poke The Bear Hybrid framework',

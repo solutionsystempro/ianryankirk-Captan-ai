@@ -61,13 +61,13 @@ const TOOLS = [
   {
     label: 'Call Reflekt Agent',
     desc: 'Paste a sales call transcript. Get back the exact moment you lost the frame.',
-    href: 'https://call-reflekt-coach-production.up.railway.app/',
+    href: 'https://call-reflekt-coach.vercel.app/',
     cta: 'Analyze a call →',
   },
   {
     label: 'SLAP Method',
     desc: 'The framework that turns ignored DMs into booked calls.',
-    href: 'https://slap-method-production.up.railway.app/',
+    href: 'https://slap-method.vercel.app/',
     cta: 'Get the method →',
   },
   {
@@ -79,7 +79,7 @@ const TOOLS = [
   {
     label: 'Cold Email Copywriter',
     desc: 'Write cold emails that get replies. Poke The Bear framework, reply-focused CTAs, no AI fluff.',
-    href: 'https://cold-email-copywriter-production.up.railway.app',
+    href: 'https://cold-email-copywriter-opal.vercel.app',
     cta: 'Write Cold Emails →',
   },
 ];

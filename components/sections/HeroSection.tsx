@@ -137,7 +137,7 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-3 mb-6"
         >
           <a
-            href="https://slap-method-production.up.railway.app/"
+            href="https://slap-method.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-center group relative overflow-hidden"

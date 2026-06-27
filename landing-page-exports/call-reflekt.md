@@ -33,7 +33,7 @@ Most reps replay lost calls and feel bad. Call Reflekt tells you the buyer arche
 
 # CTA
 
-**Primary CTA:** [Analyze a Call →](https://call-reflekt-coach-production.up.railway.app/) — external link to tool
+**Primary CTA:** [Analyze a Call →](https://call-reflekt-coach.vercel.app/) — external link to tool
 **Price:** Free
 
 ---

@@ -10,15 +10,15 @@ Generated from source code analysis of all 12 landing pages.
 |-----------|-------|-----------|------------------------|--------------|
 | Gmail + Claude Code | /gmail-claude | Lead Magnet (DownloadGate) | /downloads/gmail-claude/gmail-claude-guide.html | DownloadGate (email → download) |
 | Business Clarity Coach | /clarity-coach | Tool Landing | https://ultimate-clarity-coach.vercel.app/ | None |
-| Call Reflekt Agent | /call-reflekt | Tool Landing | https://call-reflekt-coach-production.up.railway.app/ | None |
-| SLAP Method | /slap-method | Tool Landing | https://slap-method-production.up.railway.app/ | None |
+| Call Reflekt Agent | /call-reflekt | Tool Landing | https://call-reflekt-coach.vercel.app/ | None |
+| SLAP Method | /slap-method | Tool Landing | https://slap-method.vercel.app/ | None |
 | Objection Card App | /objection-cards | Tool Landing | https://objection-cards-app-production.up.railway.app/ | None |
 | AI Foundation Field Guide | /ai-foundation | Sales Page | https://book.stripe.com/6oUeVe2kI63g8jVfLXew80a ($97) | Waitlist form (not a gate) |
 | The 7-11-4 Rule | /7-11-4 | Lead Magnet (DownloadGate) | /downloads/7-11-4/7-11-4-framework.pdf | DownloadGate (email → PDF) |
 | $558K Proof of Work | /558k | Social Proof | /contact (Book a Call) | None |
 | 7-Figure Community Funnel | /7-figure-funnel | Lead Magnet (DownloadGate) | /downloads/7-figure-funnel/7-figure-funnel.html | DownloadGate (email → download) |
 | The Facebook Playbook | /playbook | Lead Magnet (DownloadGate) | /downloads/facebook-playbook/facebook-playbook.html | DownloadGate (email → download) |
-| Cold Email Copywriter | /cold-email-copywriter | Tool Landing | https://cold-email-copywriter-production.up.railway.app | Waitlist form (optional) |
+| Cold Email Copywriter | /cold-email-copywriter | Tool Landing | https://cold-email-copywriter-opal.vercel.app | Waitlist form (optional) |
 | Push-Back Protocol | /push-back-protocol | Lead Magnet (DownloadGate) | /downloads/pushback-protocol/global-claude-md.txt | DownloadGate (email → files) |
 
 ---

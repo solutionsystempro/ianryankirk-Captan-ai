@@ -16,7 +16,7 @@ export function ColdEmailCopywriterPage() {
         { text: 'Write Mode (generate sequences) + Critique Mode (score and rewrite yours)' },
       ]}
       ctaText="Try Cold Email Copywriter →"
-      ctaHref="https://cold-email-copywriter-production.up.railway.app"
+      ctaHref="https://cold-email-copywriter-opal.vercel.app"
       price="Free to start"
       waitlistSource="cold-email-copywriter"
     />

@@ -16,7 +16,7 @@ export function SlapMethodPage() {
         { text: 'AI DM rewriter + 9-step execution flow + bonus scripts' },
       ]}
       ctaText="Get SLAP Method →"
-      ctaHref="https://slap-method-production.up.railway.app/"
+      ctaHref="https://slap-method.vercel.app/"
       price="Free to start"
     />
   );

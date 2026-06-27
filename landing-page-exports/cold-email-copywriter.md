@@ -34,7 +34,7 @@ Most cold emails fail before they're read. Wrong opener, wrong frame, wrong ask.
 
 # CTA
 
-**Primary CTA:** [Try Cold Email Copywriter →](https://cold-email-copywriter-production.up.railway.app) — external link to tool
+**Primary CTA:** [Try Cold Email Copywriter →](https://cold-email-copywriter-opal.vercel.app) — external link to tool
 **Price:** Free to start
 
 ---

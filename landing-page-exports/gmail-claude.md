@@ -192,11 +192,11 @@ Now put the full system to work. These tools are what Ian uses to close deals, d
 
 ### SLAP Method
 Turn ignored DMs into booked calls.
-**CTA:** [Try SLAP Method →](https://slap-method-production.up.railway.app/) — external link
+**CTA:** [Try SLAP Method →](https://slap-method.vercel.app/) — external link
 
 ### Call Reflekt
 Paste a sales call transcript. Get back exactly where you lost the frame.
-**CTA:** [Analyze a Call →](https://call-reflekt-coach-production.up.railway.app/) — external link
+**CTA:** [Analyze a Call →](https://call-reflekt-coach.vercel.app/) — external link
 
 ### Business Clarity Coach
 Stuck between ideas? Lock in your one clear path forward.
@@ -204,7 +204,7 @@ Stuck between ideas? Lock in your one clear path forward.
 
 ### Cold Email Copywriter
 Write cold emails that get replies. Poke The Bear framework, reply-focused CTAs, no AI fluff.
-**CTA:** [Write Cold Emails →](https://cold-email-copywriter-production.up.railway.app) — external link
+**CTA:** [Write Cold Emails →](https://cold-email-copywriter-opal.vercel.app) — external link
 
 ---
 
