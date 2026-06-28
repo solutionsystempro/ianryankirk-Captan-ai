@@ -262,7 +262,7 @@ export function Layout() {
                   { label: 'SLAP Method', href: 'https://slap-method.vercel.app/', ext: true },
                   { label: 'Clarity Coach', href: 'https://ultimate-clarity-coach.vercel.app/', ext: true },
                   { label: 'Call Reflekt Agent', href: 'https://call-reflekt-coach.vercel.app/', ext: true },
-                  { label: 'Objection Card App', href: 'https://objection-cards-app-production.up.railway.app/', ext: true },
+                  { label: 'Objection Card App', href: 'https://objection-cards-app.vercel.app/', ext: true },
                   { label: 'The Book', href: '/#book', ext: false },
                 ].map((item) =>
                   item.ext ? (

@@ -67,7 +67,7 @@ export const PRODUCTS: Product[] = [
       '56 objections. 56 reframes. Drillable, pocketable, and built for the field. Flip through before a call, drill patterns on the go. Never be caught flat-footed on a live call again.',
     price: 'Free · $27/mo',
     priceBadge: '$27/MO',
-    href: 'https://objection-cards-app-production.up.railway.app/',
+    href: 'https://objection-cards-app.vercel.app/',
     ctaText: 'Try It Free →',
     accent: 'blue',
     comingSoon: false,

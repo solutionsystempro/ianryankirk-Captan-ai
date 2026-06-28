@@ -15,7 +15,7 @@ export function ObjectionCardsPage() {
         { text: 'Pocketable,works anywhere, no internet needed after load' },
       ]}
       ctaText="Try It Free →"
-      ctaHref="https://objection-cards-app-production.up.railway.app/"
+      ctaHref="https://objection-cards-app.vercel.app/"
       price="Free to try"
     />
   );

@@ -12,7 +12,7 @@ Generated from source code analysis of all 12 landing pages.
 | Business Clarity Coach | /clarity-coach | Tool Landing | https://ultimate-clarity-coach.vercel.app/ | None |
 | Call Reflekt Agent | /call-reflekt | Tool Landing | https://call-reflekt-coach.vercel.app/ | None |
 | SLAP Method | /slap-method | Tool Landing | https://slap-method.vercel.app/ | None |
-| Objection Card App | /objection-cards | Tool Landing | https://objection-cards-app-production.up.railway.app/ | None |
+| Objection Card App | /objection-cards | Tool Landing | https://objection-cards-app.vercel.app/ | None |
 | AI Foundation Field Guide | /ai-foundation | Sales Page | https://book.stripe.com/6oUeVe2kI63g8jVfLXew80a ($97) | Waitlist form (not a gate) |
 | The 7-11-4 Rule | /7-11-4 | Lead Magnet (DownloadGate) | /downloads/7-11-4/7-11-4-framework.pdf | DownloadGate (email → PDF) |
 | $558K Proof of Work | /558k | Social Proof | /contact (Book a Call) | None |

@@ -33,7 +33,7 @@ Built for the field. Flip through before a call, drill patterns on the go, or pu
 
 # CTA
 
-**Primary CTA:** [Try It Free →](https://objection-cards-app-production.up.railway.app/) — external link to tool
+**Primary CTA:** [Try It Free →](https://objection-cards-app.vercel.app/) — external link to tool
 **Price:** Free to try
 
 ---
