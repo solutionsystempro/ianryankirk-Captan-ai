@@ -170,20 +170,20 @@ function TrafficStage() {
   return (
     <div className="space-y-12">
       <div>
-        <p className="label-tag text-indigo-400 mb-4">Automatic Traffic,Set It and Forget It</p>
-        <div className="grid md:grid-cols-3 gap-4">
+        <p className="label-tag text-indigo-400 mb-3">Automatic Traffic: Set It and Forget It</p>
+        <div className="grid md:grid-cols-3 gap-3">
           {TRAFFIC_AUTO.map((c) => <ExpandableCard key={c.title} card={c} stage="traffic" />)}
         </div>
       </div>
       <div>
-        <p className="label-tag text-indigo-300/70 mb-4">Immediate Traffic,Daily Hustle</p>
-        <div className="grid md:grid-cols-2 gap-4">
+        <p className="label-tag text-indigo-300/70 mb-3">Immediate Traffic: Daily Hustle</p>
+        <div className="grid md:grid-cols-2 gap-3">
           {TRAFFIC_DAILY.map((c) => <ExpandableCard key={c.title} card={c} stage="traffic" />)}
         </div>
       </div>
       <div>
-        <p className="label-tag text-indigo-200/50 mb-4">Highest Quality Traffic,Relationship-Driven</p>
-        <div className="grid md:grid-cols-3 gap-4">
+        <p className="label-tag text-indigo-200/50 mb-3">Highest Quality Traffic: Relationship-Driven</p>
+        <div className="grid md:grid-cols-3 gap-3">
           {TRAFFIC_HIGH.map((c) => <ExpandableCard key={c.title} card={c} stage="traffic" />)}
         </div>
       </div>
@@ -201,7 +201,7 @@ function LeadStage() {
           Your Skool community landing page. Clear promise, social proof, and an opt-in that qualifies AND triggers automations.
         </p>
       </div>
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-3">
         {LEAD_CARDS.map((c) => <ExpandableCard key={c.title} card={c} stage="lead" />)}
       </div>
     </div>
@@ -223,13 +223,13 @@ function NurtureStage() {
       <div className="glass-card p-6 md:p-8">
         <h3 className="font-display text-xl tracking-tight mb-1">Path A (parallel): 7-Day Email Sequence</h3>
         <p className="text-warm-gray text-sm font-light mb-5">Drip value, build trust, and pitch the low-ticket offer over 7 days.</p>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-3">
           {[
             { title: 'Day 1–2', desc: 'Welcome + your origin story. Then the #1 mistake most entrepreneurs make with lead gen.' },
             { title: 'Day 3–4', desc: 'Client case study with real results. Then the system explained at a high level.' },
             { title: 'Day 5–7', desc: 'Soft pitch the low ticket offer. Crush objections. Hard CTA to book a call or buy.' },
           ].map((e) => (
-            <div key={e.title} className="glass-card p-5 border border-teal-500/20">
+            <div key={e.title} className="glass-card p-4 border border-teal-500/20">
               <h4 className="font-display text-lg text-teal-400 mb-2">{e.title}</h4>
               <p className="text-warm-gray font-light text-sm">{e.desc}</p>
             </div>
@@ -252,7 +252,7 @@ function NurtureStage() {
 function ConversionStage() {
   return (
     <div className="space-y-8">
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-3">
         {CONVERSION_CARDS.map((c) => <ExpandableCard key={c.title} card={c} stage="conversion" />)}
       </div>
       <div className="text-center py-6 border border-white/5 rounded-2xl">
@@ -277,7 +277,7 @@ function ClientStage() {
           $5,000 – $10,000
         </span>
       </div>
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-3">
         {CLIENT_CARDS.map((c) => <ExpandableCard key={c.title} card={c} stage="client" />)}
       </div>
     </div>
@@ -293,7 +293,7 @@ export function SevenFigureFunnelPage() {
       <div className="bg-background min-h-screen text-off-white">
 
         {/* HERO */}
-        <section className="relative pt-40 pb-20 px-6 overflow-hidden text-center">
+        <section className="relative pt-24 pb-10 px-6 overflow-hidden text-center">
           <motion.div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-[120px] pointer-events-none"
             animate={{ backgroundColor: STAGE_GLOW[activeStage] }}
@@ -303,7 +303,7 @@ export function SevenFigureFunnelPage() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="label-tag text-accent mb-6 inline-block"
+              className="label-tag text-accent mb-3 inline-block"
             >
               The Complete System · Free Framework
             </motion.p>
@@ -311,26 +311,23 @@ export function SevenFigureFunnelPage() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease }}
-              className="font-display text-[clamp(48px,8vw,96px)] leading-[0.88] tracking-tighter mb-8"
+              className="font-display text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter font-black mb-4"
             >
-              The 7-Figure
-              <br />
-              <span className="text-warm-gray">Community Funnel</span>
+              The 7-Figure <span className="text-warm-gray">Community Funnel</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease }}
-              className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mx-auto mb-10"
+              className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mx-auto mb-6"
             >
-              The exact system that turns strangers into $5K–$10K clients through a Skool community.
-              Every step. Every tool. Every path to the close.
+              The exact system that turns strangers into $5K to $10K clients through a Skool community. Every step. Every tool. Every path to the close.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35, ease }}
-              className="flex flex-wrap gap-4 justify-center"
+              className="flex flex-wrap gap-3 justify-center"
             >
               <a href="#the-funnel" className="btn-primary">Explore the Funnel →</a>
               <DownloadGate
@@ -367,7 +364,7 @@ export function SevenFigureFunnelPage() {
                       >
                         {s.num}
                       </motion.div>
-                      <span className={`text-xs font-semibold uppercase tracking-wider transition-colors ${isActive ? sc.accent : 'text-warm-gray/50 group-hover:text-warm-gray'}`}>
+                      <span className={`text-xs font-semibold uppercase tracking-[0.1em] transition-colors ${isActive ? sc.accent : 'text-warm-gray/50 group-hover:text-warm-gray'}`}>
                         {s.label}
                       </span>
                     </button>
@@ -414,7 +411,7 @@ export function SevenFigureFunnelPage() {
                 transition={{ duration: 0.35, ease }}
               >
                 <div className="mb-8">
-                  <h2 className={`font-display text-4xl md:text-5xl tracking-tighter mb-2 ${c.accent}`}>
+                  <h2 className={`font-display text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] font-black mb-3 ${c.accent}`}>
                     Stage {STAGES.find(s => s.id === activeStage)?.num}: {STAGES.find(s => s.id === activeStage)?.label}
                   </h2>
                   {activeStage === 'traffic'    && <p className="text-warm-gray font-light">Three tiers of traffic sources, organized by effort level and lead quality. All roads lead to your Skool funnel page.</p>}
@@ -437,7 +434,7 @@ export function SevenFigureFunnelPage() {
         {/* TOOLS BAR */}
         <section className="py-10 border-t border-white/5 px-6">
           <div className="max-w-4xl mx-auto">
-            <p className="label-tag text-warm-gray/40 mb-4 text-center">Tools in this system</p>
+            <p className="label-tag text-warm-gray/40 mb-3 text-center">Tools in this system</p>
             <div className="flex flex-wrap gap-3 justify-center">
               {TOOLS.map((t) => (
                 <span key={t} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-warm-gray text-sm font-light">
@@ -449,19 +446,17 @@ export function SevenFigureFunnelPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 px-6 border-t border-white/10">
+        <section className="py-16 md:py-20 px-6 border-t border-white/10">
           <div className="container-wide max-w-4xl mx-auto text-center">
             <motion.div {...fade()}>
-              <p className="label-tag text-accent mb-6">Ready to Build Your 7-Figure Funnel?</p>
-              <h2 className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-6">
-                The System Is Here.
-                <br />
-                <span className="text-warm-gray">Now Build It.</span>
+              <p className="label-tag text-accent mb-3">Ready to Build Your 7-Figure Funnel?</p>
+              <h2 className="font-display text-[clamp(36px,5vw,64px)] tracking-tighter leading-[0.95] font-black mb-4">
+                The system is here. <span className="text-warm-gray">Now build it.</span>
               </h2>
-              <p className="text-warm-gray font-light text-lg mb-10 max-w-xl mx-auto">
-                Want Ian to deploy this inside your business,done for you?
+              <p className="text-warm-gray font-light text-base md:text-lg leading-snug mb-6 max-w-xl mx-auto">
+                Want Ian to deploy this inside your business, done for you?
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-wrap gap-3 justify-center">
                 <Link to="/contact" className="btn-primary inline-block">
                   Apply to Work with Ian →
                 </Link>

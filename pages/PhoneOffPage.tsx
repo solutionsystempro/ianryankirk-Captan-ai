@@ -22,7 +22,7 @@ const SYSTEMS = [
     num: '01',
     title: 'Check Your Messages Three Times A Day',
     body: [
-      'Pick three windows in your day. 9am. 1pm. 5pm. Those are the only times you check messages. Email, DMs, Slack, texts,all of it. Outside those windows your phone stays in Do Not Disturb.',
+      'Pick three windows in your day. 9am. 1pm. 5pm. Those are the only times you check messages. Email, DMs, Slack, texts. All of it. Outside those windows your phone stays in Do Not Disturb.',
       'Why three? Research from Gloria Mark at UC Irvine found it takes about 23 minutes on average to fully refocus after an interruption. Three task-switches a day means you keep most of your cognitive depth. Most operators are burning 50+ task-switches and wondering why nothing gets done.',
       'Set three calendar blocks labeled "Inbox." Treat them like meetings. Phone stays in the drawer between them. The first 48 hours feel uncomfortable. By day three, you\'ll never want to go back.',
     ],
@@ -34,7 +34,7 @@ const SYSTEMS = [
     title: 'Keep Your Phone In Another Room',
     body: [
       'When you\'re working, your phone is in another room. Not face-down on the desk. Not in your pocket on silent. Another room.',
-      'A 2017 University of Texas study (Ward et al., "Brain Drain") found that the mere presence of your phone,even face-down, even powered off,measurably reduces your available cognitive capacity. Your brain spends background processing power resisting the urge to check it.',
+      'A 2017 University of Texas study (Ward et al., "Brain Drain") found that the mere presence of your phone, even face-down, even powered off, measurably reduces your available cognitive capacity. Your brain spends background processing power resisting the urge to check it.',
       'Set up a charging station in your kitchen, hallway, or any room you don\'t work in. Walk to it three times a day during your check windows. The walk is the feature, not the bug. It creates a real transition between deep work and shallow work.',
     ],
     quote: 'Even a phone in your pocket costs you focus.',
@@ -104,7 +104,7 @@ const TOOLS = [
   {
     label: 'Push-Back Protocol',
     role: 'The thinking partner',
-    desc: 'Now that you\'ve got hours back to actually think, get the AI you\'re thinking with to push back on you. Makes Claude your equal,not something that just tells you you\'re great.',
+    desc: 'Now that you\'ve got hours back to actually think, get the AI you\'re thinking with to push back on you. Makes Claude your equal, not something that just tells you you\'re great.',
     href: 'https://ianryankirk.com/push-back-protocol',
     cta: 'Get the Protocol →',
     internal: true,
@@ -112,7 +112,7 @@ const TOOLS = [
   {
     label: 'AI Foundation Field Guide',
     role: 'The system',
-    desc: 'You\'ve protected your focus. Now build the document that makes every AI tool you touch produce real work,not generic noise. 90 minutes. Done live with you.',
+    desc: 'You\'ve protected your focus. Now build the document that makes every AI tool you touch produce real work, not generic noise. 90 minutes. Done live with you.',
     href: 'https://ianryankirk.com/ai-foundation',
     cta: 'See the Session →',
     internal: true,
@@ -172,7 +172,7 @@ function ClockVisual() {
               x={tx} y={ty}
               fill="#AAFF00"
               fontSize="13"
-              fontFamily="JetBrains Mono, monospace"
+              fontFamily="Geist Mono, monospace"
               fontWeight="600"
               textAnchor="middle"
               dominantBaseline="middle"
@@ -203,15 +203,15 @@ function SystemCard({ system, index }: { system: typeof SYSTEMS[0]; index: numbe
         onClick={() => setOpen(!open)}
         className="w-full text-left flex items-start gap-6 p-7 md:p-9 group"
       >
-        <span className="font-display text-[clamp(56px,7vw,80px)] leading-none tracking-tighter shrink-0 text-accent/90 mt-1">
+        <span className="font-brand font-black text-[clamp(48px,6vw,72px)] leading-[0.85] tracking-tighter shrink-0 text-accent/90 mt-1">
           {system.num}
         </span>
         <div className="flex-1 min-w-0 pt-3">
-          <h3 className="font-display text-xl md:text-2xl tracking-tight text-off-white leading-snug">
+          <h3 className="font-display font-black text-[clamp(20px,2.2vw,28px)] tracking-tighter leading-[0.95] text-off-white">
             {system.title}
           </h3>
           {!open && (
-            <p className="text-warm-gray/60 font-light text-xs mt-2 font-mono uppercase tracking-widest">
+            <p className="text-warm-gray/60 text-xs font-semibold mt-2 uppercase tracking-[0.1em]">
               + Read the system
             </p>
           )}
@@ -239,7 +239,7 @@ function SystemCard({ system, index }: { system: typeof SYSTEMS[0]; index: numbe
             <div className="px-7 md:px-9 pb-9 pt-2 border-t border-white/5">
               <div className="md:pl-[calc(80px+1.5rem)] space-y-4">
                 {system.body.map((para, i) => (
-                  <p key={i} className="text-warm-gray font-light leading-relaxed">
+                  <p key={i} className="text-warm-gray font-light leading-snug text-base md:text-lg">
                     {para}
                   </p>
                 ))}
@@ -281,8 +281,8 @@ export function PhoneOffPage() {
     <div className="bg-background min-h-screen text-off-white">
 
       {/* HERO */}
-      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
-        {/* Custom gradient orb,calm slate-blue / teal for "focus" feel */}
+      <section className="relative pt-24 pb-10 px-6 overflow-hidden">
+        {/* Custom gradient orb. calm slate-blue / teal for "focus" feel */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[560px] rounded-full blur-[150px] pointer-events-none opacity-30"
           style={{ background: 'radial-gradient(ellipse, #1E3A8A 0%, #0F766E 70%, transparent 100%)' }}
@@ -294,24 +294,22 @@ export function PhoneOffPage() {
           <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-start">
             {/* Left: copy */}
             <div>
-              <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
+              <motion.p {...fade(0.05)} className="label-tag text-accent mb-3">
                 Free Playbook · Operator Focus Systems
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease }}
-                className="font-display text-[clamp(48px,8.5vw,108px)] leading-[0.86] tracking-tighter mb-8"
+                className="font-display font-black text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter mb-4"
               >
-                The Phone-Off
-                <br />
-                <span className="text-warm-gray">Playbook</span>
+                The Phone-Off <span className="text-warm-gray">Playbook</span>
               </motion.h1>
-              <motion.p {...fade(0.3)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-10">
+              <motion.p {...fade(0.3)} className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mb-6">
                 For founders who refuse to live on a leash. The 7 systems I use to stay off my phone and still run a business.
               </motion.p>
 
-              <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-10">
+              <motion.div {...fade(0.35)} className="flex flex-wrap gap-3 mb-6">
                 <a href="#the-systems" className="btn-primary">Read the Playbook →</a>
                 <DownloadGate
                   storageKey={STORAGE_KEY}
@@ -335,7 +333,7 @@ export function PhoneOffPage() {
           </div>
 
           {/* Origin / proof bar */}
-          <motion.div {...fade(0.5)} className="glass-card p-6 md:p-7 mt-4 max-w-2xl">
+          <motion.div {...fade(0.5)} className="glass-card p-6 mt-4 max-w-2xl">
             <div className="flex items-start gap-4">
               <div
                 className="w-11 h-11 rounded-full shrink-0 mt-0.5 flex items-center justify-center"
@@ -359,20 +357,18 @@ export function PhoneOffPage() {
       {/* WHY THIS EXISTS */}
       <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-3xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Why This Exists</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
-            Most Founders
-            <br />
-            <span className="text-warm-gray">Treat Their Phone Like A Leash.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Why This Exists</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+            Most founders treat their phone <span className="text-warm-gray">like a leash.</span>
           </motion.h2>
 
-          <div className="space-y-6">
+          <div className="space-y-3">
             {[
               'Always available. Always responsive. Always-on. Then they wonder why their team can\'t make a decision without them. Why deep work never happens. Why every "quick check" turns into 40 minutes.',
               'When I came back to run a business, I refused to rebuild the addiction most operators carry. My team gets frustrated sometimes because they can\'t reach me on demand. That\'s the point.',
               'The systems below are why my business runs without me on a leash, and why yours can too. This isn\'t a wellness PDF. This is the operating manual.',
             ].map((para, i) => (
-              <motion.p key={i} {...fade(i * 0.08)} className="text-warm-gray font-light leading-relaxed text-lg">
+              <motion.p key={i} {...fade(i * 0.08)} className="text-base md:text-lg text-warm-gray font-light leading-snug">
                 {para}
               </motion.p>
             ))}
@@ -383,17 +379,15 @@ export function PhoneOffPage() {
       {/* THE 7 SYSTEMS */}
       <section id="the-systems" className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Framework</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            7 Systems.
-            <br />
-            <span className="text-warm-gray">One Outcome.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Framework</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            7 systems. <span className="text-warm-gray">One outcome.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
+          <motion.p {...fade(0.2)} className="text-base md:text-lg text-warm-gray font-light leading-snug mb-8 max-w-2xl">
             Each one is a single rule with a clear implementation. Tap any system to read the full teaching.
           </motion.p>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {SYSTEMS.map((s, i) => (
               <SystemCard key={s.num} system={s} index={i} />
             ))}
@@ -401,7 +395,7 @@ export function PhoneOffPage() {
         </div>
       </section>
 
-      {/* THE BIGGER SYSTEM,the bridge */}
+      {/* THE BIGGER SYSTEM. the bridge */}
       <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6 relative overflow-hidden">
         {/* Soft accent glow */}
         <div
@@ -409,52 +403,48 @@ export function PhoneOffPage() {
           style={{ background: 'radial-gradient(ellipse, #AAFF00 0%, transparent 70%)' }}
         />
         <div className="container-wide max-w-3xl relative z-10">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Bigger System</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-[0.95] mb-10">
-            These 7 Stop People
-            <br />
-            <span className="text-warm-gray">From Chasing You.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Bigger System</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-6">
+            These 7 stop people <span className="text-warm-gray">from chasing you.</span>
           </motion.h2>
 
-          <motion.div {...fade(0.2)} className="space-y-6 text-warm-gray font-light leading-relaxed text-lg">
+          <motion.div {...fade(0.2)} className="space-y-3 text-base md:text-lg text-warm-gray font-light leading-snug">
             <p>
               Notice what they all have in common: they all stop people from chasing you. But your business still needs leads, replies, outreach, and answers happening.
             </p>
             <p>
-              I don't sit on my phone chasing them anymore. I built systems that handle it while I'm in deep work or off the grid entirely. While I'm not on my phone, the work that needs to happen on my phone,happens.
+              I don't sit on my phone chasing them anymore. I built systems that handle it while I'm in deep work or off the grid entirely. While I'm not on my phone, the work that needs to happen on my phone, happens.
             </p>
           </motion.div>
 
-          <motion.div {...fade(0.3)} className="border-l-2 border-accent/60 pl-6 mt-10">
+          <motion.div {...fade(0.3)} className="border-l-2 border-accent/60 pl-6 mt-8">
             <p className="pull-quote text-2xl md:text-[28px] leading-snug text-off-white">
               &ldquo;People chase. Systems show up.&rdquo;
             </p>
           </motion.div>
 
-          <motion.p {...fade(0.4)} className="text-warm-gray font-light leading-relaxed text-lg mt-10">
+          <motion.p {...fade(0.4)} className="text-base md:text-lg text-warm-gray font-light leading-snug mt-8">
             The systems above protect your focus. The tools below are what you point that focus at.
           </motion.p>
         </div>
       </section>
 
-      {/* CROSS-PROMO,3 tools */}
+      {/* CROSS-PROMO. 3 tools */}
       <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-5xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">What To Do With The Time Back</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            Reclaimed Attention
-            <br />
-            <span className="text-warm-gray">Without A Target Is Just Rest.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">What To Do With The Time Back</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            Reclaimed attention <span className="text-warm-gray">without a target is just rest.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-            Three tools,each one a different role in the same system. Free, free, then a paid session that ties them together.
+          <motion.p {...fade(0.2)} className="text-base md:text-lg text-warm-gray font-light leading-snug mb-8 max-w-2xl">
+            Three tools. Each one a different role in the same system. Free, free, then a paid session that ties them together.
           </motion.p>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-3">
             {TOOLS.map((tool, i) => {
               const cardContent = (
                 <>
-                  <div className="flex items-start justify-between gap-3 mb-4">
+                  <div className="flex items-start justify-between gap-3 mb-3">
                     <p className="label-tag text-accent">{tool.role}</p>
                     {tool.badge && (
                       <span className="font-semibold text-[10px] uppercase tracking-[0.1em] text-accent/80 border border-accent/30 rounded px-2 py-0.5">
@@ -462,15 +452,15 @@ export function PhoneOffPage() {
                       </span>
                     )}
                   </div>
-                  <h3 className="font-display text-2xl tracking-tight text-off-white mb-3 leading-tight">{tool.label}</h3>
-                  <p className="text-warm-gray font-light text-sm flex-1 mb-6 leading-relaxed">{tool.desc}</p>
+                  <h3 className="font-display font-black text-2xl tracking-tighter text-off-white mb-3 leading-[0.95]">{tool.label}</h3>
+                  <p className="text-warm-gray font-light text-sm flex-1 mb-5 leading-snug">{tool.desc}</p>
                   <span className="text-off-white text-sm font-medium">{tool.cta}</span>
                 </>
               );
 
               const sharedProps = {
                 ...fade(i * 0.1),
-                className: 'glass-card-hover p-7 flex flex-col h-full',
+                className: 'glass-card-hover p-6 flex flex-col h-full',
               } as const;
 
               return tool.internal ? (
@@ -495,29 +485,25 @@ export function PhoneOffPage() {
         </div>
       </section>
 
-      {/* FINAL CTA,AI Foundation */}
+      {/* FINAL CTA. AI Foundation */}
       <section className="py-16 md:py-20 px-6 border-t border-white/10 relative overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-25"
           style={{ background: 'radial-gradient(ellipse, #AAFF00 0%, transparent 70%)' }}
         />
         <div className="container-wide max-w-3xl text-center relative z-10">
-          <motion.p {...fade()} className="label-tag text-accent mb-6">Your Next 90 Minutes</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-7xl tracking-tighter leading-[0.9] mb-8">
-            Now Build The
-            <br />
-            <span className="text-warm-gray">System That Runs</span>
-            <br />
-            While You're Off.
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Your Next 90 Minutes</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-6">
+            Now build the <span className="text-warm-gray">system that runs while you're off.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+          <motion.p {...fade(0.2)} className="text-base md:text-lg text-warm-gray font-light leading-snug mb-6 max-w-xl mx-auto">
             The AI Foundation Session is the 90-minute build where we lock down the one document that makes every AI tool you touch produce real work. Done live with you.
           </motion.p>
-          <motion.div {...fade(0.3)} className="flex flex-col items-center gap-4">
+          <motion.div {...fade(0.3)} className="flex flex-col items-center gap-3">
             <Link to="/ai-foundation" className="btn-primary inline-block">
-              See the AI Foundation Session,$97 →
+              See the AI Foundation Session. $97 →
             </Link>
-            <p className="text-warm-gray/60 text-xs font-mono uppercase tracking-widest">
+            <p className="text-warm-gray/60 text-xs font-semibold uppercase tracking-[0.1em]">
               30-day money-back guarantee · 10 spots at $97
             </p>
           </motion.div>
@@ -525,15 +511,13 @@ export function PhoneOffPage() {
       </section>
 
       {/* DOWNLOAD CTA */}
-      <section className="py-14 md:py-18 bg-surface border-t border-white/10 px-6">
+      <section className="py-14 md:py-20 bg-surface border-t border-white/10 px-6">
         <div className="container-wide max-w-3xl text-center">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Take It With You</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-4xl md:text-5xl tracking-tighter leading-none mb-5">
-            The Whole Playbook.
-            <br />
-            <span className="text-warm-gray">One Page.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Take It With You</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            The whole playbook. <span className="text-warm-gray">One page.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light mb-8 max-w-xl mx-auto">
+          <motion.p {...fade(0.2)} className="text-base md:text-lg text-warm-gray font-light leading-snug mb-6 max-w-xl mx-auto">
             All 7 systems on a single printable page. Tape it to your monitor. Pin it next to your charging station.
           </motion.p>
           <motion.div {...fade(0.3)}>

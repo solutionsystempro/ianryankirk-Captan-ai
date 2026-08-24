@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Custom Cold Email Buildout — Ian Kirk · Offer Overview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #08080B;
+    --surface: #16161E;
+    --surface-lift: #1A1A22;
+    --accent: #AAFF00;
+    --accent-dim: rgba(170, 255, 0, 0.10);
+    --accent-border: rgba(170, 255, 0, 0.32);
+    --accent-glow: rgba(170, 255, 0, 0.18);
+    --off-white: #EFEFEF;
+    --warm-gray: #7A7A8C;
+    --border: rgba(255, 255, 255, 0.08);
+    --success: #00C853;
+  }
+
+  @page { size: Letter; margin: 0; }
+
+  /* Print fallback: WeasyPrint can't render background-clip:text reliably, so drop gradients to solid lime in PDF output. */
+  @media print {
+    .accent-phrase,
+    .stat-num {
+      background-image: none !important;
+      -webkit-text-fill-color: var(--accent) !important;
+      color: var(--accent) !important;
+      display: inline !important;
+      padding-bottom: 0 !important;
+    }
+  }
+
+  html, body { background: var(--bg); }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--off-white);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    padding: 0.6in 0.65in;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    background: var(--bg);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ── Header ── */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 14px;
+    margin-bottom: 36px;
+  }
+  .brand {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .page-header .ctx {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 9.5px;
+    letter-spacing: 0.10em;
+    color: var(--warm-gray);
+    text-transform: uppercase;
+  }
+
+  /* ── Section eyebrow + headline ── */
+  .section-eyebrow {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h1.headline, h2.headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.92;
+    color: var(--off-white);
+    margin-bottom: 16px;
+  }
+  h1.headline { font-size: 56px; }
+  h2.headline { font-size: 40px; }
+  .accent-phrase {
+    display: inline-block;
+    background-image: linear-gradient(135deg, #AAFF00 0%, #00E5B3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    padding-bottom: 0.05em;
+  }
+  .ghost-phrase { color: var(--warm-gray); }
+
+  .lead {
+    font-size: 14px;
+    color: var(--warm-gray);
+    max-width: 6.2in;
+    line-height: 1.55;
+    font-weight: 400;
+    margin-bottom: 22px;
+  }
+
+  /* ── Page 1 hero specific ── */
+  .hero h1 {
+    font-size: 64px;
+    margin-top: 4px;
+  }
+  .hero .hero-rule { margin: 14px 0 20px; }
+  .hero .lead { margin-bottom: 18px; }
+  .hero .pills { margin-bottom: 22px; }
+  .hero .meta-bar { margin-top: 22px; padding-top: 18px; }
+
+  /* Screen-only: fluid layout AND big-bold typography for browser viewing. Print uses fixed 8.5x11 via @page with the smaller sizes in the base CSS. */
+  @media screen {
+    body { padding: 0; font-weight: 500; }
+    .page {
+      width: 100%;
+      max-width: 1320px;
+      min-height: 0;
+      padding: 64px 80px 104px;
+      margin: 0 auto;
+    }
+    .page + .page { border-top: 1px solid var(--border); }
+    .page-footer { position: static; margin-top: 64px; font-size: 16px; padding-top: 20px; }
+
+    /* Display headlines: reverted to previous sizes (user prefers the tighter title with -0.05em negative tracking) */
+    .hero h1 { font-size: clamp(56px, 9vw, 120px) !important; line-height: 0.88; margin-top: 8px; }
+    h1.headline { font-size: clamp(48px, 7vw, 96px); line-height: 0.88; }
+    h2.headline { font-size: clamp(40px, 5.5vw, 76px); line-height: 0.92; }
+
+    /* Bigger — sales doc readability over a wide-screen browser */
+    .brand { font-size: 36px; }
+    .page-header { padding-bottom: 22px; margin-bottom: 52px; }
+    .page-header .ctx { font-size: 19px; }
+    .page-footer { font-size: 18px; }
+
+    .section-eyebrow { font-size: 28px; margin-bottom: 20px; }
+
+    .lead { font-size: clamp(28px, 2.1vw, 38px); line-height: 1.45; margin-bottom: 40px; max-width: 980px; font-weight: 500; }
+
+    .pills { gap: 12px; margin-bottom: 44px; }
+    .pill { font-size: 22px; padding: 14px 26px; font-weight: 600; }
+
+    .meta-bar { padding-top: 34px; margin-top: 48px; gap: 44px; }
+    .meta-label { font-size: 19px; margin-bottom: 12px; }
+    .meta-value { font-size: 38px; margin-bottom: 8px; }
+    .meta-sub { font-size: 22px; }
+
+    .two-col { gap: 28px; margin-bottom: 48px; }
+    .list-card { padding: 36px 40px; }
+    .list-card-title { font-size: 30px; margin-bottom: 22px; }
+    .list-card li { font-size: 26px; padding: 12px 0; gap: 14px; line-height: 1.5; }
+
+    .stat-row { gap: 22px; margin-bottom: 48px; }
+    .stat-card { padding: 30px 34px; }
+    .stat-num { font-size: clamp(72px, 7.5vw, 116px); }
+    .stat-label { font-size: 22px; line-height: 1.4; }
+
+    .note-block { padding-top: 30px; }
+    .note-block h3 { font-size: 32px; margin-bottom: 16px; }
+    .note-block p { font-size: 25px; line-height: 1.5; }
+
+    .deliv-grid { gap: 20px; }
+    .deliv-card { padding: 30px 32px; }
+    .deliv-glyph { font-size: 22px; margin-bottom: 12px; }
+    .deliv-title { font-size: 28px; margin-bottom: 12px; }
+    .deliv-body { font-size: 22px; line-height: 1.5; }
+
+    .price-table thead th { font-size: 20px; padding: 22px 24px; }
+    .price-table tbody td { padding: 32px 24px; font-size: 23px; }
+    .tier-name { font-size: 32px; margin-bottom: 10px; }
+    .tier-features, .tier-fit { font-size: 22px; line-height: 1.5; }
+    .tier-cost { font-size: clamp(44px, 4.4vw, 64px); }
+    .popular-tag { font-size: 16px; padding: 6px 14px; }
+    .price-note { padding: 26px 32px; font-size: 21px; margin-bottom: 18px; line-height: 1.5; }
+
+    .timeline-row { padding: 30px 0; gap: 36px; grid-template-columns: 180px 1fr; }
+    .timeline-week { font-size: 22px; padding-top: 6px; }
+    .timeline-title { font-size: 28px; margin-bottom: 10px; }
+    .timeline-body { font-size: 22px; line-height: 1.5; }
+
+    .guarantee { padding: 34px 40px; gap: 28px; }
+    .guarantee-check { width: 50px; height: 50px; font-size: 22px; }
+    .guarantee-title { font-size: 28px; margin-bottom: 12px; }
+    .guarantee-body { font-size: 22px; line-height: 1.5; }
+
+    .addon-grid { gap: 20px; }
+    .addon-card { padding: 30px 28px; }
+    .addon-title { font-size: 27px; margin-bottom: 12px; }
+    .addon-body { font-size: 21px; line-height: 1.5; }
+
+    .cta-grid { gap: 22px; margin-top: 40px; }
+    .cta-card { padding: 36px 40px; gap: 12px; }
+    .cta-card-eyebrow { font-size: 19px; margin-bottom: 12px; }
+    .cta-card-headline { font-size: clamp(34px, 3.2vw, 46px); margin-bottom: 12px; }
+    .cta-card-sub { font-size: 22px; line-height: 1.5; margin-bottom: 22px; }
+    .cta-action { font-size: 21px; padding: 18px 32px; }
+  }
+
+  @media screen and (max-width: 720px) {
+    .page { padding: 32px 22px 56px; }
+    .hero h1 { font-size: 48px !important; }
+    h1.headline { font-size: 44px !important; }
+    h2.headline { font-size: 32px !important; }
+    .two-col, .stat-row, .deliv-grid, .addon-grid { grid-template-columns: 1fr !important; }
+    .meta-bar { grid-template-columns: 1fr !important; gap: 18px; }
+    .cta-grid { grid-template-columns: 1fr; }
+    .timeline-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+  .hero-rule {
+    width: 56px; height: 4px;
+    background: var(--accent);
+    margin: 20px 0 28px;
+  }
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--off-white);
+    letter-spacing: 0.01em;
+  }
+  .meta-bar {
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .meta-label {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.10em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .meta-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--off-white);
+    margin-bottom: 2px;
+  }
+  .meta-sub {
+    font-size: 11.5px;
+    color: var(--warm-gray);
+    font-weight: 400;
+  }
+
+  /* ── Two-column lists ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .list-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .list-card.is { border-color: rgba(0, 200, 83, 0.25); }
+  .list-card.isnot { border-color: rgba(255, 255, 255, 0.10); }
+  .list-card-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.10em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .list-card.is .list-card-title { color: var(--success); }
+  .list-card.isnot .list-card-title { color: var(--warm-gray); }
+  .list-card ul { list-style: none; }
+  .list-card li {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--off-white);
+    padding: 6px 0;
+    display: flex;
+    gap: 10px;
+  }
+  .list-card.is li::before {
+    content: '\2713';
+    color: var(--success);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .list-card.isnot li::before {
+    content: '\00d7';
+    color: var(--warm-gray);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Stat row ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px 8px 8px 4px;
+    padding: 14px 18px;
+  }
+  .stat-num {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    display: inline-block;
+    background-image: linear-gradient(135deg, #AAFF00 0%, #00E5B3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-bottom: 6px;
+    padding-bottom: 0.05em;
+  }
+  .stat-label {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 10.5px;
+    letter-spacing: 0.10em;
+    color: var(--warm-gray);
+    text-transform: uppercase;
+    line-height: 1.35;
+  }
+
+  /* ── Closing note ── */
+  .note-block {
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+    margin-top: 8px;
+  }
+  .note-block h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--off-white);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .note-block p {
+    font-size: 12.5px;
+    color: var(--warm-gray);
+    line-height: 1.55;
+  }
+
+  /* ── Deliverables grid ── */
+  .deliv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .deliv-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .deliv-glyph {
+    font-family: 'Geist Mono', monospace;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.10em;
+    margin-bottom: 4px;
+  }
+  .deliv-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 13.5px;
+    color: var(--off-white);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .deliv-body {
+    font-size: 11.5px;
+    color: var(--warm-gray);
+    line-height: 1.5;
+  }
+
+  /* ── Pricing table ── */
+  .price-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 22px;
+  }
+  .price-table thead th {
+    background: var(--surface);
+    color: var(--warm-gray);
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 10.5px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+  }
+  .price-table thead th:last-child { text-align: right; }
+  .price-table tbody td {
+    padding: 14px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 12px;
+  }
+  .price-table tbody tr.popular td {
+    background: var(--accent-dim);
+    border-color: var(--accent-border);
+  }
+  .tier-name {
+    font-weight: 800;
+    color: var(--off-white);
+    font-size: 14px;
+    margin-bottom: 3px;
+    letter-spacing: -0.01em;
+  }
+  .tier-features {
+    color: var(--warm-gray);
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+  .tier-fit {
+    color: var(--warm-gray);
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+  .tier-cost {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--off-white);
+    text-align: right;
+    letter-spacing: -0.02em;
+  }
+  .popular .tier-cost {
+    color: var(--accent);
+  }
+  .popular-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #08080B;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 9px;
+    letter-spacing: 0.10em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .price-note {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px 8px 8px 4px;
+    padding: 12px 16px;
+    font-size: 11.5px;
+    color: var(--warm-gray);
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .price-note strong { color: var(--off-white); font-weight: 700; }
+
+  /* ── Timeline ── */
+  .timeline { border-top: 1px solid var(--border); }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 22px;
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  .timeline-week {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    color: var(--accent);
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .timeline-title {
+    font-weight: 800;
+    color: var(--off-white);
+    font-size: 13.5px;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .timeline-body {
+    font-size: 11.5px;
+    color: var(--warm-gray);
+    line-height: 1.55;
+  }
+
+  /* ── Guarantee box ── */
+  .guarantee {
+    background: var(--surface);
+    border: 1px solid var(--accent-border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .guarantee-check {
+    width: 32px; height: 32px;
+    background: var(--accent);
+    color: #08080B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 16px;
+  }
+  .guarantee-title {
+    font-weight: 800;
+    color: var(--off-white);
+    font-size: 14px;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .guarantee-body {
+    font-size: 11.5px;
+    color: var(--warm-gray);
+    line-height: 1.55;
+  }
+
+  /* ── Add-ons grid ── */
+  .addon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .addon-card {
+    background: var(--surface);
+    border-top: 2px solid var(--accent);
+    border-radius: 4px 4px 8px 8px;
+    padding: 14px 14px;
+  }
+  .addon-title {
+    font-weight: 800;
+    color: var(--off-white);
+    font-size: 12.5px;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .addon-body {
+    font-size: 11px;
+    color: var(--warm-gray);
+    line-height: 1.5;
+  }
+
+  /* ── Dual CTA grid (page 6 final action) ── */
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 22px;
+  }
+  .cta-card {
+    background: var(--surface-lift);
+    border: 1px solid var(--accent-border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+  }
+  .cta-card.is-primary {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+  }
+  .cta-card-eyebrow {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 10.5px;
+    letter-spacing: 0.10em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .cta-card-headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--off-white);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .cta-card-sub {
+    font-size: 12px;
+    color: var(--warm-gray);
+    line-height: 1.5;
+    flex: 1;
+    margin-bottom: 10px;
+  }
+  .cta-action {
+    background: var(--accent);
+    color: #08080B;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    display: inline-block;
+    align-self: flex-start;
+  }
+  .cta-card.is-secondary .cta-action {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── Page footer ── */
+  .page-footer {
+    position: absolute;
+    bottom: 0.35in;
+    left: 0.65in;
+    right: 0.65in;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--warm-gray);
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .page-footer .num {
+    font-family: 'Geist Mono', monospace;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 1. HERO -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="page hero">
+  <div class="page-header">
+    <div class="brand">Captain AI</div>
+    <div class="ctx">Inc. 5000 Partner · 500M+ Emails Sent</div>
+  </div>
+
+  <p class="section-eyebrow">Custom Cold Email Buildout · Offer Overview</p>
+  <h1 class="headline">A machine that prints you <span class="accent-phrase">clients.</span></h1>
+  <div class="hero-rule"></div>
+
+  <p class="lead">
+    I build, configure, and hand off a fully operational cold email system. Built for your offer, tested until it works, owned by you forever.
+  </p>
+
+  <div class="pills">
+    <span class="pill">50 Mailboxes · 10 Domains</span>
+    <span class="pill">50,000 Verified Leads Included</span>
+    <span class="pill">Quarterbacked by Ian</span>
+    <span class="pill">12-Month Unlimited Support</span>
+    <span class="pill">You Own Everything</span>
+  </div>
+
+  <div class="meta-bar">
+    <div>
+      <p class="meta-label">Prepared By</p>
+      <p class="meta-value">Ian Ryan Kirk</p>
+      <p class="meta-sub">Captain AI · Founder</p>
+    </div>
+    <div>
+      <p class="meta-label">Best For</p>
+      <p class="meta-value">B2B Offers</p>
+      <p class="meta-sub">$5K+ client value</p>
+    </div>
+    <div>
+      <p class="meta-label">Starts At</p>
+      <p class="meta-value">$15,000</p>
+      <p class="meta-sub">Pay-in-full or split 2&times;</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 2. WHAT THIS IS -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">Captain AI</div>
+    <div class="ctx">Custom Cold Email Buildout</div>
+  </div>
+
+  <p class="section-eyebrow">01 · What This Is</p>
+  <h2 class="headline">An asset. <span class="ghost-phrase">Not an agency.</span></h2>
+  <p class="lead">
+    A one-time done-for-you system build. You get the keys and the machine keeps working without a monthly agency bill attached.
+  </p>
+
+  <div class="two-col">
+    <div class="list-card is">
+      <p class="list-card-title">This is</p>
+      <ul>
+        <li>A done-for-you system build, fully configured and tested</li>
+        <li>A permanent asset your business owns forever</li>
+        <li>Quarterbacked personally by Ian on strategy</li>
+        <li>12 months of unlimited support after delivery</li>
+        <li>A system optimized to meet guaranteed benchmarks</li>
+        <li>Training so your team can run it independently</li>
+      </ul>
+    </div>
+    <div class="list-card isnot">
+      <p class="list-card-title">This is not</p>
+      <ul>
+        <li>An agency retainer with ongoing monthly fees</li>
+        <li>A template or course you figure out yourself</li>
+        <li>A lead list drop with no infrastructure</li>
+        <li>A guarantee clients close. I generate meetings, you close them</li>
+        <li>Multi-offer. One focused offer per build</li>
+        <li>Weekly standups. I am in the loop, not in your daily ops</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <p class="stat-num">50K</p>
+      <p class="stat-label">Verified leads included in the base build</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-num">1,500</p>
+      <p class="stat-label">Emails per day at full send volume</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-num">12 mo</p>
+      <p class="stat-label">Unlimited support after system delivery</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <h3>Why I do this and no other agency service</h3>
+    <p>
+      My credibility is on the line with every buildout. That is why I stay personally involved in strategy and why the system does not get handed off until it is hitting benchmarks. The goal is not to keep you as a client. The goal is to hand you a machine that runs without me. Every other agency has the opposite incentive. I do not.
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <span>Captain AI · Custom Cold Email Buildout</span>
+    <span class="num">01</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 3. DELIVERABLES -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">Captain AI</div>
+    <div class="ctx">Custom Cold Email Buildout</div>
+  </div>
+
+  <p class="section-eyebrow">02 · Deliverables</p>
+  <h2 class="headline">Everything we build. <span class="ghost-phrase">All yours.</span></h2>
+  <p class="lead">
+    Every login, every domain, every sequence, every Clay table. You own it all. Stop working with us and nothing disappears.
+  </p>
+
+  <div class="deliv-grid">
+    <div class="deliv-card">
+      <p class="deliv-glyph">01</p>
+      <p class="deliv-title">Full Email Bison Account</p>
+      <p class="deliv-body">Fully configured with sequences, leads loaded, settings dialed in. You are the primary owner of the account.</p>
+    </div>
+    <div class="deliv-card">
+      <p class="deliv-glyph">02</p>
+      <p class="deliv-title">10 Domains + 50 Mailboxes</p>
+      <p class="deliv-body">Purchased, configured, authenticated, and warmed over 4 weeks. SPF, DKIM, DMARC set correctly on every domain.</p>
+    </div>
+    <div class="deliv-card">
+      <p class="deliv-glyph">03</p>
+      <p class="deliv-title">Cold Email Sequences</p>
+      <p class="deliv-body">Written for your one offer. Multiple A/B variations baked in. Subject lines, hooks, CTAs, and angles. Ready to test on day one.</p>
+    </div>
+    <div class="deliv-card">
+      <p class="deliv-glyph">04</p>
+      <p class="deliv-title">50,000 Verified Leads</p>
+      <p class="deliv-body">Enriched, validated, filtered for your ICP. Reusable after 3 to 6 months. Built with Clay, Apollo, ZoomInfo, and Apify.</p>
+    </div>
+    <div class="deliv-card">
+      <p class="deliv-glyph">05</p>
+      <p class="deliv-title">Clay Tables + Playbooks</p>
+      <p class="deliv-body">Hyper-enrichment and personalization workflows designed for your ICP. Yours to copy, own, and reuse indefinitely.</p>
+    </div>
+    <div class="deliv-card">
+      <p class="deliv-glyph">06</p>
+      <p class="deliv-title">White Glove Handoff</p>
+      <p class="deliv-body">Private Loom training library, logins to every tool, and a live handoff call so your team knows how to run the machine.</p>
+    </div>
+    <div class="deliv-card">
+      <p class="deliv-glyph">07</p>
+      <p class="deliv-title">Auto-Reply Setup (Optional)</p>
+      <p class="deliv-body">Email Bison auto-reply configured so interested leads get an immediate response. You stop living in the inbox.</p>
+    </div>
+    <div class="deliv-card">
+      <p class="deliv-glyph">08</p>
+      <p class="deliv-title">12 Months Unlimited Support</p>
+      <p class="deliv-body">Post-delivery support via Loom and email. Plus access to my full systems library, community, and group calls.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Captain AI · Custom Cold Email Buildout</span>
+    <span class="num">02</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 4. INVESTMENT -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">Captain AI</div>
+    <div class="ctx">Custom Cold Email Buildout</div>
+  </div>
+
+  <p class="section-eyebrow">03 · Investment</p>
+  <h2 class="headline">One-time build. <span class="ghost-phrase">Permanent system.</span></h2>
+  <p class="lead">
+    Pay once. Build an asset that generates leads indefinitely. No retainer, no agency dependency. Optional ongoing management if you would rather not run it yourself.
+  </p>
+
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Package</th>
+        <th>What's Included</th>
+        <th style="text-align:right;">Build Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <p class="tier-name">Standard Build</p>
+          <p class="tier-features">50 mailboxes · 10 domains · 50K leads · sequences · A/B testing · handoff</p>
+        </td>
+        <td>
+          <p class="tier-fit">Best for most B2B offers with defined ICPs</p>
+        </td>
+        <td class="tier-cost">$15,000</td>
+      </tr>
+      <tr class="popular">
+        <td>
+          <p class="tier-name">Deep Data Build<span class="popular-tag">Most Popular</span></p>
+          <p class="tier-features">Standard + advanced data mining, automated replies, highly specific audience targeting</p>
+        </td>
+        <td>
+          <p class="tier-fit">Best for niche or complex audiences that require enrichment-heavy prospecting</p>
+        </td>
+        <td class="tier-cost">$20,000</td>
+      </tr>
+      <tr>
+        <td>
+          <p class="tier-name">Deep Data &mdash; High Volume</p>
+          <p class="tier-features">Deep Data + 100,000 emails / month sending capacity</p>
+        </td>
+        <td>
+          <p class="tier-fit">For businesses ready to scale outreach aggressively from day one</p>
+        </td>
+        <td class="tier-cost">$35,000</td>
+      </tr>
+      <tr>
+        <td>
+          <p class="tier-name">Deep Data &mdash; Enterprise</p>
+          <p class="tier-features">Deep Data + 300,000 emails / month sending capacity</p>
+        </td>
+        <td>
+          <p class="tier-fit">Enterprise-grade volume for large teams with large TAMs</p>
+        </td>
+        <td class="tier-cost">$50,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="price-note">
+    <strong>Payment structure.</strong> 50% due upfront to reserve your build slot. Remaining 50% auto-billed when the system is delivered and ready to activate. Pay in full and save. ACH available to avoid card processing fees.
+  </div>
+
+  <div class="price-note">
+    <strong>Monthly operating costs after delivery.</strong> Email Bison &mdash; $97/mo. Google mailbox hosting &mdash; $3.50/mailbox/mo (first 3 months free, ~$175/mo after for 50 mailboxes). Domain registration &mdash; ~$120 one-time. Additional leads &mdash; $50/10K standard or $500/10K for deep data enrichment. Total independent run cost is roughly $270/month.
+  </div>
+
+  <div class="page-footer">
+    <span>Captain AI · Custom Cold Email Buildout</span>
+    <span class="num">03</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 5. TIMELINE + GUARANTEE -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">Captain AI</div>
+    <div class="ctx">Custom Cold Email Buildout</div>
+  </div>
+
+  <p class="section-eyebrow">04 · Timeline + Guarantee</p>
+  <h2 class="headline">From payment to <span class="accent-phrase">printing leads.</span></h2>
+  <p class="lead">
+    Most systems are live and optimized within 8 weeks. More complex offers may take longer. We keep working until the system hits benchmark at no extra charge.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-row">
+      <p class="timeline-week">Week 1</p>
+      <div>
+        <p class="timeline-title">Payment, onboarding + strategy call</p>
+        <p class="timeline-body">I lead a deep-dive strategy session with the full build team. ICP, offer angles, targeting, and A/B test plan are locked in. Domains and mailboxes purchased within 48 hours.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <p class="timeline-week">Weeks 2-3</p>
+      <div>
+        <p class="timeline-title">List building + copywriting</p>
+        <p class="timeline-body">ICP research complete. Lead list built and enriched with Clay. Sequences written with multiple angle variations. You review and approve everything before it sends.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <p class="timeline-week">Week 4</p>
+      <div>
+        <p class="timeline-title">Warmup complete · System activated</p>
+        <p class="timeline-body">Mailboxes pass deliverability checks. Final QA complete. System ready to activate. We turn it on or you do. Sending ramps up from day one.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <p class="timeline-week">Weeks 5-8</p>
+      <div>
+        <p class="timeline-title">Ramp-up + learning phase</p>
+        <p class="timeline-body">Sending volume scales to full capacity. A/B test results come in. Winning variants identified, underperformers cut. Biweekly Loom updates throughout.</p>
+      </div>
+    </div>
+    <div class="timeline-row">
+      <p class="timeline-week">Weeks 9+</p>
+      <div>
+        <p class="timeline-title">Optimization, handoff + independence</p>
+        <p class="timeline-body">System hitting benchmarks. White glove handoff with training. You take over, or elect ongoing management. Either way, the machine keeps running.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="guarantee">
+    <div class="guarantee-check">&#10003;</div>
+    <div>
+      <p class="guarantee-title">Performance Guarantee</p>
+      <p class="guarantee-body">
+        Industry benchmark for cold email is ~0.4% opportunity rate (roughly one call per 200 sends). Our goal is to double or triple that. If we have not hit benchmark by the time the system is delivered, we keep writing new copy, pulling new leads, and adjusting targeting at no extra charge until we do.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Captain AI · Custom Cold Email Buildout</span>
+    <span class="num">04</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 6. ADD-ONS + NEXT STEPS -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">Captain AI</div>
+    <div class="ctx">Custom Cold Email Buildout</div>
+  </div>
+
+  <p class="section-eyebrow">05 · Add-Ons + Next Steps</p>
+  <h2 class="headline">Scale it. <span class="ghost-phrase">Or hand it off.</span></h2>
+  <p class="lead">
+    The base build covers one offer, 50 mailboxes, and 50K leads. Everything below is optional. Add now or bolt on later once the system is working.
+  </p>
+
+  <div class="addon-grid">
+    <div class="addon-card">
+      <p class="addon-title">Scale Sending Volume</p>
+      <p class="addon-body">Add +200 or +300 mailboxes at $4/mailbox/month. Triple your daily send capacity without rebuilding anything.</p>
+    </div>
+    <div class="addon-card">
+      <p class="addon-title">Second Offer Build</p>
+      <p class="addon-body">Add a second or third offer with unique lists and copy. $5K for Standard, $7K for Deep Data. Half-price for existing clients.</p>
+    </div>
+    <div class="addon-card">
+      <p class="addon-title">LinkedIn Integration</p>
+      <p class="addon-body">Automate LinkedIn outreach running parallel to email for a true multichannel prospecting system.</p>
+    </div>
+    <div class="addon-card">
+      <p class="addon-title">Custom GPT Lead Magnets</p>
+      <p class="addon-body">AI agents with unique knowledge bases that attract, qualify, and engage inbound prospects automatically.</p>
+    </div>
+    <div class="addon-card">
+      <p class="addon-title">Website Visitor Capture</p>
+      <p class="addon-body">Identify and email visitors who land on your site. Turn anonymous web traffic into cold outreach targets.</p>
+    </div>
+    <div class="addon-card">
+      <p class="addon-title">Nurture Automations</p>
+      <p class="addon-body">CRM email sequences that warm interested-but-not-ready leads over time so no opportunity goes cold.</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <h3>Ongoing management (optional)</h3>
+    <p>
+      Once your system is built and working, most clients just want us to run it. Monthly management covers new lead data, continuous split-testing, Loom reporting, and copy refinement. Packages run $1,500 to $5,000 per month depending on send volume and scope. No long-term contract required.
+    </p>
+  </div>
+
+  <div class="cta-grid">
+    <a href="https://leadgenjay.com/ht-detailed?am_id=solution" class="cta-card is-primary">
+      <p class="cta-card-eyebrow">Step 1 &middot; Reserve</p>
+      <p class="cta-card-headline">Reserve your build slot</p>
+      <p class="cta-card-sub">Lock in your spot with the team. 50% upfront reserves the build, remaining 50% on delivery.</p>
+      <span class="cta-action">Reserve Your Spot &rarr;</span>
+    </a>
+    <a href="https://leadgenjay.com/book-ian" class="cta-card is-secondary">
+      <p class="cta-card-eyebrow">Or &middot; Strategy First</p>
+      <p class="cta-card-headline">Revisit strategy with Ian</p>
+      <p class="cta-card-sub">Not sure your offer is ready? Talk to Ian 1-on-1 first to confirm fit before reserving your build slot.</p>
+      <span class="cta-action">Book Strategy Call &rarr;</span>
+    </a>
+  </div>
+
+  <div class="page-footer">
+    <span>Captain AI · Custom Cold Email Buildout</span>
+    <span class="num">05</span>
+  </div>
+</section>
+
+</body>
+</html>

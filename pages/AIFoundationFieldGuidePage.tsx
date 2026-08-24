@@ -30,7 +30,7 @@ const phases = [
     time: '5–30 min',
     goal: 'Document the core variables of your offer with precision.',
     questions: [
-      'What do you sell? Not the category,the actual deliverable.',
+      'What do you sell? Not the category, the actual deliverable.',
       'Who buys it? Paint a picture of the specific person, not a demographic bucket.',
       'What problem do they have right now that\'s bothering them TODAY?',
       'What\'s the #1 result you get for clients? Name, number, timeline.',
@@ -44,7 +44,7 @@ const phases = [
     time: '30–45 min',
     goal: 'Build a psychographic profile deep enough to write copy that makes people say "this is literally me."',
     questions: [
-      'What is your buyer afraid of? Not "losing money",what specifically?',
+      'What is your buyer afraid of? Not "losing money", what specifically?',
       'What have they already tried? What failed and why?',
       'What would they Google at 2am when this problem is at its worst?',
       'What do they secretly want that they wouldn\'t admit professionally?',
@@ -61,7 +61,7 @@ const phases = [
       'Walk me through exactly what you do with a new client. Step by step.',
       'What\'s the first thing you look at when you start with someone new?',
       'What do you see that other people in your space miss entirely?',
-      'If you had to name the core insight behind your method,what would you call it?',
+      'If you had to name the core insight behind your method, what would you call it?',
     ],
     output: 'Mechanism name · One-line definition · Why it works (3–5 step chain) · What it replaces',
   },
@@ -71,10 +71,10 @@ const phases = [
     time: '60–70 min',
     goal: 'Compress everything into one sentence.',
     questions: [
-      'Does this sound like something you\'d actually say,or like a LinkedIn bio?',
-      'Is the WHO specific enough? (Not "coaches","service providers selling high-ticket offers")',
-      'Is the OUTCOME specific enough? (Not "more clients","3–5 qualified calls per week")',
-      'Is the mechanism named? (Not "my process","the [Mechanism Name]")',
+      'Does this sound like something you\'d actually say, or like a LinkedIn bio?',
+      'Is the WHO specific enough? (Not "coaches", but "service providers selling high-ticket offers")',
+      'Is the OUTCOME specific enough? (Not "more clients", but "3–5 qualified calls per week")',
+      'Is the mechanism named? (Not "my process", but "the [Mechanism Name]")',
     ],
     output: 'One Power Offer Statement, ready to open any AI prompt',
   },
@@ -93,10 +93,10 @@ const phases = [
 ];
 
 const mechanismRules = [
-  { rule: 'Sound scientific or technical', example: '"The Belief Gap",not "The Mind Reset"' },
+  { rule: 'Sound scientific or technical', example: '"The Belief Gap", not "The Mind Reset"' },
   { rule: 'Feel almost familiar', example: 'Like they should already know what it is' },
-  { rule: 'Be 1–3 words', example: '"The Context Stack",not "The Revolutionary AI Content System"' },
-  { rule: 'Describe the process, not the result', example: '"The Conviction Architecture",not "The Client Flood Method"' },
+  { rule: 'Be 1–3 words', example: '"The Context Stack", not "The Revolutionary AI Content System"' },
+  { rule: 'Describe the process, not the result', example: '"The Conviction Architecture", not "The Client Flood Method"' },
   { rule: 'Avoid anything that sounds hyped-up', example: 'If it sounds like a Tony Robbins product, name it again' },
 ];
 
@@ -133,24 +133,24 @@ export function AIFoundationFieldGuidePage() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
 
       {/* ── HERO ── */}
-      <section className="relative pt-40 pb-20 px-6">
+      <section className="relative pt-24 pb-10 px-6">
         <div className="max-w-3xl mx-auto relative z-10">
-          <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
+          <motion.p {...fade(0.05)} className="label-tag text-accent mb-3">
             Free Field Guide · AI Foundation Session
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease }}
-            className="font-display text-[clamp(48px,8vw,96px)] leading-[0.88] tracking-tighter mb-6"
+            className="font-display font-black text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter mb-4"
           >
             The AI Foundation <span className="gradient-text">Field Guide</span>
           </motion.h1>
-          <motion.p {...fade(0.2)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed mb-8">
+          <motion.p {...fade(0.2)} className="text-base md:text-lg text-warm-gray font-light leading-snug mb-6">
             The exact session structure, key questions, formulas, and output template used in every AI Foundation Session.
           </motion.p>
-          <motion.p {...fade(0.3)} className="text-off-white/70 font-light leading-relaxed mb-10 max-w-2xl">
-            AI is only as good as what you give it. This guide shows you the complete framework for building the one document that makes every AI tool you use produce output that actually converts,offer, buyer, mechanism, and voice, all in one place.
+          <motion.p {...fade(0.3)} className="text-off-white/70 font-light leading-snug text-base md:text-lg mb-6 max-w-2xl">
+            AI is only as good as what you give it. This guide shows you the complete framework for building the one document that makes every AI tool you use produce output that actually converts. Offer, buyer, mechanism, and voice, all in one place.
           </motion.p>
           <motion.div {...fade(0.4)} className="flex flex-col sm:flex-row gap-4">
             <a
@@ -159,7 +159,7 @@ export function AIFoundationFieldGuidePage() {
               rel="noopener noreferrer"
               className="btn-primary inline-block text-center"
             >
-              Book the Session,$97 →
+              Book the Session. $97 →
             </a>
             <span className="flex items-center text-warm-gray text-sm pt-1 sm:pt-3 font-light">
               90 minutes · Done live with you · Foundation built
@@ -176,17 +176,17 @@ export function AIFoundationFieldGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease }}
-            className="glass-card p-8 md:p-10"
+            className="glass-card p-6"
           >
-            <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4">The Core Problem</p>
-            <p className="text-xl md:text-2xl text-off-white font-light leading-relaxed mb-6">
+            <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3">The Core Problem</p>
+            <p className="text-base md:text-lg text-off-white font-light leading-snug mb-6">
               Every AI tool you've ever used has failed you because you gave it fragments.
             </p>
-            <p className="text-warm-gray font-light leading-relaxed mb-4">
+            <p className="text-warm-gray font-light leading-snug text-base md:text-lg mb-4">
               You gave it a rough description of your offer. You gave it a vague audience. You gave it no voice, no mechanism, no buyer psychology. Then you wondered why the output sounded like everyone else's.
             </p>
-            <p className="text-warm-gray font-light leading-relaxed">
-              The Foundation Doc is the single source of truth for your business. When any AI tool,Claude, ChatGPT, whatever,references this document, generic output becomes structurally impossible.
+            <p className="text-warm-gray font-light leading-snug text-base md:text-lg">
+              The Foundation Doc is the single source of truth for your business. When any AI tool, Claude, ChatGPT, whatever, references this document, generic output becomes structurally impossible.
             </p>
           </motion.div>
         </div>
@@ -199,7 +199,7 @@ export function AIFoundationFieldGuidePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4"
+            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3"
           >
             The Formula
           </motion.p>
@@ -208,7 +208,7 @@ export function AIFoundationFieldGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease }}
-            className="font-display text-4xl md:text-5xl tracking-tighter mb-10"
+            className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-6"
           >
             Power Offer Statement
           </motion.h2>
@@ -217,13 +217,13 @@ export function AIFoundationFieldGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease }}
-            className="glass-card p-8 md:p-10 mb-8"
+            className="glass-card p-6 mb-8"
           >
             <p className="font-mono text-accent text-lg md:text-xl leading-relaxed">
               "I help <span className="text-off-white">[SPECIFIC WHO]</span> achieve <span className="text-off-white">[SPECIFIC OUTCOME]</span> using <span className="text-off-white">[MECHANISM NAME]</span> without <span className="text-off-white">[DREADED ALTERNATIVE]</span>."
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {[
               { label: 'SPECIFIC WHO', weak: '"Coaches and consultants"', strong: '"Service providers selling high-ticket offers"' },
               { label: 'SPECIFIC OUTCOME', weak: '"More clients"', strong: '"3–5 qualified discovery calls per week"' },
@@ -236,7 +236,7 @@ export function AIFoundationFieldGuidePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.05, ease }}
-                className="glass-card p-5"
+                className="glass-card p-4"
               >
                 <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3">{item.label}</p>
                 <p className="text-warm-gray text-sm font-light line-through mb-1">{item.weak}</p>
@@ -254,7 +254,7 @@ export function AIFoundationFieldGuidePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4"
+            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3"
           >
             The Session Structure
           </motion.p>
@@ -263,7 +263,7 @@ export function AIFoundationFieldGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease }}
-            className="font-display text-4xl md:text-5xl tracking-tighter mb-4"
+            className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3"
           >
             6 Phases. 90 Minutes.
           </motion.h2>
@@ -272,7 +272,7 @@ export function AIFoundationFieldGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease }}
-            className="text-warm-gray font-light mb-10"
+            className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8"
           >
             Each phase has a specific goal, a set of questions to surface the real answers, and a concrete output. Click any phase to see the questions.
           </motion.p>
@@ -306,7 +306,7 @@ export function AIFoundationFieldGuidePage() {
                   </div>
                   {openPhase === i && (
                     <div className="mt-6 pt-6 border-t border-white/5">
-                      <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4">Key Questions</p>
+                      <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3">Key Questions</p>
                       <ul className="space-y-3 mb-6">
                         {phase.questions.map((q) => (
                           <li key={q} className="flex items-start gap-3 text-off-white/80 font-light text-sm">
@@ -335,7 +335,7 @@ export function AIFoundationFieldGuidePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4"
+            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3"
           >
             Mechanism Naming
           </motion.p>
@@ -344,18 +344,18 @@ export function AIFoundationFieldGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease }}
-            className="font-display text-4xl md:text-5xl tracking-tighter mb-4"
+            className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3"
           >
-            5 Rules for Naming Your Mechanism
+            5 rules for naming <span className="text-warm-gray">your mechanism.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease }}
-            className="text-warm-gray font-light mb-10"
+            className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8"
           >
-            The mechanism is the named thing that makes your approach feel categorically different,not just better. It has to sound right before it can convert.
+            The mechanism is the named thing that makes your approach feel categorically different, not just better. It has to sound right before it can convert.
           </motion.p>
           <div className="space-y-3">
             {mechanismRules.map((item, i) => (
@@ -365,7 +365,7 @@ export function AIFoundationFieldGuidePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07, ease }}
-                className="glass-card p-5 flex items-start gap-4"
+                className="glass-card p-4 flex items-start gap-4"
               >
                 <span className="text-accent font-mono text-sm shrink-0 mt-0.5">0{i + 1}</span>
                 <div>
@@ -401,7 +401,7 @@ export function AIFoundationFieldGuidePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4"
+            className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-3"
           >
             The Output
           </motion.p>
@@ -410,33 +410,33 @@ export function AIFoundationFieldGuidePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease }}
-            className="font-display text-4xl md:text-5xl tracking-tighter mb-4"
+            className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3"
           >
-            What You Leave With
+            What you <span className="text-warm-gray">leave with.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease }}
-            className="text-warm-gray font-light mb-10"
+            className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8"
           >
-            By the end of the session, every section below is filled in,specific to your business, your buyer, your voice. This document becomes the reference file for every AI tool you use.
+            By the end of the session, every section below is filled in. Specific to your business, your buyer, your voice. This document becomes the reference file for every AI tool you use.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15, ease }}
-            className="glass-card p-8 font-mono text-sm space-y-6"
+            className="glass-card p-6 font-mono text-sm space-y-6"
           >
             <div className="flex items-center justify-between border-b border-white/5 pb-4">
-              <span className="text-accent tracking-widest text-xs uppercase">[YOUR NAME],AI Foundation Doc</span>
+              <span className="text-accent tracking-[0.1em] text-xs uppercase">[YOUR NAME] · AI Foundation Doc</span>
               <span className="text-warm-gray text-xs">Date: [SESSION DATE]</span>
             </div>
             {foundationDocSections.map((section, i) => (
               <div key={section.label}>
-                <p className="text-accent text-xs tracking-widest uppercase mb-2">{section.label}</p>
+                <p className="text-accent text-xs tracking-[0.1em] uppercase mb-2">{section.label}</p>
                 <div className="pl-4 space-y-1 border-l border-white/10">
                   {section.fields.map((field) => (
                     <p key={field} className="text-warm-gray text-xs">
@@ -460,12 +460,12 @@ export function AIFoundationFieldGuidePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease }}
           >
-            <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-6">Want It Built For You?</p>
-            <h2 className="font-display text-4xl md:text-6xl tracking-tighter mb-6">
-              Your AI Foundation.<br />Built Live. With You.<br />In 90 Minutes.
+            <p className="text-accent text-xs font-semibold tracking-[0.1em] uppercase mb-4">Want It Built For You?</p>
+            <h2 className="font-display font-black text-[clamp(36px,5.5vw,68px)] tracking-tighter leading-[0.92] mb-4">
+              Your AI Foundation. <span className="text-warm-gray">Built live, with you, in 90 minutes.</span>
             </h2>
-            <p className="text-warm-gray font-light text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-              You've seen the structure. Now get it done. We go through every phase together,I ask the questions, you answer, I build the doc in real time. You leave with the complete Foundation Doc in your hands.
+            <p className="text-warm-gray font-light text-base md:text-lg leading-snug max-w-2xl mx-auto mb-6">
+              You've seen the structure. Now get it done. We go through every phase together. I ask the questions, you answer, I build the doc in real time. You leave with the complete Foundation Doc in your hands.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
@@ -474,7 +474,7 @@ export function AIFoundationFieldGuidePage() {
                 rel="noopener noreferrer"
                 className="btn-primary inline-block text-center"
               >
-                Book the Session,$97 →
+                Book the Session. $97 →
               </a>
             </div>
             <p className="text-warm-gray text-sm font-light mb-8">

@@ -22,7 +22,7 @@ const STEPS = [
     title: 'Install gws CLI',
     body: 'Open your terminal and run:',
     code: 'npm install -g @googleworkspace/cli',
-    note: 'Confirm it installed by running: gws --version,you should see a version number.',
+    note: 'Confirm it installed by running: gws --version. You should see a version number.',
   },
   {
     num: '02',
@@ -30,7 +30,7 @@ const STEPS = [
     body: null,
     steps: [
       'Go to console.cloud.google.com',
-      'Sign in with your personal Gmail,not a work account',
+      'Sign in with your personal Gmail. Not a work account',
       'Click the project dropdown at the top → New Project',
       'Name it something like Claude Gmail Setup',
       'Click Create and wait for it to finish',
@@ -55,7 +55,7 @@ const STEPS = [
       'Select External → click Create',
       'Fill in: App name, User support email (your Gmail), Developer contact email (your Gmail)',
       'Click Save and Continue through Scopes (don\'t change anything)',
-      'On Test Users,click Add Users and add the Gmail address you want to connect',
+      'On Test Users, click Add Users and add the Gmail address you want to connect',
       'Click Save and Continue → Back to Dashboard',
     ],
     warning: 'If you skip the Test Users step, you\'ll get an "access denied" error when you authenticate.',
@@ -78,7 +78,7 @@ const STEPS = [
     title: 'Create a Config Folder',
     body: 'Create a dedicated folder where gws will store your credentials.',
     code: 'Mac / Linux: mkdir ~/.config/gws-gmail\nWindows PowerShell: mkdir C:/Users/YourName/.config/gws-gmail',
-    note: 'Move the JSON file you downloaded into that folder and rename it exactly: client_secret.json,gws looks for that specific filename.',
+    note: 'Move the JSON file you downloaded into that folder and rename it exactly: client_secret.json. gws looks for that specific filename.',
   },
   {
     num: '07',
@@ -170,29 +170,26 @@ export function GmailClaudePage() {
     <div className="bg-background min-h-screen text-off-white">
 
       {/* HERO */}
-      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+      <section className="relative pt-24 pb-10 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="container-wide relative z-10 max-w-4xl">
-          <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
+          <motion.p {...fade(0.05)} className="label-tag text-accent mb-3">
             Free Framework · Gmail + Claude Code
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease }}
-            className="font-display text-[clamp(48px,8vw,100px)] leading-[0.88] tracking-tighter mb-8"
+            className="font-display font-black text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter mb-4"
           >
-            Connect Gmail
-            <br />
-            <span className="text-warm-gray">to Claude Code</span>
+            Connect Gmail <span className="text-warm-gray">to Claude Code.</span>
           </motion.h1>
-          <motion.p {...fade(0.3)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-10">
-            Give Claude full access to your inbox in about 15 minutes. One-time setup.
-            No code required beyond copy-paste.
+          <motion.p {...fade(0.3)} className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mb-6">
+            Give Claude full access to your inbox in about 15 minutes. One-time setup. No code required beyond copy-paste.
           </motion.p>
 
           {/* prereqs */}
-          <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-8">
+          <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-6">
             <a href="#the-guide" className="btn-primary">Read the Guide →</a>
             <DownloadGate
               storageKey={STORAGE_KEY}
@@ -204,11 +201,11 @@ export function GmailClaudePage() {
           </motion.div>
 
           <motion.div {...fade(0.4)} className="glass-card p-6 max-w-xl">
-            <p className="label-tag text-accent mb-4">Before You Start</p>
+            <p className="label-tag text-accent mb-3">Before You Start</p>
             <ul className="space-y-2">
               {[
                 'A personal Gmail account (NOT a work/company account)',
-                'Node.js installed,check by running node -v in your terminal',
+                'Node.js installed. Check by running node -v in your terminal',
                 'Claude Code installed',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-warm-gray font-light">
@@ -222,13 +219,13 @@ export function GmailClaudePage() {
       </section>
 
       {/* STEPS */}
-      <section id="the-guide" className="pb-24 px-6">
-        <div className="container-wide max-w-4xl space-y-8">
+      <section id="the-guide" className="pb-16 md:pb-20 px-6">
+        <div className="container-wide max-w-4xl space-y-6">
           {STEPS.map((step, i) => (
             <motion.div
               key={step.num}
               {...fade(i * 0.05)}
-              className="glass-card p-8"
+              className="glass-card p-6"
             >
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
@@ -277,13 +274,13 @@ export function GmailClaudePage() {
       {/* ERRORS TABLE */}
       <section className="py-16 md:py-20 bg-background-alt border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Troubleshooting</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter mb-10">
-            Common Errors & Fixes
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Troubleshooting</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+            Common errors <span className="text-warm-gray">and fixes.</span>
           </motion.h2>
           <motion.div {...fade(0.2)} className="space-y-3">
             {ERRORS.map((row) => (
-              <div key={row.error} className="glass-card p-5 grid md:grid-cols-2 gap-4">
+              <div key={row.error} className="glass-card p-4 grid md:grid-cols-2 gap-4">
                 <div>
                   <p className="label-tag text-warm-gray/60 mb-1">Error</p>
                   <code className="text-sm text-off-white/80 font-mono">{row.error}</code>
@@ -299,20 +296,17 @@ export function GmailClaudePage() {
       </section>
 
       {/* WHAT'S NEXT,tool CTAs */}
-      <section className="section-pad px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">What's Next</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            You've Got Claude
-            <br />
-            <span className="text-warm-gray">In Your Inbox.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">What's Next</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            You've got Claude <span className="text-warm-gray">in your inbox.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-            Now put the full system to work. These tools are what Ian uses to close deals,
-            diagnose calls, and sharpen his DM game,all free to try.
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8 max-w-2xl">
+            Now put the full system to work. These tools are what Ian uses to close deals, diagnose calls, and sharpen his DM game. All free to try.
           </motion.p>
 
-          <div className="grid md:grid-cols-3 gap-5 mb-16">
+          <div className="grid md:grid-cols-3 gap-5 mb-12">
             {TOOLS.map((tool, i) => (
               <motion.a
                 key={tool.label}

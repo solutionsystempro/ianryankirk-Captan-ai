@@ -53,32 +53,30 @@ export function PlaybookPage() {
       <div className="bg-background min-h-screen text-off-white">
 
         {/* HERO */}
-        <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+        <section className="relative pt-24 pb-10 px-6 overflow-hidden">
           {/* Purple-magenta gradient orb */}
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-20"
             style={{ background: 'radial-gradient(ellipse, #7B2FF7 0%, #F107A3 100%)' }}
           />
           <div className="container-wide relative z-10 max-w-4xl">
-            <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
+            <motion.p {...fade(0.05)} className="label-tag text-accent mb-3">
               Free Playbook · Facebook Platform Strategy
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease }}
-              className="font-display text-[clamp(52px,9vw,110px)] leading-[0.86] tracking-tighter mb-8"
+              className="font-display font-black text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter mb-4"
             >
-              The Facebook
-              <br />
-              <span className="text-warm-gray">Playbook</span>
+              The Facebook <span className="text-warm-gray">Playbook.</span>
             </motion.h1>
-            <motion.p {...fade(0.3)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-8">
+            <motion.p {...fade(0.3)} className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mb-6">
               The exact 5-step system a multiple 7-figure operator walked me through in Cabo.
               He built a 24,000-member group and did $1.1M in a single day from it.
             </motion.p>
 
-            <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-8">
+            <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-6">
               <a href="#the-playbook" className="btn-primary">Read the Playbook →</a>
               <DownloadGate
                 storageKey={STORAGE_KEY}
@@ -106,29 +104,29 @@ export function PlaybookPage() {
         </section>
 
         {/* 5 STEPS */}
-        <section id="the-playbook" className="pb-32 px-6">
-          <div className="container-wide max-w-4xl space-y-6">
+        <section id="the-playbook" className="pb-20 px-6">
+          <div className="container-wide max-w-4xl space-y-5">
             {STEPS.map((step, i) => (
               <motion.div
                 key={step.num}
                 {...fade(i * 0.07)}
-                className="glass-card p-8 md:p-10"
+                className="glass-card p-6 md:p-8"
               >
-                <div className="flex items-start gap-6 mb-6">
+                <div className="flex items-start gap-5 mb-5">
                   <span
-                    className="font-display text-[clamp(56px,8vw,80px)] leading-none tracking-tighter shrink-0"
+                    className="font-brand font-black text-[clamp(48px,6vw,72px)] leading-[0.85] tracking-tighter shrink-0"
                     style={{ color: '#AAFF00', opacity: 0.9 }}
                   >
                     {step.num}
                   </span>
-                  <h2 className="font-display text-2xl md:text-3xl tracking-tight leading-tight pt-3">
+                  <h2 className="font-display font-black text-[clamp(22px,2.4vw,30px)] tracking-tighter leading-[0.95] pt-2">
                     {step.title}
                   </h2>
                 </div>
 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-3 mb-6">
                   {step.body.split('\n\n').map((para, j) => (
-                    <p key={j} className="text-warm-gray font-light leading-relaxed">
+                    <p key={j} className="text-warm-gray font-light leading-snug text-base md:text-lg">
                       {para}
                     </p>
                   ))}
@@ -137,7 +135,7 @@ export function PlaybookPage() {
                 {/* Power quote */}
                 <div className="border-l-2 border-accent/40 pl-5">
                   <p
-                    className="font-light italic leading-relaxed text-lg"
+                    className="font-light italic leading-snug text-base md:text-lg"
                     style={{ color: '#AAFF00' }}
                   >
                     "{step.quote}"
@@ -149,16 +147,16 @@ export function PlaybookPage() {
         </section>
 
         {/* FREE TOOLS */}
-        <section className="py-24 px-6 border-t border-white/10">
+        <section className="py-16 md:py-20 px-6 border-t border-white/10">
           <div className="container-wide max-w-4xl">
-            <motion.p {...fade()} className="label-tag text-accent mb-4">More Free Tools</motion.p>
-            <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
-              While You're Here
+            <motion.p {...fade()} className="label-tag text-accent mb-3">More Free Tools</motion.p>
+            <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+              While you're here.
             </motion.h2>
-            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-2xl">
+            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8 max-w-2xl">
               These tools are free. Use them on your own or bring them into a call and we'll work through them together.
             </motion.p>
-            <div className="grid md:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-3 gap-3">
               {[
                 {
                   label: 'Business Clarity Coach',
@@ -209,20 +207,18 @@ export function PlaybookPage() {
         </section>
 
         {/* FOOTER CTA */}
-        <section className="py-24 px-6 border-t border-white/10">
+        <section className="py-16 md:py-20 px-6 border-t border-white/10">
           <div className="container-wide max-w-4xl text-center">
-            <motion.p {...fade()} className="label-tag text-accent mb-4">
+            <motion.p {...fade()} className="label-tag text-accent mb-3">
               Take It With You
             </motion.p>
             <motion.h2
               {...fade(0.1)}
-              className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-5"
+              className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3"
             >
-              Download the
-              <br />
-              <span className="text-warm-gray">Full Playbook.</span>
+              Download the <span className="text-warm-gray">full playbook.</span>
             </motion.h2>
-            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-8 max-w-xl mx-auto">
+            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-6 max-w-xl mx-auto">
               All 5 steps as a printable PDF. Open it in your browser and hit Ctrl+P to save.
             </motion.p>
             <motion.div {...fade(0.3)} className="flex flex-col sm:flex-row gap-4 justify-center items-center">

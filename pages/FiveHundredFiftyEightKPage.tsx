@@ -148,14 +148,14 @@ export function FiveHundredFiftyEightKPage() {
     <div className="bg-background min-h-screen text-off-white">
 
       {/* HERO */}
-      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+      <section className="relative pt-24 pb-10 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
         <div className="container-wide relative z-10 max-w-4xl">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center gap-2 mb-6"
+            className="flex items-center gap-2 mb-4"
           >
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             <span className="label-tag text-accent">Proof of Work · Growth Operator</span>
@@ -165,37 +165,32 @@ export function FiveHundredFiftyEightKPage() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease }}
-            className="font-display text-[clamp(48px,8vw,100px)] leading-[0.88] tracking-tighter mb-8"
+            className="font-display text-[clamp(36px,5vw,64px)] leading-[0.95] tracking-tighter mb-4"
           >
-            I Build Revenue
-            <br />
-            <span className="text-warm-gray">Then I Build</span>
-            <br />
-            the Systems.
+            I Build Revenue. <span className="text-warm-gray">Then I Build the Systems.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease }}
-            className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-12"
+            className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mb-6"
           >
-            25 years of building, losing, and coming back stronger.
-            Now applying every lesson.
+            25 years of building, losing, and coming back stronger. Now applying every lesson.
           </motion.p>
 
           {/* STAT GRID */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             {STATS.map((stat, i) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 + i * 0.08, ease }}
-                className="glass-card p-5"
+                className="glass-card p-3"
               >
-                <p className="font-display text-3xl md:text-4xl text-accent tracking-tighter mb-1">{stat.value}</p>
-                <p className="text-warm-gray text-xs font-light leading-tight">{stat.label}</p>
+                <p className="font-display text-2xl md:text-3xl text-accent tracking-tighter">{stat.value}</p>
+                <p className="text-warm-gray text-[11px] font-light leading-tight mt-0.5">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -213,36 +208,33 @@ export function FiveHundredFiftyEightKPage() {
       </section>
 
       {/* REVENUE CHART */}
-      <section className="pb-24 px-6">
+      <section className="py-12 md:py-16 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Sales Execution</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            $558K
-            <br />
-            <span className="text-warm-gray">in 12 Months</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Sales Execution</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display text-[clamp(36px,4.5vw,56px)] tracking-tighter leading-[0.95] mb-3">
+            $558K <span className="text-warm-gray">in 12 months.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-2xl">
-            Feb 2025 to Feb 2026. 1,000+ live calls. 300+ clients. 30%+ close rate.
-            Month-over-month growth with a peak of $81.4K in the final month.
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-6 max-w-2xl">
+            Feb 2025 to Feb 2026. 1,000+ live calls. 300+ clients. 30%+ close rate. Month-over-month growth with a peak of $81.4K in the final month.
           </motion.p>
 
-          <motion.div {...fade(0.25)} className="glass-card p-8">
-            <p className="label-tag text-accent/60 mb-6">Revenue Trajectory,Feb 2025 → Feb 2026</p>
+          <motion.div {...fade(0.25)} className="glass-card p-6">
+            <p className="label-tag text-accent/60 mb-4">Revenue Trajectory · Feb 2025 → Feb 2026</p>
             <RevenueChart />
-            <p className="text-warm-gray/40 text-xs font-light mt-6">
+            <p className="text-warm-gray/40 text-xs font-light mt-4">
               Oct 2025–Feb 2026 confirmed from Airtable. Feb–Sep 2025 based on confirmed Q1 total of $72K (Feb start: $18K). Total: $558,000.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-4 mt-6">
+          <div className="grid md:grid-cols-3 gap-3 mt-4">
             {[
               { label: 'Q1 Total', value: '$72K' },
               { label: 'Highest Single Deal', value: '$25K' },
               { label: 'Peak Month', value: '$81.4K' },
             ].map((s, i) => (
-              <motion.div key={s.label} {...fade(i * 0.08)} className="glass-card p-5 text-center">
-                <p className="font-display text-3xl text-accent mb-1">{s.value}</p>
-                <p className="text-warm-gray text-xs font-light">{s.label}</p>
+              <motion.div key={s.label} {...fade(i * 0.08)} className="glass-card p-4 text-center">
+                <p className="font-display text-2xl md:text-3xl text-accent tracking-tighter">{s.value}</p>
+                <p className="text-warm-gray text-[11px] font-light mt-0.5">{s.label}</p>
               </motion.div>
             ))}
           </div>
@@ -252,23 +244,20 @@ export function FiveHundredFiftyEightKPage() {
       {/* PRICING LEADERSHIP */}
       <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Pricing Leadership</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
-            A Closer Who Only
-            <br />
-            <span className="text-warm-gray">Closes Is Replaceable.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Pricing Leadership</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            A closer who only closes <span className="text-warm-gray">is replaceable.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-            Ian influenced the pricing model, expanded what was sellable, and raised the revenue ceiling
-            for every deal that came after him. That's what a Growth Operator does.
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8 max-w-2xl">
+            Ian influenced the pricing model, expanded what was sellable, and raised the revenue ceiling for every deal that came after him. That's what a Growth Operator does.
           </motion.p>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {PRICING.map((item, i) => (
               <motion.div
                 key={item.num}
                 {...fade(i * 0.08)}
-                className={`glass-card p-8 ${item.highlight ? 'border border-accent/20 bg-accent/5' : ''}`}
+                className={`glass-card p-6 ${item.highlight ? 'border border-accent/20 bg-accent/5' : ''}`}
               >
                 <div className="flex items-start gap-5">
                   <div className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
@@ -300,15 +289,12 @@ export function FiveHundredFiftyEightKPage() {
       {/* SYSTEMS BUILDING */}
       <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Systems Building</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
-            AI Tools Built
-            <br />
-            <span className="text-warm-gray">From Scratch.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Systems Building</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            AI tools built <span className="text-warm-gray">from scratch.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-            Ian didn't just learn to close. He built the tools that made him better at it.
-            Every tool below is live, free to use, and directly responsible for outcomes in his sales record.
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8 max-w-2xl">
+            Ian didn't just learn to close. He built the tools that made him better at it. Every tool below is live, free to use, and directly responsible for outcomes in his sales record.
           </motion.p>
 
           <div className="grid md:grid-cols-2 gap-5">
@@ -333,11 +319,9 @@ export function FiveHundredFiftyEightKPage() {
       {/* TESTIMONIALS */}
       <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">What People Say</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter mb-12">
-            Real People.
-            <br />
-            <span className="text-warm-gray">Real Results.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">What People Say</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+            Real people. <span className="text-warm-gray">Real results.</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-5">
@@ -363,21 +347,19 @@ export function FiveHundredFiftyEightKPage() {
       {/* ORIGIN STORY */}
       <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Background</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-10">
-            Built. Lost. Built
-            <br />
-            <span className="text-warm-gray">Again.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Background</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-6">
+            Built. Lost. <span className="text-warm-gray">Built again.</span>
           </motion.h2>
 
-          <motion.div {...fade(0.15)} className="glass-card p-8 md:p-10">
-            <div className="space-y-4 text-warm-gray font-light leading-relaxed">
-              <p>Built a business from cold calls and VHS tapes.</p>
-              <p>Watched $10M vanish overnight.</p>
-              <p>Built a 2,500-rep empire,and lost it the same way.</p>
-              <p>Spent 14 years in the mountains.</p>
-              <p className="text-off-white font-medium">Now back, applying every lesson.</p>
-            </div>
+          <motion.div {...fade(0.15)} className="glass-card p-6 md:p-8">
+            <ul className="section-bullets" style={{ maxWidth: '100%' }}>
+              <li>Built a business from cold calls and VHS tapes.</li>
+              <li>Watched $10M vanish overnight.</li>
+              <li>Built a 2,500-rep empire and lost it the same way.</li>
+              <li>Spent 14 years in the mountains.</li>
+              <li style={{ color: 'var(--off-white, #EFEFEF)', fontWeight: 600 }}>Now back, applying every lesson.</li>
+            </ul>
           </motion.div>
         </div>
       </section>
@@ -386,15 +368,11 @@ export function FiveHundredFiftyEightKPage() {
       <section className="py-16 md:py-20 px-6 border-t border-white/10">
         <div className="container-wide max-w-4xl text-center">
           <motion.div {...fade()}>
-            <p className="label-tag text-accent mb-6">Ready to Add a Growth Operator?</p>
-            <h2 className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-6">
-              Sales Execution.
-              <br />
-              <span className="text-warm-gray">AI Systems.</span>
-              <br />
-              25+ Years of Pattern Recognition.
+            <p className="label-tag text-accent mb-4">Ready to Add a Growth Operator?</p>
+            <h2 className="font-display text-[clamp(36px,5vw,64px)] tracking-tighter leading-[0.95] mb-4">
+              Sales execution. <span className="text-warm-gray">AI systems.</span> 25+ years of pattern recognition.
             </h2>
-            <p className="text-warm-gray font-light text-lg mb-10 max-w-xl mx-auto">
+            <p className="text-warm-gray font-light text-base md:text-lg leading-snug mb-6 max-w-xl mx-auto">
               One call to see if there's a fit.
             </p>
             <Link to="/contact" className="btn-primary inline-block">

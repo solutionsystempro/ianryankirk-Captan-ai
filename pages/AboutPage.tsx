@@ -17,25 +17,23 @@ export function AboutPage() {
     <div className="bg-background min-h-screen text-off-white">
 
       {/* HERO */}
-      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+      <section className="relative pt-24 pb-12 px-6 overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/4 rounded-full blur-[140px] pointer-events-none" />
         <div className="container-wide relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <motion.p {...fade(0.1)} className="label-tag text-accent mb-6">
+              <motion.p {...fade(0.1)} className="label-tag text-accent mb-3">
                 Founder · Architect · Captain
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease }}
-                className="font-display text-[clamp(60px,10vw,130px)] leading-[0.85] tracking-tighter"
+                className="font-display font-black text-[clamp(44px,7vw,92px)] leading-[0.88] tracking-tighter"
               >
-                Ian Ryan
-                <br />
-                <span className="text-warm-gray">Kirk</span>
+                Ian Ryan <span className="text-warm-gray">Kirk.</span>
               </motion.h1>
-              <motion.p {...fade(0.4)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mt-8">
+              <motion.p {...fade(0.4)} className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mt-6">
                 I build AI systems that automate income so founders can reclaim their time,
                 sovereignty, and sanity.
               </motion.p>

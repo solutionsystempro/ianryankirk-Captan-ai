@@ -52,25 +52,25 @@ export function ToolLandingPage({
       {/* ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <section className="relative pt-40 pb-32 px-6">
+      <section className="relative pt-24 pb-10 px-6">
         <div className="container-wide max-w-3xl relative z-10">
-          <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
+          <motion.p {...fade(0.05)} className="label-tag text-accent mb-3">
             {tag}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease }}
-            className="font-display text-[clamp(52px,9vw,110px)] leading-[0.88] tracking-tighter mb-4"
+            className="font-display text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter font-black mb-4"
           >
             {headline}
           </motion.h1>
-          <motion.p {...fade(0.2)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed mb-10">
+          <motion.p {...fade(0.2)} className="text-base md:text-lg text-warm-gray font-light leading-snug mb-6">
             {subheadline}
           </motion.p>
 
-          <motion.div {...fade(0.3)} className="glass-card p-8 mb-10">
-            <p className="text-warm-gray font-light leading-relaxed text-lg mb-6">{description}</p>
+          <motion.div {...fade(0.3)} className="glass-card p-6 mb-8">
+            <p className="text-warm-gray font-light leading-snug text-base md:text-lg mb-6">{description}</p>
             <ul className="space-y-3">
               {features.map((f) => (
                 <li key={f.text} className="flex items-start gap-3 text-off-white/80 font-light">
@@ -81,7 +81,7 @@ export function ToolLandingPage({
             </ul>
           </motion.div>
 
-          <motion.div {...fade(0.4)} className="flex flex-col sm:flex-row items-start gap-4">
+          <motion.div {...fade(0.4)} className="flex flex-col sm:flex-row items-start gap-3">
             <a
               href={ctaHref}
               target="_blank"
@@ -96,7 +96,7 @@ export function ToolLandingPage({
           </motion.div>
 
           {waitlistSource && (
-            <motion.div {...fade(0.45)} className="mt-10">
+            <motion.div {...fade(0.45)} className="mt-8">
               {!submitted ? (
                 <form onSubmit={handleWaitlist} className="flex gap-3 max-w-md">
                   <input
@@ -123,8 +123,8 @@ export function ToolLandingPage({
             </motion.div>
           )}
 
-          <motion.div {...fade(0.5)} className="mt-20 pt-12 border-t border-white/10 text-center">
-            <p className="text-warm-gray font-light text-sm mb-4">Want the full system built around your business?</p>
+          <motion.div {...fade(0.5)} className="mt-16 pt-10 border-t border-white/10 text-center">
+            <p className="text-warm-gray font-light text-sm mb-3">Want the full system built around your business?</p>
             <Link to="/contact" className="btn-secondary inline-block">
               Apply for 1:1 Coaching →
             </Link>

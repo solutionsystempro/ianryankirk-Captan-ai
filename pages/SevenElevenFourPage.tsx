@@ -17,20 +17,20 @@ const NUMBERS = [
     num: '7',
     label: 'Hours',
     headline: '7 Hours of Engagement',
-    body: 'A prospect needs roughly seven hours of total time spent consuming your content, conversations, or presence before they trust you enough to buy. Not seven hours in one sitting,cumulative. A YouTube video here, a long post there, a DM conversation, a live call.',
+    body: 'A prospect needs roughly seven hours of total time spent consuming your content, conversations, or presence before they trust you enough to buy. Not seven hours in one sitting. Cumulative. A YouTube video here, a long post there, a DM conversation, a live call.',
     examples: [
       'A 20-minute YouTube video watched 3× = 1 hour',
       'A 45-minute Facebook Live = 45 minutes',
       'Reading 10 posts at 2 minutes each = 20 minutes',
       'A 30-minute discovery call = 30 minutes',
     ],
-    insight: 'Most coaches post and wonder why nobody buys. They\'ve given people 6 minutes of content, not 6 hours. The math doesn\'t work.',
+    insight: 'Most coaches post and wonder why nobody buys. They have given people 6 minutes of content, not 6 hours. The math doesn\'t work.',
   },
   {
     num: '11',
     label: 'Touchpoints',
     headline: '11 Separate Touchpoints',
-    body: 'Eleven distinct moments where a prospect encounters you or your brand. Each touchpoint is a separate event,not 11 views of the same post. A comment reply, a story view, a new video, a DM, a live session, an email,each one counts as one.',
+    body: 'Eleven distinct moments where a prospect encounters you or your brand. Each touchpoint is a separate event, not 11 views of the same post. A comment reply, a story view, a new video, a DM, a live session, an email. Each one counts as one.',
     examples: [
       'Seeing a Facebook post',
       'Watching a YouTube video',
@@ -46,14 +46,14 @@ const NUMBERS = [
     num: '4',
     label: 'Locations',
     headline: '4 Separate Channels',
-    body: 'The 11 touchpoints need to happen across at least four different platforms or contexts. Seeing you in only one place creates a one-dimensional impression. Encountering you across multiple channels signals that you\'re everywhere,which signals credibility and staying power.',
+    body: 'The 11 touchpoints need to happen across at least four different platforms or contexts. Seeing you in only one place creates a one-dimensional impression. Encountering you across multiple channels signals that you\'re everywhere, which signals credibility and staying power.',
     examples: [
       'YouTube (long-form video)',
       'Facebook (posts, Lives, Groups)',
       'Email list (nurture sequence)',
       'Your website (framework pages, tools)',
     ],
-    insight: 'Four channels doesn\'t mean you need to be active on every platform. It means your best leads should be able to find you in more than one place without hunting.',
+    insight: 'Four channels does not mean you need to be active on every platform. It means your best leads should be able to find you in more than one place without hunting.',
   },
 ];
 
@@ -61,7 +61,7 @@ const SYSTEM = [
   {
     phase: 'Attract',
     channel: 'YouTube',
-    action: 'Weekly videos that teach a framework or walk through a real example. Designed for search,people find Ian when they\'re already looking for what he solves.',
+    action: 'Weekly videos that teach a framework or walk through a real example. Designed for search. People find Ian when they\'re already looking for what he solves.',
     hours: 'High (20–60 min per video)',
   },
   {
@@ -73,13 +73,13 @@ const SYSTEM = [
   {
     phase: 'Capture',
     channel: 'This Website',
-    action: 'Framework pages like this one. People come for the free tool,they see the full ecosystem and the coaching offer.',
+    action: 'Framework pages like this one. People come for the free tool, then see the full ecosystem and the coaching offer.',
     hours: 'Medium (5–20 min per page)',
   },
   {
     phase: 'Nurture',
     channel: 'Email',
-    action: 'The list gets built from every lead magnet. Future emails close the loop,deliver value, then present the offer.',
+    action: 'The list gets built from every lead magnet. Future emails close the loop. Deliver value, then present the offer.',
     hours: 'Medium (3–8 min per email)',
   },
 ];
@@ -87,13 +87,13 @@ const SYSTEM = [
 const TOOLS = [
   {
     label: 'SLAP Method',
-    desc: 'A system for turning ignored DMs into booked calls,built for coaches who hate chasing.',
+    desc: 'A system for turning ignored DMs into booked calls. Built for coaches who hate chasing.',
     href: 'https://slap-method.vercel.app/',
     cta: 'Try SLAP Method →',
   },
   {
     label: 'Call Reflekt',
-    desc: 'Paste a sales call transcript. Get back exactly where you lost the frame,and how to fix it.',
+    desc: 'Paste a sales call transcript. Get back exactly where you lost the frame, and how to fix it.',
     href: 'https://call-reflekt-coach.vercel.app/',
     cta: 'Analyze a Call →',
   },
@@ -118,7 +118,7 @@ function NumberCard({ item, index }: { item: typeof NUMBERS[0]; index: number })
     <motion.div {...fade(index * 0.1)} className="glass-card overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full p-8 text-left flex items-start gap-6 group"
+        className="w-full p-6 text-left flex items-start gap-5 group"
       >
         <div className="shrink-0 w-16 h-16 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
           <span className="font-display text-accent text-3xl leading-none">{item.num}</span>
@@ -149,7 +149,7 @@ function NumberCard({ item, index }: { item: typeof NUMBERS[0]; index: number })
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-8 pb-8 border-t border-white/5 pt-6 space-y-6">
+            <div className="px-6 pb-6 border-t border-white/5 pt-5 space-y-5">
               <p className="text-warm-gray font-light leading-relaxed">{item.body}</p>
 
               <div>
@@ -183,32 +183,30 @@ export function SevenElevenFourPage() {
     <div className="bg-background min-h-screen text-off-white">
 
         {/* HERO */}
-        <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+        <section className="relative pt-24 pb-10 px-6 overflow-hidden">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-20"
             style={{ background: 'radial-gradient(ellipse, #AAFF00 0%, #00CC44 100%)' }}
           />
           <div className="container-wide relative z-10 max-w-4xl">
-            <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
+            <motion.p {...fade(0.05)} className="label-tag text-accent mb-3">
               Free Framework · Google Research
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease }}
-              className="font-display text-[clamp(48px,8vw,100px)] leading-[0.88] tracking-tighter mb-8"
+              className="font-display font-black text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter mb-4"
             >
-              The 7-11-4
-              <br />
-              <span className="text-warm-gray">Rule</span>
+              The 7-11-4 <span className="text-warm-gray">Rule</span>
             </motion.h1>
-            <motion.p {...fade(0.3)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-10">
+            <motion.p {...fade(0.3)} className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mb-6">
               Before anyone buys from you, they need 7 hours of engagement across
               11 touchpoints in 4 separate locations. This is Google's research on how
-              purchase decisions actually happen,and most coaches are failing at all three numbers.
+              purchase decisions actually happen, and most coaches are failing at all three numbers.
             </motion.p>
 
-            <motion.div {...fade(0.35)} className="flex flex-wrap gap-4 mb-10">
+            <motion.div {...fade(0.35)} className="flex flex-wrap gap-3 mb-6">
               <a href="#the-framework" className="btn-primary">Read the Framework →</a>
               <DownloadGate
                 storageKey="irk_downloaded_7_11_4"
@@ -220,12 +218,12 @@ export function SevenElevenFourPage() {
             </motion.div>
 
             <motion.div {...fade(0.4)} className="glass-card p-6 max-w-xl">
-              <p className="label-tag text-accent mb-4">Where This Comes From</p>
+              <p className="label-tag text-accent mb-3">Where This Comes From</p>
               <p className="text-warm-gray font-light text-sm leading-relaxed">
                 Google's Zero Moment of Truth (ZMOT) research tracked how consumers make purchase
                 decisions online. The 7-11-4 framework distills the core finding: trust is built
                 through cumulative exposure, not a single compelling pitch. It's been adopted widely
-                in personal brand and coaching sales strategy,and it maps directly to how Ian
+                in personal brand and coaching sales strategy, and it maps directly to how Ian
                 structures the Captain AI content system.
               </p>
             </motion.div>
@@ -233,16 +231,14 @@ export function SevenElevenFourPage() {
         </section>
 
         {/* THE THREE NUMBERS */}
-        <section id="the-framework" className="pb-24 px-6">
+        <section id="the-framework" className="py-16 md:py-20 px-6">
           <div className="container-wide max-w-4xl">
-            <motion.p {...fade()} className="label-tag text-accent mb-4">The Framework</motion.p>
-            <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
-              Three Numbers.
-              <br />
-              <span className="text-warm-gray">One Decision.</span>
+            <motion.p {...fade()} className="label-tag text-accent mb-3">The Framework</motion.p>
+            <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+              Three numbers. <span className="text-warm-gray">One decision.</span>
             </motion.h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {NUMBERS.map((item, i) => (
                 <NumberCard key={item.num} item={item} index={i} />
               ))}
@@ -253,14 +249,12 @@ export function SevenElevenFourPage() {
         {/* WHY MOST PEOPLE FAIL */}
         <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
           <div className="container-wide max-w-4xl">
-            <motion.p {...fade()} className="label-tag text-accent mb-4">The Mistake</motion.p>
-            <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter mb-10">
-              Why the DMs Don't
-              <br />
-              <span className="text-warm-gray">Convert</span>
+            <motion.p {...fade()} className="label-tag text-accent mb-3">The Mistake</motion.p>
+            <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+              Why the DMs don't <span className="text-warm-gray">convert.</span>
             </motion.h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-3">
               {[
                 {
                   label: 'What most coaches do',
@@ -283,12 +277,12 @@ export function SevenElevenFourPage() {
                     'Multiple touchpoints before the ask',
                     'Presence across 4 channels',
                     'Email list to close the loop',
-                    'A system,not a one-off post',
+                    'A system, not a one-off post',
                   ],
                 },
               ].map((col, i) => (
                 <motion.div key={col.label} {...fade(i * 0.1)} className={`glass-card p-6 border ${col.color}`}>
-                  <p className={`label-tag mb-4 ${col.labelColor}`}>{col.label}</p>
+                  <p className={`label-tag mb-3 ${col.labelColor}`}>{col.label}</p>
                   <ul className="space-y-3">
                     {col.points.map((pt) => (
                       <li key={pt} className="flex items-start gap-3 text-warm-gray font-light text-sm">
@@ -306,20 +300,18 @@ export function SevenElevenFourPage() {
         {/* IAN'S SYSTEM MAPPED TO 7-11-4 */}
         <section className="py-16 md:py-20 px-6">
           <div className="container-wide max-w-4xl">
-            <motion.p {...fade()} className="label-tag text-accent mb-4">The Captain AI System</motion.p>
-            <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
-              How Ian Runs
-              <br />
-              <span className="text-warm-gray">His 4 Channels</span>
+            <motion.p {...fade()} className="label-tag text-accent mb-3">The Captain AI System</motion.p>
+            <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+              How Ian runs <span className="text-warm-gray">his 4 channels.</span>
             </motion.h2>
-            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-              This isn't theory,it's the live system behind every lead magnet, video, and
+            <motion.p {...fade(0.2)} className="text-base md:text-lg text-warm-gray font-light leading-snug mb-8 max-w-2xl">
+              This isn't theory. It's the live system behind every lead magnet, video, and
               coaching call Ian closes. Each channel plays a specific role in building the 7 hours.
             </motion.p>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {SYSTEM.map((row, i) => (
-                <motion.div key={row.phase} {...fade(i * 0.08)} className="glass-card p-6 grid md:grid-cols-[120px_1fr_auto] gap-4 items-start">
+                <motion.div key={row.phase} {...fade(i * 0.08)} className="glass-card p-6 grid md:grid-cols-[120px_1fr_auto] gap-3 items-start">
                   <div>
                     <p className="label-tag text-accent mb-1">Phase</p>
                     <p className="font-display text-xl tracking-tight">{row.phase}</p>
@@ -342,14 +334,12 @@ export function SevenElevenFourPage() {
         {/* WHAT TO DO NOW */}
         <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
           <div className="container-wide max-w-4xl">
-            <motion.p {...fade()} className="label-tag text-accent mb-4">Your Next Move</motion.p>
-            <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-10">
-              Audit Your
-              <br />
-              <span className="text-warm-gray">Own Numbers</span>
+            <motion.p {...fade()} className="label-tag text-accent mb-3">Your Next Move</motion.p>
+            <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+              Audit your <span className="text-warm-gray">own numbers.</span>
             </motion.h2>
 
-            <div className="grid md:grid-cols-3 gap-5 mb-12">
+            <div className="grid md:grid-cols-3 gap-3 mb-8">
               {[
                 {
                   q: 'Hours?',
@@ -371,31 +361,29 @@ export function SevenElevenFourPage() {
               ))}
             </div>
 
-            <motion.div {...fade(0.3)} className="glass-card p-8 border border-accent/20 bg-accent/5">
-              <p className="text-off-white font-light leading-relaxed text-lg">
+            <motion.div {...fade(0.3)} className="glass-card p-6 border border-accent/20 bg-accent/5">
+              <p className="text-base md:text-lg text-off-white font-light leading-snug">
                 If any number is low, the fix isn't to post more of the same thing.
                 It's to identify which channel is missing, which format would add the most hours,
                 and where you're losing people between touchpoints.
-                <span className="text-accent font-medium"> That's the session Ian runs with clients,and it takes 90 minutes.</span>
+                <span className="text-accent font-medium"> That's the session Ian runs with clients. It takes 90 minutes.</span>
               </p>
             </motion.div>
           </div>
         </section>
 
         {/* TOOL CTAs */}
-        <section className="section-pad px-6">
+        <section className="py-16 md:py-20 px-6">
           <div className="container-wide max-w-4xl">
-            <motion.p {...fade()} className="label-tag text-accent mb-4">The Full Toolkit</motion.p>
-            <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-              Build the System
-              <br />
-              <span className="text-warm-gray">Around the Rule</span>
+            <motion.p {...fade()} className="label-tag text-accent mb-3">The Full Toolkit</motion.p>
+            <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+              Build the system <span className="text-warm-gray">around the rule.</span>
             </motion.h2>
-            <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
-              These are the tools Ian uses inside his own 7-11-4 system,free to try.
+            <motion.p {...fade(0.2)} className="text-base md:text-lg text-warm-gray font-light leading-snug mb-8 max-w-2xl">
+              These are the tools Ian uses inside his own 7-11-4 system. Free to try.
             </motion.p>
 
-            <div className="grid md:grid-cols-3 gap-5 mb-16">
+            <div className="grid md:grid-cols-3 gap-3 mb-12">
               {TOOLS.map((tool, i) => (
                 <motion.a
                   key={tool.label}
@@ -412,11 +400,11 @@ export function SevenElevenFourPage() {
               ))}
             </div>
 
-            <motion.div {...fade(0.3)} className="border-t border-white/10 pt-12 space-y-10">
+            <motion.div {...fade(0.3)} className="border-t border-white/10 pt-10 space-y-8">
               <div className="text-center">
                 <p className="label-tag text-accent mb-3">Take It With You</p>
                 <p className="text-warm-gray font-light mb-6">
-                  Download the 7-11-4 Framework as a PDF,print it, reference it, share it.
+                  Download the 7-11-4 Framework as a PDF. Print it, reference it, share it.
                 </p>
                 <DownloadGate
                   storageKey="irk_downloaded_7_11_4"
@@ -425,9 +413,9 @@ export function SevenElevenFourPage() {
                   label="Download the 7-11-4 Framework PDF →"
                 />
               </div>
-              <div className="text-center border-t border-white/5 pt-10">
+              <div className="text-center border-t border-white/5 pt-8">
                 <p className="text-warm-gray font-light mb-6">
-                  Want Ian to map your 7-11-4 system personally,and show you exactly which number to fix first?
+                  Want Ian to map your 7-11-4 system personally, and show you exactly which number to fix first?
                 </p>
                 <Link to="/contact" className="btn-primary inline-block">
                   Apply for 1:1 Coaching →

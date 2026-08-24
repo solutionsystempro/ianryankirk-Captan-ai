@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import { SOCIAL_LINKS } from '../constants';
@@ -70,35 +71,31 @@ export function ContactPage() {
 
   return (
     <div className="bg-background min-h-screen text-off-white">
-      <section className="pt-36 pb-24 px-6 relative overflow-hidden">
+      <section className="pt-24 pb-12 px-6 relative overflow-hidden">
         {/* Ambient glows */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/[0.04] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/[0.04] rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container-wide relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
             {/* Left */}
-            <div className="space-y-8">
+            <div className="space-y-5">
               <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}
                 className="label-tag text-accent">
                 Work With Me
               </motion.p>
               <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease }}
-                className="font-display text-[clamp(50px,9vw,110px)] leading-none">
-                Ready to
-                <br />
-                <span className="gradient-text">Scale?</span>
+                className="font-display text-[clamp(40px,5.5vw,68px)] leading-[0.95] tracking-tighter">
+                Ready to <span className="gradient-text">Scale?</span>
               </motion.h1>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="max-w-md">
-                <a
-                  href="https://solutionsystempro.github.io/lgj-reports/Ian_Kirk_Value_Case_March2026.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/558k"
                   className="group flex items-center justify-between bento-card p-5 border border-accent/20 hover:border-accent/50 transition-all duration-300 mb-4"
                 >
                   <div>
@@ -106,7 +103,7 @@ export function ContactPage() {
                     <p className="text-off-white text-sm font-semibold">See What's Possible → Read the Client Case Study</p>
                   </div>
                   <span className="text-accent text-lg transition-transform group-hover:translate-x-1">→</span>
-                </a>
+                </Link>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}

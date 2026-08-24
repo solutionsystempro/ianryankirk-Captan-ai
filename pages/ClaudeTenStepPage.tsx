@@ -105,35 +105,31 @@ export function ClaudeTenStepPage() {
     <div className="bg-background min-h-screen text-off-white">
 
       {/* HERO */}
-      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+      <section className="relative pt-24 pb-10 px-6 overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-20"
           style={{ background: 'radial-gradient(ellipse, #AAFF00 0%, #00CC44 100%)' }}
         />
         <div className="container-wide relative z-10 max-w-4xl">
-          <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
+          <motion.p {...fade(0.05)} className="label-tag text-accent mb-3">
             FREE SETUP GUIDE
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease }}
-            className="font-display text-[clamp(44px,7vw,96px)] leading-[0.88] tracking-tighter mb-8"
+            className="font-display font-black text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter mb-4"
           >
-            Most People
-            <br />
-            <span className="text-warm-gray">Use Claude Wrong.</span>
-            <br />
-            Here's the Fix.
+            Most people use Claude wrong. <span className="text-warm-gray">Here's the fix.</span>
           </motion.h1>
-          <motion.p {...fade(0.3)} className="text-xl md:text-2xl text-off-white font-light leading-relaxed max-w-2xl mb-4">
+          <motion.p {...fade(0.3)} className="text-base md:text-lg text-off-white font-light leading-snug max-w-2xl mb-3">
             I touch Claude 30+ times a day. Most people barely use it.
           </motion.p>
-          <motion.p {...fade(0.4)} className="text-base md:text-lg text-warm-gray font-light leading-relaxed max-w-2xl mb-10">
+          <motion.p {...fade(0.4)} className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mb-6">
             10-step fast-path setup. 60 minutes. Plus the mistake that breaks every workflow.
           </motion.p>
 
-          <motion.div {...fade(0.5)} className="flex flex-wrap gap-4">
+          <motion.div {...fade(0.5)} className="flex flex-wrap gap-3">
             <a href="#checklist" className="btn-primary">
               See the 10 Steps →
             </a>
@@ -149,30 +145,28 @@ export function ClaudeTenStepPage() {
       </section>
 
       {/* WHY DAILY */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Why</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
-            Why You Should Be
-            <br />
-            <span className="text-warm-gray">Using Claude Daily</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Why</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+            Why you should be <span className="text-warm-gray">using Claude daily.</span>
           </motion.h2>
 
-          <div className="space-y-6 max-w-3xl mb-12">
+          <div className="space-y-4 max-w-3xl mb-8">
             {[
               'Claude isn\'t a chatbot. It\'s not a search engine. It\'s not "another tool to add to your stack."',
               'Claude is the operating layer between you and every workflow in your business. The moment you treat it that way, everything changes.',
               'I touch Claude 30+ times a day. Not because I have to. Because every interaction is faster and sharper than doing it alone.',
               'The operators winning right now aren\'t the ones using Claude occasionally. They\'re using it as their second brain. Your job is to get there fast.',
             ].map((para, i) => (
-              <motion.p key={i} {...fade(i * 0.08)} className="text-warm-gray font-light leading-relaxed text-lg">
+              <motion.p key={i} {...fade(i * 0.08)} className="text-warm-gray font-light leading-snug text-base md:text-lg">
                 {para}
               </motion.p>
             ))}
           </div>
 
-          <motion.div {...fade(0.3)} className="glass-card p-7">
-            <p className="label-tag text-accent/60 mb-4">What daily use looks like</p>
+          <motion.div {...fade(0.3)} className="glass-card p-6">
+            <p className="label-tag text-accent/60 mb-3">What daily use looks like</p>
             <div className="grid md:grid-cols-2 gap-3">
               {[
                 'Morning planning and journaling',
@@ -196,15 +190,13 @@ export function ClaudeTenStepPage() {
       </section>
 
       {/* THE 10 STEPS */}
-      <section id="checklist" className="py-24 px-6">
+      <section id="checklist" className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Framework</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            The Fast-Path
-            <br />
-            <span className="text-warm-gray">Setup Checklist</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Framework</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            The fast-path <span className="text-warm-gray">setup checklist.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8 max-w-2xl">
             Do these in order. Each step takes 5 to 10 minutes. Done in under an hour.
           </motion.p>
 
@@ -214,7 +206,7 @@ export function ClaudeTenStepPage() {
             ))}
           </div>
 
-          <motion.div {...fade(0.4)} className="mt-10 glass-card p-6 border border-accent/20 bg-accent/5 text-center">
+          <motion.div {...fade(0.4)} className="mt-8 glass-card p-6 border border-accent/20 bg-accent/5 text-center">
             <p className="font-display text-xl tracking-tight text-accent">
               Done. You're now ahead of 95% of users.
             </p>
@@ -223,28 +215,26 @@ export function ClaudeTenStepPage() {
       </section>
 
       {/* STOP PINNING CHATS */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-red-400 mb-4">The Biggest Mistake</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            Stop Pinning Chats.
-            <br />
-            <span className="text-warm-gray">Do This Instead.</span>
+          <motion.p {...fade()} className="label-tag text-red-400 mb-3">The Biggest Mistake</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            Stop pinning chats. <span className="text-warm-gray">Do this instead.</span>
           </motion.h2>
 
-          <div className="space-y-6 max-w-3xl mb-10">
-            <motion.p {...fade(0.2)} className="text-off-white font-light leading-relaxed text-xl">
+          <div className="space-y-4 max-w-3xl mb-8">
+            <motion.p {...fade(0.2)} className="text-off-white font-light leading-snug text-lg">
               This is the biggest mistake people make with Claude.
             </motion.p>
-            <motion.p {...fade(0.25)} className="text-warm-gray font-light leading-relaxed text-lg">
+            <motion.p {...fade(0.25)} className="text-warm-gray font-light leading-snug text-base md:text-lg">
               They have a great strategy session. They pin the chat to the top of their sidebar. They keep coming back to it day after day, week after week, talking back into the same long-running thread.
             </motion.p>
-            <motion.p {...fade(0.3)} className="text-warm-gray font-light leading-relaxed text-lg">
+            <motion.p {...fade(0.3)} className="text-warm-gray font-light leading-snug text-base md:text-lg">
               Here's what actually happens when you do that:
             </motion.p>
           </div>
 
-          <motion.div {...fade(0.35)} className="glass-card p-7 border border-red-400/15 mb-10" style={{ background: 'rgba(239,68,68,0.03)' }}>
+          <motion.div {...fade(0.35)} className="glass-card p-6 border border-red-400/15 mb-8" style={{ background: 'rgba(239,68,68,0.03)' }}>
             <ul className="space-y-3">
               {[
                 'The context window fills up',
@@ -261,23 +251,23 @@ export function ClaudeTenStepPage() {
             </ul>
           </motion.div>
 
-          <motion.p {...fade(0.4)} className="text-warm-gray font-light leading-relaxed text-lg mb-10 max-w-3xl">
+          <motion.p {...fade(0.4)} className="text-warm-gray font-light leading-snug text-base md:text-lg mb-8 max-w-3xl">
             The chat gets dumber the longer it lives. Pin it and you'll trust it. Trust it and you'll get burned.
           </motion.p>
 
-          <motion.div {...fade(0.45)} className="flex items-center justify-center gap-3 md:gap-6 mb-12 flex-wrap">
+          <motion.div {...fade(0.45)} className="flex items-center justify-center gap-3 md:gap-6 mb-8 flex-wrap">
             <span className="font-display text-2xl md:text-3xl text-red-400/80 line-through tracking-tight">Pin chats</span>
             <span className="text-warm-gray text-2xl">→</span>
             <span className="font-display text-2xl md:text-3xl text-accent tracking-tight">Set up Projects</span>
           </motion.div>
 
-          <motion.p {...fade(0.5)} className="text-warm-gray font-light leading-relaxed text-lg max-w-3xl mb-10">
+          <motion.p {...fade(0.5)} className="text-warm-gray font-light leading-snug text-base md:text-lg max-w-3xl mb-8">
             A Project in Claude is a workspace with persistent context. You drop in files, set custom instructions once, and every chat inside that Project inherits all of it. The instructions and files stay. The chats are disposable.
           </motion.p>
 
-          <motion.div {...fade(0.55)} className="glass-card p-7 mb-10">
-            <p className="label-tag text-accent/60 mb-4">The pattern that wins</p>
-            <div className="flex items-center gap-2 md:gap-3 flex-wrap mb-4">
+          <motion.div {...fade(0.55)} className="glass-card p-6 mb-8">
+            <p className="label-tag text-accent/60 mb-3">The pattern that wins</p>
+            <div className="flex items-center gap-2 md:gap-3 flex-wrap mb-3">
               {['Open Project', 'New chat', 'Do the work', 'Close chat'].map((step, i, arr) => (
                 <React.Fragment key={step}>
                   <span className="px-4 py-2 rounded-lg bg-accent/10 border border-accent/20 text-accent text-sm font-medium">{step}</span>
@@ -290,12 +280,12 @@ export function ClaudeTenStepPage() {
             </p>
           </motion.div>
 
-          <motion.p {...fade(0.6)} className="text-off-white font-light leading-relaxed text-lg max-w-3xl mb-6">
+          <motion.p {...fade(0.6)} className="text-off-white font-light leading-snug text-base md:text-lg max-w-3xl mb-6">
             <strong className="text-accent">Projects are persistent. Chats are disposable.</strong> Lock that pattern in.
           </motion.p>
 
-          <motion.div {...fade(0.65)} className="glass-card p-7 mb-10">
-            <p className="label-tag text-warm-gray/60 mb-4">Set up these Projects to start</p>
+          <motion.div {...fade(0.65)} className="glass-card p-6 mb-8">
+            <p className="label-tag text-warm-gray/60 mb-3">Set up these Projects to start</p>
             <ul className="space-y-2">
               {[
                 'Weekly planning',
@@ -312,29 +302,27 @@ export function ClaudeTenStepPage() {
             </ul>
           </motion.div>
 
-          <motion.p {...fade(0.7)} className="text-warm-gray font-light leading-relaxed text-lg max-w-3xl">
+          <motion.p {...fade(0.7)} className="text-warm-gray font-light leading-snug text-base md:text-lg max-w-3xl">
             Don't overthink the setup. Name the Project. Drop in any reference files (your offer, your brand voice, your client list). Add a 3 to 5 line custom instruction. Done. You can refine it as you go.
           </motion.p>
-          <motion.p {...fade(0.75)} className="text-warm-gray font-light leading-relaxed text-lg max-w-3xl mt-4">
+          <motion.p {...fade(0.75)} className="text-warm-gray font-light leading-snug text-base md:text-lg max-w-3xl mt-4">
             I run 8 Projects. They're the backbone of my week.
           </motion.p>
         </div>
       </section>
 
       {/* THE RIGHT PLAN */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Plan</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            Pro vs. Max
-            <br />
-            <span className="text-warm-gray">Which One You Need</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Plan</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            Pro vs. Max. <span className="text-warm-gray">Which one you need.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8 max-w-2xl">
             Free is good for testing. Don't run a business on it.
           </motion.p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
             {PLANS.map((plan, i) => (
               <motion.div
                 key={plan.name}
@@ -346,14 +334,14 @@ export function ClaudeTenStepPage() {
                   {plan.name}
                 </p>
                 <p className="font-display text-3xl tracking-tight text-off-white mb-1">{plan.price}</p>
-                <p className="text-warm-gray text-xs font-light mb-4">{plan.period}</p>
+                <p className="text-warm-gray text-xs font-light mb-3">{plan.period}</p>
                 <p className="text-warm-gray text-sm font-light leading-relaxed">{plan.desc}</p>
               </motion.div>
             ))}
           </div>
 
-          <motion.div {...fade(0.4)} className="glass-card p-7 border border-white/10">
-            <p className="text-off-white font-light leading-relaxed mb-3">
+          <motion.div {...fade(0.4)} className="glass-card p-6 border border-white/10">
+            <p className="text-off-white font-light leading-snug mb-3">
               <span className="text-accent font-medium">My take. </span>
               Start with Pro. Use Claude hard for 2 to 3 weeks. The moment you start hitting usage limits during your workday, upgrade. Don't wait until it's frustrating you.
             </p>
@@ -365,25 +353,23 @@ export function ClaudeTenStepPage() {
       </section>
 
       {/* BOTH APPS */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Don't Skip This</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
-            Get Both Apps.
-            <br />
-            <span className="text-warm-gray">Desktop and Mobile.</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Don't Skip This</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+            Get both apps. <span className="text-warm-gray">Desktop and mobile.</span>
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-5">
-            <motion.div {...fade(0)} className="glass-card p-7">
-              <p className="label-tag text-accent mb-4">Mac or Windows</p>
+          <div className="grid md:grid-cols-2 gap-3">
+            <motion.div {...fade(0)} className="glass-card p-6">
+              <p className="label-tag text-accent mb-3">Mac or Windows</p>
               <p className="font-display text-2xl tracking-tight text-off-white mb-3">Desktop App</p>
               <p className="text-warm-gray font-light text-sm leading-relaxed">
                 Your main Claude environment. Required for Cowork, Code Execution, pinned workflows, and local file access. The web version works. The desktop app is dramatically better for daily use.
               </p>
             </motion.div>
-            <motion.div {...fade(0.1)} className="glass-card p-7">
-              <p className="label-tag text-accent mb-4">iOS or Android</p>
+            <motion.div {...fade(0.1)} className="glass-card p-6">
+              <p className="label-tag text-accent mb-3">iOS or Android</p>
               <p className="font-display text-2xl tracking-tight text-off-white mb-3">Mobile App</p>
               <p className="text-warm-gray font-light text-sm leading-relaxed">
                 What makes Claude actually feel like a second brain. Voice notes while driving. Quick prompts between meetings. Reviewing drafts on a walk. Sending tasks to Claude from your phone that finish on your desktop.
@@ -391,30 +377,28 @@ export function ClaudeTenStepPage() {
             </motion.div>
           </div>
 
-          <motion.p {...fade(0.3)} className="text-warm-gray font-light text-lg mt-8 text-center">
+          <motion.p {...fade(0.3)} className="text-warm-gray font-light text-base md:text-lg leading-snug mt-6 text-center">
             Install both. Sign in. Now Claude follows you everywhere.
           </motion.p>
         </div>
       </section>
 
       {/* DAILY WINNING FORMULA */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Daily Habit</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            Your Daily
-            <br />
-            <span className="text-warm-gray">Winning Formula</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Daily Habit</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            Your daily <span className="text-warm-gray">winning formula.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8 max-w-2xl">
             If you don't know where to start, run this for 7 days. By day 8, you won't be able to imagine working without Claude.
           </motion.p>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-3">
             {DAILY_FORMULA.map((block, i) => (
-              <motion.div key={block.time} {...fade(i * 0.1)} className="glass-card p-7">
+              <motion.div key={block.time} {...fade(i * 0.1)} className="glass-card p-6">
                 <p className="label-tag text-accent mb-2">{block.time}</p>
-                <p className="font-display text-xl tracking-tight text-off-white mb-4">{block.title}</p>
+                <p className="font-display text-xl tracking-tight text-off-white mb-3">{block.title}</p>
                 <ul className="space-y-2">
                   {block.items.map((item, j) => (
                     <li key={j} className="flex items-start gap-3 text-warm-gray font-light text-sm">
@@ -430,18 +414,16 @@ export function ClaudeTenStepPage() {
       </section>
 
       {/* COMMON MISTAKES */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">What Most People Get Wrong</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
-            Common Mistakes
-            <br />
-            <span className="text-warm-gray">to Avoid</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">What Most People Get Wrong</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-8">
+            Common mistakes <span className="text-warm-gray">to avoid.</span>
           </motion.h2>
 
           <div className="space-y-3">
             {COMMON_MISTAKES.map((item, i) => (
-              <motion.div key={item.title} {...fade(i * 0.05)} className="glass-card p-5 flex items-start gap-4">
+              <motion.div key={item.title} {...fade(i * 0.05)} className="glass-card p-4 flex items-start gap-4">
                 <span className="text-red-400 text-lg shrink-0 mt-0.5">✗</span>
                 <div>
                   <p className="text-off-white font-medium">{item.title}</p>
@@ -454,21 +436,19 @@ export function ClaudeTenStepPage() {
       </section>
 
       {/* DOWNLOAD CTA */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Setup Guide</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
-            Get the Full
-            <br />
-            <span className="text-warm-gray">Setup Guide</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Setup Guide</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            Get the full <span className="text-warm-gray">setup guide.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-2xl">
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-6 max-w-2xl">
             Drop your email. Print it, bookmark it, walk through it with your team.
           </motion.p>
 
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="grid md:grid-cols-2 gap-6 items-start">
             <motion.div {...fade(0.1)}>
-              <p className="label-tag text-warm-gray/60 mb-4">What you get</p>
+              <p className="label-tag text-warm-gray/60 mb-3">What you get</p>
               <ul className="space-y-3">
                 {[
                   'The full 10-step setup guide as a printable HTML',
@@ -484,7 +464,7 @@ export function ClaudeTenStepPage() {
               </ul>
             </motion.div>
 
-            <motion.div {...fade(0.2)} className="glass-card p-8 border border-accent/20" style={{ background: 'rgba(170,255,0,0.03)' }}>
+            <motion.div {...fade(0.2)} className="glass-card p-6 border border-accent/20" style={{ background: 'rgba(170,255,0,0.03)' }}>
               <p className="text-off-white font-light leading-relaxed mb-6">
                 All page content is free. No gate on any of it. The download is the printable version you can keep.
               </p>
@@ -504,15 +484,13 @@ export function ClaudeTenStepPage() {
       </section>
 
       {/* YOUTUBE SHORT */}
-      <section className="py-24 bg-surface border-y border-white/10 px-6">
+      <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Tutorial</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
-            Watch the
-            <br />
-            <span className="text-warm-gray">Quick Walkthrough</span>
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Tutorial</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-3">
+            Watch the <span className="text-warm-gray">quick walkthrough.</span>
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-2xl">
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-6 max-w-2xl">
             60-second YouTube Short breaking down the 10-step setup.
           </motion.p>
 

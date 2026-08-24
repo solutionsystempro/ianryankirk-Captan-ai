@@ -212,8 +212,8 @@ function QuizSection() {
   return (
     <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6" id="quiz">
       <div className="container-wide max-w-4xl">
-        <motion.p {...fade()} className="label-tag text-accent mb-4">Self-Audit</motion.p>
-        <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
+        <motion.p {...fade()} className="label-tag text-accent mb-3">Self-Audit</motion.p>
+        <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-4">
           How Broken Is Your
           <br />
           <span className="text-warm-gray">Claude Code Config?</span>
@@ -299,28 +299,24 @@ export function PushBackProtocolPage() {
     <div className="bg-background min-h-screen text-off-white">
 
       {/* HERO */}
-      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+      <section className="relative pt-24 pb-10 px-6 overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-20"
           style={{ background: 'radial-gradient(ellipse, #AAFF00 0%, #00CC44 100%)' }}
         />
         <div className="container-wide relative z-10 max-w-4xl">
-          <motion.p {...fade(0.05)} className="label-tag text-accent mb-6">
-            FREE RESOURCE
+          <motion.p {...fade(0.05)} className="label-tag text-accent mb-3">
+            Free Resource
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease }}
-            className="font-display text-[clamp(44px,7vw,96px)] leading-[0.88] tracking-tighter mb-8"
+            className="font-display font-black text-[clamp(36px,5.5vw,68px)] leading-[0.92] tracking-tighter mb-4"
           >
-            Stop Claude From
-            <br />
-            <span className="text-warm-gray">Agreeing With</span>
-            <br />
-            Everything You Say
+            Stop Claude from <span className="text-warm-gray">agreeing with everything you say.</span>
           </motion.h1>
-          <motion.p {...fade(0.3)} className="text-xl md:text-2xl text-warm-gray font-light leading-relaxed max-w-2xl mb-10">
+          <motion.p {...fade(0.3)} className="text-base md:text-lg text-warm-gray font-light leading-snug max-w-2xl mb-6">
             The 12-rule protocol that forces Claude Code to challenge your thinking, catch your blind spots, and push your work past good enough.
           </motion.p>
 
@@ -342,8 +338,8 @@ export function PushBackProtocolPage() {
       {/* THE PROBLEM */}
       <section id="the-problem" className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Problem</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Problem</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-12">
             AI Trained You
             <br />
             <span className="text-warm-gray">to Accept Yes</span>
@@ -353,10 +349,10 @@ export function PushBackProtocolPage() {
             {[
               'ChatGPT and Claude default to agreement. They validate weak ideas. That\'s not a bug,it\'s the design. Models trained on human feedback learn that people rate "enthusiastic and helpful" higher than "accurate and challenging."',
               'You\'ve shipped features, written copy, made business decisions where AI nodded along when it should have pushed back. Every "great idea!" response was a missed chance to catch a bad assumption before you spent time on it.',
-              'The cost isn\'t obvious until you look back. You built something nobody wanted, wrote a headline that didn\'t convert, committed to a technical decision that cost you three weeks,and Claude was right there, agreeing the whole time.',
+              'The cost isn\'t obvious until you look back. You built something nobody wanted, wrote a headline that didn\'t convert, committed to a technical decision that cost you three weeks. And Claude was right there, agreeing the whole time.',
               'This isn\'t a Claude problem. It\'s a configuration problem. Claude Code reads a file called CLAUDE.md at the start of every session. If that file doesn\'t tell it to challenge you, it won\'t. The 12 rules below fix that.',
             ].map((para, i) => (
-              <motion.p key={i} {...fade(i * 0.08)} className="text-warm-gray font-light leading-relaxed text-lg">
+              <motion.p key={i} {...fade(i * 0.08)} className="text-warm-gray font-light leading-snug text-base md:text-lg">
                 {para}
               </motion.p>
             ))}
@@ -367,11 +363,11 @@ export function PushBackProtocolPage() {
       {/* BEFORE & AFTER */}
       <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-5xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Same Prompt. Different Config.</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Same Prompt. Different Config.</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-4">
             Before &amp; After
           </motion.h2>
-          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-12 max-w-2xl">
+          <motion.p {...fade(0.2)} className="text-warm-gray font-light text-base md:text-lg leading-snug mb-8 max-w-2xl">
             Same question. Same Claude. The only thing that changed is what's in CLAUDE.md.
           </motion.p>
 
@@ -420,8 +416,8 @@ export function PushBackProtocolPage() {
       {/* THE 12 RULES */}
       <section id="the-protocol" className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Framework</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Framework</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-4">
             The Push-Back
             <br />
             <span className="text-warm-gray">Protocol</span>
@@ -441,8 +437,8 @@ export function PushBackProtocolPage() {
       {/* WHERE THESE RULES LIVE */}
       <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Mental Model</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Mental Model</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-4">
             Global vs. Project-Level
             <br />
             <span className="text-warm-gray">Where Your Instructions Go</span>
@@ -506,8 +502,8 @@ export function PushBackProtocolPage() {
       {/* DOWNLOAD CTA */}
       <section className="py-16 md:py-20 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">The Starter Kit</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-4">
+          <motion.p {...fade()} className="label-tag text-accent mb-3">The Starter Kit</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-4">
             Get the Starter Kit
           </motion.h2>
           <motion.p {...fade(0.2)} className="text-warm-gray font-light text-lg mb-10 max-w-2xl">
@@ -587,8 +583,8 @@ export function PushBackProtocolPage() {
       {/* HOW TO INSTALL */}
       <section className="py-16 md:py-20 bg-surface border-y border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Installation</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl md:text-6xl tracking-tighter leading-none mb-12">
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Installation</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-12">
             3 Steps.
             <br />
             <span className="text-warm-gray">Two Minutes.</span>
@@ -634,8 +630,8 @@ export function PushBackProtocolPage() {
       {/* YOUTUBE PLACEHOLDER */}
       <section className="py-16 md:py-20 bg-background border-t border-white/10 px-6">
         <div className="container-wide max-w-4xl">
-          <motion.p {...fade()} className="label-tag text-accent mb-4">Tutorial</motion.p>
-          <motion.h2 {...fade(0.1)} className="font-display text-5xl tracking-tighter leading-none mb-4">
+          <motion.p {...fade()} className="label-tag text-accent mb-3">Tutorial</motion.p>
+          <motion.h2 {...fade(0.1)} className="font-display font-black text-[clamp(32px,4vw,52px)] tracking-tighter leading-[0.95] mb-4">
             Watch the Full
             <br />
             <span className="text-warm-gray">Tutorial</span>

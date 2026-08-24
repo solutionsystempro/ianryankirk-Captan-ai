@@ -1,3 +1,7 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/offers/cb-email", "destination": "/CB-Email/CB-Email.html" },
+    { "source": "/offers/cb-lgj-email", "destination": "/CB-LGJEmail/CB-LGJEmail.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
