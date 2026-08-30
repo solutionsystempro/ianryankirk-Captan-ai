@@ -73,7 +73,7 @@ const TOOLS = [
   {
     label: 'Objection Card App',
     desc: '56 real-world objection reframes. Drillable, pocketable, built for the field.',
-    href: 'https://objection-card-app.vercel.app/',
+    href: 'https://objection-cards-app.vercel.app/',
     cta: 'Try it free →',
   },
   {
