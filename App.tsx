@@ -18,6 +18,7 @@ import { ColdEmailCopywriterPage } from './pages/ColdEmailCopywriterPage';
 import { PushBackProtocolPage } from './pages/PushBackProtocolPage';
 import { ClaudeTenStepPage } from './pages/ClaudeTenStepPage';
 import { PhoneOffPage } from './pages/PhoneOffPage';
+import { ReferralBriefPage } from './pages/ReferralBriefPage';
 import { CustomCursor } from './components/CustomCursor';
 
 function ScrollToTop() {
@@ -51,6 +52,9 @@ export default function App() {
           <Route path="claude-10-step" element={<ClaudeTenStepPage />} />
           <Route path="phone-off" element={<PhoneOffPage />} />
         </Route>
+        {/* Referral briefs sit outside Layout on purpose: a private document should not
+            carry the marketing nav or route a partner off into the lead magnets. */}
+        <Route path="/referral/:slug" element={<ReferralBriefPage />} />
       </Routes>
     </>
   );
