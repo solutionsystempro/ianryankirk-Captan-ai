@@ -22,6 +22,15 @@ export function useBriefTracking(slug: string, recipient: string) {
   const maxScroll = useRef(0);
   const sent = useRef<Record<string, boolean>>({});
 
+  // ?r= overrides who this visit is attributed to. Ian checks the page with ?r=self
+  // so his own visits never read as the partner opening it; the watcher filters
+  // recipients matching /self/i out of the alert.
+  let effectiveRecipient = recipient;
+  try {
+    const r = new URLSearchParams(window.location.search).get('r');
+    if (r) effectiveRecipient = r;
+  } catch {}
+
   useEffect(() => {
     startedAt.current = Date.now();
     maxScroll.current = 0;
@@ -46,7 +55,7 @@ export function useBriefTracking(slug: string, recipient: string) {
         .from('brief_views')
         .insert({
           slug,
-          recipient,
+          recipient: effectiveRecipient,
           event,
           seconds: Math.round((Date.now() - startedAt.current) / 1000),
           scroll_pct: Math.max(maxScroll.current, scrollPct()),
