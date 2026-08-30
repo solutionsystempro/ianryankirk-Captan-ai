@@ -214,6 +214,23 @@ export const REFERRAL_BRIEFS: Record<string, ReferralBrief> = {
         ],
       },
       {
+        kind: 'panel',
+        eyebrow: 'Scorecard',
+        heading: 'Buying beliefs: three of five are in. Two are yours to surface.',
+        caption: 'Belief check · 27 Aug call',
+        meta: 'Pitch-ready at 4–5, not before',
+        rows: [
+          { label: 'Pain', value: 'IN', note: '"Stuck on 10,000 to 15,000 for the past two years." Volunteered, unprompted.', tone: 'good' },
+          { label: 'Doubt (DIY is dead)', value: 'IN', note: 'Three failed mentors, a wasted £1,500 course, "I need guidance more than a course." He no longer believes he can self-serve his way out.', tone: 'good' },
+          { label: 'Desire', value: 'THIN', note: '"I want to try and double that" is all there is. Nobody made it vivid or dated. Ask what £25–30k months actually buy him.', tone: 'warn' },
+          { label: 'Cost of staying stuck', value: 'MISSING', note: 'Never surfaced. Ian did the math AT him (1% of 3,500 ≈ £9.6k/mo). Nobody made HIM say what two flat years have cost. This is your highest-leverage question.', tone: 'bad' },
+          { label: 'Responsibility', value: 'MISSING', note: 'Never asked whether fixing this is a must or a nice-to-have. His deferral pattern (three mentors, "after Miami") says it has always lived as a nice-to-have.', tone: 'bad' },
+        ],
+        outro: [
+          'The questions that surface the two missing beliefs, in his language: "Gary, that list has been sitting there for two years. What do you reckon that\'s actually cost you?" — let him do the arithmetic out loud, the number is somewhere north of £100k and it lands harder in his own voice. Then: "What happens if you come back from Miami and nothing\'s changed by Christmas?" Once he has answered both, the £10k conversation prices itself.',
+        ],
+      },
+      {
         kind: 'bullets',
         eyebrow: 'Competitive',
         heading: 'Two-horse race, and the other horse moved first',
@@ -366,6 +383,13 @@ export const REFERRAL_BRIEFS: Record<string, ReferralBrief> = {
             script: 'For the first two weeks you\'re doing one thing, and I\'m going to stop you touching anything else. That\'s the job.',
           },
           {
+            title: 'Make him say the cost number, not you',
+            body: [
+              'This is the belief the last call never surfaced. He knows he is stuck; he has never once said out loud what stuck costs. Two flat years with a 3,500-person list idle is six figures of unsold coaching, and the number persuades him only in his own voice. Ask, then be quiet while he does the arithmetic.',
+            ],
+            script: 'That list has been sitting there for two years, Gary. What do you reckon that\'s actually cost you?',
+          },
+          {
             title: 'Set the contact rhythm before the price',
             body: [
               '"I will be on the phone daily until I have made a lot of money." Whatever the real cadence is, state it concretely and early. A weekly call plus messaging access is what he is actually buying. If the offer cannot support genuine access, better to find out here than in month two.',
@@ -412,13 +436,39 @@ export const REFERRAL_BRIEFS: Record<string, ReferralBrief> = {
             tag: 'Research mode',
             said: 'I\'ve only watched two videos. I want to do more research first, it\'s all about building that trust.',
             answer:
-              'This is about you, not the material. He is not going to go away and study a curriculum. He told you he cannot. Replace research with proof of understanding: show him you already know his business better than the last three people who took his money did. That is what collapses the timeline.',
+              'This is about you, not the material. He is not going to go away and study a curriculum; he told you he cannot. Two moves. First, proof of understanding: show him you already know his business better than the last three people who took his money did. Second, if the research loop persists, hand him the identity choice: "Some people research for months and never move; others act and compound. You tell your own clients the same thing about waiting for the perfect time to train. Which one gets you to £30k months?" He preaches this to his clients, so he cannot argue with it.',
           },
           {
             tag: 'Budget',
             said: 'August was a month where I scaled my spending back.',
             answer:
               'Real, but soft. He raised £10k in the same conversation and is flying to Miami in ten days. If the number stalls him, a late-September start costs you nothing and matches his own stated timeline. Do not discount. It reprices you as the cheap option sitting next to Austin.',
+          },
+        ],
+      },
+      {
+        kind: 'bullets',
+        eyebrow: 'The handoff',
+        heading: 'Arrive introduced, not cold',
+        intro: [
+          'Gary asked Ian for a mentorship solution. You are the answer to that ask, and the introduction should carry that frame: Ian went looking on his behalf and came back with a specialist. That is a different arrival than a stranger DMing him.',
+        ],
+        items: [
+          {
+            lead: 'Let Ian bridge first.',
+            text: 'One message from Ian naming you, why you specifically (fitness coaches, DM conversion, the exact bottleneck), and that you\'ll reach out. Your first message then lands expected instead of cold.',
+          },
+          {
+            lead: 'Your opener does one job:',
+            text: 'prove you already looked. One specific observation about his grid or his funnel, one question. No pitch, no link, no calendar ask in message one. He told Ian the thing that impressed him most about Austin was that Austin had studied him before speaking.',
+          },
+          {
+            lead: 'Move to a call fast, sell nothing in DMs.',
+            text: 'He is a phone person ("I will be on the phone daily"). DMs are for earning the call, the call is for the close.',
+          },
+          {
+            lead: 'The clock:',
+            text: 'call this week or early next, before he flies on 8 Sept. Austin\'s written plan lands before Miami. Silence 8–15 Sept, one light touch on his return day, decision conversation that week. Do not chase him mid-trip.',
           },
         ],
       },
